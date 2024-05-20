@@ -38,7 +38,7 @@ class IfDropBehavior : IfBehavior
 
     void DropCb(Interactable source, GameObject target)
     {
-        m_dropped = true;
+        m_dropped = (target == m_target.gameObject);
     }
 
     bool CheckDrop(World w)

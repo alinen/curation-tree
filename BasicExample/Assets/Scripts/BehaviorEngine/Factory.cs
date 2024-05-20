@@ -169,6 +169,11 @@ public static class Factory
         return new IfDropBehavior(world, src, tgt); 
     }
 
+    public static Behavior IfDrag(World world, string args)
+    {
+        return new IfDragBehavior(world, args); 
+    }
+
     public static Behavior Wait(World world, string args)
     {
         float duration = 1.0f;

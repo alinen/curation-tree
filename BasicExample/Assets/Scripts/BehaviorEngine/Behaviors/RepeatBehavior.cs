@@ -14,11 +14,18 @@ public class RepeatBehavior : ParallelBehavior
         m_w = w;
     }
 
+    public override bool Finished()
+    {
+        return !m_isRunning && m_finished;
+    }
+
     public override void Setup()
     {
+        m_finished = false;
+        m_isActive = true;
+
         m_isRunning = m_condition(m_w);
         if (m_isRunning) base.Setup();
-        else m_finished = true;
     }
 
     public override void Tick()
@@ -28,7 +35,7 @@ public class RepeatBehavior : ParallelBehavior
             base.Tick();
             if (base.Finished())
             {
-                base.Setup(); // restart sequence
+                Setup(); // restart sequence
             }
         }
     }
