@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-class ParallelBehavior : ControlBehavior
+public class ParallelBehavior : ControlBehavior
 {
     public ParallelBehavior(World w) : base(w)
     {

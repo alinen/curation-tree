@@ -1,16 +1,11 @@
 
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using TMPro;
 using System;
-using System.Collections.Generic;
 using System.Reflection;
-using Unity.VisualScripting;
 
 // Factory class for creating behaviors which correspond
 // to the screens that the player sees
-public static class Screen
+public static class Factory
 {
     // config format should be FnName:Message
     public static Behavior Create(World world, string config)
@@ -20,7 +15,7 @@ public static class Screen
 
         try
         {
-            Type thisType = typeof(Screen); 
+            Type thisType = typeof(Factory); 
             MethodInfo theMethod = thisType.GetMethod(fnName);
             Behavior beh = theMethod.Invoke(null, new object[]{world, mc[1]}) as Behavior;
             beh.name = config; // save initializing command for debugging
@@ -119,6 +114,13 @@ public static class Screen
         return new SelectBehavior(world);
     }
 
+    public static Behavior Repeat(World world, string args)
+    {
+        return new RepeatBehavior(world, (world) => { 
+            return true; // run forever
+        });
+    }
+
     public static Behavior RepeatWhile(World world, string args)
     {
         string[] tokens = args.Split(','); 
@@ -154,44 +156,17 @@ public static class Screen
         }, false);
     }
 
-    public static Behavior WaitIf(World world, string args)
-    {
-        string[] tokens = args.Split(','); 
-        string stateName = tokens[0].Trim();
-        int stateValue;
-        int.TryParse(tokens[1].Trim(), out stateValue);  
-        return new IfBehavior(world, (world) => { 
-            return world.GetInteger(stateName) == stateValue;
-        }, true);
-    }
-
-    public static Behavior WaitClick(World world, string args)
-    {
-        return new IfClickBehavior(world, args, true); 
-    }
-
     public static Behavior IfClick(World world, string args)
     {
         return new IfClickBehavior(world, args, false); 
     }
 
-    public static Behavior PlaySound(World world, string args)
+    public static Behavior IfDrop(World world, string args)
     {
-        return new AtomicBehavior(world, (w) =>
-        {
-            Transform sound = w.Get(args.Trim());
-            sound.gameObject.SetActive(true);
-        });
-    }
-
-    public static Behavior IfButton(World world, string args)
-    {
-        return new IfButtonBehavior(world, args, false);
-    }
-
-    public static Behavior WaitButton(World world, string args)
-    {
-        return new IfButtonBehavior(world, args, true);
+        string[] tokens = args.Split(',', 2);
+        string src = tokens[0].Trim();
+        string tgt = tokens[1].Trim();
+        return new IfDropBehavior(world, src, tgt); 
     }
 
     public static Behavior Wait(World world, string args)

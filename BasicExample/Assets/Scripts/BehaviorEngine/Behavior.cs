@@ -4,19 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 
-public abstract class Behavior
+public class Behavior
 {
     World m_world; 
     protected bool m_finished = false;
     protected bool m_isActive = false;
     
-    protected int m_next = 0; // ID of next behavior - Depends on subclass
-    public virtual int next
-    {
-        get { return m_next; }
-        set { m_next = value; }
-    }
-
     protected string m_name;
     public virtual string name
     {

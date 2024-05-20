@@ -11,11 +11,14 @@ using static UnityEditor.Progress;
 public class World
 {
     public bool debugRaycast = false;
+    public int layerMask = 8; // interactable
 
     protected GameLoop m_game;
 
     private Dictionary<int, Interactable> m_interactables = 
         new Dictionary<int, Interactable>();
+    private Dictionary<int, Location> m_locations = 
+        new Dictionary<int, Location>();
     private Interactable m_grabbedObject = null;
     private Interactable m_clickedObject = null;
 
@@ -85,12 +88,29 @@ public class World
         {
             i = obj.gameObject.AddComponent<Interactable>();
         }
-        obj.gameObject.layer = 8; // Interactable
+        obj.gameObject.layer = layerMask; // Interactable
         foreach (Transform child in obj)
         {
-            child.gameObject.layer = 8;
+            child.gameObject.layer = layerMask;
         }
         m_interactables[uniqueId] = i;
+        return i;
+    }
+
+    public Location AddLocation(Transform obj)
+    {
+        int uniqueId = obj.gameObject.GetInstanceID();
+        if (m_locations.ContainsKey(uniqueId))
+        {
+            return m_locations[uniqueId];
+        }
+
+        Location i = obj.gameObject.GetComponent<Location>();
+        if (i == null)
+        {
+            i = obj.gameObject.AddComponent<Location>();
+        }
+        m_locations[uniqueId] = i;
         return i;
     }
 
@@ -106,7 +126,6 @@ public class World
         Transform hit = ComputeHitObject();
         if (hit != null) 
         {
-            //Debug.Log("HIT: "+hit.name);
             if (m_grabbedObject)
             {
                 GameObject target = null;
@@ -152,13 +171,13 @@ public class World
     {
         if (m_clickedObject) // this is a click
         {
-            //Debug.Log("SET CLICK," + m_clickedObject.name);
+            if (debugRaycast) Debug.Log("SET CLICK," + m_clickedObject.name);
             m_clickedObject.SetClicked(true);
             m_clickedObject = null;
         }
         if (m_grabbedObject)
         {
-            //Debug.Log("PUT_DOWN," + m_grabbedObject.gameObject.name);
+            if (debugRaycast) Debug.Log("PUT_DOWN," + m_grabbedObject.gameObject.name);
             m_grabbedObject.SetGrabbed(false);
             m_grabbedObject = null;
         }
@@ -171,13 +190,13 @@ public class World
         if (obj.isDragable)
         {
             m_grabbedObject = obj;
-            //Debug.Log("PICK_UP," + obj.gameObject.name);
+            if (debugRaycast) Debug.Log("PICK_UP," + obj.gameObject.name);
             obj.SetGrabbed(true);
         }
         else
         {
             m_clickedObject = obj;
-            //Debug.Log("CLICK," + obj.gameObject.name);
+            if (debugRaycast) Debug.Log("CLICK," + obj.gameObject.name);
         }
     }
 
@@ -217,17 +236,16 @@ public class World
 
     }
 
-    Transform CheckHit(Camera camera, int layerMask)
+    Transform CheckHit(Camera camera)
     {
         Ray cameraRay = camera.ScreenPointToRay(Input.mousePosition);
         if (debugRaycast)
         {
             Debug.DrawLine(cameraRay.origin, 1000.0f*cameraRay.direction, Color.red);
-            //Debug.Log(cameraRay+" "+Input.mousePosition);
         }
 
         RaycastHit hit;
-        if (Physics.Raycast(cameraRay, out hit, 1000.0f, layerMask))
+        if (Physics.Raycast(cameraRay, out hit, 1000.0f, 1 << layerMask))
         {
             if (debugRaycast) Debug.Log("HIT: " + hit.transform.gameObject.name);
             return hit.transform;
@@ -237,8 +255,7 @@ public class World
 
     public Transform ComputeHitObject()
     {
-        int layerMask = (1 << 8) | (1 << 9); // interactable + HUD
-        Transform hit = CheckHit(Camera.main, layerMask);
+        Transform hit = CheckHit(Camera.main);
         return hit;
     }
 
@@ -280,9 +297,9 @@ public class World
         return "";
     }        
 
-    public void Print()
+    public override string ToString()
     {
-        string contents = "---------------------------\n";
+        string contents = "";
         foreach (string key in m_SState.Keys)
         {
             string v = m_SState[key];
@@ -293,7 +310,6 @@ public class World
             int v = m_IState[key];
             contents += key + "," + v + "\n";
         }
-        contents += "---------------------------\n";
-        Debug.Log(contents);
+        return contents;
     }
 }

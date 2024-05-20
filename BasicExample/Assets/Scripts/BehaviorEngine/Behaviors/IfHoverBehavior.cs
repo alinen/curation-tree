@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Runs the given behavior is the world state variable is true
-class IfClickBehavior : IfBehavior
+class IfHoverBehavior : IfBehavior
 {
     Interactable m_target = null;
-
-    public IfClickBehavior(World w, string targetName, bool wait = false) : 
+    
+    public IfHoverBehavior(World w, string targetName, bool wait = false) : 
         base(w, null, wait)
     {
         targetName = targetName.Trim();
@@ -14,6 +14,7 @@ class IfClickBehavior : IfBehavior
         {
             Transform targetX = w.Get(targetName);
             Debug.Assert(targetX != null);
+            // ASN: Be careful not to overwrite properties from other behaviors
             m_target = w.AddInteractable(targetX); 
             m_condition = this.CheckClick;
         }

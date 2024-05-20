@@ -27,6 +27,7 @@ public class FadeAlpha : Behavior
 
         // hack for now: shoudl get the current color and only change the alpha
         // ASN TODO: Color animators need cleanup
+        // Change transparency of all colors that are children of this node
         world.Run(Effect());
     }
 

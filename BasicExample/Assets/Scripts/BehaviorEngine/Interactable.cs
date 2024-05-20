@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
 
 public class Interactable : MonoBehaviour
 {
@@ -10,8 +11,9 @@ public class Interactable : MonoBehaviour
   public delegate void HoverCb(Interactable dragSource, GameObject dropTarget);
   public delegate void DragCb(Interactable dragSource);
 
-  public bool isDragable = true;
-  public bool isCopyDragable = true;
+  public bool debugDraw = false;
+  public bool isDragable = false;
+  public bool isCopyDragable = false;
 
   private bool m_isDragging = false;
   private bool m_isClicked = false;
@@ -23,6 +25,16 @@ public class Interactable : MonoBehaviour
   private List<DragCb> m_dragCbs = new List<DragCb>();
   private List<HoverCb> m_hoverCbs = new List<HoverCb>();
   private List<MouseOverCb> m_mouseOverCbs = new List<MouseOverCb>();
+  private Bounds m_bounds = new Bounds();
+  private Location m_location = null;
+  private Vector3 m_offset;
+  private Vector3 m_lastPointerPos;
+
+
+  private void Start()
+  {
+    m_bounds = ComputeMaxBounds();
+  }
 
   public void AddClickCb(ClickCb cb)
   {
@@ -58,9 +70,9 @@ public class Interactable : MonoBehaviour
     m_dragTargets.Clear();
 
     // reset selection/grabbed state as well
-      m_isDragging = false;
-      m_isClicked = false;
-      m_dragObject = null; // temporary drag object
+    m_isDragging = false;
+    m_isClicked = false;
+    m_dragObject = null; // temporary drag object
   }
 
   public bool CanDropOnto(GameObject target)
@@ -79,17 +91,17 @@ public class Interactable : MonoBehaviour
   {
     if (m_dragObject)
     {
-      Vector3 screenMousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10);
-      m_dragObject.transform.position = Camera.main.ScreenToWorldPoint(screenMousePos);
+      Vector3 screenMousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, m_lastPointerPos.z);
+      m_dragObject.transform.position = Camera.main.ScreenToWorldPoint(screenMousePos) + m_offset;
     }
   }
 
   public void AddDragTarget(GameObject target)
   {
-    target.layer = 8; // interactable
+    target.layer = gameObject.layer; // interactable
     foreach (Transform child in target.transform)
     {
-      child.gameObject.layer = 8;
+      child.gameObject.layer = gameObject.layer;
     }
 
     m_dragTargets.Add(target);
@@ -107,9 +119,30 @@ public class Interactable : MonoBehaviour
     return true;
   }
 
+  public Location GetLocation()
+  {
+    return m_location;
+  }
+
+  public void RemoveLocation()
+  {
+     if (m_location) m_location.RemoveOcupant(this);
+     m_location = null;
+  }
+
+  public void SetLocation(Location location)
+  {
+     m_location = location;
+     if (location) location.AddOcupant(this);
+  }
+
   public void OnDropTarget(GameObject target)
   {
     if (!enabled) return;
+
+    Location location = target? target.GetComponent<Location>() : null;
+    SetLocation(location);
+
     foreach (DropCb cb in m_dropCbs) 
     {
       if (CallbackActive(cb))
@@ -151,7 +184,10 @@ public class Interactable : MonoBehaviour
       m_isDragging = b;
       if (m_isDragging && !m_dragObject)
       {
-        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10);
+        RemoveLocation();
+
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPos.z);
 
         if (isCopyDragable)
         {
@@ -163,6 +199,10 @@ public class Interactable : MonoBehaviour
         {
           m_dragObject = gameObject;
         }
+
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mousePos);
+        m_offset = m_dragObject.transform.position - mouseWorldPos;
+        m_lastPointerPos = mousePos;
 
         Collider collider = m_dragObject.GetComponentInChildren<Collider>();
         collider.enabled = false;
@@ -200,6 +240,7 @@ public class Interactable : MonoBehaviour
   {
     if (!enabled) return;
     m_isClicked = b;
+
     if (m_isClicked)
     {
       foreach (ClickCb cb in m_clickedCbs) 
@@ -218,4 +259,71 @@ public class Interactable : MonoBehaviour
     return m_isClicked;
   }
 
+  public Bounds GetBounds()
+  {
+    return m_bounds;
+  }
+
+  Bounds ComputeMaxBounds()
+  {
+    Bounds b = new Bounds(transform.position, Vector3.zero);
+    foreach (Renderer r in GetComponentsInChildren<Renderer>())
+    {
+      b.Encapsulate(r.bounds);
+    }
+    // Convert to relative coordinates
+    //Debug.Log(gameObject.name + " MIN: " + b.min + " " + b.max);
+
+    return b;
+  }
+
+  // FOR DEBUGGING
+  static Material lineMaterial;
+  static void CreateLineMaterial()
+  {
+    if (!lineMaterial)
+    {
+      // Unity has a built-in shader that is useful for drawing
+      // simple colored things.
+      Shader shader = Shader.Find("Hidden/Internal-Colored");
+      lineMaterial = new Material(shader);
+      lineMaterial.hideFlags = HideFlags.HideAndDontSave;
+      lineMaterial.SetInt("_Cull", (int)UnityEngine.Rendering.CullMode.Off);
+      lineMaterial.SetInt("_ZWrite", 0);
+    }
+  }
+
+  void OnRenderObject()
+  {
+    if (debugDraw)
+    {
+       CreateLineMaterial();
+       lineMaterial.SetPass(0);
+
+       Vector3 min = m_bounds.min;
+       Vector3 max = m_bounds.max;
+
+       GL.PushMatrix();
+       //GL.MultMatrix(gameObject.transform.localToWorldMatrix); 
+
+       // draw top box
+       GL.Begin(GL.LINES);
+       GL.Color(new Color(1, 0, 0, 1));
+
+       GL.Vertex3(min[0], min[1], min[2]);
+       GL.Vertex3(min[0], min[1], max[2]);
+
+       GL.Vertex3(min[0], min[1], min[2]);
+       GL.Vertex3(max[0], min[1], min[2]);
+
+       GL.Vertex3(max[0], min[1], min[2]);
+       GL.Vertex3(max[0], min[1], max[2]);
+
+       GL.Vertex3(min[0], min[1], max[2]);
+       GL.Vertex3(max[0], min[1], max[2]);
+
+       GL.End();
+       GL.PopMatrix();
+    }
+  }
 }

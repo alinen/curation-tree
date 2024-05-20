@@ -1,24 +1,24 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEditor;
 
 public class GameLoop : MonoBehaviour
 {
     public Transform env;
     public Transform hud;
     public TextAsset gameConfigFile;
-    public bool printWorldState = false;
+    public int interactableLayerMask = 8;
+    public bool debug = false;
     public bool debugRaycast = false;
 
     protected SequenceBehavior m_screens = null;
-    protected int m_numScreens = -1; // number of core game screens
     protected World m_world = null;
 
     void Start()
     {
         m_world = new World(this);
+        m_world.layerMask = interactableLayerMask;
 
         m_screens = new SequenceBehavior(m_world);
         Reset();
@@ -35,14 +35,8 @@ public class GameLoop : MonoBehaviour
     {
         if (m_screens.Count == 0) return;
 
-        // Debugging state
+        // World State
         m_world.debugRaycast = debugRaycast;
-        if (printWorldState)
-        {
-            m_world.Print();
-            PrintScreenTree();
-            printWorldState = false;
-        }
 
         m_world.Tick();
         m_screens.Tick();
@@ -51,6 +45,31 @@ public class GameLoop : MonoBehaviour
             m_screens.TearDown();
             ScriptOver();
         }
+    }
+
+    void OnGUI()
+    {
+        if (debug)
+        {
+            GUIStyle textStyle = EditorStyles.label;
+            textStyle.wordWrap = true;
+
+            GUI.color = Color.red;
+            string worldState = m_world.ToString();
+            string tree = PrintScreenTree(m_screens, "");
+            GUILayout.Label(tree, textStyle);
+            GUILayout.Label(worldState, textStyle);
+        }
+    }
+
+    protected void PrintWorldState()
+    {
+        string worldState = m_world.ToString();
+        Debug.Log(worldState);
+
+        string tree = "******************\n";
+        tree += PrintScreenTree(m_screens, "");
+        Debug.Log(tree);
     }
 
     protected string PrintScreenTree(ControlBehavior beh, string indent)
@@ -73,13 +92,6 @@ public class GameLoop : MonoBehaviour
         return tree;
     }
 
-    protected void PrintScreenTree()
-    {
-        string tree = "******************\n";
-        tree += PrintScreenTree(m_screens, "");
-        Debug.Log(tree);
-    }
-
     protected virtual void ScriptOver()
     {
     }
@@ -89,9 +101,6 @@ public class GameLoop : MonoBehaviour
         char[] delim = { '\n', '\r' };
         string[] agenda = configFile.text.Split(delim);
         LoadScreens(agenda, m_screens.Count);
-
-        // Todo: Fill in behaviors
-
     }
 
     protected virtual void LoadScreens(string[] agenda, int startId)
@@ -114,7 +123,7 @@ public class GameLoop : MonoBehaviour
             }
             else 
             {
-                Behavior behavior = Screen.Create(m_world, line);
+                Behavior behavior = Factory.Create(m_world, line);
                 if (behavior == null) continue;
 
                 if (behavior is ControlBehavior) { 
@@ -129,10 +138,5 @@ public class GameLoop : MonoBehaviour
             }
         }
         Debug.Assert(hierarchal == m_screens, "ERROR: Missing End for compound behavior");
-        PrintScreenTree();
-    }
-
-    void OnHelp()
-    {
     }
 }
