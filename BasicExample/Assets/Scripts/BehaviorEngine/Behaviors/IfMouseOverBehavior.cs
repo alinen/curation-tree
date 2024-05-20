@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Runs the given behavior is the world state variable is true
-class IfDragBehavior : IfBehavior
+class IfMouseOverBehavior : IfBehavior
 {
     Interactable m_item = null;
-    bool m_dragged = false;
+    bool m_over = false;
 
-    public IfDragBehavior(World w, string itemName) : 
+    public IfMouseOverBehavior(World w, string itemName) : 
         base(w, null)
     {
         itemName = itemName.Trim();
@@ -17,24 +17,24 @@ class IfDragBehavior : IfBehavior
             Debug.Assert(itemX != null);
             m_item = w.AddInteractable(itemX); 
             m_item.isDragable = true; 
-            m_item.AddDragCb(DragCb);
-            m_condition = this.CheckDrag;
+            m_item.AddMouseOverCb(MouseCb);
+            m_condition = this.CheckMouseOver;
         }
     }
 
     public override void Setup()
     {
-        m_dragged = false;
+        m_over = false;
         base.Setup();
     }
 
-    void DragCb(Interactable source)
+    void MouseCb(Interactable source)
     {
-        m_dragged = true;
+        m_over = true;
     }
 
-    bool CheckDrag(World w)
+    bool CheckMouseOver(World w)
     {
-        return m_dragged;
+        return m_over;
     }
 }

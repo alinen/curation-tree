@@ -41,6 +41,28 @@ public static class Factory
         return new FadeAlpha(w, rootName, start, end, duration);
     }
 
+    public static Behavior SetColor(World w, string config)
+    {
+        string[] tokens = config.Split(',', 4);
+        string rootName = tokens[0];
+        float r = 1.0f;
+        float g = 1.0f;
+        float b = 1.0f;
+        Single.TryParse(tokens[1], out r);
+        Single.TryParse(tokens[2], out g);
+        Single.TryParse(tokens[3], out b);
+        return new AtomicBehavior(w, (w) => {
+            Transform obj = w.Get(rootName.Trim());
+            ProceduralAnimator.SetColor(obj, new Color(r,g,b));
+        });
+    }
+
+    public static Behavior Pulse(World w, string config) 
+    { 
+        return new CoroutineBehavior(w, config, ProceduralAnimator.Pulse); 
+    }
+
+
     public static Behavior Grow(World w, string config) 
     { 
         string[] tokens = config.Split(',', 4);
@@ -167,6 +189,19 @@ public static class Factory
         string src = tokens[0].Trim();
         string tgt = tokens[1].Trim();
         return new IfDropBehavior(world, src, tgt); 
+    }
+
+    public static Behavior IfMouseOver(World world, string args)
+    {
+        return new IfMouseOverBehavior(world, args); 
+    }
+
+    public static Behavior IfHover(World world, string args)
+    {
+        string[] tokens = args.Split(',', 2);
+        string src = tokens[0].Trim();
+        string tgt = tokens[1].Trim();
+        return new IfHoverBehavior(world, src, tgt); 
     }
 
     public static Behavior IfDrag(World world, string args)

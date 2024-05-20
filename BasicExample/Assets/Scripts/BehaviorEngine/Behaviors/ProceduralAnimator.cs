@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -23,6 +24,20 @@ public static class ProceduralAnimator
         xform.localScale = new Vector3(end, end, end);
         if (isIcon) LayoutRebuilder.MarkLayoutForRebuild (xform as RectTransform);
     }
+
+    public static IEnumerator Pulse(World w, string args)
+	{
+        string[] tokens = args.Split(',', 4);
+        string rootName = tokens[0];
+        int num = 1;
+        float timePerPulse = 1.0f;
+        float pulseSize = 1.0f;
+        int.TryParse(tokens[1], out num);
+        Single.TryParse(tokens[2], out timePerPulse);
+        Single.TryParse(tokens[3], out pulseSize);
+        Transform obj = w.Get(rootName.Trim());
+        yield return Pulse(obj, num, timePerPulse, pulseSize);
+	}
 
     public static IEnumerator Pulse(Transform target, int numTimes, 
         float timePerPulseSecs = 0.4f, float pulseSize = 0.1f)

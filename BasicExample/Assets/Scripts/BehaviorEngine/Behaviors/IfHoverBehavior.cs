@@ -1,27 +1,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Runs the given behavior is the world state variable is true
 class IfHoverBehavior : IfBehavior
 {
-    Interactable m_target = null;
-    
-    public IfHoverBehavior(World w, string targetName, bool wait = false) : 
-        base(w, null, wait)
+    Interactable m_item = null;
+    Location m_target = null;
+    bool m_hover = false;
+
+    public IfHoverBehavior(World w, string itemName, string targetName) : 
+        base(w, null)
     {
+        itemName = itemName.Trim();
         targetName = targetName.Trim();
-        if (!string.IsNullOrEmpty(targetName))
+        if (!string.IsNullOrEmpty(itemName) && !string.IsNullOrEmpty(targetName))
         {
+            Transform itemX = w.Get(itemName);
+            Debug.Assert(itemX != null);
+            m_item = w.AddInteractable(itemX); 
+            m_item.isDragable = true; 
+            m_item.AddHoverCb(HoverCb);
+
             Transform targetX = w.Get(targetName);
             Debug.Assert(targetX != null);
-            // ASN: Be careful not to overwrite properties from other behaviors
-            m_target = w.AddInteractable(targetX); 
-            m_condition = this.CheckClick;
+            m_target = w.AddLocation(targetX); 
+            m_item.AddDragTarget(targetX.gameObject);
+
+            m_condition = this.CheckHover;
         }
     }
 
-    bool CheckClick(World w)
+    public override void Setup()
     {
-        return m_target.GetClicked();
+        m_hover = false;
+        base.Setup();
+    }
+
+    void HoverCb(Interactable source, GameObject target)
+    {
+        m_hover = (target == m_target.gameObject);
+    }
+
+    bool CheckHover(World w)
+    {
+        return m_hover;
     }
 }
