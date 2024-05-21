@@ -1,0 +1,19 @@
+FadeAlpha: Message, 0, 1, 2.0
+Hide: Message
+Repeat:
+  IfDrag: Casette
+    Hide: Music
+  End
+  IfMouseOver: Casette
+    Pulse: Casette, 2, 0.4, 0.1
+  End
+  IfHover: Casette, BoomBox
+    Pulse: BoomBox, 2, 0.4, 0.1
+  End
+  IfDrop: Casette, BoomBox
+    #Parallel:
+      #Animation: Squirrel
+      Show: Music
+    #End
+  End
+End
