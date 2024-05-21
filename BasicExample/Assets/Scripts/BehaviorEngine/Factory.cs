@@ -76,9 +76,28 @@ public static class Factory
         return new Grow(w, rootName, start, end, duration);
     }
 
-    public static Behavior Animation(World w, string config) 
+    public static Behavior PlayAnimation(World w, string config) 
     { 
-        return new Animation(w, config);
+        string[] tokens = config.Split(',', 2);
+        string rootName = tokens[0].Trim();
+        string aniName = tokens[1].Trim();
+        return new Animation(w, rootName, aniName, false, Animation.Mode.PLAY);
+    }
+
+    public static Behavior LoopAnimation(World w, string config) 
+    { 
+        string[] tokens = config.Split(',', 2);
+        string rootName = tokens[0].Trim();
+        string aniName = tokens[1].Trim();
+        return new Animation(w, rootName, aniName, true, Animation.Mode.PLAY);
+    }
+
+    public static Behavior StopAnimation(World w, string config) 
+    { 
+        string[] tokens = config.Split(',', 3);
+        string rootName = tokens[0].Trim();
+        string aniName = tokens[1].Trim();
+        return new Animation(w, rootName, aniName, true, Animation.Mode.STOP);
     }
 
     public static Behavior Parallel(World w, string message) 

@@ -3,17 +3,12 @@ Hide: Message
 Repeat:
   IfDrag: Casette
     Hide: Music
-  End
-  IfMouseOver: Casette
-    Pulse: Casette, 2, 0.4, 0.1
-  End
-  IfHover: Casette, BoomBox
-    Pulse: BoomBox, 2, 0.4, 0.1
+    StopAnimation: Squirrel, SquirrelDance
   End
   IfDrop: Casette, BoomBox
-    #Parallel:
-      #Animation: Squirrel
+    Parallel:
+      PlayAnimation: Squirrel, SquirrelDance
       Show: Music
-    #End
+    End
   End
 End
