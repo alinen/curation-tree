@@ -1608,9 +1608,15 @@ MonoBehaviour:
   env: {fileID: 811592500}
   hud: {fileID: 1015320080}
   gameConfigFile: {fileID: 4900000, guid: d69aa46a4c1604b4fb3d9cd958b3c59e, type: 3}
-  interactableLayerMask: 8
-  debug: 1
-  debugRaycast: 0
+  options:
+    interactableLayerMask: 8
+    log:
+      enabled: 0
+      verbose: 0
+      baseName: squirrel
+    debug:
+      tree: 0
+      raycast: 0
 --- !u!4 &2020023322
 Transform:
   m_ObjectHideFlags: 0

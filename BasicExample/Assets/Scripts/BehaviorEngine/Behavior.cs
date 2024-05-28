@@ -29,11 +29,13 @@ public class Behavior
     {
         m_finished = false;
         m_isActive = true;
+        Logger.Log("Setup:"+m_name);
     }
 
     public virtual void TearDown()
     {
         m_isActive = false;
+        Logger.Log("TearDown:"+m_name);
     }
     public virtual bool Finished()
     {

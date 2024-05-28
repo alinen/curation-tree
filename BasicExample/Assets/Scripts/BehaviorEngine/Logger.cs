@@ -1,18 +1,20 @@
 using System;
 using System.IO;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Logger : MonoBehaviour
+public static class Logger 
 {
-    public string logfileName = "log";
-    public bool verbose = true;
+    public static string logfileName = "log";
+    public static bool verbose = true;
+    public static bool enabled = false;
+    private static bool initialized = false;
 
-    void Start()
+    private static void Init()
     {
         string timestamp = DateTime.Now.ToString("MMddyyyHHmmss");
-        logfileName = timestamp + "-" + logfileName;
+
+        // https://docs.unity3d.com/ScriptReference/Application-dataPath.html
+        logfileName = Application.dataPath + timestamp + "-" + logfileName;
 
         // Initialize new file
         using (StreamWriter writer = new StreamWriter(logfileName, append: false))
@@ -21,8 +23,16 @@ public class Logger : MonoBehaviour
         }
     }
 
-    public void Log(string msg)
+    public static void Log(string msg)
     {
+        if (!enabled) return;
+
+        if (!initialized)
+        {
+            Init();
+            initialized = true;
+        }
+
         using (StreamWriter writer = new StreamWriter(logfileName, append: true))
         {
             string timestamp = DateTime.Now.ToString("MMddyyy-HH:mm:ss");

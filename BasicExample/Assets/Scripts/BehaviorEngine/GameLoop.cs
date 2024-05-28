@@ -8,9 +8,30 @@ public class GameLoop : MonoBehaviour
     public Transform env;
     public Transform hud;
     public TextAsset gameConfigFile;
-    public int interactableLayerMask = 8;
-    public bool debug = false;
-    public bool debugRaycast = false;
+
+    [System.Serializable]
+    public class DebugOptions
+    {
+        public bool tree = false;
+        public bool raycast = false;
+    }
+
+    [System.Serializable]
+    public class LogOptions
+    {
+        public bool enabled = false;
+        public bool verbose = false;
+        public string baseName = "log";
+    }
+
+    [System.Serializable]
+    public class Options
+    {
+        public int interactableLayerMask = 8;
+        public LogOptions log = new LogOptions(); 
+        public DebugOptions debug = new DebugOptions();
+    }
+    public Options options = new Options();
 
     protected SequenceBehavior m_screens = null;
     protected World m_world = null;
@@ -18,7 +39,13 @@ public class GameLoop : MonoBehaviour
     void Start()
     {
         m_world = new World(this);
-        m_world.layerMask = interactableLayerMask;
+        m_world.layerMask = options.interactableLayerMask;
+        if (options.log.enabled)
+        {
+            Logger.enabled = true;
+            Logger.verbose = options.log.verbose;
+            Logger.logfileName = options.log.baseName;
+        }
 
         m_screens = new SequenceBehavior(m_world);
         Reset();
@@ -36,7 +63,7 @@ public class GameLoop : MonoBehaviour
         if (m_screens.Count == 0) return;
 
         // World State
-        m_world.debugRaycast = debugRaycast;
+        m_world.debugRaycast = options.debug.raycast;
 
         m_world.Tick();
         m_screens.Tick();
@@ -49,7 +76,7 @@ public class GameLoop : MonoBehaviour
 
     void OnGUI()
     {
-        if (debug)
+        if (options.debug.tree)
         {
             GUIStyle textStyle = EditorStyles.label;
             textStyle.wordWrap = true;
