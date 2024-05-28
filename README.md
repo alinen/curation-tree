@@ -1,7 +1,4 @@
 # curation-tree
-<<<<<<< Updated upstream
-Lightweight behavior tree API for creating puzzle and narrative games in Unity
-=======
 
 Lightweight behavior tree API for creating puzzle and narrative games in Unity.
 
@@ -77,4 +74,3 @@ Narrative Games. In _Proceedings of the 19th International Conference on the
 Foundations of Digital Games (FDG 2024), May 21–24, 2024, Worcester, MA,
 USA_. ACM, New York, NY, USA, 4 pages. https://doi.org/10.1145/3649921.
 3659840
->>>>>>> Stashed changes
