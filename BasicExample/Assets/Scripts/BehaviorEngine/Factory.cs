@@ -28,18 +28,6 @@ public static class Factory
         return null;
     }
 
-    public static Behavior FadeAlpha(World w, string config) 
-    { 
-        string[] tokens = config.Split(',', 4);
-        string rootName = tokens[0];
-        float start = 1.0f;
-        float end = 1.0f;
-        float duration = 1.0f;
-        Single.TryParse(tokens[1], out start);
-        Single.TryParse(tokens[2], out end);
-        Single.TryParse(tokens[3], out duration);
-        return new FadeAlpha(w, rootName, start, end, duration);
-    }
 
     public static Behavior SetColor(World w, string config)
     {
@@ -55,25 +43,6 @@ public static class Factory
             Transform obj = w.Get(rootName.Trim());
             ProceduralAnimator.SetColor(obj, new Color(r,g,b));
         });
-    }
-
-    public static Behavior Pulse(World w, string config) 
-    { 
-        return new CoroutineBehavior(w, config, ProceduralAnimator.Pulse); 
-    }
-
-
-    public static Behavior Grow(World w, string config) 
-    { 
-        string[] tokens = config.Split(',', 4);
-        string rootName = tokens[0];
-        float start = 1.0f;
-        float end = 1.0f;
-        float duration = 1.0f;
-        Single.TryParse(tokens[1], out start);
-        Single.TryParse(tokens[2], out end);
-        Single.TryParse(tokens[3], out duration);
-        return new Grow(w, rootName, start, end, duration);
     }
 
     public static Behavior PlayAnimation(World w, string config) 
@@ -237,6 +206,48 @@ public static class Factory
     {
         float duration = 1.0f;
         Single.TryParse(args, out duration);
-        return new WaitBehavior(world, duration);
+        return new CoroutineBehavior(world, ProceduralAnimator.Wait(duration));
+    }
+
+    public static Behavior Pulse(World world, string args)
+    {
+        string[] tokens = args.Split(',', 4);
+        string rootName = tokens[0];
+        int num = 1;
+        float timePerPulse = 1.0f;
+        float pulseSize = 1.0f;
+        int.TryParse(tokens[1], out num);
+        Single.TryParse(tokens[2], out timePerPulse);
+        Single.TryParse(tokens[3], out pulseSize);
+        Transform obj = world.Get(rootName.Trim());
+        return new CoroutineBehavior(world, ProceduralAnimator.Pulse(obj, num, timePerPulse, pulseSize));
+    }
+
+    public static Behavior Grow(World w, string config) 
+    { 
+        string[] tokens = config.Split(',', 4);
+        string rootName = tokens[0];
+        float start = 1.0f;
+        float end = 1.0f;
+        float duration = 1.0f;
+        Single.TryParse(tokens[1], out start);
+        Single.TryParse(tokens[2], out end);
+        Single.TryParse(tokens[3], out duration);
+        Transform obj = w.Get(rootName.Trim());
+        return new CoroutineBehavior(w, ProceduralAnimator.Grow(obj, start, end, duration));
+    }
+
+    public static Behavior FadeAlpha(World w, string config) 
+    { 
+        string[] tokens = config.Split(',', 4);
+        string rootName = tokens[0];
+        float start = 1.0f;
+        float end = 1.0f;
+        float duration = 1.0f;
+        Single.TryParse(tokens[1], out start);
+        Single.TryParse(tokens[2], out end);
+        Single.TryParse(tokens[3], out duration);
+        Transform obj = w.Get(rootName.Trim());
+        return new CoroutineBehavior(w, ProceduralAnimator.ChangeAlpha(obj, start, end, duration));
     }
 }

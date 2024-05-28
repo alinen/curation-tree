@@ -4,11 +4,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor;
 
 public static class ProceduralAnimator
 {
-    public static IEnumerator Grow(Transform xform, float start, float end, float duration, bool isIcon = false)
+    public static IEnumerator Wait(float duration)
+    {
+        for (float t = 0.0f; t < duration; t += Time.deltaTime)
+        { 
+           yield return null;
+        }
+    }
+
+    public static IEnumerator Grow(Transform xform, float start, float end, float duration)
     { 
+        // Set isIcon to true if the transform is part of the UI
+        bool isIcon = xform.GetComponent<RectTransform>() != null; 
+
         Vector3 position = xform.localPosition;
         for (float t = 0.0f; t < duration; t += Time.deltaTime)
         {
@@ -24,20 +37,6 @@ public static class ProceduralAnimator
         xform.localScale = new Vector3(end, end, end);
         if (isIcon) LayoutRebuilder.MarkLayoutForRebuild (xform as RectTransform);
     }
-
-    public static IEnumerator Pulse(World w, string args)
-	{
-        string[] tokens = args.Split(',', 4);
-        string rootName = tokens[0];
-        int num = 1;
-        float timePerPulse = 1.0f;
-        float pulseSize = 1.0f;
-        int.TryParse(tokens[1], out num);
-        Single.TryParse(tokens[2], out timePerPulse);
-        Single.TryParse(tokens[3], out pulseSize);
-        Transform obj = w.Get(rootName.Trim());
-        yield return Pulse(obj, num, timePerPulse, pulseSize);
-	}
 
     public static IEnumerator Pulse(Transform target, int numTimes, 
         float timePerPulseSecs = 0.4f, float pulseSize = 0.1f)
@@ -158,18 +157,6 @@ public static class ProceduralAnimator
         xform.position = endPos;
     }
 
-    public static IEnumerator MoveLocal(Transform xform,
-        Vector3 startPos, Vector3 endPos, float duration)
-    {
-        for (float t = 0.0f; t < duration; t += Time.deltaTime)
-        {
-            float u = t / duration;
-            xform.localPosition = Vector3.Lerp(startPos, endPos, u);
-            yield return null;
-        }
-        xform.localPosition = endPos;
-    }
-
     public static IEnumerator MoveCamera(Vector3 start, Vector3 end, float duration = 1.5f)
     {
         float distance = Vector3.Distance(start, end);
@@ -200,12 +187,6 @@ public static class ProceduralAnimator
             yield return null;
         }
         rect.anchoredPosition = end;
-    }
-
-    public static IEnumerator ShowIcon(Transform icon)
-    {
-        yield return Grow(icon, 0.0f, 1.0f, 1.0f, true);
-        yield return Pulse(icon, 2, 1.0f, 0.1f);
     }
 
     public static IEnumerator FadeSprite(Transform obj,
@@ -264,6 +245,21 @@ public static class ProceduralAnimator
             srenderer.color = targetColor;
         }
     }
+
+    public static IEnumerator ChangeAlpha(Transform obj, float srcAlpha, float tgtAlpha, float duration)
+    {
+        Image img = obj.GetComponent<Image>();
+
+        Color c = img.color;
+        c.a = srcAlpha;
+        img.color = c;
+
+        Color target = img.color;
+        target.a = tgtAlpha;
+
+        yield return ProceduralAnimator.ChangeSpriteColor(img, target, duration);
+    }
+
 
     public static IEnumerator ChangeColor(Transform obj, Color targetColor, float duration)
     {

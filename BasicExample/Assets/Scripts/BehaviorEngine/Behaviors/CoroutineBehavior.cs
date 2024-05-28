@@ -5,17 +5,14 @@ using UnityEngine;
 // Use this class to execute a coroutine as a behavior
 class CoroutineBehavior : Behavior
 {
-    public delegate IEnumerator UnityCoroutine(World w, string args);
-    UnityCoroutine m_fn;
+    IEnumerator m_enumerator;
     World m_w = null;
-    string m_args = "";
     Coroutine m_animation = null;
 
-    public CoroutineBehavior(World w, string args, UnityCoroutine fn) : base(w) 
+    public CoroutineBehavior(World w, IEnumerator enumerator) : base(w) 
     {
-        m_fn = fn;
+        m_enumerator = enumerator;
         m_w = w;
-        m_args = args;
     }
 
     public override void Setup() 
@@ -35,7 +32,7 @@ class CoroutineBehavior : Behavior
 
     IEnumerator Effect()
     { 
-        yield return m_fn(m_w, m_args);
+        yield return m_enumerator;
         m_finished = true;
     }
 
