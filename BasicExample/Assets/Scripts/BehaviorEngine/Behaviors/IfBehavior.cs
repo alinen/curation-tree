@@ -6,7 +6,6 @@ using UnityEngine;
 public class IfBehavior : SequenceBehavior
 {
     protected System.Func<World, bool> m_condition = null;
-    protected World m_w = null;
     protected bool m_wait = false;
     protected bool m_isTriggered = false;
 
@@ -14,7 +13,6 @@ public class IfBehavior : SequenceBehavior
         bool wait = false) : base(w)
     {
         m_condition = condition;
-        m_w = w;
         m_wait = wait;
     }
 
@@ -27,7 +25,7 @@ public class IfBehavior : SequenceBehavior
 
     public bool IsTrue()
     {
-        return m_condition(m_w);
+        return m_condition(world);
     }
 
     public override bool Finished()
@@ -43,7 +41,7 @@ public class IfBehavior : SequenceBehavior
     {
         if (!m_isTriggered)
         {
-            m_isTriggered = m_condition(m_w);
+            m_isTriggered = m_condition(world);
             if (m_isTriggered) 
             {
                 base.Setup();

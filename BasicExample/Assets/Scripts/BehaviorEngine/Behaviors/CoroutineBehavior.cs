@@ -6,13 +6,11 @@ using UnityEngine;
 class CoroutineBehavior : Behavior
 {
     IEnumerator m_enumerator;
-    World m_w = null;
-    Coroutine m_animation = null;
+    IEnumerator m_animation = null;
 
     public CoroutineBehavior(World w, IEnumerator enumerator) : base(w) 
     {
         m_enumerator = enumerator;
-        m_w = w;
     }
 
     public override void Setup() 
@@ -20,14 +18,15 @@ class CoroutineBehavior : Behavior
         base.Setup();
         if (m_animation == null) 
         {
-            m_animation = world.Run(Effect());
+            m_animation = Effect();
+            world.Run(m_animation);
         }
     }
 
     public override void TearDown()
     {
         base.TearDown();
-        m_animation = null;
+        world.Stop(m_animation);
     }
 
     IEnumerator Effect()

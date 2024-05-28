@@ -5,13 +5,11 @@ using UnityEngine;
 public class RepeatBehavior : ParallelBehavior
 {
     protected System.Func<World, bool> m_condition = null;
-    protected World m_w = null;
     protected bool m_isRunning = false;
 
     public RepeatBehavior(World w, System.Func<World, bool> condition) : base(w)
     {
         m_condition = condition;
-        m_w = w;
     }
 
     public override bool Finished()
@@ -24,7 +22,7 @@ public class RepeatBehavior : ParallelBehavior
         m_finished = false;
         m_isActive = true;
 
-        m_isRunning = m_condition(m_w);
+        m_isRunning = m_condition(world);
         if (m_isRunning) base.Setup();
     }
 
