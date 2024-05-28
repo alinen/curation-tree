@@ -5,8 +5,6 @@ using UnityEditor;
 
 public class GameLoop : MonoBehaviour
 {
-    public Transform env;
-    public Transform hud;
     public TextAsset gameConfigFile;
 
     [System.Serializable]

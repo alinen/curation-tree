@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine;
-using static UnityEditor.Progress;
 
-// note: Screens can find assets in three places:
-//   hud: UI elements such as the journal and outcome bar
-//   environment: 3D scene root and objects
 public class World
 {
     public bool debugRaycast = false;
@@ -40,8 +35,14 @@ public class World
             return m_cache[name];
         }
 
-        Transform transform = Utils.RFind(m_game.hud, name);
-        if (transform == null) transform = Utils.RFind(m_game.env, name);
+        Transform transform = null;
+        Scene scene = SceneManager.GetActiveScene();
+        GameObject[] sceneObjects = scene.GetRootGameObjects();
+        for (int i = 0; i < sceneObjects.Length && transform == null; i++)
+        {
+            GameObject obj = sceneObjects[i];
+            transform = Utils.RFind(obj.transform, name);
+        }
         Debug.Assert(transform != null, "Cannot find transform: "+name);
 
         m_cache[name] = transform;
