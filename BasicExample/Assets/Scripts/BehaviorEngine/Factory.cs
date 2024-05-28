@@ -199,7 +199,8 @@ public static class Factory
 
     public static Behavior IfClick(World world, string args)
     {
-        return new IfClickBehavior(world, args, false); 
+        return new IfInteractableBehavior(world, 
+            IfInteractableBehavior.Type.CLICK, args); 
     }
 
     public static Behavior IfDrop(World world, string args)
@@ -207,12 +208,14 @@ public static class Factory
         string[] tokens = args.Split(',', 2);
         string src = tokens[0].Trim();
         string tgt = tokens[1].Trim();
-        return new IfDropBehavior(world, src, tgt); 
+        return new IfInteractableBehavior(world, 
+            IfInteractableBehavior.Type.DROP, src, tgt); 
     }
 
     public static Behavior IfMouseOver(World world, string args)
     {
-        return new IfMouseOverBehavior(world, args); 
+        return new IfInteractableBehavior(world, 
+            IfInteractableBehavior.Type.MOUSE_OVER, args); 
     }
 
     public static Behavior IfHover(World world, string args)
@@ -220,12 +223,14 @@ public static class Factory
         string[] tokens = args.Split(',', 2);
         string src = tokens[0].Trim();
         string tgt = tokens[1].Trim();
-        return new IfHoverBehavior(world, src, tgt); 
+        return new IfInteractableBehavior(world, 
+            IfInteractableBehavior.Type.HOVER, src, tgt); 
     }
 
     public static Behavior IfDrag(World world, string args)
     {
-        return new IfDragBehavior(world, args); 
+        return new IfInteractableBehavior(world,
+            IfInteractableBehavior.Type.DRAG, args); 
     }
 
     public static Behavior Wait(World world, string args)

@@ -5,15 +5,18 @@ using static UnityEditor.FilePathAttribute;
 
 public class Interactable : MonoBehaviour
 {
+  public static bool debugDraw = false;
+
   public delegate void ClickCb(Interactable i);
   public delegate void MouseOverCb(Interactable i);
   public delegate void DropCb(Interactable dragSource, GameObject dropTarget);
   public delegate void HoverCb(Interactable dragSource, GameObject dropTarget);
   public delegate void DragCb(Interactable dragSource);
 
-  public bool debugDraw = false;
-  public bool isDragable = false;
-  public bool isCopyDragable = false;
+  public enum Type { CLICKABLE, DRAGABLE, COPY_DRAGABLE};
+  public Type interactionType = Type.CLICKABLE;
+  //public bool isDragable = false;
+  //public bool isCopyDragable = false;
 
   private bool m_isDragging = false;
   private bool m_isClicked = false;
@@ -73,6 +76,17 @@ public class Interactable : MonoBehaviour
     m_isDragging = false;
     m_isClicked = false;
     m_dragObject = null; // temporary drag object
+  }
+
+  public bool isClickable()
+  {
+    return interactionType == Interactable.Type.CLICKABLE;
+  }
+
+  public bool isDragable()
+  {
+    return interactionType == Interactable.Type.DRAGABLE ||
+        interactionType == Interactable.Type.COPY_DRAGABLE;
   }
 
   public bool CanDropOnto(GameObject target)
@@ -189,7 +203,7 @@ public class Interactable : MonoBehaviour
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPos.z);
 
-        if (isCopyDragable)
+        if (interactionType == Type.COPY_DRAGABLE)
         {
           m_dragObject = GameObject.Instantiate(gameObject, mousePos, Quaternion.identity);
           m_dragObject.transform.SetParent(transform.parent);
@@ -217,7 +231,7 @@ public class Interactable : MonoBehaviour
       }
       else if (!m_isDragging && m_dragObject)
       {
-        if (isCopyDragable)
+        if (interactionType == Type.COPY_DRAGABLE)
         {
           GameObject.Destroy(m_dragObject);
         }

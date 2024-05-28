@@ -74,19 +74,43 @@ public class World
         m_game.StopCoroutine(routine);
     }
 
-    public Interactable AddInteractable(Transform obj)
+    public Interactable AddDragable(Transform obj)
     {
+        return AddInteractable(obj, Interactable.Type.DRAGABLE);
+    }
+
+    public Interactable AddClickable(Transform obj)
+    {
+        return AddInteractable(obj, Interactable.Type.CLICKABLE);
+    }
+
+    public Interactable AddClonable(Transform obj) 
+    {
+        return AddInteractable(obj, Interactable.Type.COPY_DRAGABLE);
+    }
+
+    protected Interactable AddInteractable(Transform obj, Interactable.Type type) 
+    {
+        Interactable i = null;
+
         int uniqueId = obj.gameObject.GetInstanceID();
         if (m_interactables.ContainsKey(uniqueId))
         {
             //Debug.Log("Interactable already active: "+obj.name+" "+uniqueId);
-            return m_interactables[uniqueId];
+            i = m_interactables[uniqueId];
+            if (i.interactionType != type)
+            {
+                Debug.LogWarning("Request for conflicting behavior on interactable: "+
+                    obj.name+": type is "+i.interactionType.ToString()+
+                    " and requested is "+type.ToString());
+            }
         }
 
-        Interactable i = obj.gameObject.GetComponent<Interactable>();
+        i = obj.gameObject.GetComponent<Interactable>();
         if (i == null)
         {
             i = obj.gameObject.AddComponent<Interactable>();
+            i.interactionType = type;
         }
         obj.gameObject.layer = layerMask; // Interactable
         foreach (Transform child in obj)
@@ -187,7 +211,7 @@ public class World
     {
         if (!obj.enabled) return;
 
-        if (obj.isDragable)
+        if (obj.isDragable())
         {
             m_grabbedObject = obj;
             if (debugRaycast) Debug.Log("PICK_UP," + obj.gameObject.name);
