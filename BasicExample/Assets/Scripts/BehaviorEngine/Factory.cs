@@ -28,89 +28,10 @@ public static class Factory
         return null;
     }
 
-
-    public static Behavior SetColor(World w, string config)
-    {
-        string[] tokens = config.Split(',', 4);
-        string rootName = tokens[0];
-        float r = 1.0f;
-        float g = 1.0f;
-        float b = 1.0f;
-        Single.TryParse(tokens[1], out r);
-        Single.TryParse(tokens[2], out g);
-        Single.TryParse(tokens[3], out b);
-        return new AtomicBehavior(w, (w) => {
-            Transform obj = w.Get(rootName.Trim());
-            ProceduralAnimator.SetColor(obj, new Color(r,g,b));
-        });
-    }
-
-    public static Behavior PlayAnimation(World w, string config) 
-    { 
-        string[] tokens = config.Split(',', 2);
-        string rootName = tokens[0].Trim();
-        string aniName = tokens[1].Trim();
-        return new Animation(w, rootName, aniName, false, Animation.Mode.PLAY);
-    }
-
-    public static Behavior LoopAnimation(World w, string config) 
-    { 
-        string[] tokens = config.Split(',', 2);
-        string rootName = tokens[0].Trim();
-        string aniName = tokens[1].Trim();
-        return new Animation(w, rootName, aniName, true, Animation.Mode.PLAY);
-    }
-
-    public static Behavior StopAnimation(World w, string config) 
-    { 
-        string[] tokens = config.Split(',', 3);
-        string rootName = tokens[0].Trim();
-        string aniName = tokens[1].Trim();
-        return new Animation(w, rootName, aniName, true, Animation.Mode.STOP);
-    }
-
+    #region Control Behaviors
     public static Behavior Parallel(World w, string message) 
     { 
         return new ParallelBehavior(w);
-    }
-
-    public static Behavior SetState(World world, string dummy)
-    {
-        return new AtomicBehavior(world, (w) =>
-        {
-            string[] tokens = dummy.Split(',', 2);
-            string key = tokens[0].Trim();
-            string value = tokens[1].Trim();
-
-            int tmp = 0;
-            if (int.TryParse(value, out tmp))
-            {
-                w.SetInteger(key, tmp);
-            }
-            else
-            {
-                w.SetString(key, value);
-            }
-        });
-    }
-
-    public static Behavior Show(World world, string objName)
-    {
-        return new AtomicBehavior(world, (w) =>
-        {
-            //Debug.Log("SHOW: "+objName.Trim());
-            Transform xform = world.Get(objName.Trim());
-            xform.gameObject.SetActive(true);
-        });
-    }
-
-    public static Behavior Hide(World world, string objName)
-    {
-        return new AtomicBehavior(world, (w) =>
-        {
-            Transform xform = world.Get(objName.Trim());
-            xform.gameObject.SetActive(false);
-        });
     }
 
     public static Behavior Sequence(World world, string dummy)
@@ -139,19 +60,6 @@ public static class Factory
         int.TryParse(tokens[1].Trim(), out stateValue);  
         return new RepeatBehavior(world, (world) => { 
             return world.GetInteger(stateName) == stateValue;
-        });
-    }
-
-    public static Behavior Add(World world, string args)
-    {
-        string[] tokens = args.Split(','); 
-        string stateName = tokens[0].Trim();
-        int stateValue;
-        int.TryParse(tokens[1].Trim(), out stateValue);  
-        return new AtomicBehavior(world, (world) => { 
-            int v = world.GetInteger(stateName);
-            v += stateValue;
-            world.SetInteger(stateName, v);
         });
     }
 
@@ -208,19 +116,129 @@ public static class Factory
         Single.TryParse(args, out duration);
         return new CoroutineBehavior(world, ProceduralAnimator.Wait(duration));
     }
+    #endregion
 
+    #region Animation Behaviors
+    public static Behavior PlayAnimation(World w, string config) 
+    { 
+        string[] tokens = config.Split(',', 2);
+        string rootName = tokens[0].Trim();
+        string aniName = tokens[1].Trim();
+        return new Animation(w, rootName, aniName, false, Animation.Mode.PLAY);
+    }
+
+    public static Behavior LoopAnimation(World w, string config) 
+    { 
+        string[] tokens = config.Split(',', 2);
+        string rootName = tokens[0].Trim();
+        string aniName = tokens[1].Trim();
+        return new Animation(w, rootName, aniName, true, Animation.Mode.PLAY);
+    }
+
+    public static Behavior StopAnimation(World w, string config) 
+    { 
+        string[] tokens = config.Split(',', 3);
+        string rootName = tokens[0].Trim();
+        string aniName = tokens[1].Trim();
+        return new Animation(w, rootName, aniName, true, Animation.Mode.STOP);
+    }
+
+    #endregion
+
+    #region Appearance Behaviors
+    public static Behavior Show(World world, string objName)
+    {
+        return new AtomicBehavior(world, (w) =>
+        {
+            //Debug.Log("SHOW: "+objName.Trim());
+            Transform xform = world.Get(objName.Trim());
+            xform.gameObject.SetActive(true);
+        });
+    }
+
+    public static Behavior Hide(World world, string objName)
+    {
+        return new AtomicBehavior(world, (w) =>
+        {
+            Transform xform = world.Get(objName.Trim());
+            xform.gameObject.SetActive(false);
+        });
+    }
+
+    public static Behavior SetText(World world, string config)
+    {
+        string[] tokens = config.Split(',', 2);
+        string rootName = tokens[0].Trim();
+        string message = tokens[1].Trim();
+        return new AtomicBehavior(world, (w) =>
+        {
+            Transform xform = world.Get(rootName);
+            ProceduralAnimator.SetText(xform, message);
+        });
+    }
+
+    public static Behavior RevertColor(World w, string config)
+    {
+        string[] tokens = config.Split(',', 2);
+        string rootName = tokens[0];
+        float d = 1.0f;
+        Single.TryParse(tokens[1], out d);
+        Transform obj = w.Get(rootName.Trim());
+        return new CoroutineBehavior(w, ProceduralAnimator.RevertColor(obj, d));
+    }
+
+    public static Behavior ChangeColor(World w, string config)
+    {
+        string[] tokens = config.Split(',', 5);
+        string rootName = tokens[0];
+        float r = 1.0f;
+        float g = 1.0f;
+        float b = 1.0f;
+        float d = 1.0f;
+        Single.TryParse(tokens[1], out r);
+        Single.TryParse(tokens[2], out g);
+        Single.TryParse(tokens[3], out b);
+        Single.TryParse(tokens[4], out d);
+        Transform obj = w.Get(rootName.Trim());
+        return new CoroutineBehavior(w, ProceduralAnimator.ChangeColor(obj, new Color(r,g,b), d));
+    }
+
+    /// Usage from script is 
+    /// Pulse: TransformName (string), number of pulses (int) 
+    /// </summary>
     public static Behavior Pulse(World world, string args)
     {
         string[] tokens = args.Split(',', 4);
         string rootName = tokens[0];
         int num = 1;
-        float timePerPulse = 1.0f;
-        float pulseSize = 1.0f;
+        float timePerPulse = 0.4f;
+        float pulseSize = 0.1f;
         int.TryParse(tokens[1], out num);
-        Single.TryParse(tokens[2], out timePerPulse);
-        Single.TryParse(tokens[3], out pulseSize);
+        if (tokens.Length > 3) Single.TryParse(tokens[2], out timePerPulse);
+        if (tokens.Length > 4) Single.TryParse(tokens[3], out pulseSize);
         Transform obj = world.Get(rootName.Trim());
         return new CoroutineBehavior(world, ProceduralAnimator.Pulse(obj, num, timePerPulse, pulseSize));
+    }
+    public static Behavior Move(World w, string config) 
+    { 
+        string[] tokens = config.Split(',', 5);
+        string rootName = tokens[0];
+        string startName = tokens[1];
+        string endName = tokens[2];
+        float duration = 1.0f;
+        Single.TryParse(tokens[3], out duration);
+        Transform obj = w.Get(rootName.Trim());
+        Transform start = w.Get(startName.Trim());
+        Transform end = w.Get(endName.Trim());
+
+        ProceduralAnimator.Interpolator interpolator = ProceduralAnimator.Linear;
+        if (tokens.Length > 4) 
+        {
+            if (tokens[4].StartsWith("EaseIn")) interpolator = ProceduralAnimator.EaseIn;
+            else if (tokens[4].StartsWith("Cosine")) interpolator = ProceduralAnimator.Cosine;
+        }
+
+        return new CoroutineBehavior(w, ProceduralAnimator.Move(obj, start, end, duration, interpolator));
     }
 
     public static Behavior Grow(World w, string config) 
@@ -237,7 +255,7 @@ public static class Factory
         return new CoroutineBehavior(w, ProceduralAnimator.Grow(obj, start, end, duration));
     }
 
-    public static Behavior FadeAlpha(World w, string config) 
+    public static Behavior Fade(World w, string config) 
     { 
         string[] tokens = config.Split(',', 4);
         string rootName = tokens[0];
@@ -248,6 +266,44 @@ public static class Factory
         Single.TryParse(tokens[2], out end);
         Single.TryParse(tokens[3], out duration);
         Transform obj = w.Get(rootName.Trim());
-        return new CoroutineBehavior(w, ProceduralAnimator.ChangeAlpha(obj, start, end, duration));
+        return new CoroutineBehavior(w, ProceduralAnimator.Fade(obj, start, end, duration));
     }
+    #endregion
+
+    #region World State Behaviors
+    public static Behavior SetState(World world, string dummy)
+    {
+        return new AtomicBehavior(world, (w) =>
+        {
+            string[] tokens = dummy.Split(',', 2);
+            string key = tokens[0].Trim();
+            string value = tokens[1].Trim();
+
+            int tmp = 0;
+            if (int.TryParse(value, out tmp))
+            {
+                w.SetInteger(key, tmp);
+            }
+            else
+            {
+                w.SetString(key, value);
+            }
+        });
+    }
+
+    public static Behavior Add(World world, string args)
+    {
+        string[] tokens = args.Split(','); 
+        string stateName = tokens[0].Trim();
+        int stateValue;
+        int.TryParse(tokens[1].Trim(), out stateValue);  
+        return new AtomicBehavior(world, (world) => { 
+            int v = world.GetInteger(stateName);
+            v += stateValue;
+            world.SetInteger(stateName, v);
+        });
+    }
+    #endregion
+
+
 }

@@ -1,0 +1,13 @@
+# Test built-in animators
+SetText: Message, Start Demo
+Fade: Panel, 0, 1, 2.0
+Grow: Star, 0.1, 1.0, 2.0
+ChangeColor: Star, 1,0,1, 2.0
+ChangeColor: Star, 0,1,1, 2.0
+RevertColor: Star, 2.0
+Move: Star, Waypoint1, Waypoint2, 2.0
+Move: Star, Waypoint2, Waypoint3, 2.0, Cosine
+Move: Star, Waypoint3, Waypoint1, 3.0, EaseIn
+Pulse: Star, 2
+SetText: Message, Demo Complete
+Fade: Panel, 1, 0, 2.0
