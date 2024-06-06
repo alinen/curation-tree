@@ -1,8 +1,10 @@
 # Getting Started
 
-This project includes demos of our built-in behaviors.
+The following demos show the basic features of the framework. 
 
 ## Squirrel House
+
+<video src='images/SquirrelHouse.mp4'/>
 
 This demo shows how to trigger sounds and animation based on dragging and dropping objects.
 From `BasicExample/Assets/Scene`, open `SquirrelHouse.unity`. 
@@ -14,9 +16,8 @@ The scene was created from the basic 3D scene. All game elements are stored unde
 * For the dance animation, we add an animation component to `Squirrel` and `SquirrelDance` to it. We make sure to configure the animation so it does not play automatically.
 * Drag and drop is configured using `Anchor` objects. The `Anchor` under the `BoomBox` asset indicates where the casette should snap when the user lets go of it. Otherwise, the casette will remain at the position where the user let go. The `Anchor` is offset slightly in the Z direction so that the colliders for the casette and BoomBox do not overlap (which would interfere with the raycast selection). 
 * All other objects are simple images and text.
-* `Fade` changes the alpha, or transparency, for an asset. The syntax is `Fade: <AssetName>, <StartAlpha>, <EndAlpha>, <Duration>`
 
-Here is the behavior script.
+Here is the behavior script. 
 
 ```
 Fade: Message, 0, 1, 2.0
@@ -32,23 +33,27 @@ Repeat:
 End
 ```
 
-And here is the demo.
+The root node of the behavior tree is always a sequence node, meaning the following script runs the 
+`Fade` behavior followed by the `Repeat` behavior. 
 
-<video src='images/SquirrelHouse.mp4'/>
+Notes:
+
+* `Fade` changes the alpha, or transparency, for an asset. The syntax is `Fade: <AssetName>, <StartAlpha>, <EndAlpha>, <Duration>`
+* `Repeat` repeats the IfDrag and IfDrop conditionals forever.
+* `IfDrag` triggers if the user picks up the casette asset. When true, the two sub-behaviors are executed in parallel (e.g. simultaneously)
+* `IfDrop` triggers if the user drops the casette on top of the BoomBox. When true, the two sub-behaviors are executed in parallel (e.g. simultaneously)
+* `PlayAnimation` plays the `SquirrelDance` animation on the `Squirrel` asset.
+
 
 ## Animate Demo
 
-The system includes several simple animation behaviors for moving, rotating, resizing, fading, and changing the colors of assets.
+<video src='images/AnimateDemo.mp4'/>
 
-* To move and rotate objects, set waypoints (e.g. empty game objects) with the desired starting and end states. Both the position and rotations of the waypoints will be used for animation.
-* Colors should be RGB coordinates, each component in the range 0 and 1.
-* `SetText` changes the text on the `Message` asset.
-* `Fade` changes the alpha, or transparency, for an asset. The syntax is `Fade: <AssetName>, <StartAlpha>, <EndAlpha>, <Duration>`
-* `Grow` changes the size uniformly for an asset. The syntax is `Grow: <AssetName>, <StartSize>, <EndSize>, <Duration>`
-* `ChangeColor` changes the color for an asset and all its children. The syntax is `ChangeColor: <AssetName>, <R>, <G>, <B>, <Duration>`. The original colors of the asset are cached so they can be restored later.
-* `RevertColor` restores the color of an asset. The syntax is `RevertColor: <AssetName>, <Duration>`
-* `Move` translates and rotates an asset. The syntax is `Move: <AssetName>, <StartTransform>, <EndTransform>, <Duration>, <Interpolation Type>`. The interpolation type is optional. By default, we use linear interpolation. 
-* `Pulse` quickly pulses the size of the asset. The syntax is `Pulse: <AssetName>, <NumPulses>`. It is also possible to set the speed and size of the pulse by passing these arguments as additional values, e.g. `Pulse: <AssetName>, <NumPulses>, <PulseSpeed>, <PulseSize>`. The default pulse speed is 0.4 seconds. The pulse size is a percentage of the original size and is currently 0.1, or ten percent.
+The system includes several simple animation behaviors for moving, rotating, resizing, fading, and changing the colors of assets.
+The configuration of the scene is very simple. We add empty game objects to serve as waypoints, but all other assets are simply images. 
+
+Here is the behavior script. The root node of the behavior tree is always a sequence node, meaning the following script runs each line in 
+sequence. 
 
 ```
 # Test built-in animators
@@ -67,4 +72,15 @@ SetText: Message, Demo Complete
 Fade: Panel, 1, 0, 2.0
 ```
 
-<video src='images/AnimateDemo.mp4'/>
+Notes:
+
+* To move and rotate objects, set waypoints (e.g. empty game objects) with the desired starting and end states. Both the position and rotations of the waypoints will be used for animation.
+* Colors should be RGB coordinates, each component in the range 0 and 1.
+* `SetText` changes the text on the `Message` asset.
+* `Fade` changes the alpha, or transparency, for an asset. The syntax is `Fade: <AssetName>, <StartAlpha>, <EndAlpha>, <Duration>`
+* `Grow` changes the size uniformly for an asset. The syntax is `Grow: <AssetName>, <StartSize>, <EndSize>, <Duration>`
+* `ChangeColor` changes the color for an asset and all its children. The syntax is `ChangeColor: <AssetName>, <R>, <G>, <B>, <Duration>`. The original colors of the asset are cached so they can be restored later.
+* `RevertColor` restores the color of an asset. The syntax is `RevertColor: <AssetName>, <Duration>`
+* `Move` translates and rotates an asset. The syntax is `Move: <AssetName>, <StartTransform>, <EndTransform>, <Duration>, <Interpolation Type>`. The interpolation type is optional. By default, we use linear interpolation. 
+* `Pulse` quickly pulses the size of the asset. The syntax is `Pulse: <AssetName>, <NumPulses>`. It is also possible to set the speed and size of the pulse by passing these arguments as additional values, e.g. `Pulse: <AssetName>, <NumPulses>, <PulseSpeed>, <PulseSize>`. The default pulse speed is 0.4 seconds. The pulse size is a percentage of the original size and is currently 0.1, or ten percent.
+
