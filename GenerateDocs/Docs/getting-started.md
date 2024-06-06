@@ -4,7 +4,10 @@ The following demos show the basic features of the framework.
 
 ## Squirrel House
 
-<video src='images/SquirrelHouse.mp4'/>
+ <video height="480">
+  <source src='../images/SquirrelHouse.mp4' type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
 
 This demo shows how to trigger sounds and animation based on dragging and dropping objects.
 From `BasicExample/Assets/Scene`, open `SquirrelHouse.unity`. 

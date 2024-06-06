@@ -9,4 +9,6 @@ The framework implements a suite of behaviors that we use across our projects.
 Custom behaviors are also easily made by adding new creator functions to `Factory`. 
 More complicated behaviors can be made by sub-classing from Behavior.
 
+To see a listing of built-in Behaviors, read the documentation for `Factory`.
 
+# Creating new behaviors
