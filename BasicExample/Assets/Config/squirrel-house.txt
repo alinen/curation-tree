@@ -1,14 +1,11 @@
-FadeAlpha: Message, 0, 1, 2.0
-Hide: Message
+Fade: Message, 0, 1, 2.0
 Repeat:
   IfDrag: Casette
     Hide: Music
     StopAnimation: Squirrel, SquirrelDance
   End
   IfDrop: Casette, BoomBox
-    Parallel:
-      PlayAnimation: Squirrel, SquirrelDance
-      Show: Music
-    End
+    PlayAnimation: Squirrel, SquirrelDance
+    Show: Music
   End
 End
