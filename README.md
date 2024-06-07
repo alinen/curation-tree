@@ -1,16 +1,14 @@
 # curation-tree
 
 Lightweight behavior tree API for creating puzzle and narrative games in Unity.
-
-## Demo
-
 This repository demonstrates the framework we have been using to create
-point-and-click games for teaching and research using Unity. Here is a simple
-demo.
+point-and-click games for teaching and research using Unity. For example,
+the following demo implements a mechanic where dragging the casette onto to 
+Boom Box plays music and makes the squirrel dance.
 
 https://github.com/alinen/curation-tree/assets/259657/13519d60-7ed5-42c8-ab6a-9f373217a143
 
-To run the demo, open the scene `SquirrelHouse.unity`
+To run the demo, open the scene `SquirrelHouse.unity` in `BasicExample/Assets/Scenes`
 
 This demo has been tested with Unity version 2022.3.16f1.
 
@@ -18,8 +16,8 @@ This demo has been tested with Unity version 2022.3.16f1.
 
 The basic workflow for this framework involves 
 
-* 1) setting up the assets (images, sounds, animations) in the scene hierarchy
-* 2) scripting the interactions between the game and the user with a script
+1. setting up the assets (images, sounds, animations) in the scene hierarchy
+2. scripting the interactions between the game and the user with a script
 
 For example, in the _Squirrel House_ demo, we can drag and drop the casette
 onto the boom box to trigger music and the squirrel's dancing. Removing the
@@ -33,10 +31,8 @@ Repeat:
     StopAnimation: Squirrel, SquirrelDance
   End
   IfDrop: Casette, BoomBox
-    Parallel:
-      PlayAnimation: Squirrel, SquirrelDance
-      Show: Music
-    End
+    PlayAnimation: Squirrel, SquirrelDance
+    Show: Music
   End
 End
 ```
@@ -45,26 +41,18 @@ _IfDrag_ triggers whenever the player picks up the object. _IfDrop_ triggers
 when the casette is dropped on the boom box. The names, _Casette_, _BoomBox_,
 _Squirrel_, _SquirrelDance_, and _Music_, refer to assets in the scene. 
 To execute the script, we create an
-empty GameObject and attach a `GameLoop` component to it. 
+empty GameObject and attach a `GameLoop` component to it. The framework will 
+connect behaviors automatically by matching the names from the script to the 
+assets in the scene.
 
 ## Using the curation-tree in a new project
 
-### Getting Started
+Please import the unity package [`CurationTree.unitypackage`](CurationTree.unitypackage) into your own project.
+This package includes the sources under `BasicExample/Assets/Scripts/CurationTree`.
 
-### How to add a new behavior
-
-### How to configure drag and drop for assets
-
-### How to debug problems with selection and dragging
-
-### How to debug behaviors
-
-### Common problems
-
-## Behavior API Reference
-
-
-
+For an overview of the basic behaviors including the framework as well as details 
+for setting up scenes, debugging, and adding new behaviors, 
+[please read our documentation](GenerateDocs/_site/index.html).
 
 ## Citation
 
