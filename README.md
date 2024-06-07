@@ -6,10 +6,11 @@ point-and-click games for teaching and research using Unity. For example,
 the following demo implements a mechanic where dragging the casette onto to 
 Boom Box plays music and makes the squirrel dance.
 
-<video width="100%" controls>
-  <source src='https://alinen.github.io/curation-tree/images/SquirrelHouse.mp4' type="video/mp4">
-  Your browser does not support the video tag.
-</video> 
+
+
+https://github.com/alinen/curation-tree/assets/259657/492408ef-3679-457d-a626-6475dc5b8a56
+
+
 
 To run the demo, open the scene `SquirrelHouse.unity` in `BasicExample/Assets/Scenes`
 
