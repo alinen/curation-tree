@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Debuggging and Troubleshooting | Curation Tree </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Debuggging and Troubleshooting | Curation Tree ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/CurationTree.png" alt="Curation Tree">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../Docs/introduction.html" title="Docs">Docs</a>
+                      </li>
+                      <li>
+                          <a href="../api/CTree.html" title="API">API</a>
+                      </li>
+                </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+
+                  <ul class="nav level1">
+                    <li class="">
+                      <a href="introduction.html" title="Introduction" class="">Introduction</a>
+                    </li>
+                    <li class="">
+                      <a href="getting-started.html" title="Getting Started" class="">Getting Started</a>
+                    </li>
+                    <li class="active">
+                      <a href="debugging.html" title="Debugging and Troubleshooting" class="active">Debugging and Troubleshooting</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="debuggging-and-troubleshooting">Debuggging and Troubleshooting</h1>
+
+<p>The GameLoop component has options for debugging the execution of the behavior tree and
+for selection and raycasting.</p>
+<h2 id="behavior-tree">Behavior Tree</h2>
+<p>In the <code>GameLoop</code> component, toggle Option -&gt; Debug -&gt; Tree to show the current state of the behavior tree.</p>
+<p><img src="../images/DebugTree.png" alt="SampleOutput"></p>
+<p>Currently running behaviors are prefixed with <code>*</code>. Finished behaviors are suffixed with <code>(f)</code>.
+Nested behaviors are shown with indentation.  The pause button in the Unity viewer can be used
+to step through each behavior.</p>
+<h3 id="troubleshooting-behaviors">Troubleshooting behaviors</h3>
+<p>Check the console for errors. Below are a list of typical issues.</p>
+<ul>
+<li>A behavior could not be initialized because it is mispelled or has incorrect parameters.</li>
+<li>Multiple assets cannot have the same name. In this case, the behavior may modify an asset that you are not expecting.</li>
+<li>The framework only supports TextMeshPro, so modifications to Text will not work.</li>
+<li>If you want to change the transparency of an object, make sure it has a transparent material.</li>
+<li>Behaviors that change color assume that materials have a _Color attribute.</li>
+</ul>
+<h2 id="selection">Selection</h2>
+<p>In the <code>GameLoop</code> component, toggle Option -&gt; Debug -&gt; Selection to show additional information about selection.
+This will print the names of selected, dragged, clicked, or dropped objects. In the scene view, you will also see
+raycast lines from the camera.</p>
+<h3 id="troubleshooting-selection">Troubleshooting selection</h3>
+<ul>
+<li>Check the collliders on your assets. If the collider for an object is missing or inaccurate, the click and selection queries will not trigger. Check the collider volumes while the game is running.</li>
+<li>Check that you do not have a layer mask with value 8. The selection system puts all interactable objects onto their own layer for more efficient collision testing. The default is layer 8. If this value conflicts with other layers in your game, you can change it in the <code>GameLoop</code> component, under Options -&gt; InteractableLayerMask.</li>
+<li>For 2D games, check that the canvas configuration has render mode <code>ScreenSpace - Camera</code>.</li>
+<li>Check that you do not have two overlapping objects with similar sized colliders on them. In this case, the selection system cannot distinguish between them.</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

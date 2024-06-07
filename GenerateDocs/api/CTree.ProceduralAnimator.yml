@@ -1,0 +1,950 @@
+### YamlMime:ManagedReference
+items:
+- uid: CTree.ProceduralAnimator
+  commentId: T:CTree.ProceduralAnimator
+  id: ProceduralAnimator
+  parent: CTree
+  children:
+  - CTree.ProceduralAnimator.ChangeColor(UnityEngine.Transform,UnityEngine.Color,System.Single)
+  - CTree.ProceduralAnimator.Cosine(System.Single,System.Single)
+  - CTree.ProceduralAnimator.EaseIn(System.Single,System.Single)
+  - CTree.ProceduralAnimator.Fade(UnityEngine.Transform,System.Single,System.Single,System.Single)
+  - CTree.ProceduralAnimator.Grow(UnityEngine.Transform,System.Single,System.Single,System.Single)
+  - CTree.ProceduralAnimator.Linear(System.Single,System.Single)
+  - CTree.ProceduralAnimator.Move(UnityEngine.Transform,UnityEngine.Transform,UnityEngine.Transform,System.Single,CTree.ProceduralAnimator.Interpolator)
+  - CTree.ProceduralAnimator.Pulse(UnityEngine.Transform,System.Int32,System.Single,System.Single)
+  - CTree.ProceduralAnimator.RevertColor(UnityEngine.Transform,System.Single)
+  - CTree.ProceduralAnimator.SetText(UnityEngine.Transform,System.String)
+  - CTree.ProceduralAnimator.Wait(System.Single)
+  langs:
+  - csharp
+  - vb
+  name: ProceduralAnimator
+  nameWithType: ProceduralAnimator
+  fullName: CTree.ProceduralAnimator
+  type: Class
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: ProceduralAnimator
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+    startLine: 15
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Utility functions for animating assets
+  example: []
+  syntax:
+    content: public static class ProceduralAnimator
+    content.vb: Public Module ProceduralAnimator
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: CTree.ProceduralAnimator.Wait(System.Single)
+  commentId: M:CTree.ProceduralAnimator.Wait(System.Single)
+  id: Wait(System.Single)
+  parent: CTree.ProceduralAnimator
+  langs:
+  - csharp
+  - vb
+  name: Wait(float)
+  nameWithType: ProceduralAnimator.Wait(float)
+  fullName: CTree.ProceduralAnimator.Wait(float)
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Wait
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+    startLine: 22
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Wait for given number of seconds
+  example: []
+  syntax:
+    content: public static IEnumerator Wait(float duration)
+    parameters:
+    - id: duration
+      type: System.Single
+      description: The amount of time to pause in seconds
+    return:
+      type: System.Collections.IEnumerator
+    content.vb: Public Shared Function Wait(duration As Single) As IEnumerator
+  overload: CTree.ProceduralAnimator.Wait*
+  nameWithType.vb: ProceduralAnimator.Wait(Single)
+  fullName.vb: CTree.ProceduralAnimator.Wait(Single)
+  name.vb: Wait(Single)
+- uid: CTree.ProceduralAnimator.Grow(UnityEngine.Transform,System.Single,System.Single,System.Single)
+  commentId: M:CTree.ProceduralAnimator.Grow(UnityEngine.Transform,System.Single,System.Single,System.Single)
+  id: Grow(UnityEngine.Transform,System.Single,System.Single,System.Single)
+  parent: CTree.ProceduralAnimator
+  langs:
+  - csharp
+  - vb
+  name: Grow(Transform, float, float, float)
+  nameWithType: ProceduralAnimator.Grow(Transform, float, float, float)
+  fullName: CTree.ProceduralAnimator.Grow(UnityEngine.Transform, float, float, float)
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Grow
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+    startLine: 37
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Animate the given transform with a uniform scale.
+  example: []
+  syntax:
+    content: public static IEnumerator Grow(Transform xform, float start, float end, float duration)
+    parameters:
+    - id: xform
+      type: UnityEngine.Transform
+      description: The transform to scale. The scale applies to all children.
+    - id: start
+      type: System.Single
+      description: The starting size in local scene units, e.g. with respect to the parent of xform.
+    - id: end
+      type: System.Single
+      description: The ending size in local scene units, e.g. with respect to the parent of xform.
+    - id: duration
+      type: System.Single
+      description: The length of the animation (in seconds)
+    return:
+      type: System.Collections.IEnumerator
+    content.vb: Public Shared Function Grow(xform As Transform, start As Single, [end] As Single, duration As Single) As IEnumerator
+  overload: CTree.ProceduralAnimator.Grow*
+  nameWithType.vb: ProceduralAnimator.Grow(Transform, Single, Single, Single)
+  fullName.vb: CTree.ProceduralAnimator.Grow(UnityEngine.Transform, Single, Single, Single)
+  name.vb: Grow(Transform, Single, Single, Single)
+- uid: CTree.ProceduralAnimator.Pulse(UnityEngine.Transform,System.Int32,System.Single,System.Single)
+  commentId: M:CTree.ProceduralAnimator.Pulse(UnityEngine.Transform,System.Int32,System.Single,System.Single)
+  id: Pulse(UnityEngine.Transform,System.Int32,System.Single,System.Single)
+  parent: CTree.ProceduralAnimator
+  langs:
+  - csharp
+  - vb
+  name: Pulse(Transform, int, float, float)
+  nameWithType: ProceduralAnimator.Pulse(Transform, int, float, float)
+  fullName: CTree.ProceduralAnimator.Pulse(UnityEngine.Transform, int, float, float)
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Pulse
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+    startLine: 65
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Animate the given transform with a pulse in size.
+  example: []
+  syntax:
+    content: public static IEnumerator Pulse(Transform target, int numTimes, float timePerPulseSecs = 0.4, float pulseSize = 0.1)
+    parameters:
+    - id: target
+      type: UnityEngine.Transform
+      description: The transform to pulse. The pulse applies to all children.
+    - id: numTimes
+      type: System.Int32
+      description: The number of times to pulse.
+    - id: timePerPulseSecs
+      type: System.Single
+      description: The duration of each pulse (in seconds)
+    - id: pulseSize
+      type: System.Single
+      description: How much to change the size (percentage of original xform size)
+    return:
+      type: System.Collections.IEnumerator
+    content.vb: Public Shared Function Pulse(target As Transform, numTimes As Integer, timePerPulseSecs As Single = 0.4, pulseSize As Single = 0.1) As IEnumerator
+  overload: CTree.ProceduralAnimator.Pulse*
+  nameWithType.vb: ProceduralAnimator.Pulse(Transform, Integer, Single, Single)
+  fullName.vb: CTree.ProceduralAnimator.Pulse(UnityEngine.Transform, Integer, Single, Single)
+  name.vb: Pulse(Transform, Integer, Single, Single)
+- uid: CTree.ProceduralAnimator.SetText(UnityEngine.Transform,System.String)
+  commentId: M:CTree.ProceduralAnimator.SetText(UnityEngine.Transform,System.String)
+  id: SetText(UnityEngine.Transform,System.String)
+  parent: CTree.ProceduralAnimator
+  langs:
+  - csharp
+  - vb
+  name: SetText(Transform, string)
+  nameWithType: ProceduralAnimator.SetText(Transform, string)
+  fullName: CTree.ProceduralAnimator.SetText(UnityEngine.Transform, string)
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: SetText
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+    startLine: 85
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Set the contents of the text component on the given transform
+  example: []
+  syntax:
+    content: public static void SetText(Transform xform, string message)
+    parameters:
+    - id: xform
+      type: UnityEngine.Transform
+      description: The transform to update.
+    - id: message
+      type: System.String
+      description: The text to set.
+    content.vb: Public Shared Sub SetText(xform As Transform, message As String)
+  overload: CTree.ProceduralAnimator.SetText*
+  nameWithType.vb: ProceduralAnimator.SetText(Transform, String)
+  fullName.vb: CTree.ProceduralAnimator.SetText(UnityEngine.Transform, String)
+  name.vb: SetText(Transform, String)
+- uid: CTree.ProceduralAnimator.Linear(System.Single,System.Single)
+  commentId: M:CTree.ProceduralAnimator.Linear(System.Single,System.Single)
+  id: Linear(System.Single,System.Single)
+  parent: CTree.ProceduralAnimator
+  langs:
+  - csharp
+  - vb
+  name: Linear(float, float)
+  nameWithType: ProceduralAnimator.Linear(float, float)
+  fullName: CTree.ProceduralAnimator.Linear(float, float)
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Linear
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+    startLine: 109
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Implements a normalized time for linear interpolation.
+  example: []
+  syntax:
+    content: public static float Linear(float t, float duration)
+    parameters:
+    - id: t
+      type: System.Single
+      description: Value between 0 and duration, inclusive
+    - id: duration
+      type: System.Single
+      description: Duration of the interpolation (seconds)
+    return:
+      type: System.Single
+      description: The value (t / duration)
+    content.vb: Public Shared Function Linear(t As Single, duration As Single) As Single
+  overload: CTree.ProceduralAnimator.Linear*
+  nameWithType.vb: ProceduralAnimator.Linear(Single, Single)
+  fullName.vb: CTree.ProceduralAnimator.Linear(Single, Single)
+  name.vb: Linear(Single, Single)
+- uid: CTree.ProceduralAnimator.Cosine(System.Single,System.Single)
+  commentId: M:CTree.ProceduralAnimator.Cosine(System.Single,System.Single)
+  id: Cosine(System.Single,System.Single)
+  parent: CTree.ProceduralAnimator
+  langs:
+  - csharp
+  - vb
+  name: Cosine(float, float)
+  nameWithType: ProceduralAnimator.Cosine(float, float)
+  fullName: CTree.ProceduralAnimator.Cosine(float, float)
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Cosine
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+    startLine: 120
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Implements a normalized time for cosine interpolation
+  example: []
+  syntax:
+    content: public static float Cosine(float t, float duration)
+    parameters:
+    - id: t
+      type: System.Single
+      description: Value between 0 and duration, inclusive
+    - id: duration
+      type: System.Single
+      description: Duration of the interpolation (seconds)
+    return:
+      type: System.Single
+      description: The value (1 - Mathf.Cos(t / duration * Mathf.PI)) / 2
+    content.vb: Public Shared Function Cosine(t As Single, duration As Single) As Single
+  overload: CTree.ProceduralAnimator.Cosine*
+  nameWithType.vb: ProceduralAnimator.Cosine(Single, Single)
+  fullName.vb: CTree.ProceduralAnimator.Cosine(Single, Single)
+  name.vb: Cosine(Single, Single)
+- uid: CTree.ProceduralAnimator.EaseIn(System.Single,System.Single)
+  commentId: M:CTree.ProceduralAnimator.EaseIn(System.Single,System.Single)
+  id: EaseIn(System.Single,System.Single)
+  parent: CTree.ProceduralAnimator
+  langs:
+  - csharp
+  - vb
+  name: EaseIn(float, float)
+  nameWithType: ProceduralAnimator.EaseIn(float, float)
+  fullName: CTree.ProceduralAnimator.EaseIn(float, float)
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: EaseIn
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+    startLine: 133
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Implements a normalized time for ease in interpolation.
+  example: []
+  syntax:
+    content: public static float EaseIn(float t, float duration)
+    parameters:
+    - id: t
+      type: System.Single
+      description: Value between 0 and duration, inclusive
+    - id: duration
+      type: System.Single
+      description: Duration of the interpolation (seconds)
+    return:
+      type: System.Single
+      description: The value (1 - (1 - t / duration)^2)
+    content.vb: Public Shared Function EaseIn(t As Single, duration As Single) As Single
+  overload: CTree.ProceduralAnimator.EaseIn*
+  nameWithType.vb: ProceduralAnimator.EaseIn(Single, Single)
+  fullName.vb: CTree.ProceduralAnimator.EaseIn(Single, Single)
+  name.vb: EaseIn(Single, Single)
+- uid: CTree.ProceduralAnimator.Move(UnityEngine.Transform,UnityEngine.Transform,UnityEngine.Transform,System.Single,CTree.ProceduralAnimator.Interpolator)
+  commentId: M:CTree.ProceduralAnimator.Move(UnityEngine.Transform,UnityEngine.Transform,UnityEngine.Transform,System.Single,CTree.ProceduralAnimator.Interpolator)
+  id: Move(UnityEngine.Transform,UnityEngine.Transform,UnityEngine.Transform,System.Single,CTree.ProceduralAnimator.Interpolator)
+  parent: CTree.ProceduralAnimator
+  langs:
+  - csharp
+  - vb
+  name: Move(Transform, Transform, Transform, float, Interpolator)
+  nameWithType: ProceduralAnimator.Move(Transform, Transform, Transform, float, ProceduralAnimator.Interpolator)
+  fullName: CTree.ProceduralAnimator.Move(UnityEngine.Transform, UnityEngine.Transform, UnityEngine.Transform, float, CTree.ProceduralAnimator.Interpolator)
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Move
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+    startLine: 149
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Move and rotate xform with a bounce at the <code>start</code> and <code>end</code>
+  example: []
+  syntax:
+    content: public static IEnumerator Move(Transform xform, Transform start, Transform end, float duration, ProceduralAnimator.Interpolator interpolator)
+    parameters:
+    - id: xform
+      type: UnityEngine.Transform
+      description: The transform to animate. Applies to all children.
+    - id: start
+      type: UnityEngine.Transform
+      description: The starting position and rotation.
+    - id: end
+      type: UnityEngine.Transform
+      description: The ending position and rotation.
+    - id: duration
+      type: System.Single
+      description: The length of the animation (in seconds)
+    - id: interpolator
+      type: CTree.ProceduralAnimator.Interpolator
+      description: The interpolation method to use.
+    return:
+      type: System.Collections.IEnumerator
+      description: None
+    content.vb: Public Shared Function Move(xform As Transform, start As Transform, [end] As Transform, duration As Single, interpolator As ProceduralAnimator.Interpolator) As IEnumerator
+  overload: CTree.ProceduralAnimator.Move*
+  nameWithType.vb: ProceduralAnimator.Move(Transform, Transform, Transform, Single, ProceduralAnimator.Interpolator)
+  fullName.vb: CTree.ProceduralAnimator.Move(UnityEngine.Transform, UnityEngine.Transform, UnityEngine.Transform, Single, CTree.ProceduralAnimator.Interpolator)
+  name.vb: Move(Transform, Transform, Transform, Single, Interpolator)
+- uid: CTree.ProceduralAnimator.Fade(UnityEngine.Transform,System.Single,System.Single,System.Single)
+  commentId: M:CTree.ProceduralAnimator.Fade(UnityEngine.Transform,System.Single,System.Single,System.Single)
+  id: Fade(UnityEngine.Transform,System.Single,System.Single,System.Single)
+  parent: CTree.ProceduralAnimator
+  langs:
+  - csharp
+  - vb
+  name: Fade(Transform, float, float, float)
+  nameWithType: ProceduralAnimator.Fade(Transform, float, float, float)
+  fullName: CTree.ProceduralAnimator.Fade(UnityEngine.Transform, float, float, float)
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Fade
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+    startLine: 177
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: >-
+    Change the value of alpha for all colors associated with the given transform (including children)
+
+    Linearly interpolates between the <code>start</code> and <code>end</code> values.
+  example: []
+  syntax:
+    content: public static IEnumerator Fade(Transform obj, float startAlpha, float endAlpha, float duration)
+    parameters:
+    - id: obj
+      type: UnityEngine.Transform
+      description: The transform to change alpha.
+    - id: startAlpha
+      type: System.Single
+      description: The starting alpha.
+    - id: endAlpha
+      type: System.Single
+      description: The ending alpha.
+    - id: duration
+      type: System.Single
+      description: The length of the animation (in seconds)
+    return:
+      type: System.Collections.IEnumerator
+    content.vb: Public Shared Function Fade(obj As Transform, startAlpha As Single, endAlpha As Single, duration As Single) As IEnumerator
+  overload: CTree.ProceduralAnimator.Fade*
+  nameWithType.vb: ProceduralAnimator.Fade(Transform, Single, Single, Single)
+  fullName.vb: CTree.ProceduralAnimator.Fade(UnityEngine.Transform, Single, Single, Single)
+  name.vb: Fade(Transform, Single, Single, Single)
+- uid: CTree.ProceduralAnimator.ChangeColor(UnityEngine.Transform,UnityEngine.Color,System.Single)
+  commentId: M:CTree.ProceduralAnimator.ChangeColor(UnityEngine.Transform,UnityEngine.Color,System.Single)
+  id: ChangeColor(UnityEngine.Transform,UnityEngine.Color,System.Single)
+  parent: CTree.ProceduralAnimator
+  langs:
+  - csharp
+  - vb
+  name: ChangeColor(Transform, Color, float)
+  nameWithType: ProceduralAnimator.ChangeColor(Transform, Color, float)
+  fullName: CTree.ProceduralAnimator.ChangeColor(UnityEngine.Transform, UnityEngine.Color, float)
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: ChangeColor
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+    startLine: 224
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: >-
+    Change the color for all renderers associated with the given transform (including children)
+
+    Linearly interpolates between the current color on <code>obj</code> and <code>end</code> colors.
+  example: []
+  syntax:
+    content: public static IEnumerator ChangeColor(Transform obj, Color end, float duration)
+    parameters:
+    - id: obj
+      type: UnityEngine.Transform
+      description: The transform to change alpha.
+    - id: end
+      type: UnityEngine.Color
+      description: The ending color.
+    - id: duration
+      type: System.Single
+      description: The length of the animation (in seconds)
+    return:
+      type: System.Collections.IEnumerator
+    content.vb: Public Shared Function ChangeColor(obj As Transform, [end] As Color, duration As Single) As IEnumerator
+  overload: CTree.ProceduralAnimator.ChangeColor*
+  nameWithType.vb: ProceduralAnimator.ChangeColor(Transform, Color, Single)
+  fullName.vb: CTree.ProceduralAnimator.ChangeColor(UnityEngine.Transform, UnityEngine.Color, Single)
+  name.vb: ChangeColor(Transform, Color, Single)
+- uid: CTree.ProceduralAnimator.RevertColor(UnityEngine.Transform,System.Single)
+  commentId: M:CTree.ProceduralAnimator.RevertColor(UnityEngine.Transform,System.Single)
+  id: RevertColor(UnityEngine.Transform,System.Single)
+  parent: CTree.ProceduralAnimator
+  langs:
+  - csharp
+  - vb
+  name: RevertColor(Transform, float)
+  nameWithType: ProceduralAnimator.RevertColor(Transform, float)
+  fullName: CTree.ProceduralAnimator.RevertColor(UnityEngine.Transform, float)
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: RevertColor
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+    startLine: 273
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: >-
+    Reverts the color for all renderers associated with the given transform (including children)
+
+    Linearly interpolates between the current color on <code>obj</code> and the original color.
+  example: []
+  syntax:
+    content: public static IEnumerator RevertColor(Transform obj, float duration)
+    parameters:
+    - id: obj
+      type: UnityEngine.Transform
+      description: The transform to change alpha.
+    - id: duration
+      type: System.Single
+      description: The length of the animation (in seconds)
+    return:
+      type: System.Collections.IEnumerator
+    content.vb: Public Shared Function RevertColor(obj As Transform, duration As Single) As IEnumerator
+  overload: CTree.ProceduralAnimator.RevertColor*
+  nameWithType.vb: ProceduralAnimator.RevertColor(Transform, Single)
+  fullName.vb: CTree.ProceduralAnimator.RevertColor(UnityEngine.Transform, Single)
+  name.vb: RevertColor(Transform, Single)
+references:
+- uid: CTree
+  commentId: N:CTree
+  href: CTree.html
+  name: CTree
+  nameWithType: CTree
+  fullName: CTree
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: CTree.ProceduralAnimator.Wait*
+  commentId: Overload:CTree.ProceduralAnimator.Wait
+  href: CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_Wait_System_Single_
+  name: Wait
+  nameWithType: ProceduralAnimator.Wait
+  fullName: CTree.ProceduralAnimator.Wait
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Collections.IEnumerator
+  commentId: T:System.Collections.IEnumerator
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerator
+  name: IEnumerator
+  nameWithType: IEnumerator
+  fullName: System.Collections.IEnumerator
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: CTree.ProceduralAnimator.Grow*
+  commentId: Overload:CTree.ProceduralAnimator.Grow
+  href: CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_Grow_UnityEngine_Transform_System_Single_System_Single_System_Single_
+  name: Grow
+  nameWithType: ProceduralAnimator.Grow
+  fullName: CTree.ProceduralAnimator.Grow
+- uid: UnityEngine.Transform
+  commentId: T:UnityEngine.Transform
+  parent: UnityEngine
+  isExternal: true
+  name: Transform
+  nameWithType: Transform
+  fullName: UnityEngine.Transform
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: CTree.ProceduralAnimator.Pulse*
+  commentId: Overload:CTree.ProceduralAnimator.Pulse
+  href: CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_Pulse_UnityEngine_Transform_System_Int32_System_Single_System_Single_
+  name: Pulse
+  nameWithType: ProceduralAnimator.Pulse
+  fullName: CTree.ProceduralAnimator.Pulse
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: CTree.ProceduralAnimator.SetText*
+  commentId: Overload:CTree.ProceduralAnimator.SetText
+  href: CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_SetText_UnityEngine_Transform_System_String_
+  name: SetText
+  nameWithType: ProceduralAnimator.SetText
+  fullName: CTree.ProceduralAnimator.SetText
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: CTree.ProceduralAnimator.Linear*
+  commentId: Overload:CTree.ProceduralAnimator.Linear
+  href: CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_Linear_System_Single_System_Single_
+  name: Linear
+  nameWithType: ProceduralAnimator.Linear
+  fullName: CTree.ProceduralAnimator.Linear
+- uid: CTree.ProceduralAnimator.Cosine*
+  commentId: Overload:CTree.ProceduralAnimator.Cosine
+  href: CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_Cosine_System_Single_System_Single_
+  name: Cosine
+  nameWithType: ProceduralAnimator.Cosine
+  fullName: CTree.ProceduralAnimator.Cosine
+- uid: CTree.ProceduralAnimator.EaseIn*
+  commentId: Overload:CTree.ProceduralAnimator.EaseIn
+  href: CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_EaseIn_System_Single_System_Single_
+  name: EaseIn
+  nameWithType: ProceduralAnimator.EaseIn
+  fullName: CTree.ProceduralAnimator.EaseIn
+- uid: CTree.ProceduralAnimator.Move*
+  commentId: Overload:CTree.ProceduralAnimator.Move
+  href: CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_Move_UnityEngine_Transform_UnityEngine_Transform_UnityEngine_Transform_System_Single_CTree_ProceduralAnimator_Interpolator_
+  name: Move
+  nameWithType: ProceduralAnimator.Move
+  fullName: CTree.ProceduralAnimator.Move
+- uid: CTree.ProceduralAnimator.Interpolator
+  commentId: T:CTree.ProceduralAnimator.Interpolator
+  parent: CTree
+  href: CTree.ProceduralAnimator.html
+  name: ProceduralAnimator.Interpolator
+  nameWithType: ProceduralAnimator.Interpolator
+  fullName: CTree.ProceduralAnimator.Interpolator
+  spec.csharp:
+  - uid: CTree.ProceduralAnimator
+    name: ProceduralAnimator
+    href: CTree.ProceduralAnimator.html
+  - name: .
+  - uid: CTree.ProceduralAnimator.Interpolator
+    name: Interpolator
+    href: CTree.ProceduralAnimator.Interpolator.html
+  spec.vb:
+  - uid: CTree.ProceduralAnimator
+    name: ProceduralAnimator
+    href: CTree.ProceduralAnimator.html
+  - name: .
+  - uid: CTree.ProceduralAnimator.Interpolator
+    name: Interpolator
+    href: CTree.ProceduralAnimator.Interpolator.html
+- uid: CTree.ProceduralAnimator.Fade*
+  commentId: Overload:CTree.ProceduralAnimator.Fade
+  href: CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_Fade_UnityEngine_Transform_System_Single_System_Single_System_Single_
+  name: Fade
+  nameWithType: ProceduralAnimator.Fade
+  fullName: CTree.ProceduralAnimator.Fade
+- uid: CTree.ProceduralAnimator.ChangeColor*
+  commentId: Overload:CTree.ProceduralAnimator.ChangeColor
+  href: CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_ChangeColor_UnityEngine_Transform_UnityEngine_Color_System_Single_
+  name: ChangeColor
+  nameWithType: ProceduralAnimator.ChangeColor
+  fullName: CTree.ProceduralAnimator.ChangeColor
+- uid: UnityEngine.Color
+  commentId: T:UnityEngine.Color
+  parent: UnityEngine
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: UnityEngine.Color
+- uid: CTree.ProceduralAnimator.RevertColor*
+  commentId: Overload:CTree.ProceduralAnimator.RevertColor
+  href: CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_RevertColor_UnityEngine_Transform_System_Single_
+  name: RevertColor
+  nameWithType: ProceduralAnimator.RevertColor
+  fullName: CTree.ProceduralAnimator.RevertColor

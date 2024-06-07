@@ -1,0 +1,738 @@
+### YamlMime:ManagedReference
+items:
+- uid: CTree.IfButtonBehavior
+  commentId: T:CTree.IfButtonBehavior
+  id: IfButtonBehavior
+  parent: CTree
+  children:
+  - CTree.IfButtonBehavior.#ctor(CTree.World,System.String,System.Boolean)
+  - CTree.IfButtonBehavior.Setup
+  langs:
+  - csharp
+  - vb
+  name: IfButtonBehavior
+  nameWithType: IfButtonBehavior
+  fullName: CTree.IfButtonBehavior
+  type: Class
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfButtonBehavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: IfButtonBehavior
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfButtonBehavior.cs
+    startLine: 7
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: 'public class IfButtonBehavior : IfBehavior'
+    content.vb: Public Class IfButtonBehavior Inherits IfBehavior
+  inheritance:
+  - System.Object
+  - CTree.Behavior
+  - CTree.ControlBehavior
+  - CTree.ParallelBehavior
+  - CTree.IfBehavior
+  inheritedMembers:
+  - CTree.IfBehavior.m_condition
+  - CTree.IfBehavior.m_wait
+  - CTree.IfBehavior.m_isTriggered
+  - CTree.IfBehavior.IsTrue
+  - CTree.IfBehavior.Finished
+  - CTree.IfBehavior.Tick
+  - CTree.IfBehavior.TearDown
+  - CTree.ControlBehavior.m_behaviors
+  - CTree.ControlBehavior.Count
+  - CTree.ControlBehavior.Add(CTree.Behavior)
+  - CTree.ControlBehavior.Insert(CTree.Behavior,System.Int32)
+  - CTree.ControlBehavior.Get(System.Int32)
+  - CTree.ControlBehavior.Clear
+  - CTree.Behavior.m_finished
+  - CTree.Behavior.m_isActive
+  - CTree.Behavior.m_name
+  - CTree.Behavior.name
+  - CTree.Behavior.IsActive
+  - CTree.Behavior.world
+  - CTree.Behavior.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: CTree.IfButtonBehavior.#ctor(CTree.World,System.String,System.Boolean)
+  commentId: M:CTree.IfButtonBehavior.#ctor(CTree.World,System.String,System.Boolean)
+  id: '#ctor(CTree.World,System.String,System.Boolean)'
+  parent: CTree.IfButtonBehavior
+  langs:
+  - csharp
+  - vb
+  name: IfButtonBehavior(World, string, bool)
+  nameWithType: IfButtonBehavior.IfButtonBehavior(World, string, bool)
+  fullName: CTree.IfButtonBehavior.IfButtonBehavior(CTree.World, string, bool)
+  type: Constructor
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfButtonBehavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: .ctor
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfButtonBehavior.cs
+    startLine: 12
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: public IfButtonBehavior(World w, string targetName, bool wait = false)
+    parameters:
+    - id: w
+      type: CTree.World
+    - id: targetName
+      type: System.String
+    - id: wait
+      type: System.Boolean
+    content.vb: Public Sub New(w As World, targetName As String, wait As Boolean = False)
+  overload: CTree.IfButtonBehavior.#ctor*
+  nameWithType.vb: IfButtonBehavior.New(World, String, Boolean)
+  fullName.vb: CTree.IfButtonBehavior.New(CTree.World, String, Boolean)
+  name.vb: New(World, String, Boolean)
+- uid: CTree.IfButtonBehavior.Setup
+  commentId: M:CTree.IfButtonBehavior.Setup
+  id: Setup
+  parent: CTree.IfButtonBehavior
+  langs:
+  - csharp
+  - vb
+  name: Setup()
+  nameWithType: IfButtonBehavior.Setup()
+  fullName: CTree.IfButtonBehavior.Setup()
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfButtonBehavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Setup
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfButtonBehavior.cs
+    startLine: 28
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  example: []
+  syntax:
+    content: public override void Setup()
+    content.vb: Public Overrides Sub Setup()
+  overridden: CTree.IfBehavior.Setup
+  overload: CTree.IfButtonBehavior.Setup*
+references:
+- uid: CTree
+  commentId: N:CTree
+  href: CTree.html
+  name: CTree
+  nameWithType: CTree
+  fullName: CTree
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: CTree.Behavior
+  commentId: T:CTree.Behavior
+  parent: CTree
+  href: CTree.Behavior.html
+  name: Behavior
+  nameWithType: Behavior
+  fullName: CTree.Behavior
+- uid: CTree.ControlBehavior
+  commentId: T:CTree.ControlBehavior
+  parent: CTree
+  href: CTree.ControlBehavior.html
+  name: ControlBehavior
+  nameWithType: ControlBehavior
+  fullName: CTree.ControlBehavior
+- uid: CTree.ParallelBehavior
+  commentId: T:CTree.ParallelBehavior
+  parent: CTree
+  href: CTree.ParallelBehavior.html
+  name: ParallelBehavior
+  nameWithType: ParallelBehavior
+  fullName: CTree.ParallelBehavior
+- uid: CTree.IfBehavior
+  commentId: T:CTree.IfBehavior
+  parent: CTree
+  href: CTree.IfBehavior.html
+  name: IfBehavior
+  nameWithType: IfBehavior
+  fullName: CTree.IfBehavior
+- uid: CTree.IfBehavior.m_condition
+  commentId: F:CTree.IfBehavior.m_condition
+  parent: CTree.IfBehavior
+  href: CTree.IfBehavior.html#CTree_IfBehavior_m_condition
+  name: m_condition
+  nameWithType: IfBehavior.m_condition
+  fullName: CTree.IfBehavior.m_condition
+- uid: CTree.IfBehavior.m_wait
+  commentId: F:CTree.IfBehavior.m_wait
+  parent: CTree.IfBehavior
+  href: CTree.IfBehavior.html#CTree_IfBehavior_m_wait
+  name: m_wait
+  nameWithType: IfBehavior.m_wait
+  fullName: CTree.IfBehavior.m_wait
+- uid: CTree.IfBehavior.m_isTriggered
+  commentId: F:CTree.IfBehavior.m_isTriggered
+  parent: CTree.IfBehavior
+  href: CTree.IfBehavior.html#CTree_IfBehavior_m_isTriggered
+  name: m_isTriggered
+  nameWithType: IfBehavior.m_isTriggered
+  fullName: CTree.IfBehavior.m_isTriggered
+- uid: CTree.IfBehavior.IsTrue
+  commentId: M:CTree.IfBehavior.IsTrue
+  parent: CTree.IfBehavior
+  href: CTree.IfBehavior.html#CTree_IfBehavior_IsTrue
+  name: IsTrue()
+  nameWithType: IfBehavior.IsTrue()
+  fullName: CTree.IfBehavior.IsTrue()
+  spec.csharp:
+  - uid: CTree.IfBehavior.IsTrue
+    name: IsTrue
+    href: CTree.IfBehavior.html#CTree_IfBehavior_IsTrue
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.IfBehavior.IsTrue
+    name: IsTrue
+    href: CTree.IfBehavior.html#CTree_IfBehavior_IsTrue
+  - name: (
+  - name: )
+- uid: CTree.IfBehavior.Finished
+  commentId: M:CTree.IfBehavior.Finished
+  parent: CTree.IfBehavior
+  href: CTree.IfBehavior.html#CTree_IfBehavior_Finished
+  name: Finished()
+  nameWithType: IfBehavior.Finished()
+  fullName: CTree.IfBehavior.Finished()
+  spec.csharp:
+  - uid: CTree.IfBehavior.Finished
+    name: Finished
+    href: CTree.IfBehavior.html#CTree_IfBehavior_Finished
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.IfBehavior.Finished
+    name: Finished
+    href: CTree.IfBehavior.html#CTree_IfBehavior_Finished
+  - name: (
+  - name: )
+- uid: CTree.IfBehavior.Tick
+  commentId: M:CTree.IfBehavior.Tick
+  parent: CTree.IfBehavior
+  href: CTree.IfBehavior.html#CTree_IfBehavior_Tick
+  name: Tick()
+  nameWithType: IfBehavior.Tick()
+  fullName: CTree.IfBehavior.Tick()
+  spec.csharp:
+  - uid: CTree.IfBehavior.Tick
+    name: Tick
+    href: CTree.IfBehavior.html#CTree_IfBehavior_Tick
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.IfBehavior.Tick
+    name: Tick
+    href: CTree.IfBehavior.html#CTree_IfBehavior_Tick
+  - name: (
+  - name: )
+- uid: CTree.IfBehavior.TearDown
+  commentId: M:CTree.IfBehavior.TearDown
+  parent: CTree.IfBehavior
+  href: CTree.IfBehavior.html#CTree_IfBehavior_TearDown
+  name: TearDown()
+  nameWithType: IfBehavior.TearDown()
+  fullName: CTree.IfBehavior.TearDown()
+  spec.csharp:
+  - uid: CTree.IfBehavior.TearDown
+    name: TearDown
+    href: CTree.IfBehavior.html#CTree_IfBehavior_TearDown
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.IfBehavior.TearDown
+    name: TearDown
+    href: CTree.IfBehavior.html#CTree_IfBehavior_TearDown
+  - name: (
+  - name: )
+- uid: CTree.ControlBehavior.m_behaviors
+  commentId: F:CTree.ControlBehavior.m_behaviors
+  parent: CTree.ControlBehavior
+  href: CTree.ControlBehavior.html#CTree_ControlBehavior_m_behaviors
+  name: m_behaviors
+  nameWithType: ControlBehavior.m_behaviors
+  fullName: CTree.ControlBehavior.m_behaviors
+- uid: CTree.ControlBehavior.Count
+  commentId: P:CTree.ControlBehavior.Count
+  parent: CTree.ControlBehavior
+  href: CTree.ControlBehavior.html#CTree_ControlBehavior_Count
+  name: Count
+  nameWithType: ControlBehavior.Count
+  fullName: CTree.ControlBehavior.Count
+- uid: CTree.ControlBehavior.Add(CTree.Behavior)
+  commentId: M:CTree.ControlBehavior.Add(CTree.Behavior)
+  parent: CTree.ControlBehavior
+  href: CTree.ControlBehavior.html#CTree_ControlBehavior_Add_CTree_Behavior_
+  name: Add(Behavior)
+  nameWithType: ControlBehavior.Add(Behavior)
+  fullName: CTree.ControlBehavior.Add(CTree.Behavior)
+  spec.csharp:
+  - uid: CTree.ControlBehavior.Add(CTree.Behavior)
+    name: Add
+    href: CTree.ControlBehavior.html#CTree_ControlBehavior_Add_CTree_Behavior_
+  - name: (
+  - uid: CTree.Behavior
+    name: Behavior
+    href: CTree.Behavior.html
+  - name: )
+  spec.vb:
+  - uid: CTree.ControlBehavior.Add(CTree.Behavior)
+    name: Add
+    href: CTree.ControlBehavior.html#CTree_ControlBehavior_Add_CTree_Behavior_
+  - name: (
+  - uid: CTree.Behavior
+    name: Behavior
+    href: CTree.Behavior.html
+  - name: )
+- uid: CTree.ControlBehavior.Insert(CTree.Behavior,System.Int32)
+  commentId: M:CTree.ControlBehavior.Insert(CTree.Behavior,System.Int32)
+  parent: CTree.ControlBehavior
+  isExternal: true
+  href: CTree.ControlBehavior.html#CTree_ControlBehavior_Insert_CTree_Behavior_System_Int32_
+  name: Insert(Behavior, int)
+  nameWithType: ControlBehavior.Insert(Behavior, int)
+  fullName: CTree.ControlBehavior.Insert(CTree.Behavior, int)
+  nameWithType.vb: ControlBehavior.Insert(Behavior, Integer)
+  fullName.vb: CTree.ControlBehavior.Insert(CTree.Behavior, Integer)
+  name.vb: Insert(Behavior, Integer)
+  spec.csharp:
+  - uid: CTree.ControlBehavior.Insert(CTree.Behavior,System.Int32)
+    name: Insert
+    href: CTree.ControlBehavior.html#CTree_ControlBehavior_Insert_CTree_Behavior_System_Int32_
+  - name: (
+  - uid: CTree.Behavior
+    name: Behavior
+    href: CTree.Behavior.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: CTree.ControlBehavior.Insert(CTree.Behavior,System.Int32)
+    name: Insert
+    href: CTree.ControlBehavior.html#CTree_ControlBehavior_Insert_CTree_Behavior_System_Int32_
+  - name: (
+  - uid: CTree.Behavior
+    name: Behavior
+    href: CTree.Behavior.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: CTree.ControlBehavior.Get(System.Int32)
+  commentId: M:CTree.ControlBehavior.Get(System.Int32)
+  parent: CTree.ControlBehavior
+  isExternal: true
+  href: CTree.ControlBehavior.html#CTree_ControlBehavior_Get_System_Int32_
+  name: Get(int)
+  nameWithType: ControlBehavior.Get(int)
+  fullName: CTree.ControlBehavior.Get(int)
+  nameWithType.vb: ControlBehavior.Get(Integer)
+  fullName.vb: CTree.ControlBehavior.Get(Integer)
+  name.vb: Get(Integer)
+  spec.csharp:
+  - uid: CTree.ControlBehavior.Get(System.Int32)
+    name: Get
+    href: CTree.ControlBehavior.html#CTree_ControlBehavior_Get_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: CTree.ControlBehavior.Get(System.Int32)
+    name: Get
+    href: CTree.ControlBehavior.html#CTree_ControlBehavior_Get_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: CTree.ControlBehavior.Clear
+  commentId: M:CTree.ControlBehavior.Clear
+  parent: CTree.ControlBehavior
+  href: CTree.ControlBehavior.html#CTree_ControlBehavior_Clear
+  name: Clear()
+  nameWithType: ControlBehavior.Clear()
+  fullName: CTree.ControlBehavior.Clear()
+  spec.csharp:
+  - uid: CTree.ControlBehavior.Clear
+    name: Clear
+    href: CTree.ControlBehavior.html#CTree_ControlBehavior_Clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.ControlBehavior.Clear
+    name: Clear
+    href: CTree.ControlBehavior.html#CTree_ControlBehavior_Clear
+  - name: (
+  - name: )
+- uid: CTree.Behavior.m_finished
+  commentId: F:CTree.Behavior.m_finished
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_m_finished
+  name: m_finished
+  nameWithType: Behavior.m_finished
+  fullName: CTree.Behavior.m_finished
+- uid: CTree.Behavior.m_isActive
+  commentId: F:CTree.Behavior.m_isActive
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_m_isActive
+  name: m_isActive
+  nameWithType: Behavior.m_isActive
+  fullName: CTree.Behavior.m_isActive
+- uid: CTree.Behavior.m_name
+  commentId: F:CTree.Behavior.m_name
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_m_name
+  name: m_name
+  nameWithType: Behavior.m_name
+  fullName: CTree.Behavior.m_name
+- uid: CTree.Behavior.name
+  commentId: P:CTree.Behavior.name
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_name
+  name: name
+  nameWithType: Behavior.name
+  fullName: CTree.Behavior.name
+- uid: CTree.Behavior.IsActive
+  commentId: M:CTree.Behavior.IsActive
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_IsActive
+  name: IsActive()
+  nameWithType: Behavior.IsActive()
+  fullName: CTree.Behavior.IsActive()
+  spec.csharp:
+  - uid: CTree.Behavior.IsActive
+    name: IsActive
+    href: CTree.Behavior.html#CTree_Behavior_IsActive
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.Behavior.IsActive
+    name: IsActive
+    href: CTree.Behavior.html#CTree_Behavior_IsActive
+  - name: (
+  - name: )
+- uid: CTree.Behavior.world
+  commentId: P:CTree.Behavior.world
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_world
+  name: world
+  nameWithType: Behavior.world
+  fullName: CTree.Behavior.world
+- uid: CTree.Behavior.ToString
+  commentId: M:CTree.Behavior.ToString
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_ToString
+  name: ToString()
+  nameWithType: Behavior.ToString()
+  fullName: CTree.Behavior.ToString()
+  spec.csharp:
+  - uid: CTree.Behavior.ToString
+    name: ToString
+    href: CTree.Behavior.html#CTree_Behavior_ToString
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.Behavior.ToString
+    name: ToString
+    href: CTree.Behavior.html#CTree_Behavior_ToString
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: CTree.IfButtonBehavior.#ctor*
+  commentId: Overload:CTree.IfButtonBehavior.#ctor
+  href: CTree.IfButtonBehavior.html#CTree_IfButtonBehavior__ctor_CTree_World_System_String_System_Boolean_
+  name: IfButtonBehavior
+  nameWithType: IfButtonBehavior.IfButtonBehavior
+  fullName: CTree.IfButtonBehavior.IfButtonBehavior
+  nameWithType.vb: IfButtonBehavior.New
+  fullName.vb: CTree.IfButtonBehavior.New
+  name.vb: New
+- uid: CTree.World
+  commentId: T:CTree.World
+  parent: CTree
+  href: CTree.World.html
+  name: World
+  nameWithType: World
+  fullName: CTree.World
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: CTree.IfBehavior.Setup
+  commentId: M:CTree.IfBehavior.Setup
+  parent: CTree.IfBehavior
+  href: CTree.IfBehavior.html#CTree_IfBehavior_Setup
+  name: Setup()
+  nameWithType: IfBehavior.Setup()
+  fullName: CTree.IfBehavior.Setup()
+  spec.csharp:
+  - uid: CTree.IfBehavior.Setup
+    name: Setup
+    href: CTree.IfBehavior.html#CTree_IfBehavior_Setup
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.IfBehavior.Setup
+    name: Setup
+    href: CTree.IfBehavior.html#CTree_IfBehavior_Setup
+  - name: (
+  - name: )
+- uid: CTree.IfButtonBehavior.Setup*
+  commentId: Overload:CTree.IfButtonBehavior.Setup
+  href: CTree.IfButtonBehavior.html#CTree_IfButtonBehavior_Setup
+  name: Setup
+  nameWithType: IfButtonBehavior.Setup
+  fullName: CTree.IfButtonBehavior.Setup

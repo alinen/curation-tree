@@ -21,6 +21,7 @@ To run docfx,
 
 ```
 cd GenerateDocs
+docfx metadata docfx.json
 docfx build docfx.json
 ```
 

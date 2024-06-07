@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Generating Documentation | Curation Tree </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Generating Documentation | Curation Tree ">
+    
+    
+      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="stylesheet" href="styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="styles/docfx.css">
+      <link rel="stylesheet" href="styles/main.css">
+      <meta property="docfx:navrel" content="toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="images/CurationTree.png" alt="Curation Tree">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="Docs/introduction.html" title="Docs">Docs</a>
+                      </li>
+                      <li>
+                          <a href="api/CTree.html" title="API">API</a>
+                      </li>
+                </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="generating-documentation">Generating Documentation</h1>
+
+<p>We use Microsoft's XML based documentation to document functions and classes.</p>
+<p>Documentation:</p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/">Getting Started</a></li>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/documentation-comments#d5-an-example">Example</a></li>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/documentation-comments#d5-an-example">Specification</a></li>
+</ul>
+<h1 id="building">Building</h1>
+<p>We use <a href="https://github.com/dotnet/docfx">doxfx</a> to build the documentaton.
+From the developer command line, install docfx like so</p>
+<pre><code>dotnet tool install -g docfx
+</code></pre>
+<p>To run docfx,</p>
+<pre><code>cd GenerateDocs
+docfx metadata docfx.json
+docfx build docfx.json
+</code></pre>
+<p>All docs will be generated into this directory.</p>
+<h1 id="notes">Notes</h1>
+<p>You need the command line tools for Visual Studio to be installed in order to run <code>dotnet</code> commands.</p>
+<p>The API documentation tool chain in Visual Studio works like this:</p>
+<ul>
+<li>Write XML tagged comments prefixed with <code>///</code> on each line</li>
+<li>Visual Studio will create an XML document for the APIs in your project, as a build step</li>
+<li>Using <code>docfx</code>, we do not need the intermediary steps. It is done for us. However, it is useful to have Visual Studio parse XML comments and show warnings.</li>
+</ul>
+<p>If you want to build the raw XML file for a Unity project, it requires several steps.</p>
+<p>First, <em>XML Documentation File</em> needs to be enabled in the project settings.
+Right-click properties, Build tab, Output -&gt; Make sure <em>XML Documentation File</em> is checked.</p>
+<p>If you are using Unity, project properties are hidden by default. First, you need to enable project files in Unity.
+This is done in Preferences -&gt; External Tools. Make sure you are using Visual Studio and that
+<em>generate .csproj files</em> is enabled for local and embedded packages. Second, you must
+enable project properties in Visual Studio. In Tools -&gt; Options -&gt; Unity Plugin, make sure</p>
+<ul>
+<li><em>Disable Full Build of Projects</em> is false</li>
+<li><em>Access to Project Properties</em> is true</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

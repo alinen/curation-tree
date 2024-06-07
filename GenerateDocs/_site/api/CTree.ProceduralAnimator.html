@@ -1,0 +1,840 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class ProceduralAnimator | Curation Tree </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class ProceduralAnimator | Curation Tree ">
+    
+    <meta name="description" content="Utility functions for animating assets">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/CurationTree.png" alt="Curation Tree">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../Docs/introduction.html" title="Docs">Docs</a>
+                      </li>
+                      <li>
+                          <a href="../api/CTree.html" title="API">API</a>
+                      </li>
+                </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+
+                  <ul class="nav level1">
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="CTree.html" title="CTree" class="">CTree</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="CTree.Animation.html" title="Animation" class="">Animation</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Animation.Mode.html" title="Animation.Mode" class="">Animation.Mode</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.AtomicBehavior.html" title="AtomicBehavior" class="">AtomicBehavior</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Behavior.html" title="Behavior" class="">Behavior</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.ControlBehavior.html" title="ControlBehavior" class="">ControlBehavior</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.CoroutineBehavior.html" title="CoroutineBehavior" class="">CoroutineBehavior</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Factory.html" title="Factory" class="">Factory</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.GameLoop.html" title="GameLoop" class="">GameLoop</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.GameLoop.DebugOptions.html" title="GameLoop.DebugOptions" class="">GameLoop.DebugOptions</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.GameLoop.LogOptions.html" title="GameLoop.LogOptions" class="">GameLoop.LogOptions</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.GameLoop.Options.html" title="GameLoop.Options" class="">GameLoop.Options</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.IfBehavior.html" title="IfBehavior" class="">IfBehavior</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.IfButtonBehavior.html" title="IfButtonBehavior" class="">IfButtonBehavior</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.IfInteractableBehavior.html" title="IfInteractableBehavior" class="">IfInteractableBehavior</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.IfInteractableBehavior.Type.html" title="IfInteractableBehavior.Type" class="">IfInteractableBehavior.Type</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Interactable.html" title="Interactable" class="">Interactable</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Interactable.ClickCb.html" title="Interactable.ClickCb" class="">Interactable.ClickCb</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Interactable.DragCb.html" title="Interactable.DragCb" class="">Interactable.DragCb</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Interactable.DropCb.html" title="Interactable.DropCb" class="">Interactable.DropCb</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Interactable.HoverCb.html" title="Interactable.HoverCb" class="">Interactable.HoverCb</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Interactable.MouseOverCb.html" title="Interactable.MouseOverCb" class="">Interactable.MouseOverCb</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Interactable.Type.html" title="Interactable.Type" class="">Interactable.Type</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Location.html" title="Location" class="">Location</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.ParallelBehavior.html" title="ParallelBehavior" class="">ParallelBehavior</a>
+                          </li>
+                          <li class="active">
+                            <a href="CTree.ProceduralAnimator.html" title="ProceduralAnimator" class="active">ProceduralAnimator</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.ProceduralAnimator.Interpolator.html" title="ProceduralAnimator.Interpolator" class="">ProceduralAnimator.Interpolator</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.RepeatBehavior.html" title="RepeatBehavior" class="">RepeatBehavior</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.SelectBehavior.html" title="SelectBehavior" class="">SelectBehavior</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.SequenceBehavior.html" title="SequenceBehavior" class="">SequenceBehavior</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.World.html" title="World" class="">World</a>
+                          </li>
+                        </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="CTree.ProceduralAnimator">
+
+
+
+  <h1 id="CTree_ProceduralAnimator" data-uid="CTree.ProceduralAnimator" class="text-break">Class ProceduralAnimator</h1>
+  <div class="markdown level0 summary"><p>Utility functions for animating assets</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">ProceduralAnimator</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="CTree.html">CTree</a></h6>
+  <h6><strong>Assembly</strong>: Assembly-CSharp.dll</h6>
+  <h5 id="CTree_ProceduralAnimator_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ProceduralAnimator</code></pre>
+  </div>
+  <h3 id="methods">Methods
+</h3>
+  <a id="CTree_ProceduralAnimator_ChangeColor_" data-uid="CTree.ProceduralAnimator.ChangeColor*"></a>
+  <h4 id="CTree_ProceduralAnimator_ChangeColor_UnityEngine_Transform_UnityEngine_Color_System_Single_" data-uid="CTree.ProceduralAnimator.ChangeColor(UnityEngine.Transform,UnityEngine.Color,System.Single)">ChangeColor(Transform, Color, float)</h4>
+  <div class="markdown level1 summary"><p>Change the color for all renderers associated with the given transform (including children)
+Linearly interpolates between the current color on <code>obj</code> and <code>end</code> colors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerator ChangeColor(Transform obj, Color end, float duration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The transform to change alpha.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Color</span></td>
+        <td><span class="parametername">end</span></td>
+        <td><p>The ending color.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">duration</span></td>
+        <td><p>The length of the animation (in seconds)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="CTree_ProceduralAnimator_Cosine_" data-uid="CTree.ProceduralAnimator.Cosine*"></a>
+  <h4 id="CTree_ProceduralAnimator_Cosine_System_Single_System_Single_" data-uid="CTree.ProceduralAnimator.Cosine(System.Single,System.Single)">Cosine(float, float)</h4>
+  <div class="markdown level1 summary"><p>Implements a normalized time for cosine interpolation</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Cosine(float t, float duration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">t</span></td>
+        <td><p>Value between 0 and duration, inclusive</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">duration</span></td>
+        <td><p>Duration of the interpolation (seconds)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><p>The value (1 - Mathf.Cos(t / duration * Mathf.PI)) / 2</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="CTree_ProceduralAnimator_EaseIn_" data-uid="CTree.ProceduralAnimator.EaseIn*"></a>
+  <h4 id="CTree_ProceduralAnimator_EaseIn_System_Single_System_Single_" data-uid="CTree.ProceduralAnimator.EaseIn(System.Single,System.Single)">EaseIn(float, float)</h4>
+  <div class="markdown level1 summary"><p>Implements a normalized time for ease in interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float EaseIn(float t, float duration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">t</span></td>
+        <td><p>Value between 0 and duration, inclusive</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">duration</span></td>
+        <td><p>Duration of the interpolation (seconds)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><p>The value (1 - (1 - t / duration)^2)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="CTree_ProceduralAnimator_Fade_" data-uid="CTree.ProceduralAnimator.Fade*"></a>
+  <h4 id="CTree_ProceduralAnimator_Fade_UnityEngine_Transform_System_Single_System_Single_System_Single_" data-uid="CTree.ProceduralAnimator.Fade(UnityEngine.Transform,System.Single,System.Single,System.Single)">Fade(Transform, float, float, float)</h4>
+  <div class="markdown level1 summary"><p>Change the value of alpha for all colors associated with the given transform (including children)
+Linearly interpolates between the <code>start</code> and <code>end</code> values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerator Fade(Transform obj, float startAlpha, float endAlpha, float duration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The transform to change alpha.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">startAlpha</span></td>
+        <td><p>The starting alpha.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">endAlpha</span></td>
+        <td><p>The ending alpha.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">duration</span></td>
+        <td><p>The length of the animation (in seconds)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="CTree_ProceduralAnimator_Grow_" data-uid="CTree.ProceduralAnimator.Grow*"></a>
+  <h4 id="CTree_ProceduralAnimator_Grow_UnityEngine_Transform_System_Single_System_Single_System_Single_" data-uid="CTree.ProceduralAnimator.Grow(UnityEngine.Transform,System.Single,System.Single,System.Single)">Grow(Transform, float, float, float)</h4>
+  <div class="markdown level1 summary"><p>Animate the given transform with a uniform scale.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerator Grow(Transform xform, float start, float end, float duration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">xform</span></td>
+        <td><p>The transform to scale. The scale applies to all children.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>The starting size in local scene units, e.g. with respect to the parent of xform.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">end</span></td>
+        <td><p>The ending size in local scene units, e.g. with respect to the parent of xform.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">duration</span></td>
+        <td><p>The length of the animation (in seconds)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="CTree_ProceduralAnimator_Linear_" data-uid="CTree.ProceduralAnimator.Linear*"></a>
+  <h4 id="CTree_ProceduralAnimator_Linear_System_Single_System_Single_" data-uid="CTree.ProceduralAnimator.Linear(System.Single,System.Single)">Linear(float, float)</h4>
+  <div class="markdown level1 summary"><p>Implements a normalized time for linear interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Linear(float t, float duration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">t</span></td>
+        <td><p>Value between 0 and duration, inclusive</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">duration</span></td>
+        <td><p>Duration of the interpolation (seconds)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><p>The value (t / duration)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="CTree_ProceduralAnimator_Move_" data-uid="CTree.ProceduralAnimator.Move*"></a>
+  <h4 id="CTree_ProceduralAnimator_Move_UnityEngine_Transform_UnityEngine_Transform_UnityEngine_Transform_System_Single_CTree_ProceduralAnimator_Interpolator_" data-uid="CTree.ProceduralAnimator.Move(UnityEngine.Transform,UnityEngine.Transform,UnityEngine.Transform,System.Single,CTree.ProceduralAnimator.Interpolator)">Move(Transform, Transform, Transform, float, Interpolator)</h4>
+  <div class="markdown level1 summary"><p>Move and rotate xform with a bounce at the <code>start</code> and <code>end</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerator Move(Transform xform, Transform start, Transform end, float duration, ProceduralAnimator.Interpolator interpolator)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">xform</span></td>
+        <td><p>The transform to animate. Applies to all children.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>The starting position and rotation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">end</span></td>
+        <td><p>The ending position and rotation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">duration</span></td>
+        <td><p>The length of the animation (in seconds)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="CTree.ProceduralAnimator.html">ProceduralAnimator</a>.<a class="xref" href="CTree.ProceduralAnimator.Interpolator.html">Interpolator</a></td>
+        <td><span class="parametername">interpolator</span></td>
+        <td><p>The interpolation method to use.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td><p>None</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="CTree_ProceduralAnimator_Pulse_" data-uid="CTree.ProceduralAnimator.Pulse*"></a>
+  <h4 id="CTree_ProceduralAnimator_Pulse_UnityEngine_Transform_System_Int32_System_Single_System_Single_" data-uid="CTree.ProceduralAnimator.Pulse(UnityEngine.Transform,System.Int32,System.Single,System.Single)">Pulse(Transform, int, float, float)</h4>
+  <div class="markdown level1 summary"><p>Animate the given transform with a pulse in size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerator Pulse(Transform target, int numTimes, float timePerPulseSecs = 0.4, float pulseSize = 0.1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">target</span></td>
+        <td><p>The transform to pulse. The pulse applies to all children.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">numTimes</span></td>
+        <td><p>The number of times to pulse.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">timePerPulseSecs</span></td>
+        <td><p>The duration of each pulse (in seconds)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">pulseSize</span></td>
+        <td><p>How much to change the size (percentage of original xform size)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="CTree_ProceduralAnimator_RevertColor_" data-uid="CTree.ProceduralAnimator.RevertColor*"></a>
+  <h4 id="CTree_ProceduralAnimator_RevertColor_UnityEngine_Transform_System_Single_" data-uid="CTree.ProceduralAnimator.RevertColor(UnityEngine.Transform,System.Single)">RevertColor(Transform, float)</h4>
+  <div class="markdown level1 summary"><p>Reverts the color for all renderers associated with the given transform (including children)
+Linearly interpolates between the current color on <code>obj</code> and the original color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerator RevertColor(Transform obj, float duration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The transform to change alpha.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">duration</span></td>
+        <td><p>The length of the animation (in seconds)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="CTree_ProceduralAnimator_SetText_" data-uid="CTree.ProceduralAnimator.SetText*"></a>
+  <h4 id="CTree_ProceduralAnimator_SetText_UnityEngine_Transform_System_String_" data-uid="CTree.ProceduralAnimator.SetText(UnityEngine.Transform,System.String)">SetText(Transform, string)</h4>
+  <div class="markdown level1 summary"><p>Set the contents of the text component on the given transform</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetText(Transform xform, string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">xform</span></td>
+        <td><p>The transform to update.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The text to set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="CTree_ProceduralAnimator_Wait_" data-uid="CTree.ProceduralAnimator.Wait*"></a>
+  <h4 id="CTree_ProceduralAnimator_Wait_System_Single_" data-uid="CTree.ProceduralAnimator.Wait(System.Single)">Wait(float)</h4>
+  <div class="markdown level1 summary"><p>Wait for given number of seconds</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerator Wait(float duration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></td>
+        <td><span class="parametername">duration</span></td>
+        <td><p>The amount of time to pause in seconds</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

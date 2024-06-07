@@ -1,0 +1,139 @@
+### YamlMime:ManagedReference
+items:
+- uid: CTree.Interactable.Type
+  commentId: T:CTree.Interactable.Type
+  id: Interactable.Type
+  parent: CTree
+  children:
+  - CTree.Interactable.Type.CLICKABLE
+  - CTree.Interactable.Type.COPY_DRAGABLE
+  - CTree.Interactable.Type.DRAGABLE
+  langs:
+  - csharp
+  - vb
+  name: Interactable.Type
+  nameWithType: Interactable.Type
+  fullName: CTree.Interactable.Type
+  type: Enum
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Type
+    path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+    startLine: 17
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: public enum Interactable.Type
+    content.vb: Public Enum Interactable.Type
+- uid: CTree.Interactable.Type.CLICKABLE
+  commentId: F:CTree.Interactable.Type.CLICKABLE
+  id: CLICKABLE
+  parent: CTree.Interactable.Type
+  langs:
+  - csharp
+  - vb
+  name: CLICKABLE
+  nameWithType: Interactable.Type.CLICKABLE
+  fullName: CTree.Interactable.Type.CLICKABLE
+  type: Field
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: CLICKABLE
+    path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+    startLine: 17
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: CLICKABLE = 0
+    return:
+      type: CTree.Interactable.Type
+- uid: CTree.Interactable.Type.DRAGABLE
+  commentId: F:CTree.Interactable.Type.DRAGABLE
+  id: DRAGABLE
+  parent: CTree.Interactable.Type
+  langs:
+  - csharp
+  - vb
+  name: DRAGABLE
+  nameWithType: Interactable.Type.DRAGABLE
+  fullName: CTree.Interactable.Type.DRAGABLE
+  type: Field
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: DRAGABLE
+    path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+    startLine: 17
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: DRAGABLE = 1
+    return:
+      type: CTree.Interactable.Type
+- uid: CTree.Interactable.Type.COPY_DRAGABLE
+  commentId: F:CTree.Interactable.Type.COPY_DRAGABLE
+  id: COPY_DRAGABLE
+  parent: CTree.Interactable.Type
+  langs:
+  - csharp
+  - vb
+  name: COPY_DRAGABLE
+  nameWithType: Interactable.Type.COPY_DRAGABLE
+  fullName: CTree.Interactable.Type.COPY_DRAGABLE
+  type: Field
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: COPY_DRAGABLE
+    path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+    startLine: 17
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: COPY_DRAGABLE = 2
+    return:
+      type: CTree.Interactable.Type
+references:
+- uid: CTree
+  commentId: N:CTree
+  href: CTree.html
+  name: CTree
+  nameWithType: CTree
+  fullName: CTree
+- uid: CTree.Interactable.Type
+  commentId: T:CTree.Interactable.Type
+  parent: CTree
+  href: CTree.Interactable.html
+  name: Interactable.Type
+  nameWithType: Interactable.Type
+  fullName: CTree.Interactable.Type
+  spec.csharp:
+  - uid: CTree.Interactable
+    name: Interactable
+    href: CTree.Interactable.html
+  - name: .
+  - uid: CTree.Interactable.Type
+    name: Type
+    href: CTree.Interactable.Type.html
+  spec.vb:
+  - uid: CTree.Interactable
+    name: Interactable
+    href: CTree.Interactable.html
+  - name: .
+  - uid: CTree.Interactable.Type
+    name: Type
+    href: CTree.Interactable.Type.html

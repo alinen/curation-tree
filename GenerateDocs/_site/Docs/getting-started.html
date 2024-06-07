@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Getting Started | Curation Tree </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Getting Started | Curation Tree ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/CurationTree.png" alt="Curation Tree">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../Docs/introduction.html" title="Docs">Docs</a>
+                      </li>
+                      <li>
+                          <a href="../api/CTree.html" title="API">API</a>
+                      </li>
+                </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+
+                  <ul class="nav level1">
+                    <li class="">
+                      <a href="introduction.html" title="Introduction" class="">Introduction</a>
+                    </li>
+                    <li class="active">
+                      <a href="getting-started.html" title="Getting Started" class="active">Getting Started</a>
+                    </li>
+                    <li class="">
+                      <a href="debugging.html" title="Debugging and Troubleshooting" class="">Debugging and Troubleshooting</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="getting-started">Getting Started</h1>
+
+<p>The following tutorials show the basic features of the framework.</p>
+<ul>
+<li><a href="#squirrel-house">Squirrel House</a>: 2D interaction, animation, and sound</li>
+<li><a href="#animate-demo">Animate Demo</a>: 2D procedural animation</li>
+</ul>
+<h2 id="squirrel-house">Squirrel House</h2>
+ <video width="100%" controls="">
+  <source src='../images/SquirrelHouse.mp4' type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
+<p>This demo shows how to trigger sounds and animation based on dragging and dropping objects.
+From <code>BasicExample/Assets/Scene</code>, open <code>SquirrelHouse.unity</code>.</p>
+<p>This is a 2D demo. All assets are stored under the <code>HUD</code> object which is configured with a canvas object.
+The scene was created from the basic 3D scene. All game elements are stored under <code>HUD</code>.</p>
+<ul>
+<li>For music, we show and hide the object <code>Music</code> which is configured with an AudioSource component.</li>
+<li>For the dance animation, we add an animation component to <code>Squirrel</code> and <code>SquirrelDance</code> to it. We make sure to configure the animation so it does not play automatically.</li>
+<li>Drag and drop is configured using <code>Anchor</code> objects. The <code>Anchor</code> under the <code>BoomBox</code> asset indicates where the casette should snap when the user lets go of it. Otherwise, the casette will remain at the position where the user let go. The <code>Anchor</code> is offset slightly in the Z direction so that the colliders for the casette and BoomBox do not overlap (which would interfere with the raycast selection).</li>
+<li>All other objects are simple images and text.</li>
+</ul>
+<p>Here is the behavior script.</p>
+<pre><code>Fade: Message, 0, 1, 2.0
+Repeat:
+  IfDrag: Casette
+    Hide: Music
+    StopAnimation: Squirrel, SquirrelDance
+  End
+  IfDrop: Casette, BoomBox
+    PlayAnimation: Squirrel, SquirrelDance
+    Show: Music
+  End
+End
+</code></pre>
+<p>The root node of the behavior tree is always a sequence node, meaning the following script runs the
+<code>Fade</code> behavior followed by the <code>Repeat</code> behavior.</p>
+<p>Notes:</p>
+<ul>
+<li><code>Fade</code> changes the alpha, or transparency, for an asset. The syntax is <code>Fade: &lt;AssetName&gt;, &lt;StartAlpha&gt;, &lt;EndAlpha&gt;, &lt;Duration&gt;</code></li>
+<li><code>Repeat</code> repeats the IfDrag and IfDrop conditionals forever.</li>
+<li><code>IfDrag</code> triggers if the user picks up the casette asset. When true, the two sub-behaviors are executed in parallel (e.g. simultaneously)</li>
+<li><code>IfDrop</code> triggers if the user drops the casette on top of the BoomBox. When true, the two sub-behaviors are executed in parallel (e.g. simultaneously)</li>
+<li><code>PlayAnimation</code> plays the <code>SquirrelDance</code> animation on the <code>Squirrel</code> asset.</li>
+</ul>
+<h2 id="animate-demo">Animate Demo</h2>
+ <video width="100%" controls="">
+  <source src='../images/AnimateDemo.mp4' type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
+<p>The system includes several simple animation behaviors for moving, rotating, resizing, fading, and changing the colors of assets.
+The configuration of the scene is very simple. We add empty game objects to serve as waypoints, but all other assets are simply images.</p>
+<p>Here is the behavior script. The root node of the behavior tree is always a sequence node, meaning the following script runs each line in
+sequence.</p>
+<pre><code># Test built-in animators
+SetText: Message, Start Demo
+Fade: Panel, 0, 1, 2.0
+Grow: Star, 0.1, 1.0, 1.0
+SetText: Message, Demo
+ChangeColor: Star, 1,0,1, 1.0
+ChangeColor: Star, 0,1,1, 1.0
+RevertColor: Star, 2.0
+Move: Star, Waypoint1, Waypoint2, 2.0
+Move: Star, Waypoint2, Waypoint3, 2.0, Cosine
+Move: Star, Waypoint3, Waypoint1, 3.0, EaseIn
+Pulse: Star, 2
+SetText: Message, Demo Complete
+Fade: Panel, 1, 0, 2.0
+</code></pre>
+<p>Notes:</p>
+<ul>
+<li>To move and rotate objects, set waypoints (e.g. empty game objects) with the desired starting and end states. Both the position and rotations of the waypoints will be used for animation.</li>
+<li>Colors should be RGB coordinates, each component in the range 0 and 1.</li>
+<li><code>SetText</code> changes the text on the <code>Message</code> asset.</li>
+<li><code>Fade</code> changes the alpha, or transparency, for an asset. The syntax is <code>Fade: &lt;AssetName&gt;, &lt;StartAlpha&gt;, &lt;EndAlpha&gt;, &lt;Duration&gt;</code></li>
+<li><code>Grow</code> changes the size uniformly for an asset. The syntax is <code>Grow: &lt;AssetName&gt;, &lt;StartSize&gt;, &lt;EndSize&gt;, &lt;Duration&gt;</code></li>
+<li><code>ChangeColor</code> changes the color for an asset and all its children. The syntax is <code>ChangeColor: &lt;AssetName&gt;, &lt;R&gt;, &lt;G&gt;, &lt;B&gt;, &lt;Duration&gt;</code>. The original colors of the asset are cached so they can be restored later.</li>
+<li><code>RevertColor</code> restores the color of an asset. The syntax is <code>RevertColor: &lt;AssetName&gt;, &lt;Duration&gt;</code></li>
+<li><code>Move</code> translates and rotates an asset. The syntax is <code>Move: &lt;AssetName&gt;, &lt;StartTransform&gt;, &lt;EndTransform&gt;, &lt;Duration&gt;, &lt;Interpolation Type&gt;</code>. The interpolation type is optional. By default, we use linear interpolation.</li>
+<li><code>Pulse</code> quickly pulses the size of the asset. The syntax is <code>Pulse: &lt;AssetName&gt;, &lt;NumPulses&gt;</code>. It is also possible to set the speed and size of the pulse by passing these arguments as additional values, e.g. <code>Pulse: &lt;AssetName&gt;, &lt;NumPulses&gt;, &lt;PulseSpeed&gt;, &lt;PulseSize&gt;</code>. The default pulse speed is 0.4 seconds. The pulse size is a percentage of the original size and is currently 0.1, or ten percent.</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

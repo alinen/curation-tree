@@ -1,10 +1,13 @@
 # Getting Started
 
-The following demos show the basic features of the framework. 
+The following tutorials show the basic features of the framework. 
+
+* [Squirrel House](#squirrel-house): 2D interaction, animation, and sound
+* [Animate Demo](#animate-demo): 2D procedural animation 
 
 ## Squirrel House
 
- <video height="480">
+ <video width="100%" controls>
   <source src='../images/SquirrelHouse.mp4' type="video/mp4">
   Your browser does not support the video tag.
 </video> 
@@ -50,7 +53,10 @@ Notes:
 
 ## Animate Demo
 
-<video src='images/AnimateDemo.mp4'/>
+ <video width="100%" controls>
+  <source src='../images/AnimateDemo.mp4' type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
 
 The system includes several simple animation behaviors for moving, rotating, resizing, fading, and changing the colors of assets.
 The configuration of the scene is very simple. We add empty game objects to serve as waypoints, but all other assets are simply images. 

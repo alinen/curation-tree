@@ -3,10 +3,10 @@
     {
       "src": [
         {
-          "src": "../BasicExample",
-          "files": [
-            "**/*.csproj"
-          ]
+            "src": "../BasicExample",
+            "files": [
+                "**/*.csproj"
+            ]
         }
       ],
       "dest": "api"
@@ -36,11 +36,12 @@
       "statictoc"
     ],
     "globalMetadata": {
-      "_appName": "Curation Tree",
-      "_appTitle": "Curation Tree",
-      "_enableSearch": false,
-      "_disableContribution" : true,
-      "pdf": false
+        "_appName": "Curation Tree",
+        "_appTitle": "Curation Tree",
+        "_appLogoPath": "images/CurationTree.png",
+        "_enableSearch": false,
+        "_disableContribution": true,
+        "pdf": false
     }
   }
 }

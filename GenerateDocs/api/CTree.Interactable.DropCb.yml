@@ -1,0 +1,60 @@
+### YamlMime:ManagedReference
+items:
+- uid: CTree.Interactable.DropCb
+  commentId: T:CTree.Interactable.DropCb
+  id: Interactable.DropCb
+  parent: CTree
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: Interactable.DropCb
+  nameWithType: Interactable.DropCb
+  fullName: CTree.Interactable.DropCb
+  type: Delegate
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: DropCb
+    path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+    startLine: 13
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: public delegate void Interactable.DropCb(Interactable dragSource, GameObject dropTarget)
+    parameters:
+    - id: dragSource
+      type: CTree.Interactable
+    - id: dropTarget
+      type: UnityEngine.GameObject
+    content.vb: Public Delegate Sub Interactable.DropCb(dragSource As Interactable, dropTarget As GameObject)
+references:
+- uid: CTree
+  commentId: N:CTree
+  href: CTree.html
+  name: CTree
+  nameWithType: CTree
+  fullName: CTree
+- uid: CTree.Interactable
+  commentId: T:CTree.Interactable
+  parent: CTree
+  href: CTree.Interactable.html
+  name: Interactable
+  nameWithType: Interactable
+  fullName: CTree.Interactable
+- uid: UnityEngine.GameObject
+  commentId: T:UnityEngine.GameObject
+  parent: UnityEngine
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine

@@ -1,0 +1,480 @@
+{
+  "source_base_path": "C:/alinen/projects/curation-tree-git/GenerateDocs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Docs/debugging.md",
+      "output": {
+        ".html": {
+          "relative_path": "Docs/debugging.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "Docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "Docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "Docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "Docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "HowToGenerateDocs.md",
+      "output": {
+        ".html": {
+          "relative_path": "HowToGenerateDocs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Animation.Mode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Animation.Mode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Animation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Animation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.AtomicBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.AtomicBehavior.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Behavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Behavior.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.ControlBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.ControlBehavior.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.CoroutineBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.CoroutineBehavior.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Factory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Factory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.GameLoop.DebugOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.GameLoop.DebugOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.GameLoop.LogOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.GameLoop.LogOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.GameLoop.Options.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.GameLoop.Options.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.GameLoop.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.GameLoop.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.IfBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.IfBehavior.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.IfButtonBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.IfButtonBehavior.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.IfInteractableBehavior.Type.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.IfInteractableBehavior.Type.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.IfInteractableBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.IfInteractableBehavior.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Interactable.ClickCb.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Interactable.ClickCb.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Interactable.DragCb.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Interactable.DragCb.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Interactable.DropCb.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Interactable.DropCb.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Interactable.HoverCb.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Interactable.HoverCb.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Interactable.MouseOverCb.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Interactable.MouseOverCb.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Interactable.Type.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Interactable.Type.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Interactable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Interactable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Location.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Location.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Logger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Logger.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.ParallelBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.ParallelBehavior.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.ProceduralAnimator.Interpolator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.ProceduralAnimator.Interpolator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.ProceduralAnimator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.ProceduralAnimator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.RepeatBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.RepeatBehavior.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.SelectBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.SelectBehavior.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.SequenceBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.SequenceBehavior.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Utils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Utils.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.World.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.World.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/AnimateDemo.mp4",
+      "output": {
+        "resource": {
+          "relative_path": "images/AnimateDemo.mp4"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/CurationTree.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/CurationTree.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/CurationTree.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/CurationTree.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/DebugTree.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/DebugTree.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/SquirrelHouse.mp4",
+      "output": {
+        "resource": {
+          "relative_path": "images/SquirrelHouse.mp4"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
