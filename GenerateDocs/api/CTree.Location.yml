@@ -28,6 +28,16 @@ items:
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Implements targets for drag-and-drop.
+  remarks: >-
+    How the Interactable attaches to the location is determined by Transforms having the name 'Anchor'
+
+    If the name of the anchor has the form <code>Anchor_InteractibleObjectName</code>, then only interactibles 
+
+    matching <code>InteractibleObjectName </code>will be attached at the anchor. 
+
+    If the name of the anchor is 'Anchor', then the interactible will be centered on top of the anchor
+  example: []
   syntax:
     content: 'public class Location : MonoBehaviour'
     content.vb: Public Class Location Inherits MonoBehaviour

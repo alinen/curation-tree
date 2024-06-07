@@ -23,6 +23,7 @@ Check the console for errors. Below are a list of typical issues.
 * The framework only supports TextMeshPro, so modifications to Text will not work.
 * If you want to change the transparency of an object, make sure it has a transparent material.
 * Behaviors that change color assume that materials have a _Color attribute.
+* Don't mix IfClick and IfDrag/IfDrop queries on the same asset. An asset should be either _clikable_ or _draggable_.
 
 ## Selection
 

@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class Location | Curation Tree ">
     
-    
+    <meta name="description" content="Implements targets for drag-and-drop.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -47,7 +47,7 @@
 
                 <ul class="nav level1 navbar-nav">
                       <li>
-                          <a href="../Docs/introduction.html" title="Docs">Docs</a>
+                          <a href="../Docs/getting-started.html" title="Docs">Docs</a>
                       </li>
                       <li>
                           <a href="../api/CTree.html" title="API">API</a>
@@ -190,7 +190,8 @@
 
 
   <h1 id="CTree_Location" data-uid="CTree.Location" class="text-break">Class Location</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Implements targets for drag-and-drop.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -552,6 +553,12 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class Location : MonoBehaviour</code></pre>
   </div>
+  <h5 id="CTree_Location_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>How the Interactable attaches to the location is determined by Transforms having the name 'Anchor'
+If the name of the anchor has the form <code>Anchor_InteractibleObjectName</code>, then only interactibles
+matching <code>InteractibleObjectName </code>will be attached at the anchor.
+If the name of the anchor is 'Anchor', then the interactible will be centered on top of the anchor</p>
+</div>
   <h3 id="methods">Methods
 </h3>
   <a id="CTree_Location_AddOcupant_" data-uid="CTree.Location.AddOcupant*"></a>

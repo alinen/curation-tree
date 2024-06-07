@@ -50,9 +50,14 @@ assets in the scene.
 Please import the unity package [`CurationTree.unitypackage`](CurationTree.unitypackage) into your own project.
 This package includes the sources under `BasicExample/Assets/Scripts/CurationTree`.
 
-For an overview of the basic behaviors including the framework as well as details 
-for setting up scenes, debugging, and adding new behaviors, 
-[please read our documentation](GenerateDocs/_site/index.html).
+For an overview of the framework along with examples, 
+[please read our getting started documentation](GenerateDocs/_site/Docs/getting-started.html). 
+
+For debugging and troubleshooting advice, 
+[please read our debugging documentation](GenerateDocs/_site/Docs/debugging.html).
+
+For details about the framework architecture, 
+[please read our API documentation](GenerateDocs/_site/Docs/introduction.html).
 
 ## Citation
 

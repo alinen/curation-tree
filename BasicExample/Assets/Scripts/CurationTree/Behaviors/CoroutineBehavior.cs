@@ -4,7 +4,7 @@ using UnityEngine;
 namespace CTree
 {
   /// <summary>
-  /// Implements behaviors that perform actions implemented with a Unity Coroutine.
+  /// Implements behaviors based on Unity Coroutines.
   /// </summary>
   /// <remarks>
   /// Use this Behavior to implement animations and other effects that occur over multiple frames.

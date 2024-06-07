@@ -10,8 +10,8 @@ namespace CTree
   /// </summary>
   /// <remarks>
   /// How the Interactable attaches to the location is determined by Transforms having the name 'Anchor'
-  /// If the name of the anchor has the form 'Anchor_<InteractibleObjectName>', then only interactibles 
-  /// matching <InteractibleObjectName> will be attached at the anchor. 
+  /// If the name of the anchor has the form <c>Anchor_InteractibleObjectName</c>, then only interactibles 
+  /// matching <c>InteractibleObjectName </c>will be attached at the anchor. 
   /// If the name of the anchor is 'Anchor', then the interactible will be centered on top of the anchor
   /// </remarks>
   public class Location : MonoBehaviour

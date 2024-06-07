@@ -1,6 +1,17 @@
 # Getting Started
 
-The following tutorials show the basic features of the framework. 
+In Unity, simply add a `GameLoop` component to one of the assets in your scene hierarchy.
+The `GameLoop` takes a `TextAsset` as an argument. This input text should contain a sequence of behaviors that implements your game. The `GameLoop` also supports options for configuration and debugging:
+
+* **interactableLayerMask**: Layer for selecting and dragging interactable objects. (Default Value: 8)
+* DebugOptions
+   * **tree**: Display the state of the behavior tree while the game is running 
+   * **selection**: Display debug information for selecting and dragging objects.
+* LogOptions
+   * **enabled**: Toggle whether logging is enabled
+   * **verbose**: Toggle whether log text should be printed to console as well as saved to file baseName: Set the filename for the log. The name format is "Application.persistentDataPath/baseName-timestamp.txt"
+
+See the following tutorials for examples.
 
 * [Squirrel House](#squirrel-house): 2D interaction, animation, and sound
 * [Animate Demo](#animate-demo): 2D procedural animation 

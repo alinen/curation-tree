@@ -47,7 +47,7 @@
 
                 <ul class="nav level1 navbar-nav">
                       <li>
-                          <a href="../Docs/introduction.html" title="Docs">Docs</a>
+                          <a href="../Docs/getting-started.html" title="Docs">Docs</a>
                       </li>
                       <li>
                           <a href="../api/CTree.html" title="API">API</a>
@@ -81,13 +81,13 @@
 
                   <ul class="nav level1">
                     <li class="">
-                      <a href="introduction.html" title="Introduction" class="">Introduction</a>
-                    </li>
-                    <li class="">
                       <a href="getting-started.html" title="Getting Started" class="">Getting Started</a>
                     </li>
                     <li class="active">
                       <a href="debugging.html" title="Debugging and Troubleshooting" class="active">Debugging and Troubleshooting</a>
+                    </li>
+                    <li class="">
+                      <a href="introduction.html" title="API Introduction" class="">API Introduction</a>
                     </li>
                   </ul>
                 </div>
@@ -116,6 +116,7 @@ to step through each behavior.</p>
 <li>The framework only supports TextMeshPro, so modifications to Text will not work.</li>
 <li>If you want to change the transparency of an object, make sure it has a transparent material.</li>
 <li>Behaviors that change color assume that materials have a _Color attribute.</li>
+<li>Don't mix IfClick and IfDrag/IfDrop queries on the same asset. An asset should be either <em>clikable</em> or <em>draggable</em>.</li>
 </ul>
 <h2 id="selection">Selection</h2>
 <p>In the <code>GameLoop</code> component, toggle Option -&gt; Debug -&gt; Selection to show additional information about selection.

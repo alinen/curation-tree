@@ -47,7 +47,7 @@
 
                 <ul class="nav level1 navbar-nav">
                       <li>
-                          <a href="../Docs/introduction.html" title="Docs">Docs</a>
+                          <a href="../Docs/getting-started.html" title="Docs">Docs</a>
                       </li>
                       <li>
                           <a href="../api/CTree.html" title="API">API</a>
@@ -80,14 +80,14 @@
                 <div class="toc" id="toc">
 
                   <ul class="nav level1">
-                    <li class="">
-                      <a href="introduction.html" title="Introduction" class="">Introduction</a>
-                    </li>
                     <li class="active">
                       <a href="getting-started.html" title="Getting Started" class="active">Getting Started</a>
                     </li>
                     <li class="">
                       <a href="debugging.html" title="Debugging and Troubleshooting" class="">Debugging and Troubleshooting</a>
+                    </li>
+                    <li class="">
+                      <a href="introduction.html" title="API Introduction" class="">API Introduction</a>
                     </li>
                   </ul>
                 </div>
@@ -100,7 +100,24 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="getting-started">Getting Started</h1>
 
-<p>The following tutorials show the basic features of the framework.</p>
+<p>In Unity, simply add a <code>GameLoop</code> component to one of the assets in your scene hierarchy.
+The <code>GameLoop</code> takes a <code>TextAsset</code> as an argument. This input text should contain a sequence of behaviors that implements your game. The <code>GameLoop</code> also supports options for configuration and debugging:</p>
+<ul>
+<li><strong>interactableLayerMask</strong>: Layer for selecting and dragging interactable objects. (Default Value: 8)</li>
+<li>DebugOptions
+<ul>
+<li><strong>tree</strong>: Display the state of the behavior tree while the game is running</li>
+<li><strong>selection</strong>: Display debug information for selecting and dragging objects.</li>
+</ul>
+</li>
+<li>LogOptions
+<ul>
+<li><strong>enabled</strong>: Toggle whether logging is enabled</li>
+<li><strong>verbose</strong>: Toggle whether log text should be printed to console as well as saved to file baseName: Set the filename for the log. The name format is &quot;Application.persistentDataPath/baseName-timestamp.txt&quot;</li>
+</ul>
+</li>
+</ul>
+<p>See the following tutorials for examples.</p>
 <ul>
 <li><a href="#squirrel-house">Squirrel House</a>: 2D interaction, animation, and sound</li>
 <li><a href="#animate-demo">Animate Demo</a>: 2D procedural animation</li>

@@ -47,7 +47,7 @@
 
                 <ul class="nav level1 navbar-nav">
                       <li>
-                          <a href="../Docs/introduction.html" title="Docs">Docs</a>
+                          <a href="../Docs/getting-started.html" title="Docs">Docs</a>
                       </li>
                       <li>
                           <a href="../api/CTree.html" title="API">API</a>
@@ -80,14 +80,14 @@
                 <div class="toc" id="toc">
 
                   <ul class="nav level1">
-                    <li class="active">
-                      <a href="introduction.html" title="Introduction" class="active">Introduction</a>
-                    </li>
                     <li class="">
                       <a href="getting-started.html" title="Getting Started" class="">Getting Started</a>
                     </li>
                     <li class="">
                       <a href="debugging.html" title="Debugging and Troubleshooting" class="">Debugging and Troubleshooting</a>
+                    </li>
+                    <li class="active">
+                      <a href="introduction.html" title="API Introduction" class="active">API Introduction</a>
                     </li>
                   </ul>
                 </div>
@@ -102,18 +102,112 @@
 
 <a class="xref" href="../api/CTree.GameLoop.html">GameLoop</a> 
 is the central class of this framework. The `GameLoop` loads the text
-script that stores the game behaviors and updates that 
+script that configures the game behaviors. The `GameLoop` also updates the 
 <a class="xref" href="../api/CTree.World.html">World</a> object that 
-keeps track of the game's persistent state, such as player score, implements
+keeps track of the game's persistent state (such as player score), implements
 user input handling, and handles the lookup of scene assets.
-<p>The framework implements a suite of behaviors that we use across our projects.
-Custom behaviors are also easily made by adding new creator functions to
-<a class="xref" href="../api/CTree.Factory.html">Factory</a>.
-More complicated behaviors can be made by sub-classing from
-<a class="xref" href="../api/CTree.Behavior.html">Behavior</a>.</p>
+<p>Selection and drag-and-drop are implemented using the <a class="xref" href="../api/CTree.Interactable.html"> and <a class="xref" href="../api/CTree.Location.html"> classes. These
+components are automatically placed on scene assets when <code>IfClick</code> or <code>IfDrag/IfDrop</code>
+queries are in the input script.</a></p>
 <h1 id="built-in-behaviors">Built-in Behaviors</h1>
-<p>All built-in behaviors are defined in <a class="xref" href="../api/CTree.Factory.html">Factory</a></p>
-<h1 id="creating-new-behaviors">Creating new behaviors</h1>
+<p>The framework implements a suite of behaviors that we use across our projects.
+All built-in behaviors are defined in <a class="xref" href="../api/CTree.Factory.html">Factory</a>.
+The framework makes it very easy to add new behaviors.</p>
+<h2 id="simple-custom-behaviors">Simple custom behaviors</h2>
+<p>Most custom behaviors fall into one of two categories: <em>atomic behaviors</em> that perform
+simple actions that can be completed within a single frame; and <em>coroutine behaviors</em> that
+perform animations that can implemented using Coroutines. Both these types of
+behaviors can be created yb defining a new creator function in
+<a class="xref" href="../api/CTree.Factory.html">Factory</a>.</p>
+<h3 id="atomic-behaviors">Atomic Behaviors</h3>
+<p>To create a new behavior that performs an actions that only requires a single
+frame to execute, use <a class="xref" href="../api/CTree.AtomicBehavior.html">AtomicBehavior</a>.
+For example, suppose we want to create a Behavior that displays a line between
+two transforms using the following syntax.</p>
+<pre><code>DrawLine: LineAsset, StartTransform, EndTransform
+</code></pre>
+<p>We can implement this in the Factory class using an AtomicBehavior.</p>
+<pre><code>public static Behavior DrawLine(World w, string args)
+{
+  // Parse the arguments
+  string[] tokens = args.Split(&quot;,&quot;, 3); // Parses at most 3 items
+  string assetName = tokens[0].Trim(); // Trim removes whitespace
+  string startName = tokens[1].Trim();
+  string endName = tokens[2].Trim();
+  
+  // Lookup objects in the scene
+  Tranform asset = w.Get(assetName);
+  Tranform start = w.Get(assetName);
+  Tranform end = w.Get(assetName);
+  LineRenderer renderer = asset.GetComponent&lt;LineRenderer&gt;();
+
+  // NOTE: There's no error checking, so any errors will throw an
+  // exception that you can look for in the Unity console.
+  
+  // Create behavior
+  Behavior b = new AtomicBehavior(world, (w) =&gt; {
+    renderer.gameObject.SetActive(true);
+    renderer.positionCount = 2;
+    renderer.SetPosition(0, start.position);
+    renderer.SetPosition(1, end.position);
+  });
+  return b;
+}
+</code></pre>
+<h3 id="coroutine-behaviors">Coroutine Behaviors</h3>
+<p>To create a behavior that consists of a Coroutine, first define the Coroutine function and
+then add a creator function to Factory that instantiates a CoroutineBehavior.  For example,
+suppose we wish to animate a line between two transforms using the following syntax.</p>
+<pre><code>AnimateLine: LineAsset, StartTransform, EndTransform, Duration
+</code></pre>
+<p>We can implement this in the Factory class using a CoroutineBehavior.</p>
+<pre><code>public static IEnumerator AnimateExtendLine(
+    Transform asset, Transform start, Transform end, float duration)
+{
+   LineRenderer renderer = asset.GetComponent&lt;LineRenderer&gt;();
+   renderer.positionCount = 2;
+   renderer.SetPosition(0, start.position);
+   renderer.SetPosition(1, start.position);
+   
+   for (float t = 0; t &lt; duration; t += Time.deltaTime)
+   {
+      float u = t / duration; // normalize between 0 and 1
+      Vector3 endPos = Vector3.Lerp(start.position, end.position, u);
+      renderer.SetPosition(1, endPos);
+      yield return null;
+   }
+}
+
+public static Behavior ExtendLine(World w, string args)
+{
+  // Parse the arguments
+  string[] tokens = args.Split(&quot;,&quot;, 4); // Parses at most 3 items
+  string assetName = tokens[0].Trim(); // Trim removes whitespace
+  string startName = tokens[1].Trim();
+  string endName = tokens[2].Trim();
+
+  float duration = 0;
+  float.TryParse(tokens[4], out duration);
+  
+  // Lookup objects in the scene
+  Tranform asset = w.Get(assetName);
+  Tranform start = w.Get(assetName);
+  Tranform end = w.Get(assetName);
+
+  // NOTE: There's no error checking, so any errors will throw an
+  // exception that you can look for in the Unity console.
+  
+  // Create behavior
+  Behavior b = new CoroutineBehavior(world, 
+     AnimateExtendLine(asset, start, end, duration));
+  return b;
+}
+</code></pre>
+<p>Coroutines cannot be anonymous functions. Our Coroutines for animation behaviors are implemented in <see cref="CTree.ProceduralAnimator?alt=ProceduralAnimator"></see>.</p>
+<h2 id="subclassing-behavior">Subclassing Behavior</h2>
+<p>More complicated behaviors can be made by sub-classing from
+<a class="xref" href="../api/CTree.Behavior.html">Behavior</a> and then adding a creator function to
+<a class="xref" href="../api/CTree.Factory.html">.</a></p>
 
 </article>
           </div>

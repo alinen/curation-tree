@@ -26,7 +26,7 @@ items:
   assemblies:
   - Assembly-CSharp
   namespace: CTree
-  summary: Implements behaviors that perform actions implemented with a Unity Coroutine.
+  summary: Implements behaviors based on Unity Coroutines.
   remarks: >-
     Use this Behavior to implement animations and other effects that occur over multiple frames.
 
