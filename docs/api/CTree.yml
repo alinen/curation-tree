@@ -1,0 +1,444 @@
+### YamlMime:ManagedReference
+items:
+- uid: CTree
+  commentId: N:CTree
+  id: CTree
+  children:
+  - CTree.Animation
+  - CTree.Animation.Mode
+  - CTree.AtomicBehavior
+  - CTree.Behavior
+  - CTree.ControlBehavior
+  - CTree.CoroutineBehavior
+  - CTree.Factory
+  - CTree.GameLoop
+  - CTree.GameLoop.DebugOptions
+  - CTree.GameLoop.LogOptions
+  - CTree.GameLoop.Options
+  - CTree.IfBehavior
+  - CTree.IfButtonBehavior
+  - CTree.IfInteractableBehavior
+  - CTree.IfInteractableBehavior.Type
+  - CTree.Interactable
+  - CTree.Interactable.ClickCb
+  - CTree.Interactable.DragCb
+  - CTree.Interactable.DropCb
+  - CTree.Interactable.HoverCb
+  - CTree.Interactable.MouseOverCb
+  - CTree.Interactable.Type
+  - CTree.Location
+  - CTree.ParallelBehavior
+  - CTree.ProceduralAnimator
+  - CTree.ProceduralAnimator.Interpolator
+  - CTree.RepeatBehavior
+  - CTree.SelectBehavior
+  - CTree.SequenceBehavior
+  - CTree.World
+  langs:
+  - csharp
+  - vb
+  name: CTree
+  nameWithType: CTree
+  fullName: CTree
+  type: Namespace
+  assemblies:
+  - Assembly-CSharp
+references:
+- uid: CTree.AtomicBehavior
+  commentId: T:CTree.AtomicBehavior
+  href: CTree.AtomicBehavior.html
+  name: AtomicBehavior
+  nameWithType: AtomicBehavior
+  fullName: CTree.AtomicBehavior
+- uid: CTree.Interactable
+  commentId: T:CTree.Interactable
+  parent: CTree
+  href: CTree.Interactable.html
+  name: Interactable
+  nameWithType: Interactable
+  fullName: CTree.Interactable
+- uid: CTree.Interactable.ClickCb
+  commentId: T:CTree.Interactable.ClickCb
+  parent: CTree
+  href: CTree.Interactable.html
+  name: Interactable.ClickCb
+  nameWithType: Interactable.ClickCb
+  fullName: CTree.Interactable.ClickCb
+  spec.csharp:
+  - uid: CTree.Interactable
+    name: Interactable
+    href: CTree.Interactable.html
+  - name: .
+  - uid: CTree.Interactable.ClickCb
+    name: ClickCb
+    href: CTree.Interactable.ClickCb.html
+  spec.vb:
+  - uid: CTree.Interactable
+    name: Interactable
+    href: CTree.Interactable.html
+  - name: .
+  - uid: CTree.Interactable.ClickCb
+    name: ClickCb
+    href: CTree.Interactable.ClickCb.html
+- uid: CTree.Interactable.MouseOverCb
+  commentId: T:CTree.Interactable.MouseOverCb
+  parent: CTree
+  href: CTree.Interactable.html
+  name: Interactable.MouseOverCb
+  nameWithType: Interactable.MouseOverCb
+  fullName: CTree.Interactable.MouseOverCb
+  spec.csharp:
+  - uid: CTree.Interactable
+    name: Interactable
+    href: CTree.Interactable.html
+  - name: .
+  - uid: CTree.Interactable.MouseOverCb
+    name: MouseOverCb
+    href: CTree.Interactable.MouseOverCb.html
+  spec.vb:
+  - uid: CTree.Interactable
+    name: Interactable
+    href: CTree.Interactable.html
+  - name: .
+  - uid: CTree.Interactable.MouseOverCb
+    name: MouseOverCb
+    href: CTree.Interactable.MouseOverCb.html
+- uid: CTree.Interactable.DropCb
+  commentId: T:CTree.Interactable.DropCb
+  parent: CTree
+  href: CTree.Interactable.html
+  name: Interactable.DropCb
+  nameWithType: Interactable.DropCb
+  fullName: CTree.Interactable.DropCb
+  spec.csharp:
+  - uid: CTree.Interactable
+    name: Interactable
+    href: CTree.Interactable.html
+  - name: .
+  - uid: CTree.Interactable.DropCb
+    name: DropCb
+    href: CTree.Interactable.DropCb.html
+  spec.vb:
+  - uid: CTree.Interactable
+    name: Interactable
+    href: CTree.Interactable.html
+  - name: .
+  - uid: CTree.Interactable.DropCb
+    name: DropCb
+    href: CTree.Interactable.DropCb.html
+- uid: CTree.Interactable.HoverCb
+  commentId: T:CTree.Interactable.HoverCb
+  parent: CTree
+  href: CTree.Interactable.html
+  name: Interactable.HoverCb
+  nameWithType: Interactable.HoverCb
+  fullName: CTree.Interactable.HoverCb
+  spec.csharp:
+  - uid: CTree.Interactable
+    name: Interactable
+    href: CTree.Interactable.html
+  - name: .
+  - uid: CTree.Interactable.HoverCb
+    name: HoverCb
+    href: CTree.Interactable.HoverCb.html
+  spec.vb:
+  - uid: CTree.Interactable
+    name: Interactable
+    href: CTree.Interactable.html
+  - name: .
+  - uid: CTree.Interactable.HoverCb
+    name: HoverCb
+    href: CTree.Interactable.HoverCb.html
+- uid: CTree.Interactable.DragCb
+  commentId: T:CTree.Interactable.DragCb
+  parent: CTree
+  href: CTree.Interactable.html
+  name: Interactable.DragCb
+  nameWithType: Interactable.DragCb
+  fullName: CTree.Interactable.DragCb
+  spec.csharp:
+  - uid: CTree.Interactable
+    name: Interactable
+    href: CTree.Interactable.html
+  - name: .
+  - uid: CTree.Interactable.DragCb
+    name: DragCb
+    href: CTree.Interactable.DragCb.html
+  spec.vb:
+  - uid: CTree.Interactable
+    name: Interactable
+    href: CTree.Interactable.html
+  - name: .
+  - uid: CTree.Interactable.DragCb
+    name: DragCb
+    href: CTree.Interactable.DragCb.html
+- uid: CTree.Interactable.Type
+  commentId: T:CTree.Interactable.Type
+  parent: CTree
+  href: CTree.Interactable.html
+  name: Interactable.Type
+  nameWithType: Interactable.Type
+  fullName: CTree.Interactable.Type
+  spec.csharp:
+  - uid: CTree.Interactable
+    name: Interactable
+    href: CTree.Interactable.html
+  - name: .
+  - uid: CTree.Interactable.Type
+    name: Type
+    href: CTree.Interactable.Type.html
+  spec.vb:
+  - uid: CTree.Interactable
+    name: Interactable
+    href: CTree.Interactable.html
+  - name: .
+  - uid: CTree.Interactable.Type
+    name: Type
+    href: CTree.Interactable.Type.html
+- uid: CTree.IfButtonBehavior
+  commentId: T:CTree.IfButtonBehavior
+  href: CTree.IfButtonBehavior.html
+  name: IfButtonBehavior
+  nameWithType: IfButtonBehavior
+  fullName: CTree.IfButtonBehavior
+- uid: CTree.Animation
+  commentId: T:CTree.Animation
+  href: CTree.Animation.html
+  name: Animation
+  nameWithType: Animation
+  fullName: CTree.Animation
+- uid: CTree.Animation.Mode
+  commentId: T:CTree.Animation.Mode
+  parent: CTree
+  href: CTree.Animation.html
+  name: Animation.Mode
+  nameWithType: Animation.Mode
+  fullName: CTree.Animation.Mode
+  spec.csharp:
+  - uid: CTree.Animation
+    name: Animation
+    href: CTree.Animation.html
+  - name: .
+  - uid: CTree.Animation.Mode
+    name: Mode
+    href: CTree.Animation.Mode.html
+  spec.vb:
+  - uid: CTree.Animation
+    name: Animation
+    href: CTree.Animation.html
+  - name: .
+  - uid: CTree.Animation.Mode
+    name: Mode
+    href: CTree.Animation.Mode.html
+- uid: CTree.ParallelBehavior
+  commentId: T:CTree.ParallelBehavior
+  parent: CTree
+  href: CTree.ParallelBehavior.html
+  name: ParallelBehavior
+  nameWithType: ParallelBehavior
+  fullName: CTree.ParallelBehavior
+- uid: CTree.RepeatBehavior
+  commentId: T:CTree.RepeatBehavior
+  href: CTree.RepeatBehavior.html
+  name: RepeatBehavior
+  nameWithType: RepeatBehavior
+  fullName: CTree.RepeatBehavior
+- uid: CTree.GameLoop
+  commentId: T:CTree.GameLoop
+  parent: CTree
+  href: CTree.GameLoop.html
+  name: GameLoop
+  nameWithType: GameLoop
+  fullName: CTree.GameLoop
+- uid: CTree.GameLoop.DebugOptions
+  commentId: T:CTree.GameLoop.DebugOptions
+  parent: CTree
+  href: CTree.GameLoop.html
+  name: GameLoop.DebugOptions
+  nameWithType: GameLoop.DebugOptions
+  fullName: CTree.GameLoop.DebugOptions
+  spec.csharp:
+  - uid: CTree.GameLoop
+    name: GameLoop
+    href: CTree.GameLoop.html
+  - name: .
+  - uid: CTree.GameLoop.DebugOptions
+    name: DebugOptions
+    href: CTree.GameLoop.DebugOptions.html
+  spec.vb:
+  - uid: CTree.GameLoop
+    name: GameLoop
+    href: CTree.GameLoop.html
+  - name: .
+  - uid: CTree.GameLoop.DebugOptions
+    name: DebugOptions
+    href: CTree.GameLoop.DebugOptions.html
+- uid: CTree.GameLoop.LogOptions
+  commentId: T:CTree.GameLoop.LogOptions
+  parent: CTree
+  href: CTree.GameLoop.html
+  name: GameLoop.LogOptions
+  nameWithType: GameLoop.LogOptions
+  fullName: CTree.GameLoop.LogOptions
+  spec.csharp:
+  - uid: CTree.GameLoop
+    name: GameLoop
+    href: CTree.GameLoop.html
+  - name: .
+  - uid: CTree.GameLoop.LogOptions
+    name: LogOptions
+    href: CTree.GameLoop.LogOptions.html
+  spec.vb:
+  - uid: CTree.GameLoop
+    name: GameLoop
+    href: CTree.GameLoop.html
+  - name: .
+  - uid: CTree.GameLoop.LogOptions
+    name: LogOptions
+    href: CTree.GameLoop.LogOptions.html
+- uid: CTree.GameLoop.Options
+  commentId: T:CTree.GameLoop.Options
+  parent: CTree
+  href: CTree.GameLoop.html
+  name: GameLoop.Options
+  nameWithType: GameLoop.Options
+  fullName: CTree.GameLoop.Options
+  spec.csharp:
+  - uid: CTree.GameLoop
+    name: GameLoop
+    href: CTree.GameLoop.html
+  - name: .
+  - uid: CTree.GameLoop.Options
+    name: Options
+    href: CTree.GameLoop.Options.html
+  spec.vb:
+  - uid: CTree.GameLoop
+    name: GameLoop
+    href: CTree.GameLoop.html
+  - name: .
+  - uid: CTree.GameLoop.Options
+    name: Options
+    href: CTree.GameLoop.Options.html
+- uid: CTree.ProceduralAnimator
+  commentId: T:CTree.ProceduralAnimator
+  href: CTree.ProceduralAnimator.html
+  name: ProceduralAnimator
+  nameWithType: ProceduralAnimator
+  fullName: CTree.ProceduralAnimator
+- uid: CTree.ProceduralAnimator.Interpolator
+  commentId: T:CTree.ProceduralAnimator.Interpolator
+  parent: CTree
+  href: CTree.ProceduralAnimator.html
+  name: ProceduralAnimator.Interpolator
+  nameWithType: ProceduralAnimator.Interpolator
+  fullName: CTree.ProceduralAnimator.Interpolator
+  spec.csharp:
+  - uid: CTree.ProceduralAnimator
+    name: ProceduralAnimator
+    href: CTree.ProceduralAnimator.html
+  - name: .
+  - uid: CTree.ProceduralAnimator.Interpolator
+    name: Interpolator
+    href: CTree.ProceduralAnimator.Interpolator.html
+  spec.vb:
+  - uid: CTree.ProceduralAnimator
+    name: ProceduralAnimator
+    href: CTree.ProceduralAnimator.html
+  - name: .
+  - uid: CTree.ProceduralAnimator.Interpolator
+    name: Interpolator
+    href: CTree.ProceduralAnimator.Interpolator.html
+- uid: CTree.Behavior
+  commentId: T:CTree.Behavior
+  parent: CTree
+  href: CTree.Behavior.html
+  name: Behavior
+  nameWithType: Behavior
+  fullName: CTree.Behavior
+- uid: CTree.IfInteractableBehavior
+  commentId: T:CTree.IfInteractableBehavior
+  href: CTree.IfInteractableBehavior.html
+  name: IfInteractableBehavior
+  nameWithType: IfInteractableBehavior
+  fullName: CTree.IfInteractableBehavior
+- uid: CTree.IfInteractableBehavior.Type
+  commentId: T:CTree.IfInteractableBehavior.Type
+  parent: CTree
+  href: CTree.IfInteractableBehavior.html
+  name: IfInteractableBehavior.Type
+  nameWithType: IfInteractableBehavior.Type
+  fullName: CTree.IfInteractableBehavior.Type
+  spec.csharp:
+  - uid: CTree.IfInteractableBehavior
+    name: IfInteractableBehavior
+    href: CTree.IfInteractableBehavior.html
+  - name: .
+  - uid: CTree.IfInteractableBehavior.Type
+    name: Type
+    href: CTree.IfInteractableBehavior.Type.html
+  spec.vb:
+  - uid: CTree.IfInteractableBehavior
+    name: IfInteractableBehavior
+    href: CTree.IfInteractableBehavior.html
+  - name: .
+  - uid: CTree.IfInteractableBehavior.Type
+    name: Type
+    href: CTree.IfInteractableBehavior.Type.html
+- uid: CTree.SelectBehavior
+  commentId: T:CTree.SelectBehavior
+  href: CTree.SelectBehavior.html
+  name: SelectBehavior
+  nameWithType: SelectBehavior
+  fullName: CTree.SelectBehavior
+- uid: CTree.Location
+  commentId: T:CTree.Location
+  parent: CTree
+  href: CTree.Location.html
+  name: Location
+  nameWithType: Location
+  fullName: CTree.Location
+- uid: CTree.Factory
+  commentId: T:CTree.Factory
+  href: CTree.Factory.html
+  name: Factory
+  nameWithType: Factory
+  fullName: CTree.Factory
+- uid: CTree.World
+  commentId: T:CTree.World
+  parent: CTree
+  href: CTree.World.html
+  name: World
+  nameWithType: World
+  fullName: CTree.World
+- uid: CTree.SequenceBehavior
+  commentId: T:CTree.SequenceBehavior
+  href: CTree.SequenceBehavior.html
+  name: SequenceBehavior
+  nameWithType: SequenceBehavior
+  fullName: CTree.SequenceBehavior
+- uid: CTree.CoroutineBehavior
+  commentId: T:CTree.CoroutineBehavior
+  href: CTree.CoroutineBehavior.html
+  name: CoroutineBehavior
+  nameWithType: CoroutineBehavior
+  fullName: CTree.CoroutineBehavior
+- uid: CTree.IfBehavior
+  commentId: T:CTree.IfBehavior
+  parent: CTree
+  href: CTree.IfBehavior.html
+  name: IfBehavior
+  nameWithType: IfBehavior
+  fullName: CTree.IfBehavior
+- uid: CTree.ControlBehavior
+  commentId: T:CTree.ControlBehavior
+  parent: CTree
+  href: CTree.ControlBehavior.html
+  name: ControlBehavior
+  nameWithType: ControlBehavior
+  fullName: CTree.ControlBehavior
+- uid: CTree
+  commentId: N:CTree
+  href: CTree.html
+  name: CTree
+  nameWithType: CTree
+  fullName: CTree

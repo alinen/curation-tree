@@ -1,0 +1,888 @@
+### YamlMime:ManagedReference
+items:
+- uid: CTree.Behavior
+  commentId: T:CTree.Behavior
+  id: Behavior
+  parent: CTree
+  children:
+  - CTree.Behavior.#ctor(CTree.World)
+  - CTree.Behavior.Finished
+  - CTree.Behavior.IsActive
+  - CTree.Behavior.Setup
+  - CTree.Behavior.TearDown
+  - CTree.Behavior.Tick
+  - CTree.Behavior.ToString
+  - CTree.Behavior.m_finished
+  - CTree.Behavior.m_isActive
+  - CTree.Behavior.m_name
+  - CTree.Behavior.name
+  - CTree.Behavior.world
+  langs:
+  - csharp
+  - vb
+  name: Behavior
+  nameWithType: Behavior
+  fullName: CTree.Behavior
+  type: Class
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Behavior
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+    startLine: 32
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Base class for all Behaviors.
+  remarks: >-
+    Most custom behaviors can use the <xref href="CTree.AtomicBehavior" data-throw-if-not-resolved="false"></xref> and 
+
+    <xref href="CTree.CoroutineBehavior" data-throw-if-not-resolved="false"></xref>. However, more complex behaviors involving 
+
+    customer player interactions, such as mini games, may need to subclass Behavior.
+
+
+    Subclasses can override the following methods
+
+    * <xref href="CTree.Behavior.Setup" data-throw-if-not-resolved="false"></xref>: Executed once when the Behavior starts. Use 
+
+    this method to reset state or start coroutines. Overriden methods MUST call the base.Setup.
+
+    * <xref href="CTree.Behavior.Tick" data-throw-if-not-resolved="false"></xref>: Executed every frame. 
+
+    * <xref href="CTree.Behavior.TearDown" data-throw-if-not-resolved="false"></xref>: Executed once when the Behavior ends. Use 
+
+    this method to cleanup resources, deregister callbacks, and stop coroutines. Overriden methods MUST call the base.TearDown.
+
+    * <xref href="CTree.Behavior.Finished" data-throw-if-not-resolved="false"></xref>: Called by GameLoop to determine the status of the currently running Behavior. 
+
+    Override this method to customize the logic for determining whether a Behavior has completed.
+
+
+    Subclasses need to set <xref href="CTree.Behavior.m_finished" data-throw-if-not-resolved="false"></xref> to true to indicate that the Behavior is complete.
+
+
+    [!Note]: This is different from a typical Behavior tree implementation where nodes return SUCCESS or FAIL 
+
+    and then relinquish control back to the parent node. We may change this implementation to use canonical 
+
+    behavior trees in the future. The current implementation is simpler and sufficient for our purposes where 
+
+    the Curation Tree always runs once and all nodes SUCCEED.
+  example: []
+  syntax:
+    content: public class Behavior
+    content.vb: Public Class Behavior
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - CTree.Animation
+  - CTree.AtomicBehavior
+  - CTree.ControlBehavior
+  - CTree.CoroutineBehavior
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: CTree.Behavior.m_finished
+  commentId: F:CTree.Behavior.m_finished
+  id: m_finished
+  parent: CTree.Behavior
+  langs:
+  - csharp
+  - vb
+  name: m_finished
+  nameWithType: Behavior.m_finished
+  fullName: CTree.Behavior.m_finished
+  type: Field
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: m_finished
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+    startLine: 39
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Boolean that indicates that the Behavior has finished executing and GameLoop should move to the next Behavior
+  example: []
+  syntax:
+    content: protected bool m_finished
+    return:
+      type: System.Boolean
+    content.vb: Protected m_finished As Boolean
+- uid: CTree.Behavior.m_isActive
+  commentId: F:CTree.Behavior.m_isActive
+  id: m_isActive
+  parent: CTree.Behavior
+  langs:
+  - csharp
+  - vb
+  name: m_isActive
+  nameWithType: Behavior.m_isActive
+  fullName: CTree.Behavior.m_isActive
+  type: Field
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: m_isActive
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+    startLine: 45
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: >-
+    Boolean that indicates that the Behavor is currently running. 
+
+    Interactable objects only trigger on active Behaviors.
+  example: []
+  syntax:
+    content: protected bool m_isActive
+    return:
+      type: System.Boolean
+    content.vb: Protected m_isActive As Boolean
+- uid: CTree.Behavior.m_name
+  commentId: F:CTree.Behavior.m_name
+  id: m_name
+  parent: CTree.Behavior
+  langs:
+  - csharp
+  - vb
+  name: m_name
+  nameWithType: Behavior.m_name
+  fullName: CTree.Behavior.m_name
+  type: Field
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: m_name
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+    startLine: 50
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: String containing the input line used to create this Behavior (for debugging)
+  example: []
+  syntax:
+    content: protected string m_name
+    return:
+      type: System.String
+    content.vb: Protected m_name As String
+- uid: CTree.Behavior.name
+  commentId: P:CTree.Behavior.name
+  id: name
+  parent: CTree.Behavior
+  langs:
+  - csharp
+  - vb
+  name: name
+  nameWithType: Behavior.name
+  fullName: CTree.Behavior.name
+  type: Property
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: name
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+    startLine: 55
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Value containing the input line used to create this Behavior (for debugging)
+  example: []
+  syntax:
+    content: public virtual string name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Overridable Property name As String
+  overload: CTree.Behavior.name*
+- uid: CTree.Behavior.#ctor(CTree.World)
+  commentId: M:CTree.Behavior.#ctor(CTree.World)
+  id: '#ctor(CTree.World)'
+  parent: CTree.Behavior
+  langs:
+  - csharp
+  - vb
+  name: Behavior(World)
+  nameWithType: Behavior.Behavior(World)
+  fullName: CTree.Behavior.Behavior(CTree.World)
+  type: Constructor
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: .ctor
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+    startLine: 65
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Constructor
+  example: []
+  syntax:
+    content: public Behavior(World w)
+    parameters:
+    - id: w
+      type: CTree.World
+      description: Object for accessing global world state.
+    content.vb: Public Sub New(w As World)
+  overload: CTree.Behavior.#ctor*
+  nameWithType.vb: Behavior.New(World)
+  fullName.vb: CTree.Behavior.New(CTree.World)
+  name.vb: New(World)
+- uid: CTree.Behavior.Tick
+  commentId: M:CTree.Behavior.Tick
+  id: Tick
+  parent: CTree.Behavior
+  langs:
+  - csharp
+  - vb
+  name: Tick()
+  nameWithType: Behavior.Tick()
+  fullName: CTree.Behavior.Tick()
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Tick
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+    startLine: 74
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Override this function to perform per-frame logic.
+  example: []
+  syntax:
+    content: public virtual void Tick()
+    content.vb: Public Overridable Sub Tick()
+  overload: CTree.Behavior.Tick*
+- uid: CTree.Behavior.Setup
+  commentId: M:CTree.Behavior.Setup
+  id: Setup
+  parent: CTree.Behavior
+  langs:
+  - csharp
+  - vb
+  name: Setup()
+  nameWithType: Behavior.Setup()
+  fullName: CTree.Behavior.Setup()
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Setup
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+    startLine: 79
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Override this function to initializee the behavior.
+  example: []
+  syntax:
+    content: public virtual void Setup()
+    content.vb: Public Overridable Sub Setup()
+  overload: CTree.Behavior.Setup*
+- uid: CTree.Behavior.TearDown
+  commentId: M:CTree.Behavior.TearDown
+  id: TearDown
+  parent: CTree.Behavior
+  langs:
+  - csharp
+  - vb
+  name: TearDown()
+  nameWithType: Behavior.TearDown()
+  fullName: CTree.Behavior.TearDown()
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: TearDown
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+    startLine: 89
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Override this function to cleanup the behavior.
+  example: []
+  syntax:
+    content: public virtual void TearDown()
+    content.vb: Public Overridable Sub TearDown()
+  overload: CTree.Behavior.TearDown*
+- uid: CTree.Behavior.Finished
+  commentId: M:CTree.Behavior.Finished
+  id: Finished
+  parent: CTree.Behavior
+  langs:
+  - csharp
+  - vb
+  name: Finished()
+  nameWithType: Behavior.Finished()
+  fullName: CTree.Behavior.Finished()
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Finished
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+    startLine: 99
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Query whether the Behavior has completed or not.
+  example: []
+  syntax:
+    content: public virtual bool Finished()
+    return:
+      type: System.Boolean
+      description: True if the Behavior is finished; False otherwise.
+    content.vb: Public Overridable Function Finished() As Boolean
+  overload: CTree.Behavior.Finished*
+- uid: CTree.Behavior.IsActive
+  commentId: M:CTree.Behavior.IsActive
+  id: IsActive
+  parent: CTree.Behavior
+  langs:
+  - csharp
+  - vb
+  name: IsActive()
+  nameWithType: Behavior.IsActive()
+  fullName: CTree.Behavior.IsActive()
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: IsActive
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+    startLine: 108
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Query whether the Behavior is currently executing or not.
+  example: []
+  syntax:
+    content: public bool IsActive()
+    return:
+      type: System.Boolean
+      description: True if the Behavior is currently running. False otherwise
+    content.vb: Public Function IsActive() As Boolean
+  overload: CTree.Behavior.IsActive*
+- uid: CTree.Behavior.world
+  commentId: P:CTree.Behavior.world
+  id: world
+  parent: CTree.Behavior
+  langs:
+  - csharp
+  - vb
+  name: world
+  nameWithType: Behavior.world
+  fullName: CTree.Behavior.world
+  type: Property
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: world
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+    startLine: 116
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Accessor for the object that hold global world state.
+  example: []
+  syntax:
+    content: protected World world { get; }
+    parameters: []
+    return:
+      type: CTree.World
+    content.vb: Protected ReadOnly Property world As World
+  overload: CTree.Behavior.world*
+- uid: CTree.Behavior.ToString
+  commentId: M:CTree.Behavior.ToString
+  id: ToString
+  parent: CTree.Behavior
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Behavior.ToString()
+  fullName: CTree.Behavior.ToString()
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: ToString
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
+    startLine: 125
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Accessor for a string representation of this Behavior.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: String representation for this object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: CTree.Behavior.ToString*
+references:
+- uid: CTree.AtomicBehavior
+  commentId: T:CTree.AtomicBehavior
+  href: CTree.AtomicBehavior.html
+  name: AtomicBehavior
+  nameWithType: AtomicBehavior
+  fullName: CTree.AtomicBehavior
+- uid: CTree.CoroutineBehavior
+  commentId: T:CTree.CoroutineBehavior
+  href: CTree.CoroutineBehavior.html
+  name: CoroutineBehavior
+  nameWithType: CoroutineBehavior
+  fullName: CTree.CoroutineBehavior
+- uid: CTree.Behavior.Setup
+  commentId: M:CTree.Behavior.Setup
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_Setup
+  name: Setup()
+  nameWithType: Behavior.Setup()
+  fullName: CTree.Behavior.Setup()
+  spec.csharp:
+  - uid: CTree.Behavior.Setup
+    name: Setup
+    href: CTree.Behavior.html#CTree_Behavior_Setup
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.Behavior.Setup
+    name: Setup
+    href: CTree.Behavior.html#CTree_Behavior_Setup
+  - name: (
+  - name: )
+- uid: CTree.Behavior.Tick
+  commentId: M:CTree.Behavior.Tick
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_Tick
+  name: Tick()
+  nameWithType: Behavior.Tick()
+  fullName: CTree.Behavior.Tick()
+  spec.csharp:
+  - uid: CTree.Behavior.Tick
+    name: Tick
+    href: CTree.Behavior.html#CTree_Behavior_Tick
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.Behavior.Tick
+    name: Tick
+    href: CTree.Behavior.html#CTree_Behavior_Tick
+  - name: (
+  - name: )
+- uid: CTree.Behavior.TearDown
+  commentId: M:CTree.Behavior.TearDown
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_TearDown
+  name: TearDown()
+  nameWithType: Behavior.TearDown()
+  fullName: CTree.Behavior.TearDown()
+  spec.csharp:
+  - uid: CTree.Behavior.TearDown
+    name: TearDown
+    href: CTree.Behavior.html#CTree_Behavior_TearDown
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.Behavior.TearDown
+    name: TearDown
+    href: CTree.Behavior.html#CTree_Behavior_TearDown
+  - name: (
+  - name: )
+- uid: CTree.Behavior.Finished
+  commentId: M:CTree.Behavior.Finished
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_Finished
+  name: Finished()
+  nameWithType: Behavior.Finished()
+  fullName: CTree.Behavior.Finished()
+  spec.csharp:
+  - uid: CTree.Behavior.Finished
+    name: Finished
+    href: CTree.Behavior.html#CTree_Behavior_Finished
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.Behavior.Finished
+    name: Finished
+    href: CTree.Behavior.html#CTree_Behavior_Finished
+  - name: (
+  - name: )
+- uid: CTree.Behavior.m_finished
+  commentId: F:CTree.Behavior.m_finished
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_m_finished
+  name: m_finished
+  nameWithType: Behavior.m_finished
+  fullName: CTree.Behavior.m_finished
+- uid: CTree
+  commentId: N:CTree
+  href: CTree.html
+  name: CTree
+  nameWithType: CTree
+  fullName: CTree
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: CTree.Behavior
+  commentId: T:CTree.Behavior
+  parent: CTree
+  href: CTree.Behavior.html
+  name: Behavior
+  nameWithType: Behavior
+  fullName: CTree.Behavior
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: CTree.Behavior.name*
+  commentId: Overload:CTree.Behavior.name
+  href: CTree.Behavior.html#CTree_Behavior_name
+  name: name
+  nameWithType: Behavior.name
+  fullName: CTree.Behavior.name
+- uid: CTree.Behavior.#ctor*
+  commentId: Overload:CTree.Behavior.#ctor
+  href: CTree.Behavior.html#CTree_Behavior__ctor_CTree_World_
+  name: Behavior
+  nameWithType: Behavior.Behavior
+  fullName: CTree.Behavior.Behavior
+  nameWithType.vb: Behavior.New
+  fullName.vb: CTree.Behavior.New
+  name.vb: New
+- uid: CTree.World
+  commentId: T:CTree.World
+  parent: CTree
+  href: CTree.World.html
+  name: World
+  nameWithType: World
+  fullName: CTree.World
+- uid: CTree.Behavior.Tick*
+  commentId: Overload:CTree.Behavior.Tick
+  href: CTree.Behavior.html#CTree_Behavior_Tick
+  name: Tick
+  nameWithType: Behavior.Tick
+  fullName: CTree.Behavior.Tick
+- uid: CTree.Behavior.Setup*
+  commentId: Overload:CTree.Behavior.Setup
+  href: CTree.Behavior.html#CTree_Behavior_Setup
+  name: Setup
+  nameWithType: Behavior.Setup
+  fullName: CTree.Behavior.Setup
+- uid: CTree.Behavior.TearDown*
+  commentId: Overload:CTree.Behavior.TearDown
+  href: CTree.Behavior.html#CTree_Behavior_TearDown
+  name: TearDown
+  nameWithType: Behavior.TearDown
+  fullName: CTree.Behavior.TearDown
+- uid: CTree.Behavior.Finished*
+  commentId: Overload:CTree.Behavior.Finished
+  href: CTree.Behavior.html#CTree_Behavior_Finished
+  name: Finished
+  nameWithType: Behavior.Finished
+  fullName: CTree.Behavior.Finished
+- uid: CTree.Behavior.IsActive*
+  commentId: Overload:CTree.Behavior.IsActive
+  href: CTree.Behavior.html#CTree_Behavior_IsActive
+  name: IsActive
+  nameWithType: Behavior.IsActive
+  fullName: CTree.Behavior.IsActive
+- uid: CTree.Behavior.world*
+  commentId: Overload:CTree.Behavior.world
+  href: CTree.Behavior.html#CTree_Behavior_world
+  name: world
+  nameWithType: Behavior.world
+  fullName: CTree.Behavior.world
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: CTree.Behavior.ToString*
+  commentId: Overload:CTree.Behavior.ToString
+  href: CTree.Behavior.html#CTree_Behavior_ToString
+  name: ToString
+  nameWithType: Behavior.ToString
+  fullName: CTree.Behavior.ToString

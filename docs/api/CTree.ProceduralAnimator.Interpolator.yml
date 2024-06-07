@@ -1,0 +1,65 @@
+### YamlMime:ManagedReference
+items:
+- uid: CTree.ProceduralAnimator.Interpolator
+  commentId: T:CTree.ProceduralAnimator.Interpolator
+  id: ProceduralAnimator.Interpolator
+  parent: CTree
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ProceduralAnimator.Interpolator
+  nameWithType: ProceduralAnimator.Interpolator
+  fullName: CTree.ProceduralAnimator.Interpolator
+  type: Delegate
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Interpolator
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+    startLine: 101
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Implementaton function for normalizing time into the range [0, 1] given a desired duration.
+  example: []
+  syntax:
+    content: public delegate float ProceduralAnimator.Interpolator(float t, float duration)
+    parameters:
+    - id: t
+      type: System.Single
+      description: Value between 0 and duration, inclusive
+    - id: duration
+      type: System.Single
+      description: Duration of the interpolation (seconds)
+    return:
+      type: System.Single
+      description: Normalized value between 0 and 1
+    content.vb: Public Delegate Function ProceduralAnimator.Interpolator(t As Single, duration As Single) As Single
+references:
+- uid: CTree
+  commentId: N:CTree
+  href: CTree.html
+  name: CTree
+  nameWithType: CTree
+  fullName: CTree
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

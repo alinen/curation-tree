@@ -1,0 +1,47 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+            "src": "../BasicExample",
+            "files": [
+                "**/*.csproj"
+            ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "_site/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "statictoc"
+    ],
+    "globalMetadata": {
+        "_appName": "Curation Tree",
+        "_appTitle": "Curation Tree",
+        "_appLogoPath": "images/CurationTree.png",
+        "_enableSearch": false,
+        "_disableContribution": true,
+        "pdf": false
+    }
+  }
+}

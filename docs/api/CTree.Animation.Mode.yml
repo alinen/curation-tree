@@ -1,0 +1,118 @@
+### YamlMime:ManagedReference
+items:
+- uid: CTree.Animation.Mode
+  commentId: T:CTree.Animation.Mode
+  id: Animation.Mode
+  parent: CTree
+  children:
+  - CTree.Animation.Mode.PLAY
+  - CTree.Animation.Mode.STOP
+  langs:
+  - csharp
+  - vb
+  name: Animation.Mode
+  nameWithType: Animation.Mode
+  fullName: CTree.Animation.Mode
+  type: Enum
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Mode
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
+    startLine: 19
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Animation mode
+  example: []
+  syntax:
+    content: public enum Animation.Mode
+    content.vb: Public Enum Animation.Mode
+- uid: CTree.Animation.Mode.PLAY
+  commentId: F:CTree.Animation.Mode.PLAY
+  id: PLAY
+  parent: CTree.Animation.Mode
+  langs:
+  - csharp
+  - vb
+  name: PLAY
+  nameWithType: Animation.Mode.PLAY
+  fullName: CTree.Animation.Mode.PLAY
+  type: Field
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: PLAY
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
+    startLine: 24
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Play the animation
+  example: []
+  syntax:
+    content: PLAY = 0
+    return:
+      type: CTree.Animation.Mode
+- uid: CTree.Animation.Mode.STOP
+  commentId: F:CTree.Animation.Mode.STOP
+  id: STOP
+  parent: CTree.Animation.Mode
+  langs:
+  - csharp
+  - vb
+  name: STOP
+  nameWithType: Animation.Mode.STOP
+  fullName: CTree.Animation.Mode.STOP
+  type: Field
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: STOP
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
+    startLine: 28
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Stop the animation
+  example: []
+  syntax:
+    content: STOP = 1
+    return:
+      type: CTree.Animation.Mode
+references:
+- uid: CTree
+  commentId: N:CTree
+  href: CTree.html
+  name: CTree
+  nameWithType: CTree
+  fullName: CTree
+- uid: CTree.Animation.Mode
+  commentId: T:CTree.Animation.Mode
+  parent: CTree
+  href: CTree.Animation.html
+  name: Animation.Mode
+  nameWithType: Animation.Mode
+  fullName: CTree.Animation.Mode
+  spec.csharp:
+  - uid: CTree.Animation
+    name: Animation
+    href: CTree.Animation.html
+  - name: .
+  - uid: CTree.Animation.Mode
+    name: Mode
+    href: CTree.Animation.Mode.html
+  spec.vb:
+  - uid: CTree.Animation
+    name: Animation
+    href: CTree.Animation.html
+  - name: .
+  - uid: CTree.Animation.Mode
+    name: Mode
+    href: CTree.Animation.Mode.html

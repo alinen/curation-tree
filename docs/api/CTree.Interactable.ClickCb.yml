@@ -1,0 +1,45 @@
+### YamlMime:ManagedReference
+items:
+- uid: CTree.Interactable.ClickCb
+  commentId: T:CTree.Interactable.ClickCb
+  id: Interactable.ClickCb
+  parent: CTree
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: Interactable.ClickCb
+  nameWithType: Interactable.ClickCb
+  fullName: CTree.Interactable.ClickCb
+  type: Delegate
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: ClickCb
+    path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+    startLine: 14
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: public delegate void Interactable.ClickCb(Interactable i)
+    parameters:
+    - id: i
+      type: CTree.Interactable
+    content.vb: Public Delegate Sub Interactable.ClickCb(i As Interactable)
+references:
+- uid: CTree
+  commentId: N:CTree
+  href: CTree.html
+  name: CTree
+  nameWithType: CTree
+  fullName: CTree
+- uid: CTree.Interactable
+  commentId: T:CTree.Interactable
+  parent: CTree
+  href: CTree.Interactable.html
+  name: Interactable
+  nameWithType: Interactable
+  fullName: CTree.Interactable

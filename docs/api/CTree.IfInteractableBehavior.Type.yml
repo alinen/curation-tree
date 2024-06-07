@@ -1,0 +1,234 @@
+### YamlMime:ManagedReference
+items:
+- uid: CTree.IfInteractableBehavior.Type
+  commentId: T:CTree.IfInteractableBehavior.Type
+  id: IfInteractableBehavior.Type
+  parent: CTree
+  children:
+  - CTree.IfInteractableBehavior.Type.CLICK
+  - CTree.IfInteractableBehavior.Type.DRAG
+  - CTree.IfInteractableBehavior.Type.DROP
+  - CTree.IfInteractableBehavior.Type.HOVER
+  - CTree.IfInteractableBehavior.Type.MOUSE_OVER
+  - CTree.IfInteractableBehavior.Type.UNKNOWN
+  langs:
+  - csharp
+  - vb
+  name: IfInteractableBehavior.Type
+  nameWithType: IfInteractableBehavior.Type
+  fullName: CTree.IfInteractableBehavior.Type
+  type: Enum
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Type
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
+    startLine: 14
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Event types that can trigger a condition
+  example: []
+  syntax:
+    content: public enum IfInteractableBehavior.Type
+    content.vb: Public Enum IfInteractableBehavior.Type
+- uid: CTree.IfInteractableBehavior.Type.UNKNOWN
+  commentId: F:CTree.IfInteractableBehavior.Type.UNKNOWN
+  id: UNKNOWN
+  parent: CTree.IfInteractableBehavior.Type
+  langs:
+  - csharp
+  - vb
+  name: UNKNOWN
+  nameWithType: IfInteractableBehavior.Type.UNKNOWN
+  fullName: CTree.IfInteractableBehavior.Type.UNKNOWN
+  type: Field
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: UNKNOWN
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
+    startLine: 18
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Unknown event, e.g. the event type is not set
+  example: []
+  syntax:
+    content: UNKNOWN = 0
+    return:
+      type: CTree.IfInteractableBehavior.Type
+- uid: CTree.IfInteractableBehavior.Type.CLICK
+  commentId: F:CTree.IfInteractableBehavior.Type.CLICK
+  id: CLICK
+  parent: CTree.IfInteractableBehavior.Type
+  langs:
+  - csharp
+  - vb
+  name: CLICK
+  nameWithType: IfInteractableBehavior.Type.CLICK
+  fullName: CTree.IfInteractableBehavior.Type.CLICK
+  type: Field
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: CLICK
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
+    startLine: 22
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Trigger when the user clicks on an asset
+  example: []
+  syntax:
+    content: CLICK = 1
+    return:
+      type: CTree.IfInteractableBehavior.Type
+- uid: CTree.IfInteractableBehavior.Type.DRAG
+  commentId: F:CTree.IfInteractableBehavior.Type.DRAG
+  id: DRAG
+  parent: CTree.IfInteractableBehavior.Type
+  langs:
+  - csharp
+  - vb
+  name: DRAG
+  nameWithType: IfInteractableBehavior.Type.DRAG
+  fullName: CTree.IfInteractableBehavior.Type.DRAG
+  type: Field
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: DRAG
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
+    startLine: 26
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Trigger when the user picks up an asset
+  example: []
+  syntax:
+    content: DRAG = 2
+    return:
+      type: CTree.IfInteractableBehavior.Type
+- uid: CTree.IfInteractableBehavior.Type.HOVER
+  commentId: F:CTree.IfInteractableBehavior.Type.HOVER
+  id: HOVER
+  parent: CTree.IfInteractableBehavior.Type
+  langs:
+  - csharp
+  - vb
+  name: HOVER
+  nameWithType: IfInteractableBehavior.Type.HOVER
+  fullName: CTree.IfInteractableBehavior.Type.HOVER
+  type: Field
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: HOVER
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
+    startLine: 30
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Trigger when the user drags an object on top of another object
+  example: []
+  syntax:
+    content: HOVER = 3
+    return:
+      type: CTree.IfInteractableBehavior.Type
+- uid: CTree.IfInteractableBehavior.Type.DROP
+  commentId: F:CTree.IfInteractableBehavior.Type.DROP
+  id: DROP
+  parent: CTree.IfInteractableBehavior.Type
+  langs:
+  - csharp
+  - vb
+  name: DROP
+  nameWithType: IfInteractableBehavior.Type.DROP
+  fullName: CTree.IfInteractableBehavior.Type.DROP
+  type: Field
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: DROP
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
+    startLine: 34
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Trigger when the user drops an object on top of another object
+  example: []
+  syntax:
+    content: DROP = 4
+    return:
+      type: CTree.IfInteractableBehavior.Type
+- uid: CTree.IfInteractableBehavior.Type.MOUSE_OVER
+  commentId: F:CTree.IfInteractableBehavior.Type.MOUSE_OVER
+  id: MOUSE_OVER
+  parent: CTree.IfInteractableBehavior.Type
+  langs:
+  - csharp
+  - vb
+  name: MOUSE_OVER
+  nameWithType: IfInteractableBehavior.Type.MOUSE_OVER
+  fullName: CTree.IfInteractableBehavior.Type.MOUSE_OVER
+  type: Field
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: MOUSE_OVER
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
+    startLine: 38
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Trigger when the mouse is over an object (2D only)
+  example: []
+  syntax:
+    content: MOUSE_OVER = 5
+    return:
+      type: CTree.IfInteractableBehavior.Type
+references:
+- uid: CTree
+  commentId: N:CTree
+  href: CTree.html
+  name: CTree
+  nameWithType: CTree
+  fullName: CTree
+- uid: CTree.IfInteractableBehavior.Type
+  commentId: T:CTree.IfInteractableBehavior.Type
+  parent: CTree
+  href: CTree.IfInteractableBehavior.html
+  name: IfInteractableBehavior.Type
+  nameWithType: IfInteractableBehavior.Type
+  fullName: CTree.IfInteractableBehavior.Type
+  spec.csharp:
+  - uid: CTree.IfInteractableBehavior
+    name: IfInteractableBehavior
+    href: CTree.IfInteractableBehavior.html
+  - name: .
+  - uid: CTree.IfInteractableBehavior.Type
+    name: Type
+    href: CTree.IfInteractableBehavior.Type.html
+  spec.vb:
+  - uid: CTree.IfInteractableBehavior
+    name: IfInteractableBehavior
+    href: CTree.IfInteractableBehavior.html
+  - name: .
+  - uid: CTree.IfInteractableBehavior.Type
+    name: Type
+    href: CTree.IfInteractableBehavior.Type.html
