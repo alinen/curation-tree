@@ -45,11 +45,15 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Factory
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 43
+    startLine: 47
   assemblies:
   - Assembly-CSharp
   namespace: CTree
   summary: >-
+    Implements the logic for converting lines of text into instances of 
+
+    <xref href="CTree.Behavior" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
     Implements the logic for converting lines of text into behaviors. 
 
     The set of built-in behaviors have the following syntax in the input file. 
@@ -86,36 +90,36 @@ items:
 
     **State Nodes**
 
-    * <xref href="CTree.Factory.SetState(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>: VariableName, VariableValue
+    * <xref href="CTree.Factory.SetState(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
 
-    * <xref href="CTree.Factory.Add(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>: VariableName, DeltaValue
+    * <xref href="CTree.Factory.Add(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
 
 
     **Appearance Nodes**
 
-    * <xref href="CTree.Factory.Wait(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>: Duration
+    * <xref href="CTree.Factory.Wait(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
 
-    * <xref href="CTree.Factory.Show(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>: AssetName
+    * <xref href="CTree.Factory.Show(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
 
-    * <xref href="CTree.Factory.Hide(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>: AssetName
+    * <xref href="CTree.Factory.Hide(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
 
-    * <xref href="CTree.Factory.PlayAnimation(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>: AssetName, AnimationName
+    * <xref href="CTree.Factory.PlayAnimation(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
 
-    * <xref href="CTree.Factory.StopAnimation(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>: AssetName, AnimationName
+    * <xref href="CTree.Factory.StopAnimation(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
 
-    * <xref href="CTree.Factory.SetText(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>: AssetName, Message
+    * <xref href="CTree.Factory.SetText(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
 
-    * <xref href="CTree.Factory.Fade(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>: AssetName, StartAlpha, EndAlpha, Duration
+    * <xref href="CTree.Factory.Fade(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
 
-    * <xref href="CTree.Factory.Grow(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>: AssetName, StartSize, EndSize, Duration
+    * <xref href="CTree.Factory.Grow(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
 
-    * <xref href="CTree.Factory.ChangeColor(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>: AssetName, R, G, B, Duration
+    * <xref href="CTree.Factory.ChangeColor(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
 
-    * <xref href="CTree.Factory.RevertColor(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>: AssetName, Duration
+    * <xref href="CTree.Factory.RevertColor(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
 
-    * <xref href="CTree.Factory.Move(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>: AssetName, StartTransform, EndTransform, Duration, InterpolationType
+    * <xref href="CTree.Factory.Move(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
 
-    * <xref href="CTree.Factory.Pulse(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>: AssetName, NumPulses, PulseSpeed, PulseSize
+    * <xref href="CTree.Factory.Pulse(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
   example: []
   syntax:
     content: public static class Factory
@@ -148,7 +152,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Create
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 56
+    startLine: 60
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -195,7 +199,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Parallel
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 93
+    startLine: 97
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -244,7 +248,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Sequence
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 114
+    startLine: 118
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -294,7 +298,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Select
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 140
+    startLine: 144
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -348,7 +352,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Repeat
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 160
+    startLine: 164
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -396,7 +400,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: RepeatWhile
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 186
+    startLine: 190
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -448,7 +452,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: If
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 213
+    startLine: 217
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -499,7 +503,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: IfClick
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 239
+    startLine: 243
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -548,7 +552,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: IfDrop
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 261
+    startLine: 265
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -599,7 +603,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: IfMouseOver
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 285
+    startLine: 289
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -648,7 +652,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: IfHover
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 307
+    startLine: 311
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -699,7 +703,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: IfDrag
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 331
+    startLine: 335
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -748,7 +752,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Wait
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 354
+    startLine: 358
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -795,7 +799,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: PlayAnimation
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 378
+    startLine: 382
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -842,7 +846,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: StopAnimation
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 399
+    startLine: 403
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -887,7 +891,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Show
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 421
+    startLine: 425
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -935,7 +939,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Hide
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 445
+    startLine: 449
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -983,7 +987,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: SetText
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 468
+    startLine: 472
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -1031,7 +1035,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: RevertColor
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 494
+    startLine: 498
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -1078,7 +1082,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: ChangeColor
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 520
+    startLine: 524
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -1129,7 +1133,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Pulse
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 552
+    startLine: 556
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -1182,7 +1186,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Move
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 584
+    startLine: 588
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -1237,7 +1241,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Grow
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 620
+    startLine: 624
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -1284,7 +1288,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Fade
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 648
+    startLine: 652
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -1331,7 +1335,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: SetState
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 680
+    startLine: 684
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -1381,7 +1385,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Add
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
-    startLine: 714
+    startLine: 718
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -1413,6 +1417,13 @@ items:
   fullName.vb: CTree.Factory.Add(CTree.World, String)
   name.vb: Add(World, String)
 references:
+- uid: CTree.Behavior
+  commentId: T:CTree.Behavior
+  parent: CTree
+  href: CTree.Behavior.html
+  name: Behavior
+  nameWithType: Behavior
+  fullName: CTree.Behavior
 - uid: CTree.Factory.Sequence(CTree.World,System.String)
   commentId: M:CTree.Factory.Sequence(CTree.World,System.String)
   isExternal: true
@@ -2680,13 +2691,6 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: CTree.Behavior
-  commentId: T:CTree.Behavior
-  parent: CTree
-  href: CTree.Behavior.html
-  name: Behavior
-  nameWithType: Behavior
-  fullName: CTree.Behavior
 - uid: CTree.Factory.Parallel*
   commentId: Overload:CTree.Factory.Parallel
   href: CTree.Factory.html#CTree_Factory_Parallel_CTree_World_System_String_

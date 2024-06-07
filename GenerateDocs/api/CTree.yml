@@ -412,7 +412,6 @@ references:
   fullName: CTree.World
 - uid: CTree.SequenceBehavior
   commentId: T:CTree.SequenceBehavior
-  parent: CTree
   href: CTree.SequenceBehavior.html
   name: SequenceBehavior
   nameWithType: SequenceBehavior

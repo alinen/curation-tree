@@ -24,10 +24,15 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: ParallelBehavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ParallelBehavior.cs
-    startLine: 5
+    startLine: 9
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: >-
+    Implements a control Behavior that executes all sub-behaviors in parallel.
+
+    The behavior completes when all sub-behaviors have completed.
+  example: []
   syntax:
     content: 'public class ParallelBehavior : ControlBehavior'
     content.vb: Public Class ParallelBehavior Inherits ControlBehavior
@@ -76,15 +81,18 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ParallelBehavior.cs
-    startLine: 7
+    startLine: 15
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Constructor
+  example: []
   syntax:
     content: public ParallelBehavior(World w)
     parameters:
     - id: w
       type: CTree.World
+      description: Object for accessing all global state.
     content.vb: Public Sub New(w As World)
   overload: CTree.ParallelBehavior.#ctor*
   nameWithType.vb: ParallelBehavior.New(World)
@@ -108,10 +116,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: TearDown
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ParallelBehavior.cs
-    startLine: 11
+    startLine: 19
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to cleanup the behavior.
   example: []
   syntax:
     content: public override void TearDown()
@@ -136,10 +145,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ParallelBehavior.cs
-    startLine: 20
+    startLine: 28
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to initializee the behavior.
   example: []
   syntax:
     content: public override void Setup()
@@ -164,15 +174,17 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Finished
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ParallelBehavior.cs
-    startLine: 29
+    startLine: 37
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Query whether the Behavior has completed or not.
   example: []
   syntax:
     content: public override bool Finished()
     return:
       type: System.Boolean
+      description: True if the Behavior is finished; False otherwise.
     content.vb: Public Overrides Function Finished() As Boolean
   overridden: CTree.Behavior.Finished
   overload: CTree.ParallelBehavior.Finished*
@@ -194,10 +206,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Tick
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ParallelBehavior.cs
-    startLine: 38
+    startLine: 46
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to perform per-frame logic.
   example: []
   syntax:
     content: public override void Tick()

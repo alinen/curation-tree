@@ -2,11 +2,16 @@ namespace CTree
 {
   /// <summary>
   /// Runs the first behavior that has a satisfies a condition
+  /// All sub-behaviors should be conditionals.
   /// </summary>
   public class SelectBehavior : ControlBehavior
   {
       IfBehavior m_selected = null;
 
+      /// <summary>
+      /// Constructor
+      /// </summary>
+      /// <param name="w">Object for accessing all global state.</param>
       public SelectBehavior(World w) : base(w)
       {
       }

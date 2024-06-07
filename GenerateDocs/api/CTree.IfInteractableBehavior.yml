@@ -23,10 +23,15 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: IfInteractableBehavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-    startLine: 6
+    startLine: 9
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: >-
+    Implements a behavior that triggers when the user interacts with scene objects 
+
+    Use this behavior to support drag and drop and selection behaviors.
+  example: []
   syntax:
     content: 'public class IfInteractableBehavior : IfBehavior'
     content.vb: Public Class IfInteractableBehavior Inherits IfBehavior
@@ -38,7 +43,6 @@ items:
   - CTree.IfBehavior
   inheritedMembers:
   - CTree.IfBehavior.m_condition
-  - CTree.IfBehavior.m_wait
   - CTree.IfBehavior.m_isTriggered
   - CTree.IfBehavior.IsTrue
   - CTree.IfBehavior.Finished
@@ -80,19 +84,24 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-    startLine: 15
+    startLine: 51
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Constructor for click, drag, and mouseOver events
+  example: []
   syntax:
     content: public IfInteractableBehavior(World w, IfInteractableBehavior.Type t, string itemName)
     parameters:
     - id: w
       type: CTree.World
+      description: Object for accessing global state
     - id: t
       type: CTree.IfInteractableBehavior.Type
+      description: The event type that will trigger the execution of sub-behaviors
     - id: itemName
       type: System.String
+      description: The asset that will trigger the event.
     content.vb: Public Sub New(w As World, t As IfInteractableBehavior.Type, itemName As String)
   overload: CTree.IfInteractableBehavior.#ctor*
   nameWithType.vb: IfInteractableBehavior.New(World, IfInteractableBehavior.Type, String)
@@ -116,21 +125,27 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-    startLine: 48
+    startLine: 91
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Constructor for hover and drop events
+  example: []
   syntax:
     content: public IfInteractableBehavior(World w, IfInteractableBehavior.Type t, string itemName, string targetName)
     parameters:
     - id: w
       type: CTree.World
+      description: Object for accessing global state
     - id: t
       type: CTree.IfInteractableBehavior.Type
+      description: The event type that will trigger the execution of sub-behaviors
     - id: itemName
       type: System.String
+      description: The asset correpsonding to the held object.
     - id: targetName
       type: System.String
+      description: The asset correpsonding to the drop target.
     content.vb: Public Sub New(w As World, t As IfInteractableBehavior.Type, itemName As String, targetName As String)
   overload: CTree.IfInteractableBehavior.#ctor*
   nameWithType.vb: IfInteractableBehavior.New(World, IfInteractableBehavior.Type, String, String)
@@ -154,10 +169,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-    startLine: 83
+    startLine: 126
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to initializee the behavior.
   example: []
   syntax:
     content: public override void Setup()
@@ -182,10 +198,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: TearDown
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-    startLine: 89
+    startLine: 132
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to cleanup the behavior.
   example: []
   syntax:
     content: public override void TearDown()
@@ -245,13 +262,6 @@ references:
   name: m_condition
   nameWithType: IfBehavior.m_condition
   fullName: CTree.IfBehavior.m_condition
-- uid: CTree.IfBehavior.m_wait
-  commentId: F:CTree.IfBehavior.m_wait
-  parent: CTree.IfBehavior
-  href: CTree.IfBehavior.html#CTree_IfBehavior_m_wait
-  name: m_wait
-  nameWithType: IfBehavior.m_wait
-  fullName: CTree.IfBehavior.m_wait
 - uid: CTree.IfBehavior.m_isTriggered
   commentId: F:CTree.IfBehavior.m_isTriggered
   parent: CTree.IfBehavior

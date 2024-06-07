@@ -19,7 +19,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: HoverCb
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 14
+    startLine: 20
   assemblies:
   - Assembly-CSharp
   namespace: CTree

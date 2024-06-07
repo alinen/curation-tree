@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class Animation | Curation Tree ">
     
-    
+    <meta name="description" content="Behavior that implements playing and stopping animations See  See">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -190,7 +190,10 @@
 
 
   <h1 id="CTree_Animation" data-uid="CTree.Animation" class="text-break">Class Animation</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Behavior that implements playing and stopping animations
+See <a class="xref" href="CTree.Factory.html#CTree_Factory_PlayAnimation_CTree_World_System_String_">PlayAnimation(World, string)</a>
+See <a class="xref" href="CTree.Factory.html#CTree_Factory_StopAnimation_CTree_World_System_String_">StopAnimation(World, string)</a></p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -256,7 +259,8 @@
 </h3>
   <a id="CTree_Animation__ctor_" data-uid="CTree.Animation.#ctor*"></a>
   <h4 id="CTree_Animation__ctor_CTree_World_System_String_System_String_CTree_Animation_Mode_" data-uid="CTree.Animation.#ctor(CTree.World,System.String,System.String,CTree.Animation.Mode)">Animation(World, string, string, Mode)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -275,22 +279,26 @@
       <tr>
         <td><a class="xref" href="CTree.World.html">World</a></td>
         <td><span class="parametername">w</span></td>
-        <td></td>
+        <td><p>Object for accessing global state</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">objName</span></td>
-        <td></td>
+        <td><p>An asset with an Animation component</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">aniName</span></td>
-        <td></td>
+        <td><p>The name of an animation on <code>objName</code></p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="CTree.Animation.html">Animation</a>.<a class="xref" href="CTree.Animation.Mode.html">Mode</a></td>
         <td><span class="parametername">m</span></td>
-        <td></td>
+        <td><p>Specifies whether we should play or stop the animation</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -298,7 +306,8 @@
 </h3>
   <a id="CTree_Animation_Setup_" data-uid="CTree.Animation.Setup*"></a>
   <h4 id="CTree_Animation_Setup" data-uid="CTree.Animation.Setup">Setup()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Override this function to initializee the behavior.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -308,7 +317,8 @@
   <div><a class="xref" href="CTree.Behavior.html#CTree_Behavior_Setup">Behavior.Setup()</a></div>
   <a id="CTree_Animation_Tick_" data-uid="CTree.Animation.Tick*"></a>
   <h4 id="CTree_Animation_Tick" data-uid="CTree.Animation.Tick">Tick()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Override this function to perform per-frame logic.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">

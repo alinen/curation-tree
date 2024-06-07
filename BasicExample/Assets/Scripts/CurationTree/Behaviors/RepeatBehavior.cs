@@ -3,12 +3,22 @@ using UnityEngine;
 
 namespace CTree
 {
-  // Runs a set of behaviors in paralle until the associated condition becomes false
+  /// <summary>
+  /// Implements a control Behavior that repeats all sub-behaviors until a condition becomes false.
+  /// Each iteration, all sub-behaviors are run in parallel. The iteration completes when all sub-behaviors repeat.
+  /// The conditional is checked at the start of each iteration. If true, the sub-behaviors are re-run.
+  /// </summary>
   public class RepeatBehavior : ParallelBehavior
   {
       protected System.Func<World, bool> m_condition = null;
       protected bool m_isRunning = false;
 
+      /// <summary>
+      /// Constructor
+      /// </summary>
+      /// <param name="w">Object for accessing all global state.</param>
+      /// <param name="condition">Function that implements the conditional. 
+      /// It takes Workd as a parameter and returns a boolean.</param>
       public RepeatBehavior(World w, System.Func<World, bool> condition) : base(w)
       {
           m_condition = condition;

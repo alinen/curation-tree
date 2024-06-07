@@ -3,8 +3,16 @@ using UnityEngine;
 
 namespace CTree
 {
+  /// <summary>
+  /// Implements a control Behavior that executes all sub-behaviors in parallel.
+  /// The behavior completes when all sub-behaviors have completed.
+  /// </summary>
   public class ParallelBehavior : ControlBehavior
   {
+      /// <summary>
+      /// Constructor
+      /// </summary>
+      /// <param name="w">Object for accessing all global state.</param>
       public ParallelBehavior(World w) : base(w)
       {
       }

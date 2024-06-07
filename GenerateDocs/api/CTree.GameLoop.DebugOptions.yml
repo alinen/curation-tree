@@ -21,10 +21,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: DebugOptions
     path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-    startLine: 11
+    startLine: 28
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Debug options
+  example: []
   syntax:
     content: >-
       [Serializable]
@@ -66,7 +68,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: tree
     path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-    startLine: 14
+    startLine: 31
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -93,7 +95,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: selection
     path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-    startLine: 15
+    startLine: 32
   assemblies:
   - Assembly-CSharp
   namespace: CTree

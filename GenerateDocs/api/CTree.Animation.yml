@@ -22,10 +22,17 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Animation
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-    startLine: 6
+    startLine: 11
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: >-
+    Behavior that implements playing and stopping animations
+
+    See <xref href="CTree.Factory.PlayAnimation(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
+
+    See <xref href="CTree.Factory.StopAnimation(CTree.World%2cSystem.String)" data-throw-if-not-resolved="false"></xref>
+  example: []
   syntax:
     content: 'public class Animation : Behavior'
     content.vb: Public Class Animation Inherits Behavior
@@ -66,21 +73,27 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-    startLine: 18
+    startLine: 39
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Constructor
+  example: []
   syntax:
     content: public Animation(World w, string objName, string aniName, Animation.Mode m = Mode.PLAY)
     parameters:
     - id: w
       type: CTree.World
+      description: Object for accessing global state
     - id: objName
       type: System.String
+      description: An asset with an Animation component
     - id: aniName
       type: System.String
+      description: The name of an animation on <code>objName</code>
     - id: m
       type: CTree.Animation.Mode
+      description: Specifies whether we should play or stop the animation
     content.vb: Public Sub New(w As World, objName As String, aniName As String, m As Animation.Mode = Mode.PLAY)
   overload: CTree.Animation.#ctor*
   nameWithType.vb: Animation.New(World, String, String, Animation.Mode)
@@ -104,10 +117,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-    startLine: 28
+    startLine: 49
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to initializee the behavior.
   example: []
   syntax:
     content: public override void Setup()
@@ -132,10 +146,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Tick
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-    startLine: 44
+    startLine: 65
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to perform per-frame logic.
   example: []
   syntax:
     content: public override void Tick()
@@ -143,6 +158,86 @@ items:
   overridden: CTree.Behavior.Tick
   overload: CTree.Animation.Tick*
 references:
+- uid: CTree.Factory.PlayAnimation(CTree.World,System.String)
+  commentId: M:CTree.Factory.PlayAnimation(CTree.World,System.String)
+  isExternal: true
+  href: CTree.Factory.html#CTree_Factory_PlayAnimation_CTree_World_System_String_
+  name: PlayAnimation(World, string)
+  nameWithType: Factory.PlayAnimation(World, string)
+  fullName: CTree.Factory.PlayAnimation(CTree.World, string)
+  nameWithType.vb: Factory.PlayAnimation(World, String)
+  fullName.vb: CTree.Factory.PlayAnimation(CTree.World, String)
+  name.vb: PlayAnimation(World, String)
+  spec.csharp:
+  - uid: CTree.Factory.PlayAnimation(CTree.World,System.String)
+    name: PlayAnimation
+    href: CTree.Factory.html#CTree_Factory_PlayAnimation_CTree_World_System_String_
+  - name: (
+  - uid: CTree.World
+    name: World
+    href: CTree.World.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: CTree.Factory.PlayAnimation(CTree.World,System.String)
+    name: PlayAnimation
+    href: CTree.Factory.html#CTree_Factory_PlayAnimation_CTree_World_System_String_
+  - name: (
+  - uid: CTree.World
+    name: World
+    href: CTree.World.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: CTree.Factory.StopAnimation(CTree.World,System.String)
+  commentId: M:CTree.Factory.StopAnimation(CTree.World,System.String)
+  isExternal: true
+  href: CTree.Factory.html#CTree_Factory_StopAnimation_CTree_World_System_String_
+  name: StopAnimation(World, string)
+  nameWithType: Factory.StopAnimation(World, string)
+  fullName: CTree.Factory.StopAnimation(CTree.World, string)
+  nameWithType.vb: Factory.StopAnimation(World, String)
+  fullName.vb: CTree.Factory.StopAnimation(CTree.World, String)
+  name.vb: StopAnimation(World, String)
+  spec.csharp:
+  - uid: CTree.Factory.StopAnimation(CTree.World,System.String)
+    name: StopAnimation
+    href: CTree.Factory.html#CTree_Factory_StopAnimation_CTree_World_System_String_
+  - name: (
+  - uid: CTree.World
+    name: World
+    href: CTree.World.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: CTree.Factory.StopAnimation(CTree.World,System.String)
+    name: StopAnimation
+    href: CTree.Factory.html#CTree_Factory_StopAnimation_CTree_World_System_String_
+  - name: (
+  - uid: CTree.World
+    name: World
+    href: CTree.World.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
 - uid: CTree
   commentId: N:CTree
   href: CTree.html

@@ -24,7 +24,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Location
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
-    startLine: 12
+    startLine: 16
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -170,7 +170,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: IsAvailable
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
-    startLine: 56
+    startLine: 60
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -201,7 +201,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: GetAnchorPlacement
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
-    startLine: 66
+    startLine: 70
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -237,7 +237,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: AddOcupant
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
-    startLine: 90
+    startLine: 94
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -266,7 +266,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: RemoveOcupant
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
-    startLine: 106
+    startLine: 110
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -295,7 +295,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: IsOcupant
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
-    startLine: 112
+    startLine: 116
   assemblies:
   - Assembly-CSharp
   namespace: CTree

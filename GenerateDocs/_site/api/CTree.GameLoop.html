@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class GameLoop | Curation Tree ">
     
-    
+    <meta name="description" content="Unity component that implements the Curation Tree.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -190,7 +190,8 @@
 
 
   <h1 id="CTree_GameLoop" data-uid="CTree.GameLoop" class="text-break">Class GameLoop</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Unity component that implements the Curation Tree.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -552,10 +553,35 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class GameLoop : MonoBehaviour</code></pre>
   </div>
+  <h5 id="CTree_GameLoop_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Place this component on a GameObject in your scene. This component supports configuration options:</p>
+<ul>
+<li><a class="xref" href="CTree.GameLoop.Options.html">GameLoop.Options</a>
+<ul>
+<li>interactableLayerMask: Layer for selecting and dragging interactable objects. (Default Value: 8)</li>
+<li><a class="xref" href="CTree.GameLoop.DebugOptions.html">GameLoop.DebugOptions</a>
+<ul>
+<li>tree: Display the state of the behavior tree while the game is running</li>
+<li>selection: Display debug information for selecting and dragging objects.</li>
+</ul>
+</li>
+<li><a class="xref" href="CTree.GameLoop.LogOptions.html">GameLoop.LogOptions</a>
+<ul>
+<li>enabled: Toggle whether logging is enabled</li>
+<li>verbose: Toggle whether log text should be printed to console as well as saved to file</li>
+<li>baseName: Set the filename for the log. The name format is &quot;Application.persistentDataPath/baseName-timestamp.txt&quot;</li>
+<li>See <a class="xref" href="CTree.Logger.html">Logger</a> for details.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
   <h3 id="fields">Fields
 </h3>
   <h4 id="CTree_GameLoop_gameConfigFile" data-uid="CTree.GameLoop.gameConfigFile">gameConfigFile</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Text file for initializing the behavior tree</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -572,50 +598,6 @@
     <tbody>
       <tr>
         <td><span class="xref">TextAsset</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h4 id="CTree_GameLoop_m_screens" data-uid="CTree.GameLoop.m_screens">m_screens</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected SequenceBehavior m_screens</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="CTree.SequenceBehavior.html">SequenceBehavior</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h4 id="CTree_GameLoop_m_world" data-uid="CTree.GameLoop.m_world">m_world</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected World m_world</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="CTree.World.html">World</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -643,132 +625,6 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="methods">Methods
-</h3>
-  <a id="CTree_GameLoop_LoadScreens_" data-uid="CTree.GameLoop.LoadScreens*"></a>
-  <h4 id="CTree_GameLoop_LoadScreens_System_String___System_Int32_" data-uid="CTree.GameLoop.LoadScreens(System.String[],System.Int32)">LoadScreens(string[], int)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void LoadScreens(string[] agenda, int startId)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
-        <td><span class="parametername">agenda</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">startId</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="CTree_GameLoop_LoadScreens_" data-uid="CTree.GameLoop.LoadScreens*"></a>
-  <h4 id="CTree_GameLoop_LoadScreens_UnityEngine_TextAsset_" data-uid="CTree.GameLoop.LoadScreens(UnityEngine.TextAsset)">LoadScreens(TextAsset)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void LoadScreens(TextAsset configFile)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TextAsset</span></td>
-        <td><span class="parametername">configFile</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="CTree_GameLoop_PrintScreenTree_" data-uid="CTree.GameLoop.PrintScreenTree*"></a>
-  <h4 id="CTree_GameLoop_PrintScreenTree_CTree_ControlBehavior_System_String_" data-uid="CTree.GameLoop.PrintScreenTree(CTree.ControlBehavior,System.String)">PrintScreenTree(ControlBehavior, string)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected string PrintScreenTree(ControlBehavior beh, string indent)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="CTree.ControlBehavior.html">ControlBehavior</a></td>
-        <td><span class="parametername">beh</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">indent</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="CTree_GameLoop_PrintWorldState_" data-uid="CTree.GameLoop.PrintWorldState*"></a>
-  <h4 id="CTree_GameLoop_PrintWorldState" data-uid="CTree.GameLoop.PrintWorldState">PrintWorldState()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void PrintWorldState()</code></pre>
-  </div>
-  <a id="CTree_GameLoop_Reset_" data-uid="CTree.GameLoop.Reset*"></a>
-  <h4 id="CTree_GameLoop_Reset" data-uid="CTree.GameLoop.Reset">Reset()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Reset()</code></pre>
-  </div>
-  <a id="CTree_GameLoop_ScriptOver_" data-uid="CTree.GameLoop.ScriptOver*"></a>
-  <h4 id="CTree_GameLoop_ScriptOver" data-uid="CTree.GameLoop.ScriptOver">ScriptOver()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void ScriptOver()</code></pre>
-  </div>
 
 </article>
           </div>

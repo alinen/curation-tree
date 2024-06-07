@@ -5,10 +5,27 @@ using UnityEditor;
 
 namespace CTree 
 {
+  /// <summary>
+  /// Unity component that implements the Curation Tree. 
+  /// </summary>
+  /// <remarks>
+  /// Place this component on a GameObject in your scene. This component supports configuration options:
+  /// * <see cref="CTree.GameLoop.Options?alt=Options"/>
+  ///    * interactableLayerMask: Layer for selecting and dragging interactable objects. (Default Value: 8)
+  ///    * <see cref="CTree.GameLoop.DebugOptions"/>
+  ///        * tree: Display the state of the behavior tree while the game is running
+  ///        * selection: Display debug information for selecting and dragging objects.
+  ///    * <see cref="CTree.GameLoop.LogOptions"/>
+  ///        * enabled: Toggle whether logging is enabled
+  ///        * verbose: Toggle whether log text should be printed to console as well as saved to file
+  ///        * baseName: Set the filename for the log. The name format is "Application.persistentDataPath/baseName-timestamp.txt"
+  ///        * See <see cref="CTree.Logger?alt=Logger"/> for details.
+  /// </remarks>
   public class GameLoop : MonoBehaviour
   {
-      public TextAsset gameConfigFile;
-
+      /// <summary>
+      /// Debug options
+      /// </summary>
       [System.Serializable]
       public class DebugOptions
       {
@@ -16,6 +33,9 @@ namespace CTree
           public bool selection = false;
       }
 
+      /// <summary>
+      /// Logging options
+      /// </summary>
       [System.Serializable]
       public class LogOptions
       {
@@ -24,6 +44,9 @@ namespace CTree
           public string baseName = "log";
       }
 
+      /// <summary>
+      /// Configuration options
+      /// </summary>
       [System.Serializable]
       public class Options
       {
@@ -37,8 +60,13 @@ namespace CTree
       /// </summary>
       public Options options = new Options();
 
-      protected SequenceBehavior m_screens = null;
-      protected World m_world = null;
+      /// <summary>
+      /// Text file for initializing the behavior tree
+      /// </summary>
+      public TextAsset gameConfigFile;
+
+      SequenceBehavior m_screens = null;
+      World m_world = null;
 
       void Start()
       {
@@ -55,7 +83,7 @@ namespace CTree
           Reset();
       }
 
-      protected virtual void Reset()
+      void Reset()
       {
           m_screens.Clear();
           LoadScreens(gameConfigFile);
@@ -93,7 +121,7 @@ namespace CTree
           }
       }
 
-      protected void PrintWorldState()
+      void PrintWorldState()
       {
           string worldState = m_world.ToString();
           Debug.Log(worldState);
@@ -103,7 +131,7 @@ namespace CTree
           Debug.Log(tree);
       }
 
-      protected string PrintScreenTree(ControlBehavior beh, string indent)
+      string PrintScreenTree(ControlBehavior beh, string indent)
       {
           string tree = "";
           for (int i = 0; i < beh.Count; i++)
@@ -123,18 +151,18 @@ namespace CTree
           return tree;
       }
 
-      protected virtual void ScriptOver()
+      void ScriptOver()
       {
       }
 
-      protected virtual void LoadScreens(TextAsset configFile)
+      void LoadScreens(TextAsset configFile)
       {
           char[] delim = { '\n', '\r' };
           string[] agenda = configFile.text.Split(delim);
           LoadScreens(agenda, m_screens.Count);
       }
 
-      protected virtual void LoadScreens(string[] agenda, int startId)
+      void LoadScreens(string[] agenda, int startId)
       {
           int screenid = startId;
 

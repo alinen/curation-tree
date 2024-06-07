@@ -31,10 +31,47 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Behavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 8
+    startLine: 32
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Base class for all Behaviors.
+  remarks: >-
+    Most custom behaviors can use the <xref href="CTree.AtomicBehavior" data-throw-if-not-resolved="false"></xref> and 
+
+    <xref href="CTree.CoroutineBehavior" data-throw-if-not-resolved="false"></xref>. However, more complex behaviors involving 
+
+    customer player interactions, such as mini games, may need to subclass Behavior.
+
+
+    Subclasses can override the following methods
+
+    * <xref href="CTree.Behavior.Setup" data-throw-if-not-resolved="false"></xref>: Executed once when the Behavior starts. Use 
+
+    this method to reset state or start coroutines. Overriden methods MUST call the base.Setup.
+
+    * <xref href="CTree.Behavior.Tick" data-throw-if-not-resolved="false"></xref>: Executed every frame. 
+
+    * <xref href="CTree.Behavior.TearDown" data-throw-if-not-resolved="false"></xref>: Executed once when the Behavior ends. Use 
+
+    this method to cleanup resources, deregister callbacks, and stop coroutines. Overriden methods MUST call the base.TearDown.
+
+    * <xref href="CTree.Behavior.Finished" data-throw-if-not-resolved="false"></xref>: Called by GameLoop to determine the status of the currently running Behavior. 
+
+    Override this method to customize the logic for determining whether a Behavior has completed.
+
+
+    Subclasses need to set <xref href="CTree.Behavior.m_finished" data-throw-if-not-resolved="false"></xref> to true to indicate that the Behavior is complete.
+
+
+    [!Note]: This is different from a typical Behavior tree implementation where nodes return SUCCESS or FAIL 
+
+    and then relinquish control back to the parent node. We may change this implementation to use canonical 
+
+    behavior trees in the future. The current implementation is simpler and sufficient for our purposes where 
+
+    the Curation Tree always runs once and all nodes SUCCEED.
+  example: []
   syntax:
     content: public class Behavior
     content.vb: Public Class Behavior
@@ -70,10 +107,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: m_finished
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 11
+    startLine: 39
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Boolean that indicates that the Behavior has finished executing and GameLoop should move to the next Behavior
+  example: []
   syntax:
     content: protected bool m_finished
     return:
@@ -97,10 +136,15 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: m_isActive
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 12
+    startLine: 45
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: >-
+    Boolean that indicates that the Behavor is currently running. 
+
+    Interactable objects only trigger on active Behaviors.
+  example: []
   syntax:
     content: protected bool m_isActive
     return:
@@ -124,10 +168,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: m_name
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 14
+    startLine: 50
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: String containing the input line used to create this Behavior (for debugging)
+  example: []
   syntax:
     content: protected string m_name
     return:
@@ -151,10 +197,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: name
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 15
+    startLine: 55
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Value containing the input line used to create this Behavior (for debugging)
+  example: []
   syntax:
     content: public virtual string name { get; set; }
     parameters: []
@@ -180,15 +228,18 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 21
+    startLine: 65
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Constructor
+  example: []
   syntax:
     content: public Behavior(World w)
     parameters:
     - id: w
       type: CTree.World
+      description: Object for accessing global world state.
     content.vb: Public Sub New(w As World)
   overload: CTree.Behavior.#ctor*
   nameWithType.vb: Behavior.New(World)
@@ -212,10 +263,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Tick
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 27
+    startLine: 74
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to perform per-frame logic.
+  example: []
   syntax:
     content: public virtual void Tick()
     content.vb: Public Overridable Sub Tick()
@@ -238,10 +291,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 29
+    startLine: 79
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to initializee the behavior.
+  example: []
   syntax:
     content: public virtual void Setup()
     content.vb: Public Overridable Sub Setup()
@@ -264,10 +319,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: TearDown
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 36
+    startLine: 89
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to cleanup the behavior.
+  example: []
   syntax:
     content: public virtual void TearDown()
     content.vb: Public Overridable Sub TearDown()
@@ -290,14 +347,17 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Finished
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 41
+    startLine: 99
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Query whether the Behavior has completed or not.
+  example: []
   syntax:
     content: public virtual bool Finished()
     return:
       type: System.Boolean
+      description: True if the Behavior is finished; False otherwise.
     content.vb: Public Overridable Function Finished() As Boolean
   overload: CTree.Behavior.Finished*
 - uid: CTree.Behavior.IsActive
@@ -318,14 +378,17 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: IsActive
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 46
+    startLine: 108
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Query whether the Behavior is currently executing or not.
+  example: []
   syntax:
     content: public bool IsActive()
     return:
       type: System.Boolean
+      description: True if the Behavior is currently running. False otherwise
     content.vb: Public Function IsActive() As Boolean
   overload: CTree.Behavior.IsActive*
 - uid: CTree.Behavior.world
@@ -346,10 +409,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: world
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 51
+    startLine: 116
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Accessor for the object that hold global world state.
+  example: []
   syntax:
     content: protected World world { get; }
     parameters: []
@@ -375,19 +440,116 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: ToString
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 56
+    startLine: 125
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Accessor for a string representation of this Behavior.
   example: []
   syntax:
     content: public override string ToString()
     return:
       type: System.String
+      description: String representation for this object.
     content.vb: Public Overrides Function ToString() As String
   overridden: System.Object.ToString
   overload: CTree.Behavior.ToString*
 references:
+- uid: CTree.AtomicBehavior
+  commentId: T:CTree.AtomicBehavior
+  href: CTree.AtomicBehavior.html
+  name: AtomicBehavior
+  nameWithType: AtomicBehavior
+  fullName: CTree.AtomicBehavior
+- uid: CTree.CoroutineBehavior
+  commentId: T:CTree.CoroutineBehavior
+  href: CTree.CoroutineBehavior.html
+  name: CoroutineBehavior
+  nameWithType: CoroutineBehavior
+  fullName: CTree.CoroutineBehavior
+- uid: CTree.Behavior.Setup
+  commentId: M:CTree.Behavior.Setup
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_Setup
+  name: Setup()
+  nameWithType: Behavior.Setup()
+  fullName: CTree.Behavior.Setup()
+  spec.csharp:
+  - uid: CTree.Behavior.Setup
+    name: Setup
+    href: CTree.Behavior.html#CTree_Behavior_Setup
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.Behavior.Setup
+    name: Setup
+    href: CTree.Behavior.html#CTree_Behavior_Setup
+  - name: (
+  - name: )
+- uid: CTree.Behavior.Tick
+  commentId: M:CTree.Behavior.Tick
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_Tick
+  name: Tick()
+  nameWithType: Behavior.Tick()
+  fullName: CTree.Behavior.Tick()
+  spec.csharp:
+  - uid: CTree.Behavior.Tick
+    name: Tick
+    href: CTree.Behavior.html#CTree_Behavior_Tick
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.Behavior.Tick
+    name: Tick
+    href: CTree.Behavior.html#CTree_Behavior_Tick
+  - name: (
+  - name: )
+- uid: CTree.Behavior.TearDown
+  commentId: M:CTree.Behavior.TearDown
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_TearDown
+  name: TearDown()
+  nameWithType: Behavior.TearDown()
+  fullName: CTree.Behavior.TearDown()
+  spec.csharp:
+  - uid: CTree.Behavior.TearDown
+    name: TearDown
+    href: CTree.Behavior.html#CTree_Behavior_TearDown
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.Behavior.TearDown
+    name: TearDown
+    href: CTree.Behavior.html#CTree_Behavior_TearDown
+  - name: (
+  - name: )
+- uid: CTree.Behavior.Finished
+  commentId: M:CTree.Behavior.Finished
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_Finished
+  name: Finished()
+  nameWithType: Behavior.Finished()
+  fullName: CTree.Behavior.Finished()
+  spec.csharp:
+  - uid: CTree.Behavior.Finished
+    name: Finished
+    href: CTree.Behavior.html#CTree_Behavior_Finished
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.Behavior.Finished
+    name: Finished
+    href: CTree.Behavior.html#CTree_Behavior_Finished
+  - name: (
+  - name: )
+- uid: CTree.Behavior.m_finished
+  commentId: F:CTree.Behavior.m_finished
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_m_finished
+  name: m_finished
+  nameWithType: Behavior.m_finished
+  fullName: CTree.Behavior.m_finished
 - uid: CTree
   commentId: N:CTree
   href: CTree.html
@@ -600,6 +762,13 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object
   - name: )
+- uid: CTree.Behavior
+  commentId: T:CTree.Behavior
+  parent: CTree
+  href: CTree.Behavior.html
+  name: Behavior
+  nameWithType: Behavior
+  fullName: CTree.Behavior
 - uid: System
   commentId: N:System
   isExternal: true

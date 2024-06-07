@@ -5,11 +5,15 @@ using UnityEngine;
 
 namespace CTree
 {
-  // Class for implementing objects which can have interactibles attached to it
-  // How the Interactable attaches to the location is determined by Transforms having the name 'Anchor'
-  // If the name of the anchor has the form 'Anchor_<InteractibleObjectName>', then only interactibles 
-  // matching <InteractibleObjectName> will be attached at the anchor. 
-  // If the name of the anchor is 'Anchor', then the interactible will be centered on top of the anchor
+  /// <summary>
+  /// Implements targets for drag-and-drop.
+  /// </summary>
+  /// <remarks>
+  /// How the Interactable attaches to the location is determined by Transforms having the name 'Anchor'
+  /// If the name of the anchor has the form 'Anchor_<InteractibleObjectName>', then only interactibles 
+  /// matching <InteractibleObjectName> will be attached at the anchor. 
+  /// If the name of the anchor is 'Anchor', then the interactible will be centered on top of the anchor
+  /// </remarks>
   public class Location : MonoBehaviour
   {
       private Dictionary<string, Transform> mAnchors =

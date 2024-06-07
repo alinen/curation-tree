@@ -21,10 +21,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Mode
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-    startLine: 11
+    startLine: 19
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Animation mode
+  example: []
   syntax:
     content: public enum Animation.Mode
     content.vb: Public Enum Animation.Mode
@@ -46,10 +48,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: PLAY
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-    startLine: 13
+    startLine: 24
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Play the animation
+  example: []
   syntax:
     content: PLAY = 0
     return:
@@ -72,10 +76,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: STOP
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-    startLine: 14
+    startLine: 28
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Stop the animation
+  example: []
   syntax:
     content: STOP = 1
     return:

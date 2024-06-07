@@ -3,10 +3,17 @@ using UnityEngine;
 
 namespace CTree
 {
+  /// <summary>
+  /// Implements a behavior that runs all sub-behaviors in sequence.
+  /// </summary>
   public class SequenceBehavior : ControlBehavior
   {
-      protected int m_current = 0;
+      int m_current = 0;
       
+      /// <summary>
+      /// Constructor
+      /// </summary>
+      /// <param name="w">Object for accessing all global state.</param>
       public SequenceBehavior(World w) : base(w)
       {
       }

@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace CTree
 {
+  /// <summary>
+  /// Base class for all behaviors that contain sub-behaviors, such as Repeat or Parallel.
+  /// </summary>
   public abstract class ControlBehavior : Behavior
   {
       protected List<Behavior> m_behaviors = new List<Behavior>();

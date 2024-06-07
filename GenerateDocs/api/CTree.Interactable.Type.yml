@@ -22,7 +22,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Type
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 17
+    startLine: 24
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -47,7 +47,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: CLICKABLE
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 17
+    startLine: 24
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -73,7 +73,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: DRAGABLE
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 17
+    startLine: 24
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -99,7 +99,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: COPY_DRAGABLE
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 17
+    startLine: 24
   assemblies:
   - Assembly-CSharp
   namespace: CTree

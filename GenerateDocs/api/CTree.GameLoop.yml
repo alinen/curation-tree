@@ -5,15 +5,7 @@ items:
   id: GameLoop
   parent: CTree
   children:
-  - CTree.GameLoop.LoadScreens(System.String[],System.Int32)
-  - CTree.GameLoop.LoadScreens(UnityEngine.TextAsset)
-  - CTree.GameLoop.PrintScreenTree(CTree.ControlBehavior,System.String)
-  - CTree.GameLoop.PrintWorldState
-  - CTree.GameLoop.Reset
-  - CTree.GameLoop.ScriptOver
   - CTree.GameLoop.gameConfigFile
-  - CTree.GameLoop.m_screens
-  - CTree.GameLoop.m_world
   - CTree.GameLoop.options
   langs:
   - csharp
@@ -29,10 +21,25 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: GameLoop
     path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-    startLine: 7
+    startLine: 23
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Unity component that implements the Curation Tree.
+  remarks: >-
+    Place this component on a GameObject in your scene. This component supports configuration options:
+
+    * <xref href="CTree.GameLoop.Options" data-throw-if-not-resolved="false"></xref>
+       * interactableLayerMask: Layer for selecting and dragging interactable objects. (Default Value: 8)
+       * <xref href="CTree.GameLoop.DebugOptions" data-throw-if-not-resolved="false"></xref>
+           * tree: Display the state of the behavior tree while the game is running
+           * selection: Display debug information for selecting and dragging objects.
+       * <xref href="CTree.GameLoop.LogOptions" data-throw-if-not-resolved="false"></xref>
+           * enabled: Toggle whether logging is enabled
+           * verbose: Toggle whether log text should be printed to console as well as saved to file
+           * baseName: Set the filename for the log. The name format is "Application.persistentDataPath/baseName-timestamp.txt"
+           * See <xref href="CTree.Logger" data-throw-if-not-resolved="false"></xref> for details.
+  example: []
   syntax:
     content: 'public class GameLoop : MonoBehaviour'
     content.vb: Public Class GameLoop Inherits MonoBehaviour
@@ -157,33 +164,6 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: CTree.GameLoop.gameConfigFile
-  commentId: F:CTree.GameLoop.gameConfigFile
-  id: gameConfigFile
-  parent: CTree.GameLoop
-  langs:
-  - csharp
-  - vb
-  name: gameConfigFile
-  nameWithType: GameLoop.gameConfigFile
-  fullName: CTree.GameLoop.gameConfigFile
-  type: Field
-  source:
-    remote:
-      path: BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-      branch: squirrel-house
-      repo: git@github.com:alinen/curation-tree.git
-    id: gameConfigFile
-    path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-    startLine: 9
-  assemblies:
-  - Assembly-CSharp
-  namespace: CTree
-  syntax:
-    content: public TextAsset gameConfigFile
-    return:
-      type: UnityEngine.TextAsset
-    content.vb: Public gameConfigFile As TextAsset
 - uid: CTree.GameLoop.options
   commentId: F:CTree.GameLoop.options
   id: options
@@ -202,7 +182,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: options
     path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-    startLine: 37
+    startLine: 60
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -213,238 +193,111 @@ items:
     return:
       type: CTree.GameLoop.Options
     content.vb: Public options As GameLoop.Options
-- uid: CTree.GameLoop.m_screens
-  commentId: F:CTree.GameLoop.m_screens
-  id: m_screens
+- uid: CTree.GameLoop.gameConfigFile
+  commentId: F:CTree.GameLoop.gameConfigFile
+  id: gameConfigFile
   parent: CTree.GameLoop
   langs:
   - csharp
   - vb
-  name: m_screens
-  nameWithType: GameLoop.m_screens
-  fullName: CTree.GameLoop.m_screens
+  name: gameConfigFile
+  nameWithType: GameLoop.gameConfigFile
+  fullName: CTree.GameLoop.gameConfigFile
   type: Field
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
       branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
-    id: m_screens
+    id: gameConfigFile
     path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-    startLine: 39
+    startLine: 65
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Text file for initializing the behavior tree
+  example: []
   syntax:
-    content: protected SequenceBehavior m_screens
+    content: public TextAsset gameConfigFile
     return:
-      type: CTree.SequenceBehavior
-    content.vb: Protected m_screens As SequenceBehavior
-- uid: CTree.GameLoop.m_world
-  commentId: F:CTree.GameLoop.m_world
-  id: m_world
-  parent: CTree.GameLoop
-  langs:
-  - csharp
-  - vb
-  name: m_world
-  nameWithType: GameLoop.m_world
-  fullName: CTree.GameLoop.m_world
-  type: Field
-  source:
-    remote:
-      path: BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-      branch: squirrel-house
-      repo: git@github.com:alinen/curation-tree.git
-    id: m_world
-    path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-    startLine: 40
-  assemblies:
-  - Assembly-CSharp
-  namespace: CTree
-  syntax:
-    content: protected World m_world
-    return:
-      type: CTree.World
-    content.vb: Protected m_world As World
-- uid: CTree.GameLoop.Reset
-  commentId: M:CTree.GameLoop.Reset
-  id: Reset
-  parent: CTree.GameLoop
-  langs:
-  - csharp
-  - vb
-  name: Reset()
-  nameWithType: GameLoop.Reset()
-  fullName: CTree.GameLoop.Reset()
-  type: Method
-  source:
-    remote:
-      path: BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-      branch: squirrel-house
-      repo: git@github.com:alinen/curation-tree.git
-    id: Reset
-    path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-    startLine: 57
-  assemblies:
-  - Assembly-CSharp
-  namespace: CTree
-  syntax:
-    content: protected virtual void Reset()
-    content.vb: Protected Overridable Sub Reset()
-  overload: CTree.GameLoop.Reset*
-- uid: CTree.GameLoop.PrintWorldState
-  commentId: M:CTree.GameLoop.PrintWorldState
-  id: PrintWorldState
-  parent: CTree.GameLoop
-  langs:
-  - csharp
-  - vb
-  name: PrintWorldState()
-  nameWithType: GameLoop.PrintWorldState()
-  fullName: CTree.GameLoop.PrintWorldState()
-  type: Method
-  source:
-    remote:
-      path: BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-      branch: squirrel-house
-      repo: git@github.com:alinen/curation-tree.git
-    id: PrintWorldState
-    path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-    startLine: 95
-  assemblies:
-  - Assembly-CSharp
-  namespace: CTree
-  syntax:
-    content: protected void PrintWorldState()
-    content.vb: Protected Sub PrintWorldState()
-  overload: CTree.GameLoop.PrintWorldState*
-- uid: CTree.GameLoop.PrintScreenTree(CTree.ControlBehavior,System.String)
-  commentId: M:CTree.GameLoop.PrintScreenTree(CTree.ControlBehavior,System.String)
-  id: PrintScreenTree(CTree.ControlBehavior,System.String)
-  parent: CTree.GameLoop
-  langs:
-  - csharp
-  - vb
-  name: PrintScreenTree(ControlBehavior, string)
-  nameWithType: GameLoop.PrintScreenTree(ControlBehavior, string)
-  fullName: CTree.GameLoop.PrintScreenTree(CTree.ControlBehavior, string)
-  type: Method
-  source:
-    remote:
-      path: BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-      branch: squirrel-house
-      repo: git@github.com:alinen/curation-tree.git
-    id: PrintScreenTree
-    path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-    startLine: 105
-  assemblies:
-  - Assembly-CSharp
-  namespace: CTree
-  syntax:
-    content: protected string PrintScreenTree(ControlBehavior beh, string indent)
-    parameters:
-    - id: beh
-      type: CTree.ControlBehavior
-    - id: indent
-      type: System.String
-    return:
-      type: System.String
-    content.vb: Protected Function PrintScreenTree(beh As ControlBehavior, indent As String) As String
-  overload: CTree.GameLoop.PrintScreenTree*
-  nameWithType.vb: GameLoop.PrintScreenTree(ControlBehavior, String)
-  fullName.vb: CTree.GameLoop.PrintScreenTree(CTree.ControlBehavior, String)
-  name.vb: PrintScreenTree(ControlBehavior, String)
-- uid: CTree.GameLoop.ScriptOver
-  commentId: M:CTree.GameLoop.ScriptOver
-  id: ScriptOver
-  parent: CTree.GameLoop
-  langs:
-  - csharp
-  - vb
-  name: ScriptOver()
-  nameWithType: GameLoop.ScriptOver()
-  fullName: CTree.GameLoop.ScriptOver()
-  type: Method
-  source:
-    remote:
-      path: BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-      branch: squirrel-house
-      repo: git@github.com:alinen/curation-tree.git
-    id: ScriptOver
-    path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-    startLine: 125
-  assemblies:
-  - Assembly-CSharp
-  namespace: CTree
-  syntax:
-    content: protected virtual void ScriptOver()
-    content.vb: Protected Overridable Sub ScriptOver()
-  overload: CTree.GameLoop.ScriptOver*
-- uid: CTree.GameLoop.LoadScreens(UnityEngine.TextAsset)
-  commentId: M:CTree.GameLoop.LoadScreens(UnityEngine.TextAsset)
-  id: LoadScreens(UnityEngine.TextAsset)
-  parent: CTree.GameLoop
-  langs:
-  - csharp
-  - vb
-  name: LoadScreens(TextAsset)
-  nameWithType: GameLoop.LoadScreens(TextAsset)
-  fullName: CTree.GameLoop.LoadScreens(UnityEngine.TextAsset)
-  type: Method
-  source:
-    remote:
-      path: BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-      branch: squirrel-house
-      repo: git@github.com:alinen/curation-tree.git
-    id: LoadScreens
-    path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-    startLine: 129
-  assemblies:
-  - Assembly-CSharp
-  namespace: CTree
-  syntax:
-    content: protected virtual void LoadScreens(TextAsset configFile)
-    parameters:
-    - id: configFile
       type: UnityEngine.TextAsset
-    content.vb: Protected Overridable Sub LoadScreens(configFile As TextAsset)
-  overload: CTree.GameLoop.LoadScreens*
-- uid: CTree.GameLoop.LoadScreens(System.String[],System.Int32)
-  commentId: M:CTree.GameLoop.LoadScreens(System.String[],System.Int32)
-  id: LoadScreens(System.String[],System.Int32)
-  parent: CTree.GameLoop
-  langs:
-  - csharp
-  - vb
-  name: LoadScreens(string[], int)
-  nameWithType: GameLoop.LoadScreens(string[], int)
-  fullName: CTree.GameLoop.LoadScreens(string[], int)
-  type: Method
-  source:
-    remote:
-      path: BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-      branch: squirrel-house
-      repo: git@github.com:alinen/curation-tree.git
-    id: LoadScreens
-    path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-    startLine: 136
-  assemblies:
-  - Assembly-CSharp
-  namespace: CTree
-  syntax:
-    content: protected virtual void LoadScreens(string[] agenda, int startId)
-    parameters:
-    - id: agenda
-      type: System.String[]
-    - id: startId
-      type: System.Int32
-    content.vb: Protected Overridable Sub LoadScreens(agenda As String(), startId As Integer)
-  overload: CTree.GameLoop.LoadScreens*
-  nameWithType.vb: GameLoop.LoadScreens(String(), Integer)
-  fullName.vb: CTree.GameLoop.LoadScreens(String(), Integer)
-  name.vb: LoadScreens(String(), Integer)
+    content.vb: Public gameConfigFile As TextAsset
 references:
+- uid: CTree.GameLoop.Options
+  commentId: T:CTree.GameLoop.Options
+  parent: CTree
+  href: CTree.GameLoop.html
+  name: GameLoop.Options
+  nameWithType: GameLoop.Options
+  fullName: CTree.GameLoop.Options
+  spec.csharp:
+  - uid: CTree.GameLoop
+    name: GameLoop
+    href: CTree.GameLoop.html
+  - name: .
+  - uid: CTree.GameLoop.Options
+    name: Options
+    href: CTree.GameLoop.Options.html
+  spec.vb:
+  - uid: CTree.GameLoop
+    name: GameLoop
+    href: CTree.GameLoop.html
+  - name: .
+  - uid: CTree.GameLoop.Options
+    name: Options
+    href: CTree.GameLoop.Options.html
+- uid: CTree.GameLoop.DebugOptions
+  commentId: T:CTree.GameLoop.DebugOptions
+  parent: CTree
+  href: CTree.GameLoop.html
+  name: GameLoop.DebugOptions
+  nameWithType: GameLoop.DebugOptions
+  fullName: CTree.GameLoop.DebugOptions
+  spec.csharp:
+  - uid: CTree.GameLoop
+    name: GameLoop
+    href: CTree.GameLoop.html
+  - name: .
+  - uid: CTree.GameLoop.DebugOptions
+    name: DebugOptions
+    href: CTree.GameLoop.DebugOptions.html
+  spec.vb:
+  - uid: CTree.GameLoop
+    name: GameLoop
+    href: CTree.GameLoop.html
+  - name: .
+  - uid: CTree.GameLoop.DebugOptions
+    name: DebugOptions
+    href: CTree.GameLoop.DebugOptions.html
+- uid: CTree.GameLoop.LogOptions
+  commentId: T:CTree.GameLoop.LogOptions
+  parent: CTree
+  href: CTree.GameLoop.html
+  name: GameLoop.LogOptions
+  nameWithType: GameLoop.LogOptions
+  fullName: CTree.GameLoop.LogOptions
+  spec.csharp:
+  - uid: CTree.GameLoop
+    name: GameLoop
+    href: CTree.GameLoop.html
+  - name: .
+  - uid: CTree.GameLoop.LogOptions
+    name: LogOptions
+    href: CTree.GameLoop.LogOptions.html
+  spec.vb:
+  - uid: CTree.GameLoop
+    name: GameLoop
+    href: CTree.GameLoop.html
+  - name: .
+  - uid: CTree.GameLoop.LogOptions
+    name: LogOptions
+    href: CTree.GameLoop.LogOptions.html
+- uid: CTree.Logger
+  commentId: T:CTree.Logger
+  href: CTree.Logger.html
+  name: Logger
+  nameWithType: Logger
+  fullName: CTree.Logger
 - uid: CTree
   commentId: N:CTree
   href: CTree.html
@@ -4806,122 +4659,3 @@ references:
   name: TextAsset
   nameWithType: TextAsset
   fullName: UnityEngine.TextAsset
-- uid: CTree.GameLoop.Options
-  commentId: T:CTree.GameLoop.Options
-  parent: CTree
-  href: CTree.GameLoop.html
-  name: GameLoop.Options
-  nameWithType: GameLoop.Options
-  fullName: CTree.GameLoop.Options
-  spec.csharp:
-  - uid: CTree.GameLoop
-    name: GameLoop
-    href: CTree.GameLoop.html
-  - name: .
-  - uid: CTree.GameLoop.Options
-    name: Options
-    href: CTree.GameLoop.Options.html
-  spec.vb:
-  - uid: CTree.GameLoop
-    name: GameLoop
-    href: CTree.GameLoop.html
-  - name: .
-  - uid: CTree.GameLoop.Options
-    name: Options
-    href: CTree.GameLoop.Options.html
-- uid: CTree.SequenceBehavior
-  commentId: T:CTree.SequenceBehavior
-  parent: CTree
-  href: CTree.SequenceBehavior.html
-  name: SequenceBehavior
-  nameWithType: SequenceBehavior
-  fullName: CTree.SequenceBehavior
-- uid: CTree.World
-  commentId: T:CTree.World
-  parent: CTree
-  href: CTree.World.html
-  name: World
-  nameWithType: World
-  fullName: CTree.World
-- uid: CTree.GameLoop.Reset*
-  commentId: Overload:CTree.GameLoop.Reset
-  href: CTree.GameLoop.html#CTree_GameLoop_Reset
-  name: Reset
-  nameWithType: GameLoop.Reset
-  fullName: CTree.GameLoop.Reset
-- uid: CTree.GameLoop.PrintWorldState*
-  commentId: Overload:CTree.GameLoop.PrintWorldState
-  href: CTree.GameLoop.html#CTree_GameLoop_PrintWorldState
-  name: PrintWorldState
-  nameWithType: GameLoop.PrintWorldState
-  fullName: CTree.GameLoop.PrintWorldState
-- uid: CTree.GameLoop.PrintScreenTree*
-  commentId: Overload:CTree.GameLoop.PrintScreenTree
-  href: CTree.GameLoop.html#CTree_GameLoop_PrintScreenTree_CTree_ControlBehavior_System_String_
-  name: PrintScreenTree
-  nameWithType: GameLoop.PrintScreenTree
-  fullName: CTree.GameLoop.PrintScreenTree
-- uid: CTree.ControlBehavior
-  commentId: T:CTree.ControlBehavior
-  parent: CTree
-  href: CTree.ControlBehavior.html
-  name: ControlBehavior
-  nameWithType: ControlBehavior
-  fullName: CTree.ControlBehavior
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
-- uid: CTree.GameLoop.ScriptOver*
-  commentId: Overload:CTree.GameLoop.ScriptOver
-  href: CTree.GameLoop.html#CTree_GameLoop_ScriptOver
-  name: ScriptOver
-  nameWithType: GameLoop.ScriptOver
-  fullName: CTree.GameLoop.ScriptOver
-- uid: CTree.GameLoop.LoadScreens*
-  commentId: Overload:CTree.GameLoop.LoadScreens
-  href: CTree.GameLoop.html#CTree_GameLoop_LoadScreens_UnityEngine_TextAsset_
-  name: LoadScreens
-  nameWithType: GameLoop.LoadScreens
-  fullName: CTree.GameLoop.LoadScreens
-- uid: System.String[]
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string[]
-  nameWithType: string[]
-  fullName: string[]
-  nameWithType.vb: String()
-  fullName.vb: String()
-  name.vb: String()
-  spec.csharp:
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '['
-  - name: ']'
-  spec.vb:
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: (
-  - name: )
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer

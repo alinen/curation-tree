@@ -22,10 +22,26 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: CoroutineBehavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
-    startLine: 7
+    startLine: 20
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Implements behaviors that perform actions implemented with a Unity Coroutine.
+  remarks: >-
+    Use this Behavior to implement animations and other effects that occur over multiple frames.
+
+    Configure CoroutineBehavior with a function that takes <code>World</code> as input and returns an iterator. 
+
+    For example, the following code increases the size of <code>xform</code> to twice its original size over 3.0 seconds. 
+
+    <pre><code class="lang-csharp">Transform xform = world.Get(objName.Trim());
+
+    Behavior b = new CoroutineBehavior(world, 
+         ProceduralAnimator.Grow(xform, 1, 2, 3.0));</code></pre>
+    Coroutines cannot be anonymous functions. Our Coroutines for animation behaviors are implemented 
+
+    in <xref href="CTree.ProceduralAnimator" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: 'public class CoroutineBehavior : Behavior'
     content.vb: Public Class CoroutineBehavior Inherits Behavior
@@ -66,17 +82,21 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
-    startLine: 12
+    startLine: 31
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Constructor
+  example: []
   syntax:
     content: public CoroutineBehavior(World w, IEnumerator enumerator)
     parameters:
     - id: w
       type: CTree.World
+      description: Object for accessing global state
     - id: enumerator
       type: System.Collections.IEnumerator
+      description: Iterator object associated with a Coroutine
     content.vb: Public Sub New(w As World, enumerator As IEnumerator)
   overload: CTree.CoroutineBehavior.#ctor*
   nameWithType.vb: CoroutineBehavior.New(World, IEnumerator)
@@ -100,10 +120,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
-    startLine: 17
+    startLine: 36
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to initializee the behavior.
   example: []
   syntax:
     content: public override void Setup()
@@ -128,10 +149,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: TearDown
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
-    startLine: 27
+    startLine: 46
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to cleanup the behavior.
   example: []
   syntax:
     content: public override void TearDown()
@@ -139,6 +161,12 @@ items:
   overridden: CTree.Behavior.TearDown
   overload: CTree.CoroutineBehavior.TearDown*
 references:
+- uid: CTree.ProceduralAnimator
+  commentId: T:CTree.ProceduralAnimator
+  href: CTree.ProceduralAnimator.html
+  name: ProceduralAnimator
+  nameWithType: ProceduralAnimator
+  fullName: CTree.ProceduralAnimator
 - uid: CTree
   commentId: N:CTree
   href: CTree.html

@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class IfInteractableBehavior | Curation Tree ">
     
-    
+    <meta name="description" content="Implements a behavior that triggers when the user interacts with scene objects Use this behavior to support drag and drop and selection behaviors.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -190,7 +190,9 @@
 
 
   <h1 id="CTree_IfInteractableBehavior" data-uid="CTree.IfInteractableBehavior" class="text-break">Class IfInteractableBehavior</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Implements a behavior that triggers when the user interacts with scene objects
+Use this behavior to support drag and drop and selection behaviors.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -205,9 +207,6 @@
     <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="CTree.IfBehavior.html#CTree_IfBehavior_m_condition">IfBehavior.m_condition</a>
-    </div>
-    <div>
-      <a class="xref" href="CTree.IfBehavior.html#CTree_IfBehavior_m_wait">IfBehavior.m_wait</a>
     </div>
     <div>
       <a class="xref" href="CTree.IfBehavior.html#CTree_IfBehavior_m_isTriggered">IfBehavior.m_isTriggered</a>
@@ -289,7 +288,8 @@
 </h3>
   <a id="CTree_IfInteractableBehavior__ctor_" data-uid="CTree.IfInteractableBehavior.#ctor*"></a>
   <h4 id="CTree_IfInteractableBehavior__ctor_CTree_World_CTree_IfInteractableBehavior_Type_System_String_" data-uid="CTree.IfInteractableBehavior.#ctor(CTree.World,CTree.IfInteractableBehavior.Type,System.String)">IfInteractableBehavior(World, Type, string)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor for click, drag, and mouseOver events</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -308,23 +308,27 @@
       <tr>
         <td><a class="xref" href="CTree.World.html">World</a></td>
         <td><span class="parametername">w</span></td>
-        <td></td>
+        <td><p>Object for accessing global state</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="CTree.IfInteractableBehavior.html">IfInteractableBehavior</a>.<a class="xref" href="CTree.IfInteractableBehavior.Type.html">Type</a></td>
         <td><span class="parametername">t</span></td>
-        <td></td>
+        <td><p>The event type that will trigger the execution of sub-behaviors</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">itemName</span></td>
-        <td></td>
+        <td><p>The asset that will trigger the event.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <a id="CTree_IfInteractableBehavior__ctor_" data-uid="CTree.IfInteractableBehavior.#ctor*"></a>
   <h4 id="CTree_IfInteractableBehavior__ctor_CTree_World_CTree_IfInteractableBehavior_Type_System_String_System_String_" data-uid="CTree.IfInteractableBehavior.#ctor(CTree.World,CTree.IfInteractableBehavior.Type,System.String,System.String)">IfInteractableBehavior(World, Type, string, string)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor for hover and drop events</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -343,22 +347,26 @@
       <tr>
         <td><a class="xref" href="CTree.World.html">World</a></td>
         <td><span class="parametername">w</span></td>
-        <td></td>
+        <td><p>Object for accessing global state</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="CTree.IfInteractableBehavior.html">IfInteractableBehavior</a>.<a class="xref" href="CTree.IfInteractableBehavior.Type.html">Type</a></td>
         <td><span class="parametername">t</span></td>
-        <td></td>
+        <td><p>The event type that will trigger the execution of sub-behaviors</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">itemName</span></td>
-        <td></td>
+        <td><p>The asset correpsonding to the held object.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">targetName</span></td>
-        <td></td>
+        <td><p>The asset correpsonding to the drop target.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -366,7 +374,8 @@
 </h3>
   <a id="CTree_IfInteractableBehavior_Setup_" data-uid="CTree.IfInteractableBehavior.Setup*"></a>
   <h4 id="CTree_IfInteractableBehavior_Setup" data-uid="CTree.IfInteractableBehavior.Setup">Setup()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Override this function to initializee the behavior.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -376,7 +385,8 @@
   <div><a class="xref" href="CTree.IfBehavior.html#CTree_IfBehavior_Setup">IfBehavior.Setup()</a></div>
   <a id="CTree_IfInteractableBehavior_TearDown_" data-uid="CTree.IfInteractableBehavior.TearDown*"></a>
   <h4 id="CTree_IfInteractableBehavior_TearDown" data-uid="CTree.IfInteractableBehavior.TearDown">TearDown()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Override this function to cleanup the behavior.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">

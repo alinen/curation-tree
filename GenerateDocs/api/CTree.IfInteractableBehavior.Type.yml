@@ -25,10 +25,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Type
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-    startLine: 8
+    startLine: 14
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Event types that can trigger a condition
+  example: []
   syntax:
     content: public enum IfInteractableBehavior.Type
     content.vb: Public Enum IfInteractableBehavior.Type
@@ -50,10 +52,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: UNKNOWN
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-    startLine: 8
+    startLine: 18
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Unknown event, e.g. the event type is not set
+  example: []
   syntax:
     content: UNKNOWN = 0
     return:
@@ -76,10 +80,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: CLICK
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-    startLine: 8
+    startLine: 22
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Trigger when the user clicks on an asset
+  example: []
   syntax:
     content: CLICK = 1
     return:
@@ -102,10 +108,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: DRAG
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-    startLine: 8
+    startLine: 26
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Trigger when the user picks up an asset
+  example: []
   syntax:
     content: DRAG = 2
     return:
@@ -128,10 +136,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: HOVER
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-    startLine: 8
+    startLine: 30
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Trigger when the user drags an object on top of another object
+  example: []
   syntax:
     content: HOVER = 3
     return:
@@ -154,10 +164,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: DROP
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-    startLine: 8
+    startLine: 34
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Trigger when the user drops an object on top of another object
+  example: []
   syntax:
     content: DROP = 4
     return:
@@ -180,10 +192,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: MOUSE_OVER
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-    startLine: 8
+    startLine: 38
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Trigger when the mouse is over an object (2D only)
+  example: []
   syntax:
     content: MOUSE_OVER = 5
     return:

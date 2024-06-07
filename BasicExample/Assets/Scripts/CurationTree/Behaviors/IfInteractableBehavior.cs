@@ -3,16 +3,52 @@ using UnityEngine;
 
 namespace CTree
 {
-  // Runs the given behavior is the world state variable is true
+  /// <summary>
+  /// Implements a behavior that triggers when the user interacts with scene objects 
+  /// Use this behavior to support drag and drop and selection behaviors.
+  /// </summary>
   public class IfInteractableBehavior : IfBehavior
   {
-      public enum Type { UNKNOWN, CLICK, DRAG, HOVER, DROP, MOUSE_OVER};
+      /// <summary>
+      /// Event types that can trigger a condition
+      /// </summary>
+      public enum Type { 
+        /// <summary>
+        /// Unknown event, e.g. the event type is not set
+        /// </summary>
+        UNKNOWN, 
+        /// <summary>
+        /// Trigger when the user clicks on an asset
+        /// </summary>
+        CLICK, 
+        /// <summary>
+        /// Trigger when the user picks up an asset
+        /// </summary>
+        DRAG, 
+        /// <summary>
+        /// Trigger when the user drags an object on top of another object
+        /// </summary>
+        HOVER, 
+        /// <summary>
+        /// Trigger when the user drops an object on top of another object
+        /// </summary>
+        DROP, 
+        /// <summary>
+        /// Trigger when the mouse is over an object (2D only)
+        /// </summary>
+        MOUSE_OVER};
 
       Type m_type = Type.UNKNOWN;
       Interactable m_item = null;
       Location m_target = null;
       bool m_triggered = false;
 
+      /// <summary>
+      /// Constructor for click, drag, and mouseOver events
+      /// </summary>
+      /// <param name="w">Object for accessing global state</param>
+      /// <param name="t">The event type that will trigger the execution of sub-behaviors</param>
+      /// <param name="itemName">The asset that will trigger the event.</param>
       public IfInteractableBehavior(World w, Type t, string itemName) : 
           base(w, null)
       {
@@ -46,6 +82,13 @@ namespace CTree
           }
       }
 
+      /// <summary>
+      /// Constructor for hover and drop events
+      /// </summary>
+      /// <param name="w">Object for accessing global state</param>
+      /// <param name="t">The event type that will trigger the execution of sub-behaviors</param>
+      /// <param name="itemName">The asset correpsonding to the held object.</param>
+      /// <param name="targetName">The asset correpsonding to the drop target.</param>
       public IfInteractableBehavior(World w, Type t, string itemName, string targetName) : 
           base(w, null)
       {

@@ -860,28 +860,6 @@ references:
   commentId: F:CTree.GameLoop.DebugOptions.tree
   fullName: CTree.GameLoop.DebugOptions.tree
   nameWithType: GameLoop.DebugOptions.tree
-- uid: CTree.GameLoop.LoadScreens(System.String[],System.Int32)
-  name: LoadScreens(string[], int)
-  href: api/CTree.GameLoop.html#CTree_GameLoop_LoadScreens_System_String___System_Int32_
-  commentId: M:CTree.GameLoop.LoadScreens(System.String[],System.Int32)
-  name.vb: LoadScreens(String(), Integer)
-  fullName: CTree.GameLoop.LoadScreens(string[], int)
-  fullName.vb: CTree.GameLoop.LoadScreens(String(), Integer)
-  nameWithType: GameLoop.LoadScreens(string[], int)
-  nameWithType.vb: GameLoop.LoadScreens(String(), Integer)
-- uid: CTree.GameLoop.LoadScreens(UnityEngine.TextAsset)
-  name: LoadScreens(TextAsset)
-  href: api/CTree.GameLoop.html#CTree_GameLoop_LoadScreens_UnityEngine_TextAsset_
-  commentId: M:CTree.GameLoop.LoadScreens(UnityEngine.TextAsset)
-  fullName: CTree.GameLoop.LoadScreens(UnityEngine.TextAsset)
-  nameWithType: GameLoop.LoadScreens(TextAsset)
-- uid: CTree.GameLoop.LoadScreens*
-  name: LoadScreens
-  href: api/CTree.GameLoop.html#CTree_GameLoop_LoadScreens_
-  commentId: Overload:CTree.GameLoop.LoadScreens
-  isSpec: "True"
-  fullName: CTree.GameLoop.LoadScreens
-  nameWithType: GameLoop.LoadScreens
 - uid: CTree.GameLoop.LogOptions
   name: GameLoop.LogOptions
   href: api/CTree.GameLoop.LogOptions.html
@@ -930,79 +908,12 @@ references:
   commentId: F:CTree.GameLoop.Options.log
   fullName: CTree.GameLoop.Options.log
   nameWithType: GameLoop.Options.log
-- uid: CTree.GameLoop.PrintScreenTree(CTree.ControlBehavior,System.String)
-  name: PrintScreenTree(ControlBehavior, string)
-  href: api/CTree.GameLoop.html#CTree_GameLoop_PrintScreenTree_CTree_ControlBehavior_System_String_
-  commentId: M:CTree.GameLoop.PrintScreenTree(CTree.ControlBehavior,System.String)
-  name.vb: PrintScreenTree(ControlBehavior, String)
-  fullName: CTree.GameLoop.PrintScreenTree(CTree.ControlBehavior, string)
-  fullName.vb: CTree.GameLoop.PrintScreenTree(CTree.ControlBehavior, String)
-  nameWithType: GameLoop.PrintScreenTree(ControlBehavior, string)
-  nameWithType.vb: GameLoop.PrintScreenTree(ControlBehavior, String)
-- uid: CTree.GameLoop.PrintScreenTree*
-  name: PrintScreenTree
-  href: api/CTree.GameLoop.html#CTree_GameLoop_PrintScreenTree_
-  commentId: Overload:CTree.GameLoop.PrintScreenTree
-  isSpec: "True"
-  fullName: CTree.GameLoop.PrintScreenTree
-  nameWithType: GameLoop.PrintScreenTree
-- uid: CTree.GameLoop.PrintWorldState
-  name: PrintWorldState()
-  href: api/CTree.GameLoop.html#CTree_GameLoop_PrintWorldState
-  commentId: M:CTree.GameLoop.PrintWorldState
-  fullName: CTree.GameLoop.PrintWorldState()
-  nameWithType: GameLoop.PrintWorldState()
-- uid: CTree.GameLoop.PrintWorldState*
-  name: PrintWorldState
-  href: api/CTree.GameLoop.html#CTree_GameLoop_PrintWorldState_
-  commentId: Overload:CTree.GameLoop.PrintWorldState
-  isSpec: "True"
-  fullName: CTree.GameLoop.PrintWorldState
-  nameWithType: GameLoop.PrintWorldState
-- uid: CTree.GameLoop.Reset
-  name: Reset()
-  href: api/CTree.GameLoop.html#CTree_GameLoop_Reset
-  commentId: M:CTree.GameLoop.Reset
-  fullName: CTree.GameLoop.Reset()
-  nameWithType: GameLoop.Reset()
-- uid: CTree.GameLoop.Reset*
-  name: Reset
-  href: api/CTree.GameLoop.html#CTree_GameLoop_Reset_
-  commentId: Overload:CTree.GameLoop.Reset
-  isSpec: "True"
-  fullName: CTree.GameLoop.Reset
-  nameWithType: GameLoop.Reset
-- uid: CTree.GameLoop.ScriptOver
-  name: ScriptOver()
-  href: api/CTree.GameLoop.html#CTree_GameLoop_ScriptOver
-  commentId: M:CTree.GameLoop.ScriptOver
-  fullName: CTree.GameLoop.ScriptOver()
-  nameWithType: GameLoop.ScriptOver()
-- uid: CTree.GameLoop.ScriptOver*
-  name: ScriptOver
-  href: api/CTree.GameLoop.html#CTree_GameLoop_ScriptOver_
-  commentId: Overload:CTree.GameLoop.ScriptOver
-  isSpec: "True"
-  fullName: CTree.GameLoop.ScriptOver
-  nameWithType: GameLoop.ScriptOver
 - uid: CTree.GameLoop.gameConfigFile
   name: gameConfigFile
   href: api/CTree.GameLoop.html#CTree_GameLoop_gameConfigFile
   commentId: F:CTree.GameLoop.gameConfigFile
   fullName: CTree.GameLoop.gameConfigFile
   nameWithType: GameLoop.gameConfigFile
-- uid: CTree.GameLoop.m_screens
-  name: m_screens
-  href: api/CTree.GameLoop.html#CTree_GameLoop_m_screens
-  commentId: F:CTree.GameLoop.m_screens
-  fullName: CTree.GameLoop.m_screens
-  nameWithType: GameLoop.m_screens
-- uid: CTree.GameLoop.m_world
-  name: m_world
-  href: api/CTree.GameLoop.html#CTree_GameLoop_m_world
-  commentId: F:CTree.GameLoop.m_world
-  fullName: CTree.GameLoop.m_world
-  nameWithType: GameLoop.m_world
 - uid: CTree.GameLoop.options
   name: options
   href: api/CTree.GameLoop.html#CTree_GameLoop_options
@@ -1015,15 +926,15 @@ references:
   commentId: T:CTree.IfBehavior
   fullName: CTree.IfBehavior
   nameWithType: IfBehavior
-- uid: CTree.IfBehavior.#ctor(CTree.World,System.Func{CTree.World,System.Boolean},System.Boolean)
-  name: IfBehavior(World, Func<World, bool>, bool)
-  href: api/CTree.IfBehavior.html#CTree_IfBehavior__ctor_CTree_World_System_Func_CTree_World_System_Boolean__System_Boolean_
-  commentId: M:CTree.IfBehavior.#ctor(CTree.World,System.Func{CTree.World,System.Boolean},System.Boolean)
-  name.vb: New(World, Func(Of World, Boolean), Boolean)
-  fullName: CTree.IfBehavior.IfBehavior(CTree.World, System.Func<CTree.World, bool>, bool)
-  fullName.vb: CTree.IfBehavior.New(CTree.World, System.Func(Of CTree.World, Boolean), Boolean)
-  nameWithType: IfBehavior.IfBehavior(World, Func<World, bool>, bool)
-  nameWithType.vb: IfBehavior.New(World, Func(Of World, Boolean), Boolean)
+- uid: CTree.IfBehavior.#ctor(CTree.World,System.Func{CTree.World,System.Boolean})
+  name: IfBehavior(World, Func<World, bool>)
+  href: api/CTree.IfBehavior.html#CTree_IfBehavior__ctor_CTree_World_System_Func_CTree_World_System_Boolean__
+  commentId: M:CTree.IfBehavior.#ctor(CTree.World,System.Func{CTree.World,System.Boolean})
+  name.vb: New(World, Func(Of World, Boolean))
+  fullName: CTree.IfBehavior.IfBehavior(CTree.World, System.Func<CTree.World, bool>)
+  fullName.vb: CTree.IfBehavior.New(CTree.World, System.Func(Of CTree.World, Boolean))
+  nameWithType: IfBehavior.IfBehavior(World, Func<World, bool>)
+  nameWithType.vb: IfBehavior.New(World, Func(Of World, Boolean))
 - uid: CTree.IfBehavior.#ctor*
   name: IfBehavior
   href: api/CTree.IfBehavior.html#CTree_IfBehavior__ctor_
@@ -1111,27 +1022,21 @@ references:
   commentId: F:CTree.IfBehavior.m_isTriggered
   fullName: CTree.IfBehavior.m_isTriggered
   nameWithType: IfBehavior.m_isTriggered
-- uid: CTree.IfBehavior.m_wait
-  name: m_wait
-  href: api/CTree.IfBehavior.html#CTree_IfBehavior_m_wait
-  commentId: F:CTree.IfBehavior.m_wait
-  fullName: CTree.IfBehavior.m_wait
-  nameWithType: IfBehavior.m_wait
 - uid: CTree.IfButtonBehavior
   name: IfButtonBehavior
   href: api/CTree.IfButtonBehavior.html
   commentId: T:CTree.IfButtonBehavior
   fullName: CTree.IfButtonBehavior
   nameWithType: IfButtonBehavior
-- uid: CTree.IfButtonBehavior.#ctor(CTree.World,System.String,System.Boolean)
-  name: IfButtonBehavior(World, string, bool)
-  href: api/CTree.IfButtonBehavior.html#CTree_IfButtonBehavior__ctor_CTree_World_System_String_System_Boolean_
-  commentId: M:CTree.IfButtonBehavior.#ctor(CTree.World,System.String,System.Boolean)
-  name.vb: New(World, String, Boolean)
-  fullName: CTree.IfButtonBehavior.IfButtonBehavior(CTree.World, string, bool)
-  fullName.vb: CTree.IfButtonBehavior.New(CTree.World, String, Boolean)
-  nameWithType: IfButtonBehavior.IfButtonBehavior(World, string, bool)
-  nameWithType.vb: IfButtonBehavior.New(World, String, Boolean)
+- uid: CTree.IfButtonBehavior.#ctor(CTree.World,System.String)
+  name: IfButtonBehavior(World, string)
+  href: api/CTree.IfButtonBehavior.html#CTree_IfButtonBehavior__ctor_CTree_World_System_String_
+  commentId: M:CTree.IfButtonBehavior.#ctor(CTree.World,System.String)
+  name.vb: New(World, String)
+  fullName: CTree.IfButtonBehavior.IfButtonBehavior(CTree.World, string)
+  fullName.vb: CTree.IfButtonBehavior.New(CTree.World, String)
+  nameWithType: IfButtonBehavior.IfButtonBehavior(World, string)
+  nameWithType.vb: IfButtonBehavior.New(World, String)
 - uid: CTree.IfButtonBehavior.#ctor*
   name: IfButtonBehavior
   href: api/CTree.IfButtonBehavior.html#CTree_IfButtonBehavior__ctor_
@@ -1570,19 +1475,6 @@ references:
   commentId: F:CTree.Interactable.Type.DRAGABLE
   fullName: CTree.Interactable.Type.DRAGABLE
   nameWithType: Interactable.Type.DRAGABLE
-- uid: CTree.Interactable.Update
-  name: Update()
-  href: api/CTree.Interactable.html#CTree_Interactable_Update
-  commentId: M:CTree.Interactable.Update
-  fullName: CTree.Interactable.Update()
-  nameWithType: Interactable.Update()
-- uid: CTree.Interactable.Update*
-  name: Update
-  href: api/CTree.Interactable.html#CTree_Interactable_Update_
-  commentId: Overload:CTree.Interactable.Update
-  isSpec: "True"
-  fullName: CTree.Interactable.Update
-  nameWithType: Interactable.Update
 - uid: CTree.Interactable.debugDraw
   name: debugDraw
   href: api/CTree.Interactable.html#CTree_Interactable_debugDraw
@@ -1621,18 +1513,6 @@ references:
   isSpec: "True"
   fullName: CTree.Interactable.isDragable
   nameWithType: Interactable.isDragable
-- uid: CTree.Interactable.m_dragObject
-  name: m_dragObject
-  href: api/CTree.Interactable.html#CTree_Interactable_m_dragObject
-  commentId: F:CTree.Interactable.m_dragObject
-  fullName: CTree.Interactable.m_dragObject
-  nameWithType: Interactable.m_dragObject
-- uid: CTree.Interactable.m_dragTargets
-  name: m_dragTargets
-  href: api/CTree.Interactable.html#CTree_Interactable_m_dragTargets
-  commentId: F:CTree.Interactable.m_dragTargets
-  fullName: CTree.Interactable.m_dragTargets
-  nameWithType: Interactable.m_dragTargets
 - uid: CTree.Location
   name: Location
   href: api/CTree.Location.html
@@ -2203,12 +2083,6 @@ references:
   isSpec: "True"
   fullName: CTree.SequenceBehavior.Tick
   nameWithType: SequenceBehavior.Tick
-- uid: CTree.SequenceBehavior.m_current
-  name: m_current
-  href: api/CTree.SequenceBehavior.html#CTree_SequenceBehavior_m_current
-  commentId: F:CTree.SequenceBehavior.m_current
-  fullName: CTree.SequenceBehavior.m_current
-  nameWithType: SequenceBehavior.m_current
 - uid: CTree.Utils
   name: Utils
   href: api/CTree.Utils.html

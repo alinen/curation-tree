@@ -122,6 +122,7 @@ items:
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to initializee the behavior.
   example: []
   syntax:
     content: public override void Setup()

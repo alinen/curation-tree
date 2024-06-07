@@ -23,11 +23,14 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: SelectBehavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/SelectBehavior.cs
-    startLine: 5
+    startLine: 6
   assemblies:
   - Assembly-CSharp
   namespace: CTree
-  summary: Runs the first behavior that has a satisfies a condition
+  summary: >-
+    Runs the first behavior that has a satisfies a condition
+
+    All sub-behaviors should be conditionals.
   example: []
   syntax:
     content: 'public class SelectBehavior : ControlBehavior'
@@ -75,15 +78,18 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/SelectBehavior.cs
-    startLine: 9
+    startLine: 14
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Constructor
+  example: []
   syntax:
     content: public SelectBehavior(World w)
     parameters:
     - id: w
       type: CTree.World
+      description: Object for accessing all global state.
     content.vb: Public Sub New(w As World)
   overload: CTree.SelectBehavior.#ctor*
   nameWithType.vb: SelectBehavior.New(World)
@@ -107,10 +113,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: TearDown
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/SelectBehavior.cs
-    startLine: 13
+    startLine: 18
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to cleanup the behavior.
   example: []
   syntax:
     content: public override void TearDown()
@@ -135,10 +142,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/SelectBehavior.cs
-    startLine: 22
+    startLine: 27
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to initializee the behavior.
   example: []
   syntax:
     content: public override void Setup()
@@ -163,10 +171,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Tick
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/SelectBehavior.cs
-    startLine: 32
+    startLine: 37
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to perform per-frame logic.
   example: []
   syntax:
     content: public override void Tick()

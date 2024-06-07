@@ -5,7 +5,7 @@ items:
   id: IfButtonBehavior
   parent: CTree
   children:
-  - CTree.IfButtonBehavior.#ctor(CTree.World,System.String,System.Boolean)
+  - CTree.IfButtonBehavior.#ctor(CTree.World,System.String)
   - CTree.IfButtonBehavior.Setup
   langs:
   - csharp
@@ -21,10 +21,15 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: IfButtonBehavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfButtonBehavior.cs
-    startLine: 7
+    startLine: 10
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: >-
+    Implements a Behavior that executes all sub-behaviors if a UI button is clicked.
+
+    This behavior is based on callabcks on Unity Button components.
+  example: []
   syntax:
     content: 'public class IfButtonBehavior : IfBehavior'
     content.vb: Public Class IfButtonBehavior Inherits IfBehavior
@@ -36,7 +41,6 @@ items:
   - CTree.IfBehavior
   inheritedMembers:
   - CTree.IfBehavior.m_condition
-  - CTree.IfBehavior.m_wait
   - CTree.IfBehavior.m_isTriggered
   - CTree.IfBehavior.IsTrue
   - CTree.IfBehavior.Finished
@@ -61,16 +65,16 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: CTree.IfButtonBehavior.#ctor(CTree.World,System.String,System.Boolean)
-  commentId: M:CTree.IfButtonBehavior.#ctor(CTree.World,System.String,System.Boolean)
-  id: '#ctor(CTree.World,System.String,System.Boolean)'
+- uid: CTree.IfButtonBehavior.#ctor(CTree.World,System.String)
+  commentId: M:CTree.IfButtonBehavior.#ctor(CTree.World,System.String)
+  id: '#ctor(CTree.World,System.String)'
   parent: CTree.IfButtonBehavior
   langs:
   - csharp
   - vb
-  name: IfButtonBehavior(World, string, bool)
-  nameWithType: IfButtonBehavior.IfButtonBehavior(World, string, bool)
-  fullName: CTree.IfButtonBehavior.IfButtonBehavior(CTree.World, string, bool)
+  name: IfButtonBehavior(World, string)
+  nameWithType: IfButtonBehavior.IfButtonBehavior(World, string)
+  fullName: CTree.IfButtonBehavior.IfButtonBehavior(CTree.World, string)
   type: Constructor
   source:
     remote:
@@ -79,24 +83,26 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfButtonBehavior.cs
-    startLine: 12
+    startLine: 20
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Constructor
+  example: []
   syntax:
-    content: public IfButtonBehavior(World w, string targetName, bool wait = false)
+    content: public IfButtonBehavior(World w, string targetName)
     parameters:
     - id: w
       type: CTree.World
+      description: Object for accessing global state.
     - id: targetName
       type: System.String
-    - id: wait
-      type: System.Boolean
-    content.vb: Public Sub New(w As World, targetName As String, wait As Boolean = False)
+      description: Name of an asset that contains a Button component
+    content.vb: Public Sub New(w As World, targetName As String)
   overload: CTree.IfButtonBehavior.#ctor*
-  nameWithType.vb: IfButtonBehavior.New(World, String, Boolean)
-  fullName.vb: CTree.IfButtonBehavior.New(CTree.World, String, Boolean)
-  name.vb: New(World, String, Boolean)
+  nameWithType.vb: IfButtonBehavior.New(World, String)
+  fullName.vb: CTree.IfButtonBehavior.New(CTree.World, String)
+  name.vb: New(World, String)
 - uid: CTree.IfButtonBehavior.Setup
   commentId: M:CTree.IfButtonBehavior.Setup
   id: Setup
@@ -115,10 +121,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfButtonBehavior.cs
-    startLine: 28
+    startLine: 35
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to initializee the behavior.
   example: []
   syntax:
     content: public override void Setup()
@@ -178,13 +185,6 @@ references:
   name: m_condition
   nameWithType: IfBehavior.m_condition
   fullName: CTree.IfBehavior.m_condition
-- uid: CTree.IfBehavior.m_wait
-  commentId: F:CTree.IfBehavior.m_wait
-  parent: CTree.IfBehavior
-  href: CTree.IfBehavior.html#CTree_IfBehavior_m_wait
-  name: m_wait
-  nameWithType: IfBehavior.m_wait
-  fullName: CTree.IfBehavior.m_wait
 - uid: CTree.IfBehavior.m_isTriggered
   commentId: F:CTree.IfBehavior.m_isTriggered
   parent: CTree.IfBehavior
@@ -675,7 +675,7 @@ references:
   fullName: System
 - uid: CTree.IfButtonBehavior.#ctor*
   commentId: Overload:CTree.IfButtonBehavior.#ctor
-  href: CTree.IfButtonBehavior.html#CTree_IfButtonBehavior__ctor_CTree_World_System_String_System_Boolean_
+  href: CTree.IfButtonBehavior.html#CTree_IfButtonBehavior__ctor_CTree_World_System_String_
   name: IfButtonBehavior
   nameWithType: IfButtonBehavior.IfButtonBehavior
   fullName: CTree.IfButtonBehavior.IfButtonBehavior
@@ -700,17 +700,6 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: CTree.IfBehavior.Setup
   commentId: M:CTree.IfBehavior.Setup
   parent: CTree.IfBehavior

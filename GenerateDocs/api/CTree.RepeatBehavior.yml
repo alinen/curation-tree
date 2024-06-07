@@ -25,10 +25,17 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: RepeatBehavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
-    startLine: 6
+    startLine: 10
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: >-
+    Implements a control Behavior that repeats all sub-behaviors until a condition becomes false.
+
+    Each iteration, all sub-behaviors are run in parallel. The iteration completes when all sub-behaviors repeat.
+
+    The conditional is checked at the start of each iteration. If true, the sub-behaviors are re-run.
+  example: []
   syntax:
     content: 'public class RepeatBehavior : ParallelBehavior'
     content.vb: Public Class RepeatBehavior Inherits ParallelBehavior
@@ -76,7 +83,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: m_condition
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
-    startLine: 8
+    startLine: 12
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -103,7 +110,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: m_isRunning
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
-    startLine: 9
+    startLine: 13
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -130,17 +137,23 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
-    startLine: 11
+    startLine: 21
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Constructor
+  example: []
   syntax:
     content: public RepeatBehavior(World w, Func<World, bool> condition)
     parameters:
     - id: w
       type: CTree.World
+      description: Object for accessing all global state.
     - id: condition
       type: System.Func{CTree.World,System.Boolean}
+      description: >-
+        Function that implements the conditional. 
+            It takes Workd as a parameter and returns a boolean.
     content.vb: Public Sub New(w As World, condition As Func(Of World, Boolean))
   overload: CTree.RepeatBehavior.#ctor*
   nameWithType.vb: RepeatBehavior.New(World, Func(Of World, Boolean))
@@ -164,15 +177,17 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Finished
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
-    startLine: 16
+    startLine: 26
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Query whether the Behavior has completed or not.
   example: []
   syntax:
     content: public override bool Finished()
     return:
       type: System.Boolean
+      description: True if the Behavior is finished; False otherwise.
     content.vb: Public Overrides Function Finished() As Boolean
   overridden: CTree.ParallelBehavior.Finished
   overload: CTree.RepeatBehavior.Finished*
@@ -194,10 +209,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
-    startLine: 21
+    startLine: 31
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to initializee the behavior.
   example: []
   syntax:
     content: public override void Setup()
@@ -222,10 +238,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Tick
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
-    startLine: 30
+    startLine: 40
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to perform per-frame logic.
   example: []
   syntax:
     content: public override void Tick()

@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace CTree
 { 
+  /// <summary>
+  /// Implements a central, shared object for accessing all global state.
+  /// </summary>
   public class World
   {
       public bool debugRaycast = false;

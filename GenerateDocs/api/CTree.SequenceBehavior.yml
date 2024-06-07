@@ -8,7 +8,6 @@ items:
   - CTree.SequenceBehavior.#ctor(CTree.World)
   - CTree.SequenceBehavior.Setup
   - CTree.SequenceBehavior.Tick
-  - CTree.SequenceBehavior.m_current
   langs:
   - csharp
   - vb
@@ -23,10 +22,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: SequenceBehavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/SequenceBehavior.cs
-    startLine: 5
+    startLine: 8
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Implements a behavior that runs all sub-behaviors in sequence.
+  example: []
   syntax:
     content: 'public class SequenceBehavior : ControlBehavior'
     content.vb: Public Class SequenceBehavior Inherits ControlBehavior
@@ -56,33 +57,6 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: CTree.SequenceBehavior.m_current
-  commentId: F:CTree.SequenceBehavior.m_current
-  id: m_current
-  parent: CTree.SequenceBehavior
-  langs:
-  - csharp
-  - vb
-  name: m_current
-  nameWithType: SequenceBehavior.m_current
-  fullName: CTree.SequenceBehavior.m_current
-  type: Field
-  source:
-    remote:
-      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/SequenceBehavior.cs
-      branch: squirrel-house
-      repo: git@github.com:alinen/curation-tree.git
-    id: m_current
-    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/SequenceBehavior.cs
-    startLine: 7
-  assemblies:
-  - Assembly-CSharp
-  namespace: CTree
-  syntax:
-    content: protected int m_current
-    return:
-      type: System.Int32
-    content.vb: Protected m_current As Integer
 - uid: CTree.SequenceBehavior.#ctor(CTree.World)
   commentId: M:CTree.SequenceBehavior.#ctor(CTree.World)
   id: '#ctor(CTree.World)'
@@ -101,15 +75,18 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/SequenceBehavior.cs
-    startLine: 9
+    startLine: 16
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Constructor
+  example: []
   syntax:
     content: public SequenceBehavior(World w)
     parameters:
     - id: w
       type: CTree.World
+      description: Object for accessing all global state.
     content.vb: Public Sub New(w As World)
   overload: CTree.SequenceBehavior.#ctor*
   nameWithType.vb: SequenceBehavior.New(World)
@@ -133,10 +110,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/SequenceBehavior.cs
-    startLine: 13
+    startLine: 20
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to initializee the behavior.
   example: []
   syntax:
     content: public override void Setup()
@@ -161,10 +139,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Tick
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/SequenceBehavior.cs
-    startLine: 21
+    startLine: 28
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to perform per-frame logic.
   example: []
   syntax:
     content: public override void Tick()
@@ -646,17 +625,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
 - uid: CTree.SequenceBehavior.#ctor*
   commentId: Overload:CTree.SequenceBehavior.#ctor
   href: CTree.SequenceBehavior.html#CTree_SequenceBehavior__ctor_CTree_World_

@@ -5,25 +5,31 @@ using static UnityEditor.FilePathAttribute;
 
 namespace CTree
 {
+  /// <summary>
+  /// Implements user interaction logic, such as selection and drag-and-drop, for scene assets.
+  /// </summary>
   public class Interactable : MonoBehaviour
   {
     public static bool debugDraw = false;
 
     public delegate void ClickCb(Interactable i);
+
     public delegate void MouseOverCb(Interactable i);
+
     public delegate void DropCb(Interactable dragSource, GameObject dropTarget);
+
     public delegate void HoverCb(Interactable dragSource, GameObject dropTarget);
+
     public delegate void DragCb(Interactable dragSource);
 
     public enum Type { CLICKABLE, DRAGABLE, COPY_DRAGABLE};
+
     public Type interactionType = Type.CLICKABLE;
-    //public bool isDragable = false;
-    //public bool isCopyDragable = false;
 
     private bool m_isDragging = false;
     private bool m_isClicked = false;
-    protected GameObject m_dragObject = null; // temporary drag object
-    protected List<GameObject> m_dragTargets = new List<GameObject>(); // for dragable objects, the allowed target(s)
+    private GameObject m_dragObject = null; // temporary drag object
+    private List<GameObject> m_dragTargets = new List<GameObject>(); // for dragable objects, the allowed target(s)
 
     private List<ClickCb> m_clickedCbs = new List<ClickCb>();
     private List<DropCb> m_dropCbs = new List<DropCb>();
@@ -34,7 +40,6 @@ namespace CTree
     private Location m_location = null;
     private Vector3 m_offset;
     private Vector3 m_lastPointerPos;
-
 
     private void Start()
     {
@@ -103,7 +108,7 @@ namespace CTree
       return false;
     }
 
-    protected void Update ()
+    void Update ()
     {
       if (m_dragObject)
       {

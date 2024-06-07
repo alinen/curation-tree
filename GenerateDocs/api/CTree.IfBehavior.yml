@@ -5,7 +5,7 @@ items:
   id: IfBehavior
   parent: CTree
   children:
-  - CTree.IfBehavior.#ctor(CTree.World,System.Func{CTree.World,System.Boolean},System.Boolean)
+  - CTree.IfBehavior.#ctor(CTree.World,System.Func{CTree.World,System.Boolean})
   - CTree.IfBehavior.Finished
   - CTree.IfBehavior.IsTrue
   - CTree.IfBehavior.Setup
@@ -13,7 +13,6 @@ items:
   - CTree.IfBehavior.Tick
   - CTree.IfBehavior.m_condition
   - CTree.IfBehavior.m_isTriggered
-  - CTree.IfBehavior.m_wait
   langs:
   - csharp
   - vb
@@ -28,10 +27,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: IfBehavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfBehavior.cs
-    startLine: 7
+    startLine: 8
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Base class for all behaviors that trigger sub-behaviors based on a conditional.
+  example: []
   syntax:
     content: 'public class IfBehavior : ParallelBehavior'
     content.vb: Public Class IfBehavior Inherits ParallelBehavior
@@ -81,7 +82,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: m_condition
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfBehavior.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -90,33 +91,6 @@ items:
     return:
       type: System.Func{CTree.World,System.Boolean}
     content.vb: Protected m_condition As Func(Of World, Boolean)
-- uid: CTree.IfBehavior.m_wait
-  commentId: F:CTree.IfBehavior.m_wait
-  id: m_wait
-  parent: CTree.IfBehavior
-  langs:
-  - csharp
-  - vb
-  name: m_wait
-  nameWithType: IfBehavior.m_wait
-  fullName: CTree.IfBehavior.m_wait
-  type: Field
-  source:
-    remote:
-      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfBehavior.cs
-      branch: squirrel-house
-      repo: git@github.com:alinen/curation-tree.git
-    id: m_wait
-    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfBehavior.cs
-    startLine: 10
-  assemblies:
-  - Assembly-CSharp
-  namespace: CTree
-  syntax:
-    content: protected bool m_wait
-    return:
-      type: System.Boolean
-    content.vb: Protected m_wait As Boolean
 - uid: CTree.IfBehavior.m_isTriggered
   commentId: F:CTree.IfBehavior.m_isTriggered
   id: m_isTriggered
@@ -144,16 +118,16 @@ items:
     return:
       type: System.Boolean
     content.vb: Protected m_isTriggered As Boolean
-- uid: CTree.IfBehavior.#ctor(CTree.World,System.Func{CTree.World,System.Boolean},System.Boolean)
-  commentId: M:CTree.IfBehavior.#ctor(CTree.World,System.Func{CTree.World,System.Boolean},System.Boolean)
-  id: '#ctor(CTree.World,System.Func{CTree.World,System.Boolean},System.Boolean)'
+- uid: CTree.IfBehavior.#ctor(CTree.World,System.Func{CTree.World,System.Boolean})
+  commentId: M:CTree.IfBehavior.#ctor(CTree.World,System.Func{CTree.World,System.Boolean})
+  id: '#ctor(CTree.World,System.Func{CTree.World,System.Boolean})'
   parent: CTree.IfBehavior
   langs:
   - csharp
   - vb
-  name: IfBehavior(World, Func<World, bool>, bool)
-  nameWithType: IfBehavior.IfBehavior(World, Func<World, bool>, bool)
-  fullName: CTree.IfBehavior.IfBehavior(CTree.World, System.Func<CTree.World, bool>, bool)
+  name: IfBehavior(World, Func<World, bool>)
+  nameWithType: IfBehavior.IfBehavior(World, Func<World, bool>)
+  fullName: CTree.IfBehavior.IfBehavior(CTree.World, System.Func<CTree.World, bool>)
   type: Constructor
   source:
     remote:
@@ -162,24 +136,26 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfBehavior.cs
-    startLine: 13
+    startLine: 18
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Constructor
+  example: []
   syntax:
-    content: public IfBehavior(World w, Func<World, bool> condition, bool wait = false)
+    content: public IfBehavior(World w, Func<World, bool> condition)
     parameters:
     - id: w
       type: CTree.World
+      description: Object for accessing global state.
     - id: condition
       type: System.Func{CTree.World,System.Boolean}
-    - id: wait
-      type: System.Boolean
-    content.vb: Public Sub New(w As World, condition As Func(Of World, Boolean), wait As Boolean = False)
+      description: Function that takes the World object as input and returns true or false.
+    content.vb: Public Sub New(w As World, condition As Func(Of World, Boolean))
   overload: CTree.IfBehavior.#ctor*
-  nameWithType.vb: IfBehavior.New(World, Func(Of World, Boolean), Boolean)
-  fullName.vb: CTree.IfBehavior.New(CTree.World, System.Func(Of CTree.World, Boolean), Boolean)
-  name.vb: New(World, Func(Of World, Boolean), Boolean)
+  nameWithType.vb: IfBehavior.New(World, Func(Of World, Boolean))
+  fullName.vb: CTree.IfBehavior.New(CTree.World, System.Func(Of CTree.World, Boolean))
+  name.vb: New(World, Func(Of World, Boolean))
 - uid: CTree.IfBehavior.Setup
   commentId: M:CTree.IfBehavior.Setup
   id: Setup
@@ -198,10 +174,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfBehavior.cs
-    startLine: 20
+    startLine: 23
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to initializee the behavior.
   example: []
   syntax:
     content: public override void Setup()
@@ -226,7 +203,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: IsTrue
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfBehavior.cs
-    startLine: 27
+    startLine: 30
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -254,15 +231,17 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Finished
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfBehavior.cs
-    startLine: 32
+    startLine: 35
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Query whether the Behavior has completed or not.
   example: []
   syntax:
     content: public override bool Finished()
     return:
       type: System.Boolean
+      description: True if the Behavior is finished; False otherwise.
     content.vb: Public Overrides Function Finished() As Boolean
   overridden: CTree.ParallelBehavior.Finished
   overload: CTree.IfBehavior.Finished*
@@ -284,10 +263,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Tick
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfBehavior.cs
-    startLine: 41
+    startLine: 44
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to perform per-frame logic.
   example: []
   syntax:
     content: public override void Tick()
@@ -312,10 +292,11 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: TearDown
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfBehavior.cs
-    startLine: 57
+    startLine: 60
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Override this function to cleanup the behavior.
   example: []
   syntax:
     content: public override void TearDown()
@@ -858,7 +839,7 @@ references:
   name.vb: Boolean
 - uid: CTree.IfBehavior.#ctor*
   commentId: Overload:CTree.IfBehavior.#ctor
-  href: CTree.IfBehavior.html#CTree_IfBehavior__ctor_CTree_World_System_Func_CTree_World_System_Boolean__System_Boolean_
+  href: CTree.IfBehavior.html#CTree_IfBehavior__ctor_CTree_World_System_Func_CTree_World_System_Boolean__
   name: IfBehavior
   nameWithType: IfBehavior.IfBehavior
   fullName: CTree.IfBehavior.IfBehavior

@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class Factory | Curation Tree ">
     
-    <meta name="description" content="Implements the logic for converting lines of text into behaviors. The set of built-in behaviors have the following syntax in the input file. Each line of input corresponds to a single behavior, created using one of the functions defined in this class. Control Nodes              State Nodes  : VariableName, VariableValue : VariableName, DeltaValue  Appearance Nodes  : Duration : AssetName : AssetName : AssetName, AnimationName : AssetName, AnimationName : AssetName, Message : AssetName, StartAlpha, EndAlpha, Duration : AssetName, StartSize, EndSize, Duration : AssetName, R, G, B, Duration : AssetName, Duration : AssetName, StartTransform, EndTransform, Duration, InterpolationType : AssetName, NumPulses, PulseSpeed, PulseSize">
+    <meta name="description" content="Implements the logic for converting lines of text into instances of .">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -190,44 +190,8 @@
 
 
   <h1 id="CTree_Factory" data-uid="CTree.Factory" class="text-break">Class Factory</h1>
-  <div class="markdown level0 summary"><p>Implements the logic for converting lines of text into behaviors.
-The set of built-in behaviors have the following syntax in the input file.
-Each line of input corresponds to a single behavior, created using one of the
-functions defined in this class.</p>
-<p><strong>Control Nodes</strong></p>
-<ul>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Sequence_CTree_World_System_String_">Sequence(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Parallel_CTree_World_System_String_">Parallel(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Select_CTree_World_System_String_">Select(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Repeat_CTree_World_System_String_">Repeat(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_RepeatWhile_CTree_World_System_String_">RepeatWhile(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_If_CTree_World_System_String_">If(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_IfDrag_CTree_World_System_String_">IfDrag(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_IfDrop_CTree_World_System_String_">IfDrop(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_IfClick_CTree_World_System_String_">IfClick(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_IfHover_CTree_World_System_String_">IfHover(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_IfMouseOver_CTree_World_System_String_">IfMouseOver(World, string)</a></li>
-</ul>
-<p><strong>State Nodes</strong></p>
-<ul>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_SetState_CTree_World_System_String_">SetState(World, string)</a>: VariableName, VariableValue</li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Add_CTree_World_System_String_">Add(World, string)</a>: VariableName, DeltaValue</li>
-</ul>
-<p><strong>Appearance Nodes</strong></p>
-<ul>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Wait_CTree_World_System_String_">Wait(World, string)</a>: Duration</li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Show_CTree_World_System_String_">Show(World, string)</a>: AssetName</li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Hide_CTree_World_System_String_">Hide(World, string)</a>: AssetName</li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_PlayAnimation_CTree_World_System_String_">PlayAnimation(World, string)</a>: AssetName, AnimationName</li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_StopAnimation_CTree_World_System_String_">StopAnimation(World, string)</a>: AssetName, AnimationName</li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_SetText_CTree_World_System_String_">SetText(World, string)</a>: AssetName, Message</li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Fade_CTree_World_System_String_">Fade(World, string)</a>: AssetName, StartAlpha, EndAlpha, Duration</li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Grow_CTree_World_System_String_">Grow(World, string)</a>: AssetName, StartSize, EndSize, Duration</li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_ChangeColor_CTree_World_System_String_">ChangeColor(World, string)</a>: AssetName, R, G, B, Duration</li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_RevertColor_CTree_World_System_String_">RevertColor(World, string)</a>: AssetName, Duration</li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Move_CTree_World_System_String_">Move(World, string)</a>: AssetName, StartTransform, EndTransform, Duration, InterpolationType</li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Pulse_CTree_World_System_String_">Pulse(World, string)</a>: AssetName, NumPulses, PulseSpeed, PulseSize</li>
-</ul>
+  <div class="markdown level0 summary"><p>Implements the logic for converting lines of text into instances of
+<a class="xref" href="CTree.Behavior.html">Behavior</a>.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -265,6 +229,46 @@ functions defined in this class.</p>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static class Factory</code></pre>
   </div>
+  <h5 id="CTree_Factory_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Implements the logic for converting lines of text into behaviors.
+The set of built-in behaviors have the following syntax in the input file.
+Each line of input corresponds to a single behavior, created using one of the
+functions defined in this class.</p>
+<p><strong>Control Nodes</strong></p>
+<ul>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Sequence_CTree_World_System_String_">Sequence(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Parallel_CTree_World_System_String_">Parallel(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Select_CTree_World_System_String_">Select(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Repeat_CTree_World_System_String_">Repeat(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_RepeatWhile_CTree_World_System_String_">RepeatWhile(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_If_CTree_World_System_String_">If(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_IfDrag_CTree_World_System_String_">IfDrag(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_IfDrop_CTree_World_System_String_">IfDrop(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_IfClick_CTree_World_System_String_">IfClick(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_IfHover_CTree_World_System_String_">IfHover(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_IfMouseOver_CTree_World_System_String_">IfMouseOver(World, string)</a></li>
+</ul>
+<p><strong>State Nodes</strong></p>
+<ul>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_SetState_CTree_World_System_String_">SetState(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Add_CTree_World_System_String_">Add(World, string)</a></li>
+</ul>
+<p><strong>Appearance Nodes</strong></p>
+<ul>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Wait_CTree_World_System_String_">Wait(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Show_CTree_World_System_String_">Show(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Hide_CTree_World_System_String_">Hide(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_PlayAnimation_CTree_World_System_String_">PlayAnimation(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_StopAnimation_CTree_World_System_String_">StopAnimation(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_SetText_CTree_World_System_String_">SetText(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Fade_CTree_World_System_String_">Fade(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Grow_CTree_World_System_String_">Grow(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_ChangeColor_CTree_World_System_String_">ChangeColor(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_RevertColor_CTree_World_System_String_">RevertColor(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Move_CTree_World_System_String_">Move(World, string)</a></li>
+<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Pulse_CTree_World_System_String_">Pulse(World, string)</a></li>
+</ul>
+</div>
   <h3 id="methods">Methods
 </h3>
   <a id="CTree_Factory_Add_" data-uid="CTree.Factory.Add*"></a>

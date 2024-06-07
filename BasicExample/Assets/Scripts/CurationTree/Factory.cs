@@ -5,6 +5,10 @@ using System.Reflection;
 namespace CTree
 {
   /// <summary>
+  /// Implements the logic for converting lines of text into instances of 
+  /// <see cref="CTree.Behavior?alt=Behavior"/>.
+  /// </summary>
+  /// <remarks>
   /// Implements the logic for converting lines of text into behaviors. 
   /// The set of built-in behaviors have the following syntax in the input file. 
   /// Each line of input corresponds to a single behavior, created using one of the 
@@ -24,23 +28,23 @@ namespace CTree
   /// * <see cref="CTree.Factory.IfMouseOver?alt=IfMouseOver"/> 
   ///
   /// **State Nodes**
-  /// * <see cref="CTree.Factory.SetState?alt=SetState"/>: VariableName, VariableValue
-  /// * <see cref="CTree.Factory.Add?alt=Add"/>: VariableName, DeltaValue
+  /// * <see cref="CTree.Factory.SetState?alt=SetState"/>
+  /// * <see cref="CTree.Factory.Add?alt=Add"/>
   ///
   /// **Appearance Nodes**
-  /// * <see cref="CTree.Factory.Wait?alt=Wait"/>: Duration
-  /// * <see cref="CTree.Factory.Show?alt=Show"/>: AssetName
-  /// * <see cref="CTree.Factory.Hide?alt=Hide"/>: AssetName
-  /// * <see cref="CTree.Factory.PlayAnimation?alt=PlayAnimation"/>: AssetName, AnimationName
-  /// * <see cref="CTree.Factory.StopAnimation?alt=StopAnimation"/>: AssetName, AnimationName
-  /// * <see cref="CTree.Factory.SetText?alt=SetText"/>: AssetName, Message
-  /// * <see cref="CTree.Factory.Fade?alt=Fade"/>: AssetName, StartAlpha, EndAlpha, Duration
-  /// * <see cref="CTree.Factory.Grow?alt=Grow"/>: AssetName, StartSize, EndSize, Duration
-  /// * <see cref="CTree.Factory.ChangeColor?alt=ChangeColor"/>: AssetName, R, G, B, Duration
-  /// * <see cref="CTree.Factory.RevertColor?alt=RevertClor"/>: AssetName, Duration
-  /// * <see cref="CTree.Factory.Move?alt=Move"/>: AssetName, StartTransform, EndTransform, Duration, InterpolationType
-  /// * <see cref="CTree.Factory.Pulse?alt=Pulse"/>: AssetName, NumPulses, PulseSpeed, PulseSize
-  /// </summary>
+  /// * <see cref="CTree.Factory.Wait?alt=Wait"/>
+  /// * <see cref="CTree.Factory.Show?alt=Show"/>
+  /// * <see cref="CTree.Factory.Hide?alt=Hide"/>
+  /// * <see cref="CTree.Factory.PlayAnimation?alt=PlayAnimation"/>
+  /// * <see cref="CTree.Factory.StopAnimation?alt=StopAnimation"/>
+  /// * <see cref="CTree.Factory.SetText?alt=SetText"/>
+  /// * <see cref="CTree.Factory.Fade?alt=Fade"/>
+  /// * <see cref="CTree.Factory.Grow?alt=Grow"/>
+  /// * <see cref="CTree.Factory.ChangeColor?alt=ChangeColor"/>
+  /// * <see cref="CTree.Factory.RevertColor?alt=RevertClor"/>
+  /// * <see cref="CTree.Factory.Move?alt=Move"/>
+  /// * <see cref="CTree.Factory.Pulse?alt=Pulse"/>
+  /// </remarks>
   public static class Factory
     {
         /// <summary>
@@ -219,7 +223,7 @@ namespace CTree
           int.TryParse(tokens[1].Trim(), out stateValue);  
           return new IfBehavior(world, (world) => { 
               return world.GetInteger(stateName) == stateValue;
-          }, false);
+          });
       }
 
       /// <summary>

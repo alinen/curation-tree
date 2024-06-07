@@ -26,10 +26,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: ControlBehavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-    startLine: 5
+    startLine: 8
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Base class for all behaviors that contain sub-behaviors, such as Repeat or Parallel.
+  example: []
   syntax:
     content: 'public abstract class ControlBehavior : Behavior'
     content.vb: Public MustInherit Class ControlBehavior Inherits Behavior
@@ -76,7 +78,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: m_behaviors
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-    startLine: 7
+    startLine: 10
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -103,7 +105,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Count
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-    startLine: 9
+    startLine: 12
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -132,7 +134,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-    startLine: 14
+    startLine: 17
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -164,7 +166,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Add
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-    startLine: 18
+    startLine: 21
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -193,7 +195,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Insert
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-    startLine: 23
+    startLine: 26
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -227,7 +229,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Get
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-    startLine: 29
+    startLine: 32
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -261,7 +263,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Clear
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-    startLine: 34
+    startLine: 37
   assemblies:
   - Assembly-CSharp
   namespace: CTree

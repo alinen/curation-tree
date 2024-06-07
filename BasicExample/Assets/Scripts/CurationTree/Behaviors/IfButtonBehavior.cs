@@ -4,14 +4,21 @@ using UnityEngine.UI;
 
 namespace CTree
 {
-  // Runs the given behavior is the world state variable is true
+  /// <summary>
+  /// Implements a Behavior that executes all sub-behaviors if a UI button is clicked.
+  /// This behavior is based on callabcks on Unity Button components.
+  /// </summary>
   public class IfButtonBehavior : IfBehavior
   {
       Button m_target = null;
       bool m_isClicked = false;
 
-      public IfButtonBehavior(World w, string targetName, bool wait = false) : 
-          base(w, null, wait)
+      /// <summary>
+      /// Constructor 
+      /// </summary>
+      /// <param name="w">Object for accessing global state.</param>
+      /// <param name="targetName">Name of an asset that contains a Button component</param>
+      public IfButtonBehavior(World w, string targetName) : base(w, null)
       {
           targetName = targetName.Trim();
           if (!string.IsNullOrEmpty(targetName))

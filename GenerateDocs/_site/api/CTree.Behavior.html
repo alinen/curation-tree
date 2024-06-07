@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class Behavior | Curation Tree ">
     
-    
+    <meta name="description" content="Base class for all Behaviors.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -190,7 +190,8 @@
 
 
   <h1 id="CTree_Behavior" data-uid="CTree.Behavior" class="text-break">Class Behavior</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Base class for all Behaviors.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -228,11 +229,32 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class Behavior</code></pre>
   </div>
+  <h5 id="CTree_Behavior_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Most custom behaviors can use the <a class="xref" href="CTree.AtomicBehavior.html">AtomicBehavior</a> and
+<a class="xref" href="CTree.CoroutineBehavior.html">CoroutineBehavior</a>. However, more complex behaviors involving
+customer player interactions, such as mini games, may need to subclass Behavior.</p>
+<p>Subclasses can override the following methods</p>
+<ul>
+<li><a class="xref" href="CTree.Behavior.html#CTree_Behavior_Setup">Setup()</a>: Executed once when the Behavior starts. Use
+this method to reset state or start coroutines. Overriden methods MUST call the base.Setup.</li>
+<li><a class="xref" href="CTree.Behavior.html#CTree_Behavior_Tick">Tick()</a>: Executed every frame.</li>
+<li><a class="xref" href="CTree.Behavior.html#CTree_Behavior_TearDown">TearDown()</a>: Executed once when the Behavior ends. Use
+this method to cleanup resources, deregister callbacks, and stop coroutines. Overriden methods MUST call the base.TearDown.</li>
+<li><a class="xref" href="CTree.Behavior.html#CTree_Behavior_Finished">Finished()</a>: Called by GameLoop to determine the status of the currently running Behavior.
+Override this method to customize the logic for determining whether a Behavior has completed.</li>
+</ul>
+<p>Subclasses need to set <a class="xref" href="CTree.Behavior.html#CTree_Behavior_m_finished">m_finished</a> to true to indicate that the Behavior is complete.</p>
+<p>[!Note]: This is different from a typical Behavior tree implementation where nodes return SUCCESS or FAIL
+and then relinquish control back to the parent node. We may change this implementation to use canonical
+behavior trees in the future. The current implementation is simpler and sufficient for our purposes where
+the Curation Tree always runs once and all nodes SUCCEED.</p>
+</div>
   <h3 id="constructors">Constructors
 </h3>
   <a id="CTree_Behavior__ctor_" data-uid="CTree.Behavior.#ctor*"></a>
   <h4 id="CTree_Behavior__ctor_CTree_World_" data-uid="CTree.Behavior.#ctor(CTree.World)">Behavior(World)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Constructor</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -251,14 +273,16 @@
       <tr>
         <td><a class="xref" href="CTree.World.html">World</a></td>
         <td><span class="parametername">w</span></td>
-        <td></td>
+        <td><p>Object for accessing global world state.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h3 id="fields">Fields
 </h3>
   <h4 id="CTree_Behavior_m_finished" data-uid="CTree.Behavior.m_finished">m_finished</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Boolean that indicates that the Behavior has finished executing and GameLoop should move to the next Behavior</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -280,7 +304,9 @@
     </tbody>
   </table>
   <h4 id="CTree_Behavior_m_isActive" data-uid="CTree.Behavior.m_isActive">m_isActive</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Boolean that indicates that the Behavor is currently running.
+Interactable objects only trigger on active Behaviors.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -302,7 +328,8 @@
     </tbody>
   </table>
   <h4 id="CTree_Behavior_m_name" data-uid="CTree.Behavior.m_name">m_name</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>String containing the input line used to create this Behavior (for debugging)</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -327,7 +354,8 @@
 </h3>
   <a id="CTree_Behavior_name_" data-uid="CTree.Behavior.name*"></a>
   <h4 id="CTree_Behavior_name" data-uid="CTree.Behavior.name">name</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Value containing the input line used to create this Behavior (for debugging)</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -350,7 +378,8 @@
   </table>
   <a id="CTree_Behavior_world_" data-uid="CTree.Behavior.world*"></a>
   <h4 id="CTree_Behavior_world" data-uid="CTree.Behavior.world">world</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Accessor for the object that hold global world state.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -375,7 +404,8 @@
 </h3>
   <a id="CTree_Behavior_Finished_" data-uid="CTree.Behavior.Finished*"></a>
   <h4 id="CTree_Behavior_Finished" data-uid="CTree.Behavior.Finished">Finished()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Query whether the Behavior has completed or not.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -392,13 +422,15 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
+        <td><p>True if the Behavior is finished; False otherwise.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <a id="CTree_Behavior_IsActive_" data-uid="CTree.Behavior.IsActive*"></a>
   <h4 id="CTree_Behavior_IsActive" data-uid="CTree.Behavior.IsActive">IsActive()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Query whether the Behavior is currently executing or not.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -415,13 +447,15 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
+        <td><p>True if the Behavior is currently running. False otherwise</p>
+</td>
       </tr>
     </tbody>
   </table>
   <a id="CTree_Behavior_Setup_" data-uid="CTree.Behavior.Setup*"></a>
   <h4 id="CTree_Behavior_Setup" data-uid="CTree.Behavior.Setup">Setup()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Override this function to initializee the behavior.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -429,7 +463,8 @@
   </div>
   <a id="CTree_Behavior_TearDown_" data-uid="CTree.Behavior.TearDown*"></a>
   <h4 id="CTree_Behavior_TearDown" data-uid="CTree.Behavior.TearDown">TearDown()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Override this function to cleanup the behavior.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -437,7 +472,8 @@
   </div>
   <a id="CTree_Behavior_Tick_" data-uid="CTree.Behavior.Tick*"></a>
   <h4 id="CTree_Behavior_Tick" data-uid="CTree.Behavior.Tick">Tick()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Override this function to perform per-frame logic.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -445,7 +481,8 @@
   </div>
   <a id="CTree_Behavior_ToString_" data-uid="CTree.Behavior.ToString*"></a>
   <h4 id="CTree_Behavior_ToString" data-uid="CTree.Behavior.ToString">ToString()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Accessor for a string representation of this Behavior.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -462,7 +499,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
+        <td><p>String representation for this object.</p>
+</td>
       </tr>
     </tbody>
   </table>

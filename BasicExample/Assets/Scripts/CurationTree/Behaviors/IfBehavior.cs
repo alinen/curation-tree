@@ -3,19 +3,22 @@ using UnityEngine;
 
 namespace CTree
 {
-  // Runs a behavior sequence if the associated condition becomes true
-  // If "wait" is true, this behavior waits until the user triggers the condition 
+  /// <summary>
+  /// Base class for all behaviors that trigger sub-behaviors based on a conditional.
+  /// </summary>
   public class IfBehavior : ParallelBehavior
   {
       protected System.Func<World, bool> m_condition = null;
-      protected bool m_wait = false;
       protected bool m_isTriggered = false;
 
-      public IfBehavior(World w, System.Func<World, bool> condition, 
-          bool wait = false) : base(w)
+      /// <summary>
+      /// Constructor 
+      /// </summary>
+      /// <param name="w">Object for accessing global state.</param>
+      /// <param name="condition">Function that takes the World object as input and returns true or false.</param>
+      public IfBehavior(World w, System.Func<World, bool> condition) : base(w)
       {
           m_condition = condition;
-          m_wait = wait;
       }
 
       public override void Setup()
@@ -36,7 +39,7 @@ namespace CTree
           {
               return base.Finished();
           }
-          return !m_wait;
+          return true;
       }
 
       public override void Tick()

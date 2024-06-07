@@ -41,10 +41,12 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: World
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 7
+    startLine: 10
   assemblies:
   - Assembly-CSharp
   namespace: CTree
+  summary: Implements a central, shared object for accessing all global state.
+  example: []
   syntax:
     content: public class World
     content.vb: Public Class World
@@ -75,7 +77,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: debugRaycast
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 9
+    startLine: 12
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -102,7 +104,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: layerMask
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 10
+    startLine: 13
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -129,7 +131,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 27
+    startLine: 30
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -161,7 +163,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Get
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 32
+    startLine: 35
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -195,7 +197,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Clone
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 53
+    startLine: 56
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -231,7 +233,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Run
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 69
+    startLine: 72
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -262,7 +264,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Stop
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 74
+    startLine: 77
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -291,7 +293,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: AddDragable
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 79
+    startLine: 82
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -322,7 +324,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: AddClickable
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 84
+    startLine: 87
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -353,7 +355,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: AddClonable
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 89
+    startLine: 92
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -384,7 +386,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: AddInteractable
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 94
+    startLine: 97
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -417,7 +419,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: AddLocation
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 126
+    startLine: 129
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -448,7 +450,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: Tick
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 143
+    startLine: 146
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -474,7 +476,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: GetInteractables
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 230
+    startLine: 233
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -502,7 +504,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: ComputeHitObject
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 282
+    startLine: 285
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -530,7 +532,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: UiDrop
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 288
+    startLine: 291
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -558,7 +560,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: UiPickup
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 293
+    startLine: 296
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -586,7 +588,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: SetInteger
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 298
+    startLine: 301
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -620,7 +622,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: GetInteger
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 303
+    startLine: 306
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -654,7 +656,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: SetString
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 312
+    startLine: 315
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -688,7 +690,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: GetString
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 317
+    startLine: 320
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -722,7 +724,7 @@ items:
       repo: git@github.com:alinen/curation-tree.git
     id: ToString
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 326
+    startLine: 329
   assemblies:
   - Assembly-CSharp
   namespace: CTree
