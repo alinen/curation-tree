@@ -5,7 +5,7 @@ namespace CTree
 {
   // Coroutine behavior 
   // Use this class to execute a coroutine as a behavior
-  class CoroutineBehavior : Behavior
+  public class CoroutineBehavior : Behavior
   {
       IEnumerator m_enumerator;
       IEnumerator m_animation = null;

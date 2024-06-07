@@ -8,11 +8,16 @@ namespace CTree
   {
       UnityEngine.Animation m_animation = null;
       string m_aniName = "";
-      public enum Mode {PLAY, STOP};
+      
+      public enum Mode 
+      {
+        PLAY, 
+        STOP
+      };
       Mode m_mode;
 
       public Animation(World w, string objName, string aniName, 
-          bool loop = false, Mode m = Mode.PLAY) : base(w)
+          Mode m = Mode.PLAY) : base(w)
       {
           Transform root = world.Get(objName.Trim()); 
           m_animation = root.GetComponent<UnityEngine.Animation>();

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 namespace CTree
 {
   // Runs the given behavior is the world state variable is true
-  class IfButtonBehavior : IfBehavior
+  public class IfButtonBehavior : IfBehavior
   {
       Button m_target = null;
       bool m_isClicked = false;

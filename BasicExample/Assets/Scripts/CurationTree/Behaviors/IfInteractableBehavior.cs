@@ -4,7 +4,7 @@ using UnityEngine;
 namespace CTree
 {
   // Runs the given behavior is the world state variable is true
-  class IfInteractableBehavior : IfBehavior
+  public class IfInteractableBehavior : IfBehavior
   {
       public enum Type { UNKNOWN, CLICK, DRAG, HOVER, DROP, MOUSE_OVER};
 

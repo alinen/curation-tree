@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-
 namespace CTree
 {
-  // Common utilities
-  public static class Utils
+  /// <summary>
+  /// Common utilities for random number generation and working with strings
+  /// </summary>
+  static class Utils
   {
       private static System.Random m_random = new System.Random();
 
@@ -68,29 +69,6 @@ namespace CTree
               found = RFind(child, name);
           }
           return found;
-      }
-
-      // by toothycat, http://answers.unity3d.com/questions/143597/font-metrics.html
-      // ASN, modified to use font size
-      public static void SetAlpha(Transform xform, float alpha)
-      {
-          SpriteRenderer[] renderers = xform.gameObject.GetComponentsInChildren<SpriteRenderer>();
-          foreach (SpriteRenderer renderer in renderers)
-          {
-              Color c = renderer.color;
-              c.a = alpha;
-              renderer.color = c;
-          }
-      }
-
-      public static float Dot(List<float> a, List<float> b)
-      {
-          float sum = 0;
-          for (int i = 0; i < a.Count; i++) 
-          {
-              sum += a[i] * b[i];
-          }
-          return sum;
       }
   }
 }

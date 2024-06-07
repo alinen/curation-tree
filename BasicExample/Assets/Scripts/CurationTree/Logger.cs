@@ -5,7 +5,14 @@ using UnityEngine;
 
 namespace CTree
 {
-  public static class Logger 
+  /// <summary>
+  /// Logs messages to a text file stored in the persistent data path for the current platform.
+  /// <remarks>
+  /// Persistent data path locations are documented here:
+  ///    https://docs.unity3d.com/ScriptReference/Application-dataPath.html
+  /// </remarks>
+  /// </summary>
+  static class Logger 
   {
       public static string logfileName = "log";
       public static bool verbose = true;
@@ -16,7 +23,6 @@ namespace CTree
       {
           string timestamp = DateTime.Now.ToString("MMddyyyHHmmss");
 
-          // https://docs.unity3d.com/ScriptReference/Application-dataPath.html
           logfileName = Application.dataPath + timestamp + "-" + logfileName;
 
           // Initialize new file

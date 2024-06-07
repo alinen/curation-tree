@@ -13,7 +13,7 @@ namespace CTree
       public class DebugOptions
       {
           public bool tree = false;
-          public bool raycast = false;
+          public bool selection = false;
       }
 
       [System.Serializable]
@@ -31,6 +31,10 @@ namespace CTree
           public LogOptions log = new LogOptions(); 
           public DebugOptions debug = new DebugOptions();
       }
+
+      /// <summary>
+      /// Configuration options that can be set in the Unity Editor
+      /// </summary>
       public Options options = new Options();
 
       protected SequenceBehavior m_screens = null;
@@ -63,7 +67,7 @@ namespace CTree
           if (m_screens.Count == 0) return;
 
           // World State
-          m_world.debugRaycast = options.debug.raycast;
+          m_world.debugRaycast = options.debug.selection;
 
           m_world.Tick();
           m_screens.Tick();

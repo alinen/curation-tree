@@ -10,7 +10,7 @@ namespace CTree
       public bool debugRaycast = false;
       public int layerMask = 8; // interactable
 
-      protected GameLoop m_game;
+      private GameLoop m_game;
 
       private Dictionary<int, Interactable> m_interactables = 
           new Dictionary<int, Interactable>();

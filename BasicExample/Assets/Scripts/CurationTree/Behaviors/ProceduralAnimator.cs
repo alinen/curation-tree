@@ -11,7 +11,7 @@ using System.Linq;
 namespace CTree
 {
   /// <summary>
-  /// Static class of utility functions for animating assets
+  /// Utility functions for animating assets
   /// </summary>
   public static class ProceduralAnimator
   {
@@ -20,7 +20,6 @@ namespace CTree
       /// Wait for given number of seconds
       /// </summary>
       /// <param name="duration">The amount of time to pause in seconds</param>
-      /// <returns> None </returns>
       public static IEnumerator Wait(float duration)
       {
           for (float t = 0.0f; t < duration; t += Time.deltaTime)
@@ -36,7 +35,6 @@ namespace CTree
       /// <param name="start">The starting size in local scene units, e.g. with respect to the parent of xform.</param>
       /// <param name="end">The ending size in local scene units, e.g. with respect to the parent of xform.</param>
       /// <param name="duration">The length of the animation (in seconds)</param>
-      /// <returns> None </returns>
       public static IEnumerator Grow(Transform xform, float start, float end, float duration)
       { 
           // Set isIcon to true if the transform is part of the UI
@@ -65,7 +63,6 @@ namespace CTree
       /// <param name="numTimes">The number of times to pulse.</param>
       /// <param name="timePerPulseSecs">The duration of each pulse (in seconds)</param>
       /// <param name="pulseSize">How much to change the size (percentage of original xform size)</param>
-      /// <returns> None </returns>
       public static IEnumerator Pulse(Transform target, int numTimes, 
           float timePerPulseSecs = 0.4f, float pulseSize = 0.1f)
     {
@@ -86,7 +83,6 @@ namespace CTree
       /// </summary>
       /// <param name="xform">The transform to update.</param>
       /// <param name="message">The text to set.</param>
-      /// <returns> None </returns>
       public static void SetText(Transform xform, string message)
       {
           TextMeshProUGUI tgui = xform.GetComponent<TextMeshProUGUI>();
@@ -97,19 +93,43 @@ namespace CTree
 
   #region Spatial Interpolators
 
+      /// <summary>
+      /// Implementaton function for normalizing time into the range [0, 1] given a desired duration.
+      /// </summary>
+      /// <param name="t">Value between 0 and duration, inclusive</param>
+      /// <param name="duration">Duration of the interpolation (seconds)</param>
+      /// <returns>Normalized value between 0 and 1</returns>
       public delegate float Interpolator(float t, float duration);
 
+      /// <summary>
+      /// Implements a normalized time for linear interpolation. 
+      /// </summary>
+      /// <param name="t">Value between 0 and duration, inclusive</param>
+      /// <param name="duration">Duration of the interpolation (seconds)</param>
+      /// <returns>The value (t / duration)</returns>
       public static float Linear(float t, float duration)
       {
           return (t / duration);
       }
 
+      /// <summary>
+      /// Implements a normalized time for cosine interpolation
+      /// </summary>
+      /// <param name="t">Value between 0 and duration, inclusive</param>
+      /// <param name="duration">Duration of the interpolation (seconds)</param>
+      /// <returns>The value (1 - Mathf.Cos(t / duration * Mathf.PI)) / 2</returns>
       public static float Cosine(float t, float duration)
       {
           float mu = (1 - Mathf.Cos(t / duration * Mathf.PI)) / 2;
           return mu;
       }
 
+      /// <summary>
+      /// Implements a normalized time for ease in interpolation. 
+      /// </summary>
+      /// <param name="t">Value between 0 and duration, inclusive</param>
+      /// <param name="duration">Duration of the interpolation (seconds)</param>
+      /// <returns>The value (1 - (1 - t / duration)^2)</returns>
       // https://easings.net/en
       public static float EaseIn(float t, float duration)
       {
@@ -144,6 +164,7 @@ namespace CTree
 
   #region Color Interpolation
 
+      /// <exclude/>
       static private Dictionary<object, Color> g_colorStash = new Dictionary<object, Color>();
 
       /// <summary>
@@ -154,7 +175,6 @@ namespace CTree
       /// <param name="startAlpha">The starting alpha.</param>
       /// <param name="endAlpha">The ending alpha.</param>
       /// <param name="duration">The length of the animation (in seconds)</param>
-      /// <returns> None </returns>
       public static IEnumerator Fade(Transform obj,
           float startAlpha, float endAlpha, float duration)
       {
@@ -202,7 +222,6 @@ namespace CTree
       /// <param name="obj">The transform to change alpha.</param>
       /// <param name="end">The ending color.</param>
       /// <param name="duration">The length of the animation (in seconds)</param>
-      /// <returns> None </returns>
       public static IEnumerator ChangeColor(Transform obj, Color end, float duration)
       {
           Renderer[] meshes = obj.GetComponentsInChildren<Renderer>();
@@ -252,7 +271,6 @@ namespace CTree
       /// </summary>
       /// <param name="obj">The transform to change alpha.</param>
       /// <param name="duration">The length of the animation (in seconds)</param>
-      /// <returns> None </returns>
       public static IEnumerator RevertColor(Transform obj, float duration)
       {
           Renderer[] meshes = obj.GetComponentsInChildren<Renderer>();

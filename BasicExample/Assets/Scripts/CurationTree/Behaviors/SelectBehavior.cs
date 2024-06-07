@@ -1,10 +1,9 @@
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace CTree
 {
-  // Run first behavior that has a satisfied condition
-  class SelectBehavior : ControlBehavior
+  /// <summary>
+  /// Runs the first behavior that has a satisfies a condition
+  /// </summary>
+  public class SelectBehavior : ControlBehavior
   {
       IfBehavior m_selected = null;
 
