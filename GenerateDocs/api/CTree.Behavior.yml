@@ -27,7 +27,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Behavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
@@ -103,7 +103,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: m_finished
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
@@ -132,7 +132,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: m_isActive
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
@@ -164,7 +164,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: m_name
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
@@ -193,7 +193,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: name
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
@@ -224,7 +224,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
@@ -259,7 +259,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Tick
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
@@ -287,7 +287,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
@@ -315,7 +315,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: TearDown
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
@@ -343,7 +343,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Finished
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
@@ -374,7 +374,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: IsActive
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
@@ -405,7 +405,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: world
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
@@ -436,7 +436,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: ToString
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs

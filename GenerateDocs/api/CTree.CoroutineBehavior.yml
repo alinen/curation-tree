@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: CoroutineBehavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
@@ -78,7 +78,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
@@ -116,7 +116,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
@@ -145,7 +145,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: TearDown
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs

@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: ControlBehavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
@@ -74,7 +74,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: m_behaviors
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
@@ -101,7 +101,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Count
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
@@ -130,7 +130,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
@@ -162,7 +162,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Add
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
@@ -191,7 +191,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Insert
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
@@ -225,7 +225,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Get
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
@@ -259,7 +259,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Clear
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs

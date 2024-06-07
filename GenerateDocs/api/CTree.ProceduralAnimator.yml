@@ -26,7 +26,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: ProceduralAnimator
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -63,7 +63,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Wait
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -100,7 +100,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Grow
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -146,7 +146,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Pulse
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -192,7 +192,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: SetText
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -230,7 +230,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Linear
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -271,7 +271,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Cosine
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -312,7 +312,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: EaseIn
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -353,7 +353,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Move
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -403,7 +403,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Fade
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -452,7 +452,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: ChangeColor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -498,7 +498,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: RevertColor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs

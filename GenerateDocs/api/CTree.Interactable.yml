@@ -38,7 +38,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Interactable
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -186,7 +186,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: debugDraw
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -213,7 +213,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: interactionType
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -240,7 +240,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: AddClickCb
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -269,7 +269,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: AddDragCb
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -298,7 +298,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: AddDropCb
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -327,7 +327,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: AddMouseOverCb
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -356,7 +356,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: AddHoverCb
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -385,7 +385,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: ClearCbs
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -411,7 +411,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: isClickable
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -439,7 +439,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: isDragable
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -467,7 +467,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: CanDropOnto
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -498,7 +498,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: AddDragTarget
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -527,7 +527,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: GetLocation
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -555,7 +555,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: RemoveLocation
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -581,7 +581,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: SetLocation
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -610,7 +610,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: OnDropTarget
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -639,7 +639,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: OnHoverTarget
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -668,7 +668,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: OnMouseOver
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -694,7 +694,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: SetGrabbed
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -726,7 +726,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: GetGrabbed
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -754,7 +754,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: SetClicked
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -786,7 +786,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: GetClicked
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -814,7 +814,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: GetBounds
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs

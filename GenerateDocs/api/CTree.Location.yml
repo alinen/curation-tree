@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Location.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Location
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
@@ -176,7 +176,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Location.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: IsAvailable
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
@@ -207,7 +207,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Location.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: GetAnchorPlacement
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
@@ -243,7 +243,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Location.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: AddOcupant
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
@@ -272,7 +272,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Location.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: RemoveOcupant
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
@@ -301,7 +301,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Location.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: IsOcupant
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs

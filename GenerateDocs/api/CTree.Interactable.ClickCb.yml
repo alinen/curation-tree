@@ -15,7 +15,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: ClickCb
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs

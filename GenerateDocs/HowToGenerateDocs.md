@@ -20,7 +20,7 @@ dotnet tool install -g docfx
 To run docfx, 
 
 ```
-cd GenerateDocs
+cd ./GenerateDocs
 docfx metadata docfx.json
 docfx build docfx.json
 ```

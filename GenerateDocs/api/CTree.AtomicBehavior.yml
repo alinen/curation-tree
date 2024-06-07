@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/AtomicBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: AtomicBehavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/AtomicBehavior.cs
@@ -76,7 +76,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/AtomicBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/AtomicBehavior.cs
@@ -114,7 +114,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/AtomicBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/AtomicBehavior.cs

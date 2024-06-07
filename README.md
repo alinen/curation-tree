@@ -6,7 +6,10 @@ point-and-click games for teaching and research using Unity. For example,
 the following demo implements a mechanic where dragging the casette onto to 
 Boom Box plays music and makes the squirrel dance.
 
-https://github.com/alinen/curation-tree/assets/259657/13519d60-7ed5-42c8-ab6a-9f373217a143
+<video width="100%" controls>
+  <source src='https://alinen.github.io/curation-tree/images/SquirrelHouse.mp4' type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
 
 To run the demo, open the scene `SquirrelHouse.unity` in `BasicExample/Assets/Scenes`
 
@@ -50,14 +53,13 @@ assets in the scene.
 Please import the unity package [`CurationTree.unitypackage`](CurationTree.unitypackage) into your own project.
 This package includes the sources under `BasicExample/Assets/Scripts/CurationTree`.
 
-For an overview of the framework along with examples, 
-[please read our getting started documentation](GenerateDocs/_site/Docs/getting-started.html). 
+Please import the unity package [`CurationTree.unitypackage`](CurationTree.unitypackage) into your own project.
+This package includes the sources under `BasicExample/Assets/Scripts/CurationTree`.
 
-For debugging and troubleshooting advice, 
-[please read our debugging documentation](GenerateDocs/_site/Docs/debugging.html).
+* [Overview and Examples](https://alinen.github.io/curation-tree/Docs/getting-started.html)
+* [Debugging and troublshooting](https://alinen.github.io/curation-tree/Docs/debugging.html)
+* [API Documentation](https://alinen.github.io/curation-tree/Docs/introduction.html)
 
-For details about the framework architecture, 
-[please read our API documentation](GenerateDocs/_site/Docs/introduction.html).
 
 ## Citation
 
