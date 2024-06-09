@@ -16,8 +16,19 @@ InitLocation: PlatformBottle
 InitLocation: BottleBottom
 InitLocation: BottleTop
 
+Repeat:
+  IfDragEnter: BunBottom, PlatformBurger
+     #ChangeColor: PlatformBurger, 0, 0, 1, 0.1
+     SetText: Debug, ENTER
+  End
+  IfDragExit: BunBottom, PlatformBurger
+     #RevertColor: PlatformBurger, 0.1
+     SetText: Debug, EXIT
+  End
+End
+
 #Repeat: 
-#  IfDrop: Any, Any
+#  IfPickup: Any, Any
 #    PlaySound: AnchorSound
 #  End
 #  IfDrag: Any

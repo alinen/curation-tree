@@ -187,9 +187,9 @@ namespace CTree
                       m_grabbedObject.OnDropTarget(target);
                       ReleaseObject();
                   }
-                  else // Hover
+                  else 
                   {
-                      m_grabbedObject.OnHoverTarget(target);
+                      m_grabbedObject.OnDragTarget(target);
                   }
               }
               else
@@ -201,7 +201,7 @@ namespace CTree
                       {
                           GrabObject(mouseOverObject);
                       }
-                      mouseOverObject.OnMouseOver();
+                      mouseOverObject.OnHover();
                   }
               }
           }
@@ -213,6 +213,11 @@ namespace CTree
                   if (m_grabbedObject) m_grabbedObject.OnDropTarget(null);
                   ReleaseObject();
               }
+          }
+
+          if (m_grabbedObject && !hit)
+          {
+              m_grabbedObject.OnDragTarget(null);
           }
       }
 

@@ -1,6 +1,6 @@
 Fade: Message, 0, 1, 2.0
 Repeat:
-  IfDrag: Casette
+  IfPickup: Casette
     Hide: Music
     StopAnimation: Squirrel, SquirrelDance
   End

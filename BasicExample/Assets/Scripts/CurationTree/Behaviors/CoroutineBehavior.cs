@@ -40,6 +40,7 @@ namespace CTree
           if (m_animation == null) 
           {
               m_animation = Effect();
+              world.Run(m_enumerator);
               world.Run(m_animation);
           }
       }
@@ -48,6 +49,7 @@ namespace CTree
       {
           base.TearDown();
           world.Stop(m_animation);
+          m_animation = null;
       }
 
       IEnumerator Effect()

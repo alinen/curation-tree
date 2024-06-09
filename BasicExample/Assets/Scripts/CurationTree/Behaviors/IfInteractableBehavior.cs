@@ -24,19 +24,23 @@ namespace CTree
         /// <summary>
         /// Trigger when the user picks up an asset
         /// </summary>
-        DRAG, 
+        PICKUP, 
         /// <summary>
-        /// Trigger when the user drags an object on top of another object
+        /// Trigger when the user drags an object on top of target object
         /// </summary>
-        HOVER, 
+        DRAG_ENTER, 
+        /// <summary>
+        /// Trigger when the user drags an object away from a target object
+        /// </summary>
+        DRAG_EXIT, 
         /// <summary>
         /// Trigger when the user drops an object on top of another object
         /// </summary>
         DROP, 
         /// <summary>
-        /// Trigger when the mouse is over an object (2D only)
+        /// Trigger when the player is close to an object that can be clicked or picked up
         /// </summary>
-        MOUSE_OVER};
+        HOVER};
 
       Type m_type = Type.UNKNOWN;
       Interactable m_item = null;
@@ -52,9 +56,7 @@ namespace CTree
       public IfInteractableBehavior(World w, Type t, string itemName) : 
           base(w, null)
       {
-          Debug.Assert(t != Type.HOVER, "Invalid type to interactable behavior: hover");
-          Debug.Assert(t != Type.DROP, "Invalid type to interactable behavior: drop");
-
+          Debug.Assert(t == Type.HOVER || t == Type.PICKUP || t == Type.CLICK);
           m_type = t;
 
           itemName = itemName.Trim();
@@ -63,20 +65,20 @@ namespace CTree
               Transform itemX = w.Get(itemName);
               Debug.Assert(itemX != null);
 
-              if (t == Type.MOUSE_OVER)
+              if (t == Type.HOVER)
               {
                   m_item = w.AddClickable(itemX); 
-                  m_item.AddMouseOverCb(TriggerCb1);
+                  m_item.AddHoverCb(TriggerCb1);
               }
               else if (t == Type.CLICK)
               {
                   m_item = w.AddClickable(itemX); 
-                  m_item.AddDragCb(TriggerCb1);
+                  m_item.AddClickCb(TriggerCb1);
               }
-              else if (t == Type.DRAG)
+              else if (t == Type.PICKUP)
               {
                   m_item = w.AddDragable(itemX); 
-                  m_item.AddDragCb(TriggerCb1);
+                  m_item.AddPickupCb(TriggerCb1);
               }
               m_condition = this.CheckTrigger;
           }
@@ -92,10 +94,6 @@ namespace CTree
       public IfInteractableBehavior(World w, Type t, string itemName, string targetName) : 
           base(w, null)
       {
-          Debug.Assert(t != Type.MOUSE_OVER, "Invalid type in interactive behavior: mouse over");
-          Debug.Assert(t != Type.DRAG, "Invalid type in interactive behavior: drag");
-          Debug.Assert(t != Type.CLICK, "Invalid type in interactive behavior: click");
-
           m_type = t;
 
           itemName = itemName.Trim();
@@ -105,9 +103,13 @@ namespace CTree
               Transform itemX = w.Get(itemName);
               Debug.Assert(itemX != null);
               m_item = w.AddDragable(itemX); 
-              if (t == Type.HOVER)
+              if (t == Type.DRAG_ENTER)
               {
-                  m_item.AddHoverCb(TriggerCb2);
+                  m_item.AddDragEnterCb(TriggerCb2);
+              }
+              else if (t == Type.DRAG_EXIT)
+              {
+                  m_item.AddDragExitCb(TriggerCb2);
               }
               else if (t == Type.DROP)
               {

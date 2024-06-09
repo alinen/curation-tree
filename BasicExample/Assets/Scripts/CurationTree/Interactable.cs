@@ -14,13 +14,13 @@ namespace CTree
 
     public delegate void ClickCb(Interactable i);
 
-    public delegate void MouseOverCb(Interactable i);
+    public delegate void HoverCb(Interactable i);
 
     public delegate void DropCb(Interactable dragSource, GameObject dropTarget);
 
-    public delegate void HoverCb(Interactable dragSource, GameObject dropTarget);
+    public delegate void DragCb(Interactable dragSource, GameObject dropTarget);
 
-    public delegate void DragCb(Interactable dragSource);
+    public delegate void PickupCb(Interactable dragSource);
 
     public enum Type { CLICKABLE, DRAGABLE, COPY_DRAGABLE};
 
@@ -28,14 +28,16 @@ namespace CTree
 
     private bool m_isDragging = false;
     private bool m_isClicked = false;
+    private GameObject m_hoverObject = null;
     private GameObject m_dragObject = null; // temporary drag object
     private List<GameObject> m_dragTargets = new List<GameObject>(); // for dragable objects, the allowed target(s)
 
     private List<ClickCb> m_clickedCbs = new List<ClickCb>();
     private List<DropCb> m_dropCbs = new List<DropCb>();
-    private List<DragCb> m_dragCbs = new List<DragCb>();
+    private List<PickupCb> m_pickupCbs = new List<PickupCb>();
+    private List<DragCb> m_dragEnterCbs = new List<DragCb>();
+    private List<DragCb> m_dragExitCbs = new List<DragCb>();
     private List<HoverCb> m_hoverCbs = new List<HoverCb>();
-    private List<MouseOverCb> m_mouseOverCbs = new List<MouseOverCb>();
     private Bounds m_bounds = new Bounds();
     private Location m_location = null;
     private Vector3 m_offset;
@@ -51,9 +53,9 @@ namespace CTree
       m_clickedCbs.Add(cb);
     }
 
-    public void AddDragCb(DragCb cb)
+    public void AddPickupCb(PickupCb cb)
     {
-      m_dragCbs.Add(cb);
+      m_pickupCbs.Add(cb);
     }
 
     public void AddDropCb(DropCb cb)
@@ -61,27 +63,34 @@ namespace CTree
       m_dropCbs.Add(cb);
     }
 
-    public void AddMouseOverCb(MouseOverCb cb)
-    {
-      m_mouseOverCbs.Add(cb);
-    }
-
     public void AddHoverCb(HoverCb cb)
     {
       m_hoverCbs.Add(cb);
     }
 
+    public void AddDragEnterCb(DragCb cb)
+    {
+      m_dragEnterCbs.Add(cb);
+    }
+
+    public void AddDragExitCb(DragCb cb)
+    {
+      m_dragExitCbs.Add(cb);
+    }
+
     public void ClearCbs()
     {
       m_dropCbs.Clear();
-      m_dragCbs.Clear();
+      m_pickupCbs.Clear();
+      m_dragEnterCbs.Clear();
+      m_dragExitCbs.Clear();
       m_hoverCbs.Clear();
-      m_mouseOverCbs.Clear();
       m_dragTargets.Clear();
 
       // reset selection/grabbed state as well
       m_isDragging = false;
       m_isClicked = false;
+      m_hoverObject = null; // temporary hover object
       m_dragObject = null; // temporary drag object
     }
 
@@ -169,6 +178,7 @@ namespace CTree
       Location location = target? target.GetComponent<Location>() : null;
       SetLocation(location);
 
+      if (m_hoverObject != null) OnDragExit();
       foreach (DropCb cb in m_dropCbs) 
       {
         if (CallbackActive(cb))
@@ -178,22 +188,50 @@ namespace CTree
       }
     }
 
-    public void OnHoverTarget(GameObject target)
+    public void OnDragEnter(GameObject target)
     {
-      if (!enabled) return;
-      foreach (HoverCb cb in m_hoverCbs) 
+      Debug.Log("ENTER "+m_hoverObject);
+      foreach (DragCb cb in m_dragEnterCbs) 
       {
         if (CallbackActive(cb))
         {
           cb(this, target);
         }
       }
+      m_hoverObject = target;
     }
 
-    public void OnMouseOver()
+    void OnDragExit()
+    {
+      Debug.Log("EXIT "+m_hoverObject);
+      foreach (DragCb cb in m_dragExitCbs) 
+      {
+         if (CallbackActive(cb))
+         {
+            cb(this, m_hoverObject);
+         }
+      }
+      m_hoverObject = null;
+    }
+
+    public void OnDragTarget(GameObject target)
     {
       if (!enabled) return;
-      foreach (MouseOverCb cb in m_mouseOverCbs) 
+
+      if (!m_hoverObject && target)
+      {
+        OnDragEnter(target);
+      }
+      else if (m_hoverObject && !target)
+      {
+        OnDragExit();
+      }
+    }
+
+    public void OnHover()
+    {
+      if (!enabled) return;
+      foreach (HoverCb cb in m_hoverCbs) 
       {
         if (CallbackActive(cb))
         {
@@ -233,7 +271,7 @@ namespace CTree
           Collider collider = m_dragObject.GetComponentInChildren<Collider>();
           collider.enabled = false;
 
-          foreach (DragCb cb in m_dragCbs) 
+          foreach (PickupCb cb in m_pickupCbs) 
           {
             if (CallbackActive(cb))
             {

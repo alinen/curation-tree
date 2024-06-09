@@ -287,35 +287,60 @@ namespace CTree
       /// <param name="world">Object for accessing global state.</param>
       /// <param name="args">Parameters for specifying the conditional</param>
       /// <returns>An instance of behavior</returns>
-      public static Behavior IfMouseOver(World world, string args)
+      public static Behavior IfHover(World world, string args)
       {
           return new IfInteractableBehavior(world, 
-              IfInteractableBehavior.Type.MOUSE_OVER, args); 
+              IfInteractableBehavior.Type.HOVER, args); 
       }
 
       /// <summary>
       /// Creates a behavior that executes a set of behaviors if the conditional is true
       /// </summary>
       /// <remarks>
-      /// Executes all sub-behaviors in parallel if the user hovers one object on top of 
-      /// another object (e.g. if their two colliders overlap). 
+      /// Executes all sub-behaviors (parallel) if the user drags one object on top of 
+      /// a potential drop target
       /// Otherwise, the condition is false and the behavior completes immediately.
       /// <code>
-      /// IfHover: PickUpAsset, DropTarget
-      ///    DoStuff
+      /// IfDragEnter: PickUpAsset, DropTarget
+      ///    ChangeColor: DropTarget, 0, 0, 1, 2.0
       /// End
       /// </code>
       /// </remarks>
       /// <param name="world">Object for accessing global state.</param>
       /// <param name="args">Parameters for specifying the conditional</param>
       /// <returns>An instance of behavior</returns>
-      public static Behavior IfHover(World world, string args)
+      public static Behavior IfDragEnter(World world, string args)
       {
           string[] tokens = args.Split(',', 2);
           string src = tokens[0].Trim();
           string tgt = tokens[1].Trim();
           return new IfInteractableBehavior(world, 
-              IfInteractableBehavior.Type.HOVER, src, tgt); 
+              IfInteractableBehavior.Type.DRAG_ENTER, src, tgt); 
+      }
+
+      /// <summary>
+      /// Creates a behavior that executes a set of behaviors if the conditional is true
+      /// </summary>
+      /// <remarks>
+      /// Executes all sub-behaviors (parallel) if the user drags one object on top of 
+      /// a potential drop target
+      /// Otherwise, the condition is false and the behavior completes immediately.
+      /// <code>
+      /// IfDragExit: PickUpAsset, DropTarget
+      ///    RevertColor: DropTarget
+      /// End
+      /// </code>
+      /// </remarks>
+      /// <param name="world">Object for accessing global state.</param>
+      /// <param name="args">Parameters for specifying the conditional</param>
+      /// <returns>An instance of behavior</returns>
+      public static Behavior IfDragExit(World world, string args)
+      {
+          string[] tokens = args.Split(',', 2);
+          string src = tokens[0].Trim();
+          string tgt = tokens[1].Trim();
+          return new IfInteractableBehavior(world, 
+              IfInteractableBehavior.Type.DRAG_EXIT, src, tgt); 
       }
 
       /// <summary>
@@ -325,7 +350,7 @@ namespace CTree
       /// Executes all sub-behaviors in parallel if the user picks up the give object. 
       /// Otherwise, the condition is false and the behavior completes immediately.
       /// <code>
-      /// IfDrag: AssetName
+      /// IfPickup: AssetName
       ///    DoStuff
       /// End
       /// </code>
@@ -333,10 +358,10 @@ namespace CTree
       /// <param name="world">Object for accessing global state.</param>
       /// <param name="args">Parameters for specifying the conditional</param>
       /// <returns>An instance of behavior</returns>
-      public static Behavior IfDrag(World world, string args)
+      public static Behavior IfPickup(World world, string args)
       {
           return new IfInteractableBehavior(world,
-              IfInteractableBehavior.Type.DRAG, args); 
+              IfInteractableBehavior.Type.PICKUP, args); 
       }
 
       #endregion
