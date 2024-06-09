@@ -102,6 +102,11 @@ namespace CTree
       {
         if (target == dragTarget || target.transform.IsChildOf(dragTarget.transform))
         {
+          Location loc = dragTarget.GetComponent<Location>();
+          if (loc != null)
+          {
+              return loc.IsAvailable(this);
+          }
           return true;
         } 
       }

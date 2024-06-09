@@ -106,9 +106,10 @@ namespace CTree
               i = m_interactables[uniqueId];
               if (i.interactionType != type)
               {
-                  Debug.LogWarning("Request for conflicting behavior on interactable: "+
+                  Debug.LogWarning("Changing type if interactable: "+
                       obj.name+": type is "+i.interactionType.ToString()+
                       " and requested is "+type.ToString());
+                  i.interactionType = type;
               }
           }
 
@@ -118,12 +119,21 @@ namespace CTree
               i = obj.gameObject.AddComponent<Interactable>();
               i.interactionType = type;
           }
-          obj.gameObject.layer = layerMask; // Interactable
+          obj.gameObject.layer = layerMask; // Interactable layer
           foreach (Transform child in obj)
           {
               child.gameObject.layer = layerMask;
           }
           m_interactables[uniqueId] = i;
+
+          // Setup drop targets
+          foreach (Location location in m_locations.Values)
+          {
+              if (location.HasAnchor(i))
+              {
+                  i.AddDragTarget(location.gameObject);
+              }
+          }
           return i;
       }
 
@@ -135,13 +145,22 @@ namespace CTree
               return m_locations[uniqueId];
           }
 
-          Location i = obj.gameObject.GetComponent<Location>();
-          if (i == null)
+          Location loc = obj.gameObject.GetComponent<Location>();
+          if (loc == null)
           {
-              i = obj.gameObject.AddComponent<Location>();
+              loc = obj.gameObject.AddComponent<Location>();
           }
-          m_locations[uniqueId] = i;
-          return i;
+          m_locations[uniqueId] = loc;
+
+          // Setup drop targets
+          foreach (Interactable i in m_interactables.Values)
+          {
+              if (loc.HasAnchor(i))
+              {
+                  i.AddDragTarget(loc.gameObject);
+              }
+          }
+          return loc;
       }
 
       public void Tick()

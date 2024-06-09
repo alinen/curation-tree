@@ -1,0 +1,26 @@
+InitDraggable: Cheese
+InitDraggable: Patty
+InitDraggable: BunTop
+InitDraggable: Lettuce
+InitDraggable: BunBottom
+InitDraggable: Cap
+InitDraggable: BottleTop
+InitDraggable: BottleBottom
+
+InitLocation: PlatformBurger
+InitLocation: BunBottom
+InitLocation: Patty
+InitLocation: Cheese
+InitLocation: Lettuce
+InitLocation: PlatformBottle
+InitLocation: BottleBottom
+InitLocation: BottleTop
+
+#Repeat: 
+#  IfDrop: Any, Any
+#    PlaySound: AnchorSound
+#  End
+#  IfDrag: Any
+#    PlaySound: MoveSound
+#  End
+#End

@@ -58,14 +58,19 @@ namespace CTree
           }
       }
 
+      public bool HasAnchor(Interactable i)
+      {
+          bool supportedObject = mAnchors.Count == 0 || mAnchors.ContainsKey(i.gameObject.name) || mAnchors.ContainsKey("");
+          return supportedObject;
+      }
+
       public bool IsAvailable(Interactable i)
       {
           if (i.gameObject == gameObject) return false;
 
           // Support function to add constraints
-          bool supportedObject = mAnchors.Count == 0 || mAnchors.ContainsKey(i.gameObject.name) || mAnchors.ContainsKey("");
           bool available = (mOcupants.Count < mMaxOcupants);
-          return supportedObject && available;
+          return HasAnchor(i) && available;
       }
 
       public void GetAnchorPlacement(Interactable i, out Vector3 pos, out Quaternion rot)

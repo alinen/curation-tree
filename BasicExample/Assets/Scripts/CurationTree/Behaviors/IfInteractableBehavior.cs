@@ -105,7 +105,6 @@ namespace CTree
               Transform itemX = w.Get(itemName);
               Debug.Assert(itemX != null);
               m_item = w.AddDragable(itemX); 
-
               if (t == Type.HOVER)
               {
                   m_item.AddHoverCb(TriggerCb2);

@@ -728,6 +728,34 @@ namespace CTree
               world.SetInteger(stateName, v);
           });
       }
+
+      public static Behavior InitDraggable(World world, string args)
+      {
+          string objName = args.Trim();
+          Transform xform = world.Get(objName);
+          return new AtomicBehavior(world, (world) => { 
+              world.AddDragable(xform);
+          });
+      }
+
+      public static Behavior InitClickable(World world, string args)
+      {
+          string objName = args.Trim();
+          Transform xform = world.Get(objName);
+          return new AtomicBehavior(world, (world) => { 
+              world.AddClickable(xform);
+          });
+      }
+
+      public static Behavior InitLocation(World world, string args)
+      {
+          string locName = args.Trim();
+          Transform xform = world.Get(locName);
+          return new AtomicBehavior(world, (world) => { 
+              world.AddLocation(xform);
+          });
+      }
+
       #endregion
   }
 }
