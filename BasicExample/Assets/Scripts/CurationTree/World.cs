@@ -189,7 +189,7 @@ namespace CTree
                   }
                   else 
                   {
-                      m_grabbedObject.OnDragTarget(target);
+                      m_grabbedObject.OnDrag(target);
                   }
               }
               else
@@ -217,7 +217,7 @@ namespace CTree
 
           if (m_grabbedObject && !hit)
           {
-              m_grabbedObject.OnDragTarget(null);
+              m_grabbedObject.OnDrag(null);
           }
       }
 

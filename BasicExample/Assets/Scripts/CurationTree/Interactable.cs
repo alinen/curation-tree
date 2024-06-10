@@ -12,15 +12,9 @@ namespace CTree
   {
     public static bool debugDraw = false;
 
-    public delegate void ClickCb(Interactable i);
+    public delegate void InteractableCb(Interactable i);
 
-    public delegate void HoverCb(Interactable i);
-
-    public delegate void DropCb(Interactable dragSource, GameObject dropTarget);
-
-    public delegate void DragCb(Interactable dragSource, GameObject dropTarget);
-
-    public delegate void PickupCb(Interactable dragSource);
+    public delegate void LocationCb(Interactable dragSource, GameObject dropTarget);
 
     public enum Type { CLICKABLE, DRAGABLE, COPY_DRAGABLE};
 
@@ -32,12 +26,12 @@ namespace CTree
     private GameObject m_dragObject = null; // temporary drag object
     private List<GameObject> m_dragTargets = new List<GameObject>(); // for dragable objects, the allowed target(s)
 
-    private List<ClickCb> m_clickedCbs = new List<ClickCb>();
-    private List<DropCb> m_dropCbs = new List<DropCb>();
-    private List<PickupCb> m_pickupCbs = new List<PickupCb>();
-    private List<DragCb> m_dragEnterCbs = new List<DragCb>();
-    private List<DragCb> m_dragExitCbs = new List<DragCb>();
-    private List<HoverCb> m_hoverCbs = new List<HoverCb>();
+    private List<InteractableCb> m_clickedCbs = new List<InteractableCb>();
+    private List<InteractableCb> m_pickupCbs = new List<InteractableCb>();
+    private List<InteractableCb> m_hoverCbs = new List<InteractableCb>();
+    private List<LocationCb> m_dropCbs = new List<LocationCb>();
+    private List<LocationCb> m_dragEnterCbs = new List<LocationCb>();
+    private List<LocationCb> m_dragExitCbs = new List<LocationCb>();
     private Bounds m_bounds = new Bounds();
     private Location m_location = null;
     private Vector3 m_offset;
@@ -48,32 +42,32 @@ namespace CTree
       m_bounds = ComputeMaxBounds();
     }
 
-    public void AddClickCb(ClickCb cb)
+    public void AddClickCb(InteractableCb cb)
     {
       m_clickedCbs.Add(cb);
     }
 
-    public void AddPickupCb(PickupCb cb)
+    public void AddPickupCb(InteractableCb cb)
     {
       m_pickupCbs.Add(cb);
     }
 
-    public void AddDropCb(DropCb cb)
+    public void AddDropCb(LocationCb cb)
     {
       m_dropCbs.Add(cb);
     }
 
-    public void AddHoverCb(HoverCb cb)
+    public void AddHoverCb(InteractableCb cb)
     {
       m_hoverCbs.Add(cb);
     }
 
-    public void AddDragEnterCb(DragCb cb)
+    public void AddDragEnterCb(LocationCb cb)
     {
       m_dragEnterCbs.Add(cb);
     }
 
-    public void AddDragExitCb(DragCb cb)
+    public void AddDragExitCb(LocationCb cb)
     {
       m_dragExitCbs.Add(cb);
     }
@@ -180,7 +174,7 @@ namespace CTree
       if (m_hoverObject != null) OnDragExit();
 
       Debug.Log("DROP "+name);
-      foreach (DropCb cb in m_dropCbs) 
+      foreach (LocationCb cb in m_dropCbs) 
       {
         if (CallbackActive(cb))
         {
@@ -192,7 +186,7 @@ namespace CTree
     public void OnDragEnter(GameObject target)
     {
       Debug.Log("ENTER "+m_hoverObject);
-      foreach (DragCb cb in m_dragEnterCbs) 
+      foreach (LocationCb cb in m_dragEnterCbs) 
       {
         if (CallbackActive(cb))
         {
@@ -205,7 +199,7 @@ namespace CTree
     void OnDragExit()
     {
       Debug.Log("EXIT "+m_hoverObject);
-      foreach (DragCb cb in m_dragExitCbs) 
+      foreach (LocationCb cb in m_dragExitCbs) 
       {
          if (CallbackActive(cb))
          {
@@ -215,7 +209,7 @@ namespace CTree
       m_hoverObject = null;
     }
 
-    public void OnDragTarget(GameObject target)
+    public void OnDrag(GameObject target)
     {
       if (!enabled) return;
 
@@ -232,7 +226,7 @@ namespace CTree
     public void OnHover()
     {
       if (!enabled) return;
-      foreach (HoverCb cb in m_hoverCbs) 
+      foreach (InteractableCb cb in m_hoverCbs) 
       {
         if (CallbackActive(cb))
         {
@@ -273,7 +267,7 @@ namespace CTree
           collider.enabled = false;
 
           Debug.Log("PICKUP" + name);
-          foreach (PickupCb cb in m_pickupCbs) 
+          foreach (InteractableCb cb in m_pickupCbs) 
           {
             if (CallbackActive(cb))
             {
@@ -309,7 +303,7 @@ namespace CTree
 
       if (m_isClicked)
       {
-        foreach (ClickCb cb in m_clickedCbs) 
+        foreach (InteractableCb cb in m_clickedCbs) 
         {
           if (CallbackActive(cb))
           {
