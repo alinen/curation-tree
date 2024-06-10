@@ -22,6 +22,14 @@ namespace CTree
         /// </summary>
         CLICK, 
         /// <summary>
+        /// Trigger when the player hovers over an interactable object
+        /// </summary>
+        HOVER_ENTER,
+        /// <summary>
+        /// Trigger when the player stops hovering over an interactable object
+        /// </summary>
+        HOVER_EXIT,
+        /// <summary>
         /// Trigger when the user picks up an asset
         /// </summary>
         PICKUP, 
@@ -36,11 +44,8 @@ namespace CTree
         /// <summary>
         /// Trigger when the user drops an object on top of another object
         /// </summary>
-        DROP, 
-        /// <summary>
-        /// Trigger when the player is close to an object that can be clicked or picked up
-        /// </summary>
-        HOVER};
+        DROP 
+      };
 
       Type m_type = Type.UNKNOWN;
       Interactable m_item = null;
@@ -56,7 +61,10 @@ namespace CTree
       public IfInteractableBehavior(World w, Type t, string itemName) : 
           base(w, null)
       {
-          Debug.Assert(t == Type.HOVER || t == Type.PICKUP || t == Type.CLICK);
+          Debug.Assert(t == Type.HOVER_EXIT || 
+                       t == Type.HOVER_ENTER ||
+                       t == Type.PICKUP || 
+                       t == Type.CLICK);
           m_type = t;
 
           itemName = itemName.Trim();
@@ -65,10 +73,21 @@ namespace CTree
               Transform itemX = w.Get(itemName);
               Debug.Assert(itemX != null);
 
-              if (t == Type.HOVER)
+              if (t == Type.HOVER_ENTER)
               {
-                  m_item = w.AddClickable(itemX); 
-                  m_item.AddHoverCb(TriggerCb1);
+                  // valid for both clickable and draggable objects
+                  // only set type if not set already
+                  m_item = itemX.GetComponent<Interactable>();
+                  if (!m_item) m_item = w.AddClickable(itemX);
+                  m_item.AddHoverEnterCb(TriggerCb1);
+              }
+              else if (t == Type.HOVER_EXIT)
+              {
+                  // valid for both clickable and draggable objects
+                  // only set type if not set already
+                  m_item = itemX.GetComponent<Interactable>();
+                  if (!m_item) m_item = w.AddClickable(itemX);
+                  m_item.AddHoverExitCb(TriggerCb1);
               }
               else if (t == Type.CLICK)
               {
@@ -94,6 +113,9 @@ namespace CTree
       public IfInteractableBehavior(World w, Type t, string itemName, string targetName) : 
           base(w, null)
       {
+          Debug.Assert(t == Type.DRAG_EXIT || 
+                       t == Type.DRAG_ENTER ||
+                       t == Type.DROP);
           m_type = t;
 
           itemName = itemName.Trim();
@@ -141,14 +163,14 @@ namespace CTree
 
       void TriggerCb1(Interactable source)
       {
-          Debug.Log("TriggerCb1 "+source.name+" "+name);
+          //Debug.Log("TriggerCb1 "+source.name+" "+name);
           m_triggered = true;
       }
 
       void TriggerCb2(Interactable source, GameObject target)
       {
-          if (target) Debug.Log("TriggerCb2 "+source.name+" "+target.name+" "+name);
-          else Debug.Log("TriggerCb2 "+source.name);
+          //if (target) Debug.Log("TriggerCb2 "+source.name+" "+target.name+" "+name);
+          //else Debug.Log("TriggerCb2 "+source.name);
 
           m_triggered = (target == m_target.gameObject);
       }

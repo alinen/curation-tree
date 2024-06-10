@@ -279,19 +279,41 @@ namespace CTree
       /// Executes all sub-behaviors in parallel if the user hovers the mouse over the specified scene object.
       /// Otherwise, the condition is false and the behavior completes immediately.
       /// <code>
-      /// IfMouseOver: AssetName
-      ///    DoStuff
+      /// IfHoverEnter: AssetName
+      ///    ChangeColor: AssetName, 1,1,0, 0.1
       /// End
       /// </code>
       /// </remarks>
       /// <param name="world">Object for accessing global state.</param>
       /// <param name="args">Parameters for specifying the conditional</param>
       /// <returns>An instance of behavior</returns>
-      public static Behavior IfHover(World world, string args)
+      public static Behavior IfHoverEnter(World world, string args)
       {
           return new IfInteractableBehavior(world, 
-              IfInteractableBehavior.Type.HOVER, args); 
+              IfInteractableBehavior.Type.HOVER_ENTER, args); 
       }
+
+      /// <summary>
+      /// Creates a behavior that executes a set of behaviors if the conditional is true
+      /// </summary>
+      /// <remarks>
+      /// Executes all sub-behaviors in parallel if the user hovers the mouse over the specified scene object.
+      /// Otherwise, the condition is false and the behavior completes immediately.
+      /// <code>
+      /// IfHoverExit: AssetName
+      ///    RevertColor: AssetName, 0.1
+      /// End
+      /// </code>
+      /// </remarks>
+      /// <param name="world">Object for accessing global state.</param>
+      /// <param name="args">Parameters for specifying the conditional</param>
+      /// <returns>An instance of behavior</returns>
+      public static Behavior IfHoverExit(World world, string args)
+      {
+          return new IfInteractableBehavior(world, 
+              IfInteractableBehavior.Type.HOVER_EXIT, args); 
+      }
+
 
       /// <summary>
       /// Creates a behavior that executes a set of behaviors if the conditional is true
@@ -327,7 +349,7 @@ namespace CTree
       /// Otherwise, the condition is false and the behavior completes immediately.
       /// <code>
       /// IfDragExit: PickUpAsset, DropTarget
-      ///    RevertColor: DropTarget
+      ///    RevertColor: DropTarget, 0.1
       /// End
       /// </code>
       /// </remarks>
@@ -767,8 +789,12 @@ namespace CTree
 
       public static Behavior InitDraggable(World world, string args)
       {
+          // Apply setting immediately, but also create a behavior in case
+          // the settings need to change during gameplay
           string objName = args.Trim();
           Transform xform = world.Get(objName);
+          world.AddDragable(xform);
+
           return new AtomicBehavior(world, (world) => { 
               world.AddDragable(xform);
           });
@@ -776,8 +802,12 @@ namespace CTree
 
       public static Behavior InitClickable(World world, string args)
       {
+          // Apply setting immediately, but also create a behavior in case
+          // the settings need to change during gameplay
           string objName = args.Trim();
           Transform xform = world.Get(objName);
+          world.AddClickable(xform);
+
           return new AtomicBehavior(world, (world) => { 
               world.AddClickable(xform);
           });
@@ -785,8 +815,12 @@ namespace CTree
 
       public static Behavior InitLocation(World world, string args)
       {
+          // Apply setting immediately, but also create a behavior in case
+          // the settings need to change during gameplay
           string locName = args.Trim();
           Transform xform = world.Get(locName);
+          world.AddLocation(xform);
+
           return new AtomicBehavior(world, (world) => { 
               world.AddLocation(xform);
           });

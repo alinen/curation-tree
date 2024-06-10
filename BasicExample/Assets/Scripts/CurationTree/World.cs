@@ -21,6 +21,7 @@ namespace CTree
           new Dictionary<int, Location>();
       private Interactable m_grabbedObject = null;
       private Interactable m_clickedObject = null;
+      private Interactable m_mouseOverObject = null;
 
       private Dictionary<string, Transform> m_cache = 
           new Dictionary<string, Transform>();
@@ -195,13 +196,19 @@ namespace CTree
               else
               {
                   Interactable mouseOverObject = hit.GetComponentInParent<Interactable>();
-                  if (mouseOverObject)
+                  if (m_mouseOverObject != mouseOverObject)
+                  {
+                      if (m_mouseOverObject) m_mouseOverObject.OnHoverExit();
+                      m_mouseOverObject = mouseOverObject;
+                  }
+
+                  if (m_mouseOverObject)
                   {
                       if (!m_grabbedObject && UiPickup())
                       {
-                          GrabObject(mouseOverObject);
+                          GrabObject(m_mouseOverObject);
                       }
-                      mouseOverObject.OnHover();
+                      m_mouseOverObject.OnHoverEnter();
                   }
               }
           }
@@ -215,9 +222,10 @@ namespace CTree
               }
           }
 
-          if (m_grabbedObject && !hit)
+          if (!hit)
           {
-              m_grabbedObject.OnDrag(null);
+              if (m_grabbedObject) m_grabbedObject.OnDrag(null);
+              if (m_mouseOverObject) m_mouseOverObject.OnHoverExit();
           }
       }
 
