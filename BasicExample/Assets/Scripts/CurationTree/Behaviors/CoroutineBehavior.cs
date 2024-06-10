@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,41 +9,47 @@ namespace CTree
   /// </summary>
   /// <remarks>
   /// Use this Behavior to implement animations and other effects that occur over multiple frames.
-  /// Configure CoroutineBehavior with a function that takes <c>World</c> as input and returns an iterator. 
-  /// For example, the following code increases the size of <c>xform</c> to twice its original size over 3.0 seconds. 
+  /// Configure CoroutineBehavior with a function that takes <c>World</c> and string <c>args</c> as input and returns an iterator. 
+  /// For example, the following code initializes a pause behavior with length <c>duration</c> seconds. 
   /// <code>
-  /// Transform xform = world.Get(objName.Trim());
-  /// Behavior b = new CoroutineBehavior(world, 
-  ///      ProceduralAnimator.Grow(xform, 1, 2, 3.0));
+  /// return new CoroutineBehavior(world, args, (world, args) => {
+  ///    float duration = 1.0f;
+  ///    Single.TryParse(args, out duration);
+  ///    return ProceduralAnimator.Wait(duration);
+  /// });
   /// </code>
   /// Coroutines cannot be anonymous functions. Our Coroutines for animation behaviors are implemented 
   /// in <see cref="CTree.ProceduralAnimator?alt=ProceduralAnimator"/>.
   /// </remarks>
   public class CoroutineBehavior : Behavior
   {
-      IEnumerator m_enumerator;
+      IEnumerator m_enumerator = null;
       IEnumerator m_animation = null;
 
+      public delegate IEnumerator AnimatorFn(World w, string args);
+      AnimatorFn m_fn;
+      string m_args;
 
       /// <summary>
       /// Constructor 
       /// </summary>
       /// <param name="w">Object for accessing global state</param>
       /// <param name="enumerator">Iterator object associated with a Coroutine</param>
-      public CoroutineBehavior(World w, IEnumerator enumerator) : base(w) 
+      public CoroutineBehavior(World w, string args, AnimatorFn enumeratorFn) : base(w) 
       {
-          m_enumerator = enumerator;
+          m_fn = enumeratorFn;
+          m_args = args;
       }
 
       public override void Setup() 
       {
           base.Setup();
-          if (m_animation == null) 
-          {
-              m_animation = Effect();
-              world.Run(m_enumerator);
-              world.Run(m_animation);
-          }
+
+          Debug.Assert(m_animation == null);
+          Debug.Assert(m_fn != null);
+          m_enumerator = m_fn(world, m_args);
+          m_animation = Effect();
+          world.Run(m_animation);
       }
 
       public override void TearDown()
@@ -50,6 +57,7 @@ namespace CTree
           base.TearDown();
           world.Stop(m_animation);
           m_animation = null;
+          m_enumerator = null;
       }
 
       IEnumerator Effect()
@@ -57,6 +65,5 @@ namespace CTree
           yield return m_enumerator;
           m_finished = true;
       }
-
   }
 }

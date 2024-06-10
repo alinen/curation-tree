@@ -366,7 +366,7 @@ namespace CTree
 
       #endregion
 
-      #region Animation Behaviors
+      #region Appearance Behaviors
 
       /// <summary>
       /// Creates a behavior that waits for a specified amount of time (e.g. pauses)
@@ -383,13 +383,13 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior Wait(World world, string args)
       {
-          float duration = 1.0f;
-          Single.TryParse(args, out duration);
-          return new CoroutineBehavior(world, ProceduralAnimator.Wait(duration));
+          return new CoroutineBehavior(world, args, (world, args) => {
+             float duration = 1.0f;
+             Single.TryParse(args, out duration);
+             return ProceduralAnimator.Wait(duration);
+          });
       }
-      #endregion
 
-      #region Appearance Behaviors
 
       /// <summary>
       /// Creates a behavior that plays an animation
@@ -523,12 +523,14 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior RevertColor(World w, string config)
       {
-          string[] tokens = config.Split(',', 2);
-          string rootName = tokens[0];
-          float d = 1.0f;
-          Single.TryParse(tokens[1], out d);
-          Transform obj = w.Get(rootName.Trim());
-          return new CoroutineBehavior(w, ProceduralAnimator.RevertColor(obj, d));
+          return new CoroutineBehavior(w, config, (w, config) => {
+             string[] tokens = config.Split(',', 2);
+             string rootName = tokens[0];
+             float d = 1.0f;
+             Single.TryParse(tokens[1], out d);
+             Transform obj = w.Get(rootName.Trim());
+             return ProceduralAnimator.RevertColor(obj, d);
+          });
       }
 
       /// <summary>
@@ -549,18 +551,20 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior ChangeColor(World w, string config)
       {
-          string[] tokens = config.Split(',', 5);
-          string rootName = tokens[0];
-          float r = 1.0f;
-          float g = 1.0f;
-          float b = 1.0f;
-          float d = 1.0f;
-          Single.TryParse(tokens[1], out r);
-          Single.TryParse(tokens[2], out g);
-          Single.TryParse(tokens[3], out b);
-          Single.TryParse(tokens[4], out d);
-          Transform obj = w.Get(rootName.Trim());
-          return new CoroutineBehavior(w, ProceduralAnimator.ChangeColor(obj, new Color(r,g,b), d));
+          return new CoroutineBehavior(w, config, (w, config) => {  
+            string[] tokens = config.Split(',', 5);
+            string rootName = tokens[0];
+            float r = 1.0f;
+            float g = 1.0f;
+            float b = 1.0f;
+            float d = 1.0f;
+            Single.TryParse(tokens[1], out r);
+            Single.TryParse(tokens[2], out g);
+            Single.TryParse(tokens[3], out b);
+            Single.TryParse(tokens[4], out d);
+            Transform obj = w.Get(rootName.Trim());
+            return ProceduralAnimator.ChangeColor(obj, new Color(r,g,b), d);
+          });
       }
 
       /// <summary>
@@ -581,16 +585,18 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior Pulse(World world, string args)
       {
-          string[] tokens = args.Split(',', 4);
-          string rootName = tokens[0];
-          int num = 1;
-          float timePerPulse = 0.4f;
-          float pulseSize = 0.1f;
-          int.TryParse(tokens[1], out num);
-          if (tokens.Length > 3) Single.TryParse(tokens[2], out timePerPulse);
-          if (tokens.Length > 4) Single.TryParse(tokens[3], out pulseSize);
-          Transform obj = world.Get(rootName.Trim());
-          return new CoroutineBehavior(world, ProceduralAnimator.Pulse(obj, num, timePerPulse, pulseSize));
+          return new CoroutineBehavior(world, args, (world, args) => { 
+              string[] tokens = args.Split(',', 4);
+              string rootName = tokens[0];
+              int num = 1;
+              float timePerPulse = 0.4f;
+              float pulseSize = 0.1f;
+              int.TryParse(tokens[1], out num);
+              if (tokens.Length > 3) Single.TryParse(tokens[2], out timePerPulse);
+              if (tokens.Length > 4) Single.TryParse(tokens[3], out pulseSize);
+              Transform obj = world.Get(rootName.Trim());
+              return ProceduralAnimator.Pulse(obj, num, timePerPulse, pulseSize);
+          });
       }
 
       /// <summary>
@@ -613,24 +619,25 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior Move(World w, string config) 
       { 
-          string[] tokens = config.Split(',', 5);
-          string rootName = tokens[0];
-          string startName = tokens[1];
-          string endName = tokens[2];
-          float duration = 1.0f;
-          Single.TryParse(tokens[3], out duration);
-          Transform obj = w.Get(rootName.Trim());
-          Transform start = w.Get(startName.Trim());
-          Transform end = w.Get(endName.Trim());
+          return new CoroutineBehavior(w, config, (w, config) => {
+              string[] tokens = config.Split(',', 5);
+              string rootName = tokens[0];
+              string startName = tokens[1];
+              string endName = tokens[2];
+              float duration = 1.0f;
+              Single.TryParse(tokens[3], out duration);
+              Transform obj = w.Get(rootName.Trim());
+              Transform start = w.Get(startName.Trim());
+              Transform end = w.Get(endName.Trim());
 
-          ProceduralAnimator.Interpolator interpolator = ProceduralAnimator.Linear;
-          if (tokens.Length > 4) 
-          {
-              if (tokens[4].StartsWith("EaseIn")) interpolator = ProceduralAnimator.EaseIn;
-              else if (tokens[4].StartsWith("Cosine")) interpolator = ProceduralAnimator.Cosine;
-          }
-
-          return new CoroutineBehavior(w, ProceduralAnimator.Move(obj, start, end, duration, interpolator));
+              ProceduralAnimator.Interpolator interpolator = ProceduralAnimator.Linear;
+              if (tokens.Length > 4) 
+              {
+                  if (tokens[4].StartsWith("EaseIn")) interpolator = ProceduralAnimator.EaseIn;
+                  else if (tokens[4].StartsWith("Cosine")) interpolator = ProceduralAnimator.Cosine;
+              }
+              return ProceduralAnimator.Move(obj, start, end, duration, interpolator);
+          });
       }
 
       /// <summary>
@@ -649,16 +656,18 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior Grow(World w, string config) 
       { 
-          string[] tokens = config.Split(',', 4);
-          string rootName = tokens[0];
-          float start = 1.0f;
-          float end = 1.0f;
-          float duration = 1.0f;
-          Single.TryParse(tokens[1], out start);
-          Single.TryParse(tokens[2], out end);
-          Single.TryParse(tokens[3], out duration);
-          Transform obj = w.Get(rootName.Trim());
-          return new CoroutineBehavior(w, ProceduralAnimator.Grow(obj, start, end, duration));
+          return new CoroutineBehavior(w, config, (w, config) => {
+              string[] tokens = config.Split(',', 4);
+              string rootName = tokens[0];
+              float start = 1.0f;
+              float end = 1.0f;
+              float duration = 1.0f;
+              Single.TryParse(tokens[1], out start);
+              Single.TryParse(tokens[2], out end);
+              Single.TryParse(tokens[3], out duration);
+              Transform obj = w.Get(rootName.Trim());
+              return ProceduralAnimator.Grow(obj, start, end, duration);
+          });
       }
 
       /// <summary>
@@ -677,16 +686,18 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior Fade(World w, string config) 
       { 
-          string[] tokens = config.Split(',', 4);
-          string rootName = tokens[0];
-          float start = 1.0f;
-          float end = 1.0f;
-          float duration = 1.0f;
-          Single.TryParse(tokens[1], out start);
-          Single.TryParse(tokens[2], out end);
-          Single.TryParse(tokens[3], out duration);
-          Transform obj = w.Get(rootName.Trim());
-          return new CoroutineBehavior(w, ProceduralAnimator.Fade(obj, start, end, duration));
+          return new CoroutineBehavior(w, config, (w, config) => {
+              string[] tokens = config.Split(',', 4);
+              string rootName = tokens[0];
+              float start = 1.0f;
+              float end = 1.0f;
+              float duration = 1.0f;
+              Single.TryParse(tokens[1], out start);
+              Single.TryParse(tokens[2], out end);
+              Single.TryParse(tokens[3], out duration);
+              Transform obj = w.Get(rootName.Trim());
+              return ProceduralAnimator.Fade(obj, start, end, duration);
+          });
       }
       #endregion
 
