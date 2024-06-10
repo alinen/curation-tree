@@ -45,6 +45,7 @@ namespace CTree
               base.Tick();
               if (base.Finished())
               {
+                  base.TearDown();
                   Setup(); // restart sequence
               }
           }
