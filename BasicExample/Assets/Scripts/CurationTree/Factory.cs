@@ -418,6 +418,47 @@ namespace CTree
           });
       }
 
+      /// <summary>
+      /// Creates a behavior that plays a sound
+      /// </summary>
+      /// <remarks>
+      /// Implements the following input string
+      /// <code>
+      /// PlaySound: AssetName
+      /// </code>
+      /// For example, <c>PlaySound: MoveSound</c> plays sound on the asset MoveSound.
+      /// MoveSound should have an AudioSource component on it. 
+      /// The behavior completes when the Sound is complete (note: looped sounds play forever). 
+      /// </remarks>
+      /// <param name="world">Object for accessing global state.</param>
+      /// <param name="args">Parameters for the behavior</param>
+      /// <returns>An instance of behavior</returns>
+      public static Behavior PlaySound(World w, string config) 
+      { 
+          string rootName = config.Trim();
+          return new Sound(w, rootName, Sound.Mode.PLAY);
+      }
+
+      /// <summary>
+      /// Creates a behavior that stops an animation.
+      /// </summary>
+      /// <remarks>
+      /// Implements the following input string
+      /// <code>
+      /// StopSound: AssetName
+      /// </code>
+      /// For example, <c>StopSound: Music</c> stops the AudioSource component on 
+      /// the asset with name <c>Music</c>.
+      /// </remarks>
+      /// <param name="world">Object for accessing global state.</param>
+      /// <param name="args">Parameters for the behavior</param>
+      /// <returns>An instance of behavior</returns>
+      public static Behavior StopSound(World w, string config) 
+      { 
+          string rootName = config.Trim();
+          return new Sound(w, rootName, Sound.Mode.STOP);
+      }
+
 
       /// <summary>
       /// Creates a behavior that plays an animation
