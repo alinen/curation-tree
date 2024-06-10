@@ -22,23 +22,23 @@ namespace CTree
         /// </summary>
         CLICK, 
         /// <summary>
-        /// Trigger when the player hovers over an interactable object
+        /// Trigger when player hovers on top of an interactable object
         /// </summary>
-        HOVER_ENTER,
+        ENTER,
         /// <summary>
         /// Trigger when the player stops hovering over an interactable object
         /// </summary>
-        HOVER_EXIT,
+        EXIT,
         /// <summary>
         /// Trigger when the user picks up an asset
         /// </summary>
         PICKUP, 
         /// <summary>
-        /// Trigger when the user drags an object on top of target object
+        /// Trigger when the user drags an object on top of a location
         /// </summary>
         DRAG_ENTER, 
         /// <summary>
-        /// Trigger when the user drags an object away from a target object
+        /// Trigger when the user drags an object away a location
         /// </summary>
         DRAG_EXIT, 
         /// <summary>
@@ -61,8 +61,8 @@ namespace CTree
       public IfInteractableBehavior(World w, Type t, string itemName) : 
           base(w, null)
       {
-          Debug.Assert(t == Type.HOVER_EXIT || 
-                       t == Type.HOVER_ENTER ||
+          Debug.Assert(t == Type.EXIT || 
+                       t == Type.ENTER ||
                        t == Type.PICKUP || 
                        t == Type.CLICK);
           m_type = t;
@@ -73,7 +73,7 @@ namespace CTree
               Transform itemX = w.Get(itemName);
               Debug.Assert(itemX != null);
 
-              if (t == Type.HOVER_ENTER)
+              if (t == Type.ENTER)
               {
                   // valid for both clickable and draggable objects
                   // only set type if not set already
@@ -81,7 +81,7 @@ namespace CTree
                   if (!m_item) m_item = w.AddClickable(itemX);
                   m_item.AddHoverEnterCb(TriggerCb1);
               }
-              else if (t == Type.HOVER_EXIT)
+              else if (t == Type.EXIT)
               {
                   // valid for both clickable and draggable objects
                   // only set type if not set already

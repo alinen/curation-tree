@@ -20,12 +20,16 @@ namespace CTree
   /// * <see cref="CTree.Factory.Select?alt=Select"/> 
   /// * <see cref="CTree.Factory.Repeat?alt=Repeat"/> 
   /// * <see cref="CTree.Factory.RepeatWhile?alt=RepeatWhile"/> 
+  ///
+  /// **Events**
   /// * <see cref="CTree.Factory.If?alt=If"/> 
-  /// * <see cref="CTree.Factory.IfDrag?alt=IfDrag"/> 
+  /// * <see cref="CTree.Factory.IfEnter?alt=IfEnter"/> 
+  /// * <see cref="CTree.Factory.IfExit?alt=IfExit"/> 
+  /// * <see cref="CTree.Factory.IfPickup?alt=IfPickup"/> 
   /// * <see cref="CTree.Factory.IfDrop?alt=IfDrop"/> 
   /// * <see cref="CTree.Factory.IfClick?alt=IfClick"/> 
-  /// * <see cref="CTree.Factory.IfHover?alt=IfHover"/> 
-  /// * <see cref="CTree.Factory.IfMouseOver?alt=IfMouseOver"/> 
+  /// * <see cref="CTree.Factory.IfDragEnter?alt=IfDragEnter"/> 
+  /// * <see cref="CTree.Factory.IfDragExit?alt=IfDragExit"/> 
   ///
   /// **State Nodes**
   /// * <see cref="CTree.Factory.SetState?alt=SetState"/>
@@ -59,11 +63,11 @@ namespace CTree
         /// <param name="config">A string with format <c>FnName:Args</c></param>
         /// <returns>An instance of behavior</returns>
       public static Behavior Create(World world, string config)
-        {
-            string[] mc = config.Split(':', 2);
-            string fnName = mc[0];
-            try
-            {
+      {
+          string[] mc = config.Split(':', 2);
+          string fnName = mc[0];
+          try
+          {
               Type thisType = typeof(Factory); 
               MethodInfo theMethod = thisType.GetMethod(fnName);
               Behavior beh = theMethod.Invoke(null, new object[]{world, mc[1]}) as Behavior;
@@ -198,9 +202,12 @@ namespace CTree
               return world.GetInteger(stateName) == stateValue;
           });
       }
+      #endregion
+
+      #region Events
 
       /// <summary>
-      /// Creates a behavior that executes a set of behaviors if the conditional is true
+      /// Execute a set of behaviors if the conditional is true
       /// </summary>
       /// <remarks>
       /// The behavior completes immediately if the conditional is false. If the condition is 
@@ -227,7 +234,7 @@ namespace CTree
       }
 
       /// <summary>
-      /// Creates a behavior that executes a set of behaviors if the conditional is true
+      /// Execute a set of behaviors if the player clicks on an interactable object
       /// </summary>
       /// <remarks>
       /// Executes all sub-behaviors in parallel if the user clicks the given scene object.
@@ -248,7 +255,7 @@ namespace CTree
       }
 
       /// <summary>
-      /// Creates a behavior that executes a set of behaviors if the conditional is true
+      /// Execute a set of behaviors if player drops an interactable on a specific location
       /// </summary>
       /// <remarks>
       /// Executes all sub-behaviors in parallel if the user drops the specified asset on 
@@ -273,13 +280,13 @@ namespace CTree
       }
 
       /// <summary>
-      /// Creates a behavior that executes a set of behaviors if the conditional is true
+      /// Execute a set of behaviors if the player hovers on top of an interactable object
       /// </summary>
       /// <remarks>
       /// Executes all sub-behaviors in parallel if the user hovers the mouse over the specified scene object.
       /// Otherwise, the condition is false and the behavior completes immediately.
       /// <code>
-      /// IfHoverEnter: AssetName
+      /// IfEnter: AssetName
       ///    ChangeColor: AssetName, 1,1,0, 0.1
       /// End
       /// </code>
@@ -287,20 +294,20 @@ namespace CTree
       /// <param name="world">Object for accessing global state.</param>
       /// <param name="args">Parameters for specifying the conditional</param>
       /// <returns>An instance of behavior</returns>
-      public static Behavior IfHoverEnter(World world, string args)
+      public static Behavior IfEnter(World world, string args)
       {
           return new IfInteractableBehavior(world, 
-              IfInteractableBehavior.Type.HOVER_ENTER, args); 
+              IfInteractableBehavior.Type.ENTER, args); 
       }
 
       /// <summary>
-      /// Creates a behavior that executes a set of behaviors if the conditional is true
+      /// Execute a set of behaviors if the play stops hovering over an object
       /// </summary>
       /// <remarks>
       /// Executes all sub-behaviors in parallel if the user hovers the mouse over the specified scene object.
       /// Otherwise, the condition is false and the behavior completes immediately.
       /// <code>
-      /// IfHoverExit: AssetName
+      /// IfExit: AssetName
       ///    RevertColor: AssetName, 0.1
       /// End
       /// </code>
@@ -308,15 +315,14 @@ namespace CTree
       /// <param name="world">Object for accessing global state.</param>
       /// <param name="args">Parameters for specifying the conditional</param>
       /// <returns>An instance of behavior</returns>
-      public static Behavior IfHoverExit(World world, string args)
+      public static Behavior IfExit(World world, string args)
       {
           return new IfInteractableBehavior(world, 
-              IfInteractableBehavior.Type.HOVER_EXIT, args); 
+              IfInteractableBehavior.Type.EXIT, args); 
       }
 
-
       /// <summary>
-      /// Creates a behavior that executes a set of behaviors if the conditional is true
+      /// Execute a set of behaviors if the player drags an interactable on to of a location
       /// </summary>
       /// <remarks>
       /// Executes all sub-behaviors (parallel) if the user drags one object on top of 
@@ -341,7 +347,7 @@ namespace CTree
       }
 
       /// <summary>
-      /// Creates a behavior that executes a set of behaviors if the conditional is true
+      /// Execute a set of behaviors if the player stops dragging an object on a location
       /// </summary>
       /// <remarks>
       /// Executes all sub-behaviors (parallel) if the user drags one object on top of 
@@ -366,7 +372,7 @@ namespace CTree
       }
 
       /// <summary>
-      /// Creates a behavior that executes a set of behaviors if the conditional is true
+      /// Execute a set of behaviors if the player picks up an object
       /// </summary>
       /// <remarks>
       /// Executes all sub-behaviors in parallel if the user picks up the give object. 
