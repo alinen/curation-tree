@@ -127,7 +127,10 @@ namespace CTree
 
       public override void Setup()
       {
-          m_triggered = false;
+          // don't reset m_triggered until it is queried
+          // this allows us to detect events that might occur when
+          // the behavior is not runnning
+          // so we can check for events once in base.Setup()
           base.Setup();
       }
 
@@ -138,17 +141,23 @@ namespace CTree
 
       void TriggerCb1(Interactable source)
       {
+          Debug.Log("TriggerCb1 "+source.name+" "+name);
           m_triggered = true;
       }
 
       void TriggerCb2(Interactable source, GameObject target)
       {
+          if (target) Debug.Log("TriggerCb2 "+source.name+" "+target.name+" "+name);
+          else Debug.Log("TriggerCb2 "+source.name);
+
           m_triggered = (target == m_target.gameObject);
       }
 
       bool CheckTrigger(World w)
       {
-          return m_triggered;
+          bool result = m_triggered;
+          m_triggered = false; // clear event after it is queried
+          return result;
       }
   }
 }

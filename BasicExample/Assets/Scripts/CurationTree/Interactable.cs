@@ -150,7 +150,6 @@ namespace CTree
         Behavior b = o as Behavior;
         return b.IsActive();
       }
-
       return true;
     }
 
@@ -179,6 +178,8 @@ namespace CTree
       SetLocation(location);
 
       if (m_hoverObject != null) OnDragExit();
+
+      Debug.Log("DROP "+name);
       foreach (DropCb cb in m_dropCbs) 
       {
         if (CallbackActive(cb))
@@ -271,6 +272,7 @@ namespace CTree
           Collider collider = m_dragObject.GetComponentInChildren<Collider>();
           collider.enabled = false;
 
+          Debug.Log("PICKUP" + name);
           foreach (PickupCb cb in m_pickupCbs) 
           {
             if (CallbackActive(cb))
