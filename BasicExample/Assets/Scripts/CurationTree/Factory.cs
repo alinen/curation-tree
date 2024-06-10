@@ -71,7 +71,7 @@ namespace CTree
               Type thisType = typeof(Factory); 
               MethodInfo theMethod = thisType.GetMethod(fnName);
               Behavior beh = theMethod.Invoke(null, new object[]{world, mc[1]}) as Behavior;
-              beh.name = config; // save initializing command for debugging
+              if (beh != null) beh.name = config; // save initializing command for debugging
               return beh;
           }
           catch(Exception e)
@@ -795,41 +795,29 @@ namespace CTree
 
       public static Behavior InitDraggable(World world, string args)
       {
-          // Apply setting immediately, but also create a behavior in case
-          // the settings need to change during gameplay
+          // Apply setting immediately
           string objName = args.Trim();
           Transform xform = world.Get(objName);
           world.AddDragable(xform);
-
-          return new AtomicBehavior(world, (world) => { 
-              world.AddDragable(xform);
-          });
+          return null;
       }
 
       public static Behavior InitClickable(World world, string args)
       {
-          // Apply setting immediately, but also create a behavior in case
-          // the settings need to change during gameplay
+          // Apply setting immediately
           string objName = args.Trim();
           Transform xform = world.Get(objName);
           world.AddClickable(xform);
-
-          return new AtomicBehavior(world, (world) => { 
-              world.AddClickable(xform);
-          });
+          return null;
       }
 
       public static Behavior InitLocation(World world, string args)
       {
-          // Apply setting immediately, but also create a behavior in case
-          // the settings need to change during gameplay
+          // Apply setting immediately
           string locName = args.Trim();
           Transform xform = world.Get(locName);
           world.AddLocation(xform);
-
-          return new AtomicBehavior(world, (world) => { 
-              world.AddLocation(xform);
-          });
+          return null;
       }
 
       #endregion
