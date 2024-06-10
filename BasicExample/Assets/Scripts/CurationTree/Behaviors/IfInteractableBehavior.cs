@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace CTree
@@ -70,34 +71,18 @@ namespace CTree
           itemName = itemName.Trim();
           if (!string.IsNullOrEmpty(itemName))
           {
-              Transform itemX = w.Get(itemName);
-              Debug.Assert(itemX != null);
-
-              if (t == Type.ENTER)
+              if (itemName == "Any") // Add callback to all interactables
               {
-                  // valid for both clickable and draggable objects
-                  // only set type if not set already
-                  m_item = itemX.GetComponent<Interactable>();
-                  if (!m_item) m_item = w.AddClickable(itemX);
-                  m_item.AddHoverEnterCb(TriggerCb1);
+                  foreach (Interactable i in world.GetInteractables())
+                  {
+                      AddCallback(i.transform, t); 
+                  }
               }
-              else if (t == Type.EXIT)
+              else // Add callback to given interactable only
               {
-                  // valid for both clickable and draggable objects
-                  // only set type if not set already
-                  m_item = itemX.GetComponent<Interactable>();
-                  if (!m_item) m_item = w.AddClickable(itemX);
-                  m_item.AddHoverExitCb(TriggerCb1);
-              }
-              else if (t == Type.CLICK)
-              {
-                  m_item = w.AddClickable(itemX); 
-                  m_item.AddClickCb(TriggerCb1);
-              }
-              else if (t == Type.PICKUP)
-              {
-                  m_item = w.AddDragable(itemX); 
-                  m_item.AddPickupCb(TriggerCb1);
+                  Transform itemX = w.Get(itemName);
+                  Debug.Assert(itemX != null);
+                  AddCallback(itemX, t);
               }
               m_condition = this.CheckTrigger;
           }
@@ -122,30 +107,96 @@ namespace CTree
           targetName = targetName.Trim();
           if (!string.IsNullOrEmpty(itemName) && !string.IsNullOrEmpty(targetName))
           {
-              Transform itemX = w.Get(itemName);
-              Debug.Assert(itemX != null);
-              m_item = w.AddDragable(itemX); 
-              if (t == Type.DRAG_ENTER)
+              if (itemName == "Any" && targetName == "Any")
               {
-                  m_item.AddDragEnterCb(TriggerCb2);
+                  foreach (Interactable i in world.GetInteractables())
+                  {
+                      foreach (Location loc in world.GetLocations())
+                      {
+                          AddCallback(i.transform, loc.transform, t); 
+                      }
+                  }
               }
-              else if (t == Type.DRAG_EXIT)
+              else if (itemName == "Any")
               {
-                  m_item.AddDragExitCb(TriggerCb2);
-              }
-              else if (t == Type.DROP)
-              {
-                  m_item.AddDropCb(TriggerCb2);
-              }
+                  Transform targetX = w.Get(targetName);
+                  foreach (Interactable i in world.GetInteractables())
+                  {
+                      AddCallback(i.transform, targetX, t);
+                  }
 
-              Transform targetX = w.Get(targetName);
-              Debug.Assert(targetX != null);
-              m_target = w.AddLocation(targetX); 
-              m_item.AddDragTarget(targetX.gameObject);
-
+              }
+              else if (targetName == "Any")
+              {
+                  Transform itemX = w.Get(itemName);
+                  foreach (Location loc in world.GetLocations())
+                  {
+                      AddCallback(itemX, loc.transform, t);
+                  }
+              }
+              else
+              {
+                  Transform targetX = w.Get(targetName);
+                  Transform itemX = w.Get(itemName);
+                  AddCallback(itemX, targetX, t);
+              }
               m_condition = this.CheckTrigger;
           }
       }
+
+      void AddCallback(Transform itemX, Transform targetX, Type t)
+      { 
+          Debug.Assert(itemX != null);
+          Debug.Assert(targetX != null);
+
+          m_item = world.AddDragable(itemX); 
+          if (t == Type.DRAG_ENTER)
+          {
+              m_item.AddDragEnterCb(TriggerCb2);
+          }
+          else if (t == Type.DRAG_EXIT)
+          {
+              m_item.AddDragExitCb(TriggerCb2);
+          }
+          else if (t == Type.DROP)
+          {
+              m_item.AddDropCb(TriggerCb2);
+          }
+
+          m_target = world.AddLocation(targetX); 
+          m_item.AddDragTarget(targetX.gameObject);
+      }
+
+      void AddCallback(Transform itemX, Type t)
+      {
+          if (t == Type.ENTER)
+          {
+              // valid for both clickable and draggable objects
+              // only set type if not set already
+              m_item = itemX.GetComponent<Interactable>();
+              if (!m_item) m_item = world.AddClickable(itemX);
+              m_item.AddHoverEnterCb(TriggerCb1);
+          }
+          else if (t == Type.EXIT)
+          {
+              // valid for both clickable and draggable objects
+              // only set type if not set already
+              m_item = itemX.GetComponent<Interactable>();
+              if (!m_item) m_item = world.AddClickable(itemX);
+              m_item.AddHoverExitCb(TriggerCb1);
+          }
+          else if (t == Type.CLICK)
+          {
+              m_item = world.AddClickable(itemX); 
+              m_item.AddClickCb(TriggerCb1);
+          }
+          else if (t == Type.PICKUP)
+          {
+              m_item = world.AddDragable(itemX); 
+              m_item.AddPickupCb(TriggerCb1);
+          }
+      }
+
 
       public override void Setup()
       {
@@ -163,14 +214,14 @@ namespace CTree
 
       void TriggerCb1(Interactable source)
       {
-          //Debug.Log("TriggerCb1 "+source.name+" "+name);
+          Debug.Log("TriggerCb1 "+source.name+" "+name);
           m_triggered = true;
       }
 
       void TriggerCb2(Interactable source, GameObject target)
       {
-          //if (target) Debug.Log("TriggerCb2 "+source.name+" "+target.name+" "+name);
-          //else Debug.Log("TriggerCb2 "+source.name);
+          if (target) Debug.Log("TriggerCb2 "+source.name+" "+target.name+" "+name);
+          else Debug.Log("TriggerCb2 "+source.name);
 
           m_triggered = (target == m_target.gameObject);
       }
