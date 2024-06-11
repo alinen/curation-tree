@@ -152,6 +152,7 @@ namespace CTree
               loc = obj.gameObject.AddComponent<Location>();
           }
           m_locations[uniqueId] = loc;
+          loc.Init();
 
           // Setup drop targets
           foreach (Interactable i in m_interactables.Values)
@@ -277,6 +278,20 @@ namespace CTree
           return results;
       }
 
+      public List<Location> GetLocations() 
+      {
+          List<Location> results = new List<Location>();
+          foreach (KeyValuePair<int, Location> pair in m_locations)
+          {
+              Location i = pair.Value;
+              if (i.enabled)
+              {
+                  results.Add(i);
+              }
+          }
+          return results;
+      }
+
       void ClearSelected()
       {
           foreach (KeyValuePair<int, Interactable> pair in m_interactables)
@@ -295,7 +310,6 @@ namespace CTree
                   pair.Value.SetClicked(false);
               }
           }
-
       }
 
       Transform CheckHit(Camera camera)

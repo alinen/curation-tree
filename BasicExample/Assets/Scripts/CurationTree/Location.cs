@@ -26,6 +26,11 @@ namespace CTree
 
       void Start()
       {
+          Init();
+      }
+
+      public void Init()
+      { 
           Transform[] children = GetComponentsInChildren<Transform>();
           foreach (Transform child in children)
           {

@@ -28,6 +28,7 @@ namespace CTree
 
               m_target = targetX.GetComponent<Button>();
               Debug.Assert(m_target != null);
+              m_target.onClick.AddListener(OnClick);
 
               m_condition = this.CheckClick;
           }
@@ -36,14 +37,11 @@ namespace CTree
       public override void Setup()
       {
           base.Setup();
-          m_isClicked = false;
-          m_target.onClick.AddListener(OnClick);
       }
 
       void OnClick()
       {
          m_isClicked = true;
-         m_target.onClick.RemoveListener(OnClick);
       }
 
       bool CheckClick(World w)

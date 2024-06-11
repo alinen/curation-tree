@@ -111,8 +111,10 @@ namespace CTree
               {
                   foreach (Interactable i in world.GetInteractables())
                   {
-                      foreach (Location loc in world.GetLocations())
+                      foreach (GameObject loc in i.GetDragTargets())
                       {
+                          if (i.gameObject == loc.gameObject) continue;
+                          Debug.Log("ADD "+i.name + " " + loc.name);
                           AddCallback(i.transform, loc.transform, t); 
                       }
                   }
@@ -129,7 +131,8 @@ namespace CTree
               else if (targetName == "Any")
               {
                   Transform itemX = w.Get(itemName);
-                  foreach (Location loc in world.GetLocations())
+                  Interactable item = itemX.GetComponent<Interactable>();
+                  foreach (GameObject loc in item.GetDragTargets())
                   {
                       AddCallback(itemX, loc.transform, t);
                   }
@@ -197,7 +200,6 @@ namespace CTree
           }
       }
 
-
       public override void Setup()
       {
           // don't reset m_triggered until it is queried
@@ -214,8 +216,18 @@ namespace CTree
 
       void TriggerCb1(Interactable source)
       {
+          // if (m_triggered is true) multiple events happen on same frame -> need to cache 
           Debug.Log("TriggerCb1 "+source.name+" "+name);
           m_triggered = true;
+
+          if (m_triggered)
+          {
+             foreach (Behavior b in m_behaviors)
+             {
+                b.AnyAsset = source.transform;
+                b.AnyLocation = null;
+             }
+          }
       }
 
       void TriggerCb2(Interactable source, GameObject target)
@@ -223,7 +235,16 @@ namespace CTree
           if (target) Debug.Log("TriggerCb2 "+source.name+" "+target.name+" "+name);
           else Debug.Log("TriggerCb2 "+source.name);
 
-          m_triggered = (target == m_target.gameObject);
+          m_triggered = (target != null);
+
+          if (m_triggered)
+          {
+             foreach (Behavior b in m_behaviors)
+             {
+                b.AnyAsset = source.transform;
+                b.AnyLocation = target.transform;
+             }
+          }
       }
 
       bool CheckTrigger(World w)

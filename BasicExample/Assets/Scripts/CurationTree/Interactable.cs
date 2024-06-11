@@ -19,9 +19,10 @@ namespace CTree
 
     private bool m_isDragging = false;
     private bool m_isClicked = false;
-    private GameObject m_hoverObject = null;
+    private GameObject m_dragTargetHoverObject = null;
+    private GameObject m_selfHoverObject = null;
     private GameObject m_dragObject = null; // temporary drag object
-    private List<GameObject> m_dragTargets = new List<GameObject>(); // for dragable objects, the allowed target(s)
+    private HashSet<GameObject> m_dragTargets = new HashSet<GameObject>(); // for dragable objects, the allowed target(s)
 
     private List<InteractableCb> m_clickedCbs = new List<InteractableCb>();
     private List<InteractableCb> m_pickupCbs = new List<InteractableCb>();
@@ -88,7 +89,8 @@ namespace CTree
       // reset selection/grabbed state as well
       m_isDragging = false;
       m_isClicked = false;
-      m_hoverObject = null; // temporary hover object
+      m_selfHoverObject = null; // temporary hover object
+      m_dragTargetHoverObject = null; // temporary hover object
       m_dragObject = null; // temporary drag object
     }
 
@@ -101,6 +103,11 @@ namespace CTree
     {
       return interactionType == Interactable.Type.DRAGABLE ||
           interactionType == Interactable.Type.COPY_DRAGABLE;
+    }
+
+    public HashSet<GameObject> GetDragTargets()
+    {
+        return m_dragTargets;
     }
 
     public bool CanDropOnto(GameObject target)
@@ -142,12 +149,14 @@ namespace CTree
 
     bool CallbackActive(System.Delegate fn)
     {
+    /*
       object o = fn.Target;
       if (o is Behavior)
       {
         Behavior b = o as Behavior;
         return b.IsActive();
       }
+      */
       return true;
     }
 
@@ -175,7 +184,7 @@ namespace CTree
       Location location = target? target.GetComponent<Location>() : null;
       SetLocation(location);
 
-      if (m_hoverObject != null) OnDragExit();
+      if (m_dragTargetHoverObject != null) OnDragExit();
 
       foreach (LocationCb cb in m_dropCbs) 
       {
@@ -195,7 +204,7 @@ namespace CTree
           cb(this, target);
         }
       }
-      m_hoverObject = target;
+      m_dragTargetHoverObject = target;
     }
 
     void OnDragExit()
@@ -204,21 +213,21 @@ namespace CTree
       {
          if (CallbackActive(cb))
          {
-            cb(this, m_hoverObject);
+            cb(this, m_dragTargetHoverObject);
          }
       }
-      m_hoverObject = null;
+      m_dragTargetHoverObject = null;
     }
 
     public void OnDrag(GameObject target)
     {
       if (!enabled) return;
 
-      if (!m_hoverObject && target)
+      if (!m_dragTargetHoverObject && target)
       {
         OnDragEnter(target);
       }
-      else if (m_hoverObject && !target)
+      else if (m_dragTargetHoverObject && !target)
       {
         OnDragExit();
       }
@@ -227,7 +236,7 @@ namespace CTree
     public void OnHoverEnter()
     {
       if (!enabled) return;
-      if (m_hoverObject) return;
+      if (m_selfHoverObject) return;
 
       foreach (InteractableCb cb in m_hoverEnterCbs) 
       {
@@ -236,13 +245,13 @@ namespace CTree
           cb(this);
         }
       }
-      m_hoverObject = this.gameObject;
+      m_selfHoverObject = this.gameObject;
     }
 
     public void OnHoverExit()
     {
       if (!enabled) return;
-      if (!m_hoverObject) return;
+      if (!m_selfHoverObject) return;
 
       foreach (InteractableCb cb in m_hoverExitCbs) 
       {
@@ -251,7 +260,7 @@ namespace CTree
           cb(this);
         }
       }
-      m_hoverObject = null;
+      m_selfHoverObject = null;
     }
 
     public void SetGrabbed(bool b)

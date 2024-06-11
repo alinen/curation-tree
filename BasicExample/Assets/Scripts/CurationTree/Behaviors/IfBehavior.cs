@@ -6,7 +6,7 @@ namespace CTree
   /// <summary>
   /// Base class for all behaviors that trigger sub-behaviors based on a conditional.
   /// </summary>
-  public class IfBehavior : ParallelBehavior
+  public class IfBehavior : ControlBehavior
   {
       protected System.Func<World, bool> m_condition = null;
       protected bool m_isTriggered = false;
@@ -23,9 +23,19 @@ namespace CTree
 
       public override void Setup()
       {
-          m_isTriggered = false;
-          m_finished = false;
-          m_isActive = true;
+          base.Setup();
+          m_isTriggered = m_condition(world);
+          if (m_isTriggered) 
+          {
+              foreach (Behavior b in m_behaviors)
+              {
+                  b.Setup();
+              }
+          }
+          else
+          {
+              m_finished = true;
+          }
       }
 
       public bool IsTrue()
@@ -33,38 +43,31 @@ namespace CTree
           return m_condition(world);
       }
 
-      public override bool Finished()
-      {
-          if (m_isTriggered)
-          {
-              return base.Finished();
-          }
-          return true;
-      }
-
       public override void Tick()
       {
-          if (!m_isTriggered)
-          {
-              m_isTriggered = m_condition(world);
-              if (m_isTriggered) 
-              {
-                  base.Setup();
-              }
-          }
+          base.Tick();
           if (m_isTriggered)
           {
-              base.Tick();
+              bool finished = true;
+              foreach (Behavior b in m_behaviors)
+              {
+                 b.Tick();
+                 if (!b.Finished()) finished = false;
+              }
+              m_finished = finished;
           }
       }
 
       public override void TearDown()
       {
+          base.TearDown();
           if (m_isTriggered)
           {
-              base.TearDown();
+              foreach (Behavior b in m_behaviors)
+              {
+                 b.TearDown();
+              }
           }
-          m_isActive = false;
       }
   }
 }

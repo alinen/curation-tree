@@ -45,10 +45,9 @@ namespace CTree
       /// </summary>
       protected bool m_isActive = false;
       
-      /// <summary>
-      /// String containing the input line used to create this Behavior (for debugging) 
-      /// </summary>
-      protected string m_name;
+      private string m_name;
+      private Transform m_selected = null;
+      private Transform m_location = null;
 
       /// <summary>
       /// Value containing the input line used to create this Behavior (for debugging) 
@@ -114,7 +113,7 @@ namespace CTree
       /// <summary>
       /// Accessor for the object that hold global world state.
       /// </summary>
-      protected World world
+      public World world
       {
           get { return m_world; }
       }
@@ -126,6 +125,29 @@ namespace CTree
       public override string ToString()
       {
           return m_name;
+      }
+
+      public Transform AnyAsset
+      {
+          set { m_selected = value;}
+          get { return m_selected; }
+      }
+
+      public Transform AnyLocation
+      {
+          set { m_location = value;}
+          get { return m_location; }
+      }
+
+      public Transform Get(string name)
+      {
+          Transform asset = null;
+          if (name == "AnyAsset") asset = AnyAsset;
+          else if (name == "AnyLocation") asset = AnyLocation;
+          else asset = world.Get(name);
+
+          if (!asset) Debug.LogWarning("Cannot find "+name);
+          return asset;
       }
   }
 }

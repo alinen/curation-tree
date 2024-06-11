@@ -13,6 +13,7 @@ namespace CTree
   {
       UnityEngine.Animation m_animation = null;
       string m_aniName = "";
+      string m_objName = "";
       
       /// <summary>
       /// Animation mode
@@ -40,16 +41,18 @@ namespace CTree
       public Animation(World w, string objName, string aniName, 
           Mode m = Mode.PLAY) : base(w)
       {
-          Transform root = world.Get(objName.Trim()); 
-          m_animation = root.GetComponent<UnityEngine.Animation>();
+          m_objName = objName;
           m_aniName = aniName.Trim();
-          m_animation[m_aniName].wrapMode = WrapMode.Loop;
           m_mode = m;
       }
 
       public override void Setup()
       {
           base.Setup();
+
+          Transform root = Get(m_objName.Trim()); 
+          m_animation = root.GetComponent<UnityEngine.Animation>();
+          m_animation[m_aniName].wrapMode = WrapMode.Loop;
           m_animation.enabled = true;
           m_animation.clip = m_animation[m_aniName].clip;
 

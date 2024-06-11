@@ -8,7 +8,7 @@ namespace CTree
   /// Each iteration, all sub-behaviors are run in parallel. The iteration completes when all sub-behaviors repeat.
   /// The conditional is checked at the start of each iteration. If true, the sub-behaviors are re-run.
   /// </summary>
-  public class RepeatBehavior : ParallelBehavior
+  public class RepeatBehavior : ControlBehavior
   {
       protected System.Func<World, bool> m_condition = null;
       protected bool m_isRunning = false;
@@ -31,23 +31,35 @@ namespace CTree
 
       public override void Setup()
       {
-          m_finished = false;
-          m_isActive = true;
-
+          base.Setup();
           m_isRunning = m_condition(world);
-          if (m_isRunning) base.Setup();
+          if (m_isRunning)
+          {
+              foreach (Behavior b in m_behaviors)
+              {
+                  b.Setup();
+              }
+          }
       }
 
       public override void Tick()
       {
+          base.Tick();
           if (m_isRunning) 
           {
-              base.Tick();
-              if (base.Finished())
+              bool finished = true;
+              foreach (Behavior b in m_behaviors)
               {
-                  base.TearDown();
-                  Setup(); // restart sequence
+                  b.Tick();
+                  if (b.Finished())
+                  {
+                     b.TearDown();
+                     m_isRunning = m_condition(world);
+                     if (m_isRunning) b.Setup();
+                  }
+                  if (!b.Finished()) finished = false;
               }
+              m_finished = finished;
           }
       }
   }

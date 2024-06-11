@@ -224,6 +224,7 @@ namespace CTree
       /// <param name="duration">The length of the animation (in seconds)</param>
       public static IEnumerator ChangeColor(Transform obj, Color end, float duration)
       {
+          Debug.Log("CHANGE COLOR: "+obj.name);
           Renderer[] meshes = obj.GetComponentsInChildren<Renderer>();
           TextMeshProUGUI[] tguis = obj.GetComponentsInChildren<TextMeshProUGUI>();
           TextMeshPro[] tpros = obj.GetComponentsInChildren<TextMeshPro>();
@@ -273,6 +274,7 @@ namespace CTree
       /// <param name="duration">The length of the animation (in seconds)</param>
       public static IEnumerator RevertColor(Transform obj, float duration)
       {
+          Debug.Log("REVERT: "+obj.name);
           Renderer[] meshes = obj.GetComponentsInChildren<Renderer>();
           TextMeshProUGUI[] tguis = obj.GetComponentsInChildren<TextMeshProUGUI>();
           TextMeshPro[] tpros = obj.GetComponentsInChildren<TextMeshPro>();

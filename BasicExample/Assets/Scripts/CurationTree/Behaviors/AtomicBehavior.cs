@@ -16,14 +16,14 @@ namespace CTree
 
   public class AtomicBehavior : Behavior
   {
-      System.Action<World> m_fn = null;
+      System.Action<Behavior> m_fn = null;
 
       /// <summary>
       /// Constructor
       /// </summary>
       /// <param name="w">Object for accessing global state</param>
       /// <param name="fn">Function that performs the behavior</param>
-      public AtomicBehavior(World w, System.Action<World> fn) : base(w) 
+      public AtomicBehavior(World w, System.Action<Behavior> fn) : base(w) 
       {
           m_fn = fn;
       }
@@ -31,7 +31,7 @@ namespace CTree
       public override void Setup() 
       {
           base.Setup();
-          m_fn(world);
+          m_fn(this);
           m_finished = true;
       }
   }
