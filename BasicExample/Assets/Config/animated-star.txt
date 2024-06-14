@@ -3,8 +3,8 @@ SetText: Message, Start Demo
 Fade: Panel, 0, 1, 2.0
 Grow: Star, 0.1, 1.0, 1.0
 SetText: Message, Demo
-ChangeColor: Star, 1,0,1, 1.0
-ChangeColor: Star, 0,1,1, 1.0
+ChangeColor: Star, #FF00FFFF, 1.0
+ChangeColor: Star, #00FFFFFF, 1.0
 RevertColor: Star, 2.0
 Move: Star, Waypoint1, Waypoint2, 2.0
 Move: Star, Waypoint2, Waypoint3, 2.0, Cosine

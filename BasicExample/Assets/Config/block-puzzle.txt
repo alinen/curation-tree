@@ -16,38 +16,5 @@ InitLocation: PlatformBottle
 InitLocation: BottleBottom
 InitLocation: BottleTop
 
-Repeat:
-  IfEnter: Any
-     ChangeColor: AnyAsset, 0.5, 0.5, 0, 0.1
-     SetText: Debug, ENTER INTERACTABLE
-  End
-  IfExit: Any
-     RevertColor: AnyAsset, 0.1
-     SetText: Debug, EXIT INTERACTABLE
-  End
-  #IfDragEnter: BunBottom, PlatformBurger
-  #   ChangeColor: PlatformBurger, 0, 1, 0, 0.1
-  #   Fade: PlatformBurger, 1, 0.5, 0.1
-  #   SetText: Debug, ENTER DRAG
-  #End
-  #IfDragExit: BunBottom, PlatformBurger
-  #   RevertColor: PlatformBurger, 0.1
-  #   Fade: PlatformBurger, 0.5, 1, 0.1
-  #   SetText: Debug, EXIT DRAG
-  #End
-  IfDrop: Any, Any
-    PlaySound: AnchorSound
-  End
-  IfPickup: Any 
-    PlaySound: MoveSound
-  End
-End
+Highlight: #FFFF00FF, MoveSound, #00FF00F0, AnchorSound
 
-#Repeat: 
-#  IfPickup: Any, Any
-#    PlaySound: AnchorSound
-#  End
-#  IfDrag: Any
-#    PlaySound: MoveSound
-#  End
-#End

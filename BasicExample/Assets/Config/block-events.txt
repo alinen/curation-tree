@@ -1,0 +1,38 @@
+InitDraggable: Block
+InitLocation: PlatformBlock
+
+Repeat:
+  # Highlight the block asset yellow
+  # when the user hovers over it with the mouse 
+  IfEnter: Block
+     ChangeColor: Block, #f0f00020, 0.1
+     SetText: Debug, SELECT BLOCK
+  End
+
+  # Revert the color when the mouse is not over the block
+  IfExit: Block
+     RevertColor: Block, 0.1
+     SetText: Debug, CLEAR BLOCK
+  End
+
+  # Color the platform transparent green when 
+  # the user drags the block over it
+  IfDragEnter: Block, PlatformBlock
+     ChangeColor: PlatformBlock, #00FF0020, 0.1
+     SetText: Debug, ENTER DRAG
+  End
+
+  # Revert the color
+  IfDragExit: Block, PlatformBlock
+     RevertColor: PlatformBlock, 0.1
+     SetText: Debug, EXIT DRAG
+  End
+
+  # Play sounds on pickup and drop
+  IfDrop: Block, PlatformBlock
+     PlaySound: AnchorSound
+  End
+  IfPickup: Block 
+     PlaySound: MoveSound
+  End
+End
