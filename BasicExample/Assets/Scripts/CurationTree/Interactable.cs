@@ -146,20 +146,6 @@ namespace CTree
 
       m_dragTargets.Add(target);
     }
-
-    bool CallbackActive(System.Delegate fn)
-    {
-    /*
-      object o = fn.Target;
-      if (o is Behavior)
-      {
-        Behavior b = o as Behavior;
-        return b.IsActive();
-      }
-      */
-      return true;
-    }
-
     public Location GetLocation()
     {
       return m_location;
@@ -188,10 +174,7 @@ namespace CTree
 
       foreach (LocationCb cb in m_dropCbs) 
       {
-        if (CallbackActive(cb))
-        {
-          cb(this, target);
-        }
+        cb(this, target);
       }
     }
 
@@ -199,10 +182,7 @@ namespace CTree
     {
       foreach (LocationCb cb in m_dragEnterCbs) 
       {
-        if (CallbackActive(cb))
-        {
-          cb(this, target);
-        }
+        cb(this, target);
       }
       m_dragTargetHoverObject = target;
     }
@@ -211,10 +191,7 @@ namespace CTree
     {
       foreach (LocationCb cb in m_dragExitCbs) 
       {
-         if (CallbackActive(cb))
-         {
-            cb(this, m_dragTargetHoverObject);
-         }
+         cb(this, m_dragTargetHoverObject);
       }
       m_dragTargetHoverObject = null;
     }
@@ -240,10 +217,7 @@ namespace CTree
 
       foreach (InteractableCb cb in m_hoverEnterCbs) 
       {
-        if (CallbackActive(cb))
-        {
-          cb(this);
-        }
+        cb(this);
       }
       m_selfHoverObject = this.gameObject;
     }
@@ -255,10 +229,7 @@ namespace CTree
 
       foreach (InteractableCb cb in m_hoverExitCbs) 
       {
-        if (CallbackActive(cb))
-        {
-          cb(this);
-        }
+        cb(this);
       }
       m_selfHoverObject = null;
     }
@@ -296,10 +267,7 @@ namespace CTree
 
           foreach (InteractableCb cb in m_pickupCbs) 
           {
-            if (CallbackActive(cb))
-            {
-              cb(this);
-            }
+            cb(this);
           }
         }
         else if (!m_isDragging && m_dragObject)
@@ -332,10 +300,7 @@ namespace CTree
       {
         foreach (InteractableCb cb in m_clickedCbs) 
         {
-          if (CallbackActive(cb))
-          {
-            cb(this);
-          }
+          cb(this);
         }
       }
     }
