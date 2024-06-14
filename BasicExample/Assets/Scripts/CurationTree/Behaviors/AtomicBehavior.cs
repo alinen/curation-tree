@@ -2,6 +2,7 @@ namespace CTree
 {
   /// <summary>
   /// Implements behaviors that perform actions that only require a single frame to execute.
+  /// </summary>
   /// <remarks>
   /// Configure AtomicBehavior with a function argument that takes <c>World</c> as input. 
   /// For example, the following code enables the scene asset with name <c>objName</c>.
@@ -12,18 +13,17 @@ namespace CTree
   /// });
   /// </code>
   /// </remarks>
-  /// </summary>
 
   public class AtomicBehavior : Behavior
   {
-      System.Action<Behavior> m_fn = null;
+      System.Action<World> m_fn = null;
 
       /// <summary>
       /// Constructor
       /// </summary>
       /// <param name="w">Object for accessing global state</param>
       /// <param name="fn">Function that performs the behavior</param>
-      public AtomicBehavior(World w, System.Action<Behavior> fn) : base(w) 
+      public AtomicBehavior(World w, System.Action<World> fn) : base(w) 
       {
           m_fn = fn;
       }
@@ -31,7 +31,7 @@ namespace CTree
       public override void Setup() 
       {
           base.Setup();
-          m_fn(this);
+          m_fn(world);
           m_finished = true;
       }
   }

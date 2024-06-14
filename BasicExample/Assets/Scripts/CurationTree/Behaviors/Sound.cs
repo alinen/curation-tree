@@ -48,7 +48,7 @@ namespace CTree
       {
           base.Setup();
 
-          Transform root = Get(m_objName); 
+          Transform root = world.Get(m_objName); 
           m_sound = root.GetComponent<UnityEngine.AudioSource>();
           m_sound.time = 0;
 

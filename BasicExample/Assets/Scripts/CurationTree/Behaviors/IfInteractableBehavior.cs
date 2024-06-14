@@ -71,19 +71,9 @@ namespace CTree
           itemName = itemName.Trim();
           if (!string.IsNullOrEmpty(itemName))
           {
-              if (itemName == "Any") // Add callback to all interactables
-              {
-                  foreach (Interactable i in world.GetInteractables())
-                  {
-                      AddCallback(i.transform, t); 
-                  }
-              }
-              else // Add callback to given interactable only
-              {
-                  Transform itemX = w.Get(itemName);
-                  Debug.Assert(itemX != null);
-                  AddCallback(itemX, t);
-              }
+              Transform itemX = w.Get(itemName);
+              Debug.Assert(itemX != null);
+              AddCallback(itemX, t);
               m_condition = this.CheckTrigger;
           }
       }
@@ -107,42 +97,9 @@ namespace CTree
           targetName = targetName.Trim();
           if (!string.IsNullOrEmpty(itemName) && !string.IsNullOrEmpty(targetName))
           {
-              if (itemName == "Any" && targetName == "Any")
-              {
-                  foreach (Interactable i in world.GetInteractables())
-                  {
-                      foreach (GameObject loc in i.GetDragTargets())
-                      {
-                          if (i.gameObject == loc.gameObject) continue;
-                          Debug.Log("ADD "+i.name + " " + loc.name);
-                          AddCallback(i.transform, loc.transform, t); 
-                      }
-                  }
-              }
-              else if (itemName == "Any")
-              {
-                  Transform targetX = w.Get(targetName);
-                  foreach (Interactable i in world.GetInteractables())
-                  {
-                      AddCallback(i.transform, targetX, t);
-                  }
-
-              }
-              else if (targetName == "Any")
-              {
-                  Transform itemX = w.Get(itemName);
-                  Interactable item = itemX.GetComponent<Interactable>();
-                  foreach (GameObject loc in item.GetDragTargets())
-                  {
-                      AddCallback(itemX, loc.transform, t);
-                  }
-              }
-              else
-              {
-                  Transform targetX = w.Get(targetName);
-                  Transform itemX = w.Get(itemName);
-                  AddCallback(itemX, targetX, t);
-              }
+              Transform targetX = w.Get(targetName);
+              Transform itemX = w.Get(itemName);
+              AddCallback(itemX, targetX, t);
               m_condition = this.CheckTrigger;
           }
       }
@@ -216,35 +173,15 @@ namespace CTree
 
       void TriggerCb1(Interactable source)
       {
-          // if (m_triggered is true) multiple events happen on same frame -> need to cache 
-          Debug.Log("TriggerCb1 "+source.name+" "+name);
+          //Debug.Log("TriggerCb1 "+source.name+" "+name);
           m_triggered = true;
-
-          if (m_triggered)
-          {
-             foreach (Behavior b in m_behaviors)
-             {
-                b.AnyAsset = source.transform;
-                b.AnyLocation = null;
-             }
-          }
       }
 
       void TriggerCb2(Interactable source, GameObject target)
       {
-          if (target) Debug.Log("TriggerCb2 "+source.name+" "+target.name+" "+name);
-          else Debug.Log("TriggerCb2 "+source.name);
-
+          //if (target) Debug.Log("TriggerCb2 "+source.name+" "+target.name+" "+name);
+          //else Debug.Log("TriggerCb2 "+source.name);
           m_triggered = (target != null);
-
-          if (m_triggered)
-          {
-             foreach (Behavior b in m_behaviors)
-             {
-                b.AnyAsset = source.transform;
-                b.AnyLocation = target.transform;
-             }
-          }
       }
 
       bool CheckTrigger(World w)

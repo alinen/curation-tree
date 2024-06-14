@@ -23,7 +23,14 @@ namespace CTree
           base.Setup();
 
           m_current = 0;
-          m_behaviors[0].Setup();
+          if (m_behaviors.Count > 0) 
+          {
+              m_behaviors[0].Setup();
+          }
+          else
+          {
+             m_finished = true;
+          }
       }
 
       public override void Tick()

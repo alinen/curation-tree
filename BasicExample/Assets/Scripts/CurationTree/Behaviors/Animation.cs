@@ -50,7 +50,7 @@ namespace CTree
       {
           base.Setup();
 
-          Transform root = Get(m_objName.Trim()); 
+          Transform root = world.Get(m_objName.Trim()); 
           m_animation = root.GetComponent<UnityEngine.Animation>();
           m_animation[m_aniName].wrapMode = WrapMode.Loop;
           m_animation.enabled = true;

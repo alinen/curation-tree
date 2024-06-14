@@ -224,7 +224,6 @@ namespace CTree
       /// <param name="duration">The length of the animation (in seconds)</param>
       public static IEnumerator ChangeColor(Transform obj, Color end, float duration)
       {
-          Debug.Log("CHANGE COLOR: "+obj.name);
           Renderer[] meshes = obj.GetComponentsInChildren<Renderer>();
           TextMeshProUGUI[] tguis = obj.GetComponentsInChildren<TextMeshProUGUI>();
           TextMeshPro[] tpros = obj.GetComponentsInChildren<TextMeshPro>();
@@ -264,6 +263,7 @@ namespace CTree
               }
               yield return null;
           }
+          SetColor(obj, end);
       }
 
       /// <summary>
@@ -274,7 +274,6 @@ namespace CTree
       /// <param name="duration">The length of the animation (in seconds)</param>
       public static IEnumerator RevertColor(Transform obj, float duration)
       {
-          Debug.Log("REVERT: "+obj.name);
           Renderer[] meshes = obj.GetComponentsInChildren<Renderer>();
           TextMeshProUGUI[] tguis = obj.GetComponentsInChildren<TextMeshProUGUI>();
           TextMeshPro[] tpros = obj.GetComponentsInChildren<TextMeshPro>();
@@ -321,6 +320,61 @@ namespace CTree
                   }
               }
               yield return null;
+          }
+          RevertColor(obj);
+      }
+
+      public static void SetColor(Transform obj, Color c)
+      {
+          Renderer[] meshes = obj.GetComponentsInChildren<Renderer>();
+          TextMeshProUGUI[] tguis = obj.GetComponentsInChildren<TextMeshProUGUI>();
+          TextMeshPro[] tpros = obj.GetComponentsInChildren<TextMeshPro>();
+          Image[] imgs = obj.GetComponentsInChildren<Image>();
+
+          foreach (Renderer r in meshes)
+          {
+              if (!g_colorStash.ContainsKey(r)) g_colorStash[r] = r.material.color;
+              r.material.color = c;
+          }
+          foreach (TextMeshProUGUI r in tguis)
+          {
+              if (!g_colorStash.ContainsKey(r)) g_colorStash[r] = r.color;
+              r.color = c;
+          }
+          foreach (TextMeshPro r in tpros)
+          {
+              if (!g_colorStash.ContainsKey(r)) g_colorStash[r] = r.color;
+              r.color = c;
+          }
+          foreach (Image r in imgs)
+          {
+              if (!g_colorStash.ContainsKey(r)) g_colorStash[r] = r.color;
+              r.color = c;
+          }
+      }
+
+      public static void RevertColor(Transform obj)
+      {
+          Renderer[] meshes = obj.GetComponentsInChildren<Renderer>();
+          TextMeshProUGUI[] tguis = obj.GetComponentsInChildren<TextMeshProUGUI>();
+          TextMeshPro[] tpros = obj.GetComponentsInChildren<TextMeshPro>();
+          Image[] imgs = obj.GetComponentsInChildren<Image>();
+
+          foreach (Renderer r in meshes)
+          {
+              if (g_colorStash.ContainsKey(r)) r.material.color = g_colorStash[r];
+          }
+          foreach (TextMeshProUGUI r in tguis)
+          {
+              if (g_colorStash.ContainsKey(r)) r.color = g_colorStash[r];
+          }
+          foreach (TextMeshPro r in tpros)
+          {
+              if (g_colorStash.ContainsKey(r)) r.color = g_colorStash[r];
+          }
+          foreach (Image r in imgs)
+          {
+              if (g_colorStash.ContainsKey(r)) r.color = g_colorStash[r];
           }
       }
       #endregion

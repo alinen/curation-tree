@@ -12,7 +12,7 @@ namespace CTree
   /// Configure CoroutineBehavior with a function that takes <c>World</c> and string <c>args</c> as input and returns an iterator. 
   /// For example, the following code initializes a pause behavior with length <c>duration</c> seconds. 
   /// <code>
-  /// return new CoroutineBehavior(world, args, (b, args) => {
+  /// return new CoroutineBehavior(world, args, (w, args) => {
   ///    float duration = 1.0f;
   ///    Single.TryParse(args, out duration);
   ///    return ProceduralAnimator.Wait(duration);
@@ -26,7 +26,7 @@ namespace CTree
       IEnumerator m_enumerator = null;
       IEnumerator m_animation = null;
 
-      public delegate IEnumerator AnimatorFn(Behavior b, string args);
+      public delegate IEnumerator AnimatorFn(World b, string args);
       AnimatorFn m_fn;
       string m_args;
 
@@ -47,7 +47,7 @@ namespace CTree
 
           Debug.Assert(m_animation == null);
           Debug.Assert(m_fn != null);
-          m_enumerator = m_fn(this, m_args);
+          m_enumerator = m_fn(world, m_args);
           m_animation = Effect();
           world.Run(m_animation);
       }
