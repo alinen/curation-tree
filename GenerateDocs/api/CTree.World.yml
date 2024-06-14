@@ -16,6 +16,7 @@ items:
   - CTree.World.Get(System.String)
   - CTree.World.GetInteger(System.String)
   - CTree.World.GetInteractables
+  - CTree.World.GetLocations
   - CTree.World.GetString(System.String)
   - CTree.World.Run(System.Collections.IEnumerator)
   - CTree.World.SetInteger(System.String,System.Int32)
@@ -37,7 +38,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: World
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
@@ -73,7 +74,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: debugRaycast
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
@@ -100,7 +101,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: layerMask
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
@@ -127,11 +128,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 30
+    startLine: 31
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -159,11 +160,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Get
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 35
+    startLine: 36
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -193,11 +194,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Clone
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 56
+    startLine: 57
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -229,11 +230,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Run
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 72
+    startLine: 73
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -260,11 +261,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Stop
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 77
+    startLine: 78
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -289,11 +290,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: AddDragable
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 82
+    startLine: 83
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -320,11 +321,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: AddClickable
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 87
+    startLine: 88
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -351,11 +352,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: AddClonable
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 92
+    startLine: 93
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -382,11 +383,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: AddInteractable
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 97
+    startLine: 98
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -415,11 +416,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: AddLocation
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 129
+    startLine: 140
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -446,11 +447,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Tick
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 146
+    startLine: 167
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -472,11 +473,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: GetInteractables
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 233
+    startLine: 271
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -486,6 +487,34 @@ items:
       type: System.Collections.Generic.List{CTree.Interactable}
     content.vb: Public Function GetInteractables() As List(Of Interactable)
   overload: CTree.World.GetInteractables*
+- uid: CTree.World.GetLocations
+  commentId: M:CTree.World.GetLocations
+  id: GetLocations
+  parent: CTree.World
+  langs:
+  - csharp
+  - vb
+  name: GetLocations()
+  nameWithType: World.GetLocations()
+  fullName: CTree.World.GetLocations()
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/World.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: GetLocations
+    path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
+    startLine: 285
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: public List<Location> GetLocations()
+    return:
+      type: System.Collections.Generic.List{CTree.Location}
+    content.vb: Public Function GetLocations() As List(Of Location)
+  overload: CTree.World.GetLocations*
 - uid: CTree.World.ComputeHitObject
   commentId: M:CTree.World.ComputeHitObject
   id: ComputeHitObject
@@ -500,11 +529,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: ComputeHitObject
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 285
+    startLine: 336
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -528,11 +557,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: UiDrop
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 291
+    startLine: 342
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -556,11 +585,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: UiPickup
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 296
+    startLine: 347
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -584,11 +613,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: SetInteger
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 301
+    startLine: 352
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -618,11 +647,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: GetInteger
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 306
+    startLine: 357
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -652,11 +681,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: SetString
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 315
+    startLine: 366
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -686,11 +715,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: GetString
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 320
+    startLine: 371
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -720,11 +749,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/World.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: ToString
     path: ../BasicExample/Assets/Scripts/CurationTree/World.cs
-    startLine: 329
+    startLine: 380
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -1261,6 +1290,45 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: CTree.World.GetLocations*
+  commentId: Overload:CTree.World.GetLocations
+  href: CTree.World.html#CTree_World_GetLocations
+  name: GetLocations
+  nameWithType: World.GetLocations
+  fullName: CTree.World.GetLocations
+- uid: System.Collections.Generic.List{CTree.Location}
+  commentId: T:System.Collections.Generic.List{CTree.Location}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Location>
+  nameWithType: List<Location>
+  fullName: System.Collections.Generic.List<CTree.Location>
+  nameWithType.vb: List(Of Location)
+  fullName.vb: System.Collections.Generic.List(Of CTree.Location)
+  name.vb: List(Of Location)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: CTree.Location
+    name: Location
+    href: CTree.Location.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: CTree.Location
+    name: Location
+    href: CTree.Location.html
+  - name: )
 - uid: CTree.World.ComputeHitObject*
   commentId: Overload:CTree.World.ComputeHitObject
   href: CTree.World.html#CTree_World_ComputeHitObject

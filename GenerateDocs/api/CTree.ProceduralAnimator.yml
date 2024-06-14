@@ -13,7 +13,9 @@ items:
   - CTree.ProceduralAnimator.Linear(System.Single,System.Single)
   - CTree.ProceduralAnimator.Move(UnityEngine.Transform,UnityEngine.Transform,UnityEngine.Transform,System.Single,CTree.ProceduralAnimator.Interpolator)
   - CTree.ProceduralAnimator.Pulse(UnityEngine.Transform,System.Int32,System.Single,System.Single)
+  - CTree.ProceduralAnimator.RevertColor(UnityEngine.Transform)
   - CTree.ProceduralAnimator.RevertColor(UnityEngine.Transform,System.Single)
+  - CTree.ProceduralAnimator.SetColor(UnityEngine.Transform,UnityEngine.Color)
   - CTree.ProceduralAnimator.SetText(UnityEngine.Transform,System.String)
   - CTree.ProceduralAnimator.Wait(System.Single)
   langs:
@@ -26,7 +28,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: ProceduralAnimator
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -63,7 +65,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Wait
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -100,7 +102,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Grow
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -146,7 +148,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Pulse
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -192,7 +194,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: SetText
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -230,7 +232,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Linear
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -271,7 +273,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Cosine
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -312,7 +314,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: EaseIn
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -353,7 +355,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Move
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -403,7 +405,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Fade
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -452,7 +454,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: ChangeColor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
@@ -498,11 +500,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: RevertColor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
-    startLine: 273
+    startLine: 274
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -527,6 +529,66 @@ items:
   nameWithType.vb: ProceduralAnimator.RevertColor(Transform, Single)
   fullName.vb: CTree.ProceduralAnimator.RevertColor(UnityEngine.Transform, Single)
   name.vb: RevertColor(Transform, Single)
+- uid: CTree.ProceduralAnimator.SetColor(UnityEngine.Transform,UnityEngine.Color)
+  commentId: M:CTree.ProceduralAnimator.SetColor(UnityEngine.Transform,UnityEngine.Color)
+  id: SetColor(UnityEngine.Transform,UnityEngine.Color)
+  parent: CTree.ProceduralAnimator
+  langs:
+  - csharp
+  - vb
+  name: SetColor(Transform, Color)
+  nameWithType: ProceduralAnimator.SetColor(Transform, Color)
+  fullName: CTree.ProceduralAnimator.SetColor(UnityEngine.Transform, UnityEngine.Color)
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: SetColor
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+    startLine: 326
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: public static void SetColor(Transform obj, Color c)
+    parameters:
+    - id: obj
+      type: UnityEngine.Transform
+    - id: c
+      type: UnityEngine.Color
+    content.vb: Public Shared Sub SetColor(obj As Transform, c As Color)
+  overload: CTree.ProceduralAnimator.SetColor*
+- uid: CTree.ProceduralAnimator.RevertColor(UnityEngine.Transform)
+  commentId: M:CTree.ProceduralAnimator.RevertColor(UnityEngine.Transform)
+  id: RevertColor(UnityEngine.Transform)
+  parent: CTree.ProceduralAnimator
+  langs:
+  - csharp
+  - vb
+  name: RevertColor(Transform)
+  nameWithType: ProceduralAnimator.RevertColor(Transform)
+  fullName: CTree.ProceduralAnimator.RevertColor(UnityEngine.Transform)
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: RevertColor
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ProceduralAnimator.cs
+    startLine: 355
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: public static void RevertColor(Transform obj)
+    parameters:
+    - id: obj
+      type: UnityEngine.Transform
+    content.vb: Public Shared Sub RevertColor(obj As Transform)
+  overload: CTree.ProceduralAnimator.RevertColor*
 references:
 - uid: CTree
   commentId: N:CTree
@@ -948,3 +1010,9 @@ references:
   name: RevertColor
   nameWithType: ProceduralAnimator.RevertColor
   fullName: CTree.ProceduralAnimator.RevertColor
+- uid: CTree.ProceduralAnimator.SetColor*
+  commentId: Overload:CTree.ProceduralAnimator.SetColor
+  href: CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_SetColor_UnityEngine_Transform_UnityEngine_Color_
+  name: SetColor
+  nameWithType: ProceduralAnimator.SetColor
+  fullName: CTree.ProceduralAnimator.SetColor

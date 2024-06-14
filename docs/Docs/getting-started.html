@@ -100,11 +100,13 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="getting-started">Getting Started</h1>
 
-<p>In Unity, simply add a <code>GameLoop</code> component to one of the assets in your scene hierarchy.
-The <code>GameLoop</code> takes a <code>TextAsset</code> as an argument. This input text should contain a sequence of behaviors that implements your game. The <code>GameLoop</code> also supports options for configuration and debugging:</p>
+<p>To enable the framework in Unity, simply add a <code>GameLoop</code> component to one of the assets in your scene hierarchy.</p>
+<h2 id="gameloop-arguments">GameLoop Arguments</h2>
+<p>The <code>GameLoop</code> takes the following arguments.</p>
 <ul>
-<li><strong>interactableLayerMask</strong>: Layer for selecting and dragging interactable objects. (Default Value: 8)</li>
-<li>DebugOptions
+<li><strong>Game Config File (Mandatory)</strong>: Input text file containing the sequence of behaviors that implements your game.</li>
+<li><strong>interactableLayerMask (Optional)</strong>: Layer for selecting and dragging interactable objects. (Default Value: 8)</li>
+<li>DebugOptions (Optional)
 <ul>
 <li><strong>tree</strong>: Display the state of the behavior tree while the game is running</li>
 <li><strong>selection</strong>: Display debug information for selecting and dragging objects.</li>
@@ -117,12 +119,14 @@ The <code>GameLoop</code> takes a <code>TextAsset</code> as an argument. This in
 </ul>
 </li>
 </ul>
-<p>See the following tutorials for examples.</p>
+<h1 id="tutorials">Tutorials</h1>
 <ul>
 <li><a href="#squirrel-house">Squirrel House</a>: 2D interaction, animation, and sound</li>
 <li><a href="#animate-demo">Animate Demo</a>: 2D procedural animation</li>
+<li><a href="#one-block">One Block</a>: Simple 3D interaction</li>
+<li><a href="#block-puzzle">Block Puzzle</a>: 3D interaction with custom behavior</li>
 </ul>
-<h2 id="squirrel-house">Squirrel House</h2>
+<h3 id="squirrel-house">Squirrel House</h3>
  <video width="100%" controls="">
   <source src='../images/SquirrelHouse.mp4' type="video/mp4">
   Your browser does not support the video tag.
@@ -160,7 +164,7 @@ End
 <li><code>IfDrop</code> triggers if the user drops the casette on top of the BoomBox. When true, the two sub-behaviors are executed in parallel (e.g. simultaneously)</li>
 <li><code>PlayAnimation</code> plays the <code>SquirrelDance</code> animation on the <code>Squirrel</code> asset.</li>
 </ul>
-<h2 id="animate-demo">Animate Demo</h2>
+<h3 id="animate-demo">Animate Demo</h3>
  <video width="100%" controls="">
   <source src='../images/AnimateDemo.mp4' type="video/mp4">
   Your browser does not support the video tag.
@@ -174,8 +178,8 @@ SetText: Message, Start Demo
 Fade: Panel, 0, 1, 2.0
 Grow: Star, 0.1, 1.0, 1.0
 SetText: Message, Demo
-ChangeColor: Star, 1,0,1, 1.0
-ChangeColor: Star, 0,1,1, 1.0
+ChangeColor: Star, #FF00FFFF, 1.0
+ChangeColor: Star, #00FFFFFF, 1.0
 RevertColor: Star, 2.0
 Move: Star, Waypoint1, Waypoint2, 2.0
 Move: Star, Waypoint2, Waypoint3, 2.0, Cosine
@@ -191,11 +195,13 @@ Fade: Panel, 1, 0, 2.0
 <li><code>SetText</code> changes the text on the <code>Message</code> asset.</li>
 <li><code>Fade</code> changes the alpha, or transparency, for an asset. The syntax is <code>Fade: &lt;AssetName&gt;, &lt;StartAlpha&gt;, &lt;EndAlpha&gt;, &lt;Duration&gt;</code></li>
 <li><code>Grow</code> changes the size uniformly for an asset. The syntax is <code>Grow: &lt;AssetName&gt;, &lt;StartSize&gt;, &lt;EndSize&gt;, &lt;Duration&gt;</code></li>
-<li><code>ChangeColor</code> changes the color for an asset and all its children. The syntax is <code>ChangeColor: &lt;AssetName&gt;, &lt;R&gt;, &lt;G&gt;, &lt;B&gt;, &lt;Duration&gt;</code>. The original colors of the asset are cached so they can be restored later.</li>
+<li><code>ChangeColor</code> changes the color for an asset and all its children. The syntax is <code>ChangeColor: &lt;AssetName&gt;, &lt;RGBA&gt;, &lt;Duration&gt;</code>. The original colors of the asset are cached so they can be restored later.</li>
 <li><code>RevertColor</code> restores the color of an asset. The syntax is <code>RevertColor: &lt;AssetName&gt;, &lt;Duration&gt;</code></li>
 <li><code>Move</code> translates and rotates an asset. The syntax is <code>Move: &lt;AssetName&gt;, &lt;StartTransform&gt;, &lt;EndTransform&gt;, &lt;Duration&gt;, &lt;Interpolation Type&gt;</code>. The interpolation type is optional. By default, we use linear interpolation.</li>
 <li><code>Pulse</code> quickly pulses the size of the asset. The syntax is <code>Pulse: &lt;AssetName&gt;, &lt;NumPulses&gt;</code>. It is also possible to set the speed and size of the pulse by passing these arguments as additional values, e.g. <code>Pulse: &lt;AssetName&gt;, &lt;NumPulses&gt;, &lt;PulseSpeed&gt;, &lt;PulseSize&gt;</code>. The default pulse speed is 0.4 seconds. The pulse size is a percentage of the original size and is currently 0.1, or ten percent.</li>
 </ul>
+<h3 id="one-block">One Block</h3>
+<h3 id="block-puzzle">Block Puzzle</h3>
 
 </article>
           </div>

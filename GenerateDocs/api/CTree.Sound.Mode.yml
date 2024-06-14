@@ -1,0 +1,118 @@
+### YamlMime:ManagedReference
+items:
+- uid: CTree.Sound.Mode
+  commentId: T:CTree.Sound.Mode
+  id: Sound.Mode
+  parent: CTree
+  children:
+  - CTree.Sound.Mode.PLAY
+  - CTree.Sound.Mode.STOP
+  langs:
+  - csharp
+  - vb
+  name: Sound.Mode
+  nameWithType: Sound.Mode
+  fullName: CTree.Sound.Mode
+  type: Enum
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/Sound.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Mode
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Sound.cs
+    startLine: 20
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Animation mode
+  example: []
+  syntax:
+    content: public enum Sound.Mode
+    content.vb: Public Enum Sound.Mode
+- uid: CTree.Sound.Mode.PLAY
+  commentId: F:CTree.Sound.Mode.PLAY
+  id: PLAY
+  parent: CTree.Sound.Mode
+  langs:
+  - csharp
+  - vb
+  name: PLAY
+  nameWithType: Sound.Mode.PLAY
+  fullName: CTree.Sound.Mode.PLAY
+  type: Field
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/Sound.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: PLAY
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Sound.cs
+    startLine: 25
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Play the animation
+  example: []
+  syntax:
+    content: PLAY = 0
+    return:
+      type: CTree.Sound.Mode
+- uid: CTree.Sound.Mode.STOP
+  commentId: F:CTree.Sound.Mode.STOP
+  id: STOP
+  parent: CTree.Sound.Mode
+  langs:
+  - csharp
+  - vb
+  name: STOP
+  nameWithType: Sound.Mode.STOP
+  fullName: CTree.Sound.Mode.STOP
+  type: Field
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/Sound.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: STOP
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Sound.cs
+    startLine: 29
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  summary: Stop the animation
+  example: []
+  syntax:
+    content: STOP = 1
+    return:
+      type: CTree.Sound.Mode
+references:
+- uid: CTree
+  commentId: N:CTree
+  href: CTree.html
+  name: CTree
+  nameWithType: CTree
+  fullName: CTree
+- uid: CTree.Sound.Mode
+  commentId: T:CTree.Sound.Mode
+  parent: CTree
+  href: CTree.Sound.html
+  name: Sound.Mode
+  nameWithType: Sound.Mode
+  fullName: CTree.Sound.Mode
+  spec.csharp:
+  - uid: CTree.Sound
+    name: Sound
+    href: CTree.Sound.html
+  - name: .
+  - uid: CTree.Sound.Mode
+    name: Mode
+    href: CTree.Sound.Mode.html
+  spec.vb:
+  - uid: CTree.Sound
+    name: Sound
+    href: CTree.Sound.html
+  - name: .
+  - uid: CTree.Sound.Mode
+    name: Mode
+    href: CTree.Sound.Mode.html

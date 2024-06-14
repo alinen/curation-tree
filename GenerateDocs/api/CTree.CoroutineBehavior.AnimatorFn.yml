@@ -1,0 +1,102 @@
+### YamlMime:ManagedReference
+items:
+- uid: CTree.CoroutineBehavior.AnimatorFn
+  commentId: T:CTree.CoroutineBehavior.AnimatorFn
+  id: CoroutineBehavior.AnimatorFn
+  parent: CTree
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: CoroutineBehavior.AnimatorFn
+  nameWithType: CoroutineBehavior.AnimatorFn
+  fullName: CTree.CoroutineBehavior.AnimatorFn
+  type: Delegate
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: AnimatorFn
+    path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
+    startLine: 28
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: public delegate IEnumerator CoroutineBehavior.AnimatorFn(World b, string args)
+    parameters:
+    - id: b
+      type: CTree.World
+    - id: args
+      type: System.String
+    return:
+      type: System.Collections.IEnumerator
+    content.vb: Public Delegate Function CoroutineBehavior.AnimatorFn(b As World, args As String) As IEnumerator
+references:
+- uid: CTree
+  commentId: N:CTree
+  href: CTree.html
+  name: CTree
+  nameWithType: CTree
+  fullName: CTree
+- uid: CTree.World
+  commentId: T:CTree.World
+  parent: CTree
+  href: CTree.World.html
+  name: World
+  nameWithType: World
+  fullName: CTree.World
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.IEnumerator
+  commentId: T:System.Collections.IEnumerator
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerator
+  name: IEnumerator
+  nameWithType: IEnumerator
+  fullName: System.Collections.IEnumerator
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections

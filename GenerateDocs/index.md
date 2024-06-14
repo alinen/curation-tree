@@ -4,11 +4,24 @@ _layout: landing
 
 # curation-tree
 
-Lightweight behavior tree API for creating puzzle and narrative games in Unity.
-This repository demonstrates the framework we have been using to create
-point-and-click games for teaching and research using Unity. For example,
-the following demo implements a mechanic where dragging the casette onto to 
-Boom Box plays music and makes the squirrel dance.
+
+The Curation Tree framework implements basic features for drag-and-drop puzzle and 
+narrative games built in Unity. 
+
+The Curation Tree framework consists of three primary types:
+
+* The `GameLoop`, which loads a script that specifies the mechanics of the game. 
+* The `World` which stores global state and manages player input. 
+* `Behavior` which implements game features such as playing sounds, playing
+animations, moving objects, setting text, changing colors, and responding to
+player events. Behaviors are organized as a tree that execute from the root.
+
+We have been using this system for several years across a variety of demos for 
+building agents and testing avatars in virtual reality. This repository demonstrates 
+its basic features with several small examples. 
+
+For example, in the following demo, dragging the
+casette onto to Boom Box plays music and makes the squirrel dance.
 
 <video width="100%" controls>
   <source src='images/SquirrelHouse.mp4' type="video/mp4">

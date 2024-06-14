@@ -103,6 +103,9 @@
                           <li class="">
                             <a href="CTree.CoroutineBehavior.html" title="CoroutineBehavior" class="">CoroutineBehavior</a>
                           </li>
+                          <li class="">
+                            <a href="CTree.CoroutineBehavior.AnimatorFn.html" title="CoroutineBehavior.AnimatorFn" class="">CoroutineBehavior.AnimatorFn</a>
+                          </li>
                           <li class="active">
                             <a href="CTree.Factory.html" title="Factory" class="active">Factory</a>
                           </li>
@@ -117,6 +120,9 @@
                           </li>
                           <li class="">
                             <a href="CTree.GameLoop.Options.html" title="GameLoop.Options" class="">GameLoop.Options</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.HighlightBehavior.html" title="HighlightBehavior" class="">HighlightBehavior</a>
                           </li>
                           <li class="">
                             <a href="CTree.IfBehavior.html" title="IfBehavior" class="">IfBehavior</a>
@@ -134,19 +140,10 @@
                             <a href="CTree.Interactable.html" title="Interactable" class="">Interactable</a>
                           </li>
                           <li class="">
-                            <a href="CTree.Interactable.ClickCb.html" title="Interactable.ClickCb" class="">Interactable.ClickCb</a>
+                            <a href="CTree.Interactable.InteractableCb.html" title="Interactable.InteractableCb" class="">Interactable.InteractableCb</a>
                           </li>
                           <li class="">
-                            <a href="CTree.Interactable.DragCb.html" title="Interactable.DragCb" class="">Interactable.DragCb</a>
-                          </li>
-                          <li class="">
-                            <a href="CTree.Interactable.DropCb.html" title="Interactable.DropCb" class="">Interactable.DropCb</a>
-                          </li>
-                          <li class="">
-                            <a href="CTree.Interactable.HoverCb.html" title="Interactable.HoverCb" class="">Interactable.HoverCb</a>
-                          </li>
-                          <li class="">
-                            <a href="CTree.Interactable.MouseOverCb.html" title="Interactable.MouseOverCb" class="">Interactable.MouseOverCb</a>
+                            <a href="CTree.Interactable.LocationCb.html" title="Interactable.LocationCb" class="">Interactable.LocationCb</a>
                           </li>
                           <li class="">
                             <a href="CTree.Interactable.Type.html" title="Interactable.Type" class="">Interactable.Type</a>
@@ -171,6 +168,12 @@
                           </li>
                           <li class="">
                             <a href="CTree.SequenceBehavior.html" title="SequenceBehavior" class="">SequenceBehavior</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Sound.html" title="Sound" class="">Sound</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Sound.Mode.html" title="Sound.Mode" class="">Sound.Mode</a>
                           </li>
                           <li class="">
                             <a href="CTree.World.html" title="World" class="">World</a>
@@ -233,41 +236,10 @@
   <div class="markdown level0 remarks"><p>Implements the logic for converting lines of text into behaviors.
 The set of built-in behaviors have the following syntax in the input file.
 Each line of input corresponds to a single behavior, created using one of the
-functions defined in this class.</p>
-<p><strong>Control Nodes</strong></p>
-<ul>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Sequence_CTree_World_System_String_">Sequence(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Parallel_CTree_World_System_String_">Parallel(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Select_CTree_World_System_String_">Select(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Repeat_CTree_World_System_String_">Repeat(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_RepeatWhile_CTree_World_System_String_">RepeatWhile(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_If_CTree_World_System_String_">If(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_IfDrag_CTree_World_System_String_">IfDrag(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_IfDrop_CTree_World_System_String_">IfDrop(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_IfClick_CTree_World_System_String_">IfClick(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_IfHover_CTree_World_System_String_">IfHover(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_IfMouseOver_CTree_World_System_String_">IfMouseOver(World, string)</a></li>
-</ul>
-<p><strong>State Nodes</strong></p>
-<ul>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_SetState_CTree_World_System_String_">SetState(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Add_CTree_World_System_String_">Add(World, string)</a></li>
-</ul>
-<p><strong>Appearance Nodes</strong></p>
-<ul>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Wait_CTree_World_System_String_">Wait(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Show_CTree_World_System_String_">Show(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Hide_CTree_World_System_String_">Hide(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_PlayAnimation_CTree_World_System_String_">PlayAnimation(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_StopAnimation_CTree_World_System_String_">StopAnimation(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_SetText_CTree_World_System_String_">SetText(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Fade_CTree_World_System_String_">Fade(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Grow_CTree_World_System_String_">Grow(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_ChangeColor_CTree_World_System_String_">ChangeColor(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_RevertColor_CTree_World_System_String_">RevertColor(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Move_CTree_World_System_String_">Move(World, string)</a></li>
-<li><a class="xref" href="CTree.Factory.html#CTree_Factory_Pulse_CTree_World_System_String_">Pulse(World, string)</a></li>
-</ul>
+functions defined in this class. There are four primary categories of basic nodes:
+control nodes (sequence, repeat, etc), events (e.g. conditionals that trigger when
+state changes or when the user picks up or drops an object), setting global variables,
+and changing scene state (playing animations, changing colors, moving assets, etc).</p>
 </div>
   <h3 id="methods">Methods
 </h3>
@@ -375,8 +347,8 @@ stored in World. The behavior completes in one frame.</p>
   </table>
   <h5 id="CTree_Factory_ChangeColor_CTree_World_System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Implements the following input string</p>
-<pre><code class="lang-csharp">ChangeColor: AssetName, R, G, B, Duration</code></pre>
-<p>For example, <code>ChangeColor: Star, 1, 0, 0, 2.0</code> will change the color of <code>Star</code> to
+<pre><code class="lang-csharp">ChangeColor: AssetName, #RGBA, Duration</code></pre>
+<p>For example, <code>ChangeColor: Star, #FF0000FF, 2.0</code> will change the color of <code>Star</code> to
 the color (1,0,0), or Red. Colors should be in the range 0 and 1. The duration indicates the
 length of the transition. The first time <code>ChangeColor</code> is called, we cache the original
 colors s we can revert them later.</p>
@@ -595,9 +567,65 @@ from its original size to twice the size over 4.0 seconds.</p>
 <p>For example, <code>Hide: Squirrel</code> will hide the geometry associated with <code>Squirrel</code>
 and disable its associaed components.</p>
 </div>
+  <a id="CTree_Factory_Highlight_" data-uid="CTree.Factory.Highlight*"></a>
+  <h4 id="CTree_Factory_Highlight_CTree_World_System_String_" data-uid="CTree.Factory.Highlight(CTree.World,System.String)">Highlight(World, string)</h4>
+  <div class="markdown level1 summary"><p>Implements highlighting and sound effects for interactables</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Behavior Highlight(World world, string args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.World.html">World</a></td>
+        <td><span class="parametername">world</span></td>
+        <td><p>Accessor for global state</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Parameters for the behavior</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.Behavior.html">Behavior</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="CTree_Factory_Highlight_CTree_World_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Implements the following script command</p>
+<pre><code class="lang-csharp">Highlight: SelectedColor, SelectSound, LocationHighlighClor, DropSound</code></pre>
+<p>For example, <code>Highlight: #FFFF00FF, MoveSound, #00FF00F0, AnchorSound</code> will
+set selected objects to yellow and location highights in green. Sounds
+will play from the AudioSources on the assets called MoveSound and AnchorSound
+respectively</p>
+</div>
   <a id="CTree_Factory_If_" data-uid="CTree.Factory.If*"></a>
   <h4 id="CTree_Factory_If_CTree_World_System_String_" data-uid="CTree.Factory.If(CTree.World,System.String)">If(World, string)</h4>
-  <div class="markdown level1 summary"><p>Creates a behavior that executes a set of behaviors if the conditional is true</p>
+  <div class="markdown level1 summary"><p>Execute a set of behaviors if the conditional is true</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -654,7 +682,7 @@ End</code></pre>
 </div>
   <a id="CTree_Factory_IfClick_" data-uid="CTree.Factory.IfClick*"></a>
   <h4 id="CTree_Factory_IfClick_CTree_World_System_String_" data-uid="CTree.Factory.IfClick(CTree.World,System.String)">IfClick(World, string)</h4>
-  <div class="markdown level1 summary"><p>Creates a behavior that executes a set of behaviors if the conditional is true</p>
+  <div class="markdown level1 summary"><p>Execute a set of behaviors if the player clicks on an interactable object</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -708,14 +736,14 @@ Otherwise, the condition is false and the behavior completes immediately.</p>
    DoStuff
 End</code></pre>
 </div>
-  <a id="CTree_Factory_IfDrag_" data-uid="CTree.Factory.IfDrag*"></a>
-  <h4 id="CTree_Factory_IfDrag_CTree_World_System_String_" data-uid="CTree.Factory.IfDrag(CTree.World,System.String)">IfDrag(World, string)</h4>
-  <div class="markdown level1 summary"><p>Creates a behavior that executes a set of behaviors if the conditional is true</p>
+  <a id="CTree_Factory_IfDragEnter_" data-uid="CTree.Factory.IfDragEnter*"></a>
+  <h4 id="CTree_Factory_IfDragEnter_CTree_World_System_String_" data-uid="CTree.Factory.IfDragEnter(CTree.World,System.String)">IfDragEnter(World, string)</h4>
+  <div class="markdown level1 summary"><p>Execute a set of behaviors if the player drags an interactable on to of a location</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Behavior IfDrag(World world, string args)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Behavior IfDragEnter(World world, string args)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -757,16 +785,74 @@ End</code></pre>
       </tr>
     </tbody>
   </table>
-  <h5 id="CTree_Factory_IfDrag_CTree_World_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Executes all sub-behaviors in parallel if the user picks up the give object.
+  <h5 id="CTree_Factory_IfDragEnter_CTree_World_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Executes all sub-behaviors (parallel) if the user drags one object on top of
+a potential drop target
 Otherwise, the condition is false and the behavior completes immediately.</p>
-<pre><code class="lang-csharp">IfDrag: AssetName
-   DoStuff
+<pre><code class="lang-csharp">IfDragEnter: PickUpAsset, DropTarget
+   ChangeColor: DropTarget, #0000FFFF, 2.0
+End</code></pre>
+</div>
+  <a id="CTree_Factory_IfDragExit_" data-uid="CTree.Factory.IfDragExit*"></a>
+  <h4 id="CTree_Factory_IfDragExit_CTree_World_System_String_" data-uid="CTree.Factory.IfDragExit(CTree.World,System.String)">IfDragExit(World, string)</h4>
+  <div class="markdown level1 summary"><p>Execute a set of behaviors if the player stops dragging an object on a location</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Behavior IfDragExit(World world, string args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.World.html">World</a></td>
+        <td><span class="parametername">world</span></td>
+        <td><p>Object for accessing global state.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Parameters for specifying the conditional</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.Behavior.html">Behavior</a></td>
+        <td><p>An instance of behavior</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="CTree_Factory_IfDragExit_CTree_World_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Executes all sub-behaviors (parallel) if the user drags one object on top of
+a potential drop target
+Otherwise, the condition is false and the behavior completes immediately.</p>
+<pre><code class="lang-csharp">IfDragExit: PickUpAsset, DropTarget
+   RevertColor: DropTarget, 0.1
 End</code></pre>
 </div>
   <a id="CTree_Factory_IfDrop_" data-uid="CTree.Factory.IfDrop*"></a>
   <h4 id="CTree_Factory_IfDrop_CTree_World_System_String_" data-uid="CTree.Factory.IfDrop(CTree.World,System.String)">IfDrop(World, string)</h4>
-  <div class="markdown level1 summary"><p>Creates a behavior that executes a set of behaviors if the conditional is true</p>
+  <div class="markdown level1 summary"><p>Execute a set of behaviors if player drops an interactable on a specific location</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -821,14 +907,14 @@ Otherwise, the condition is false and the behavior completes immediately.</p>
    DoStuff
 End</code></pre>
 </div>
-  <a id="CTree_Factory_IfHover_" data-uid="CTree.Factory.IfHover*"></a>
-  <h4 id="CTree_Factory_IfHover_CTree_World_System_String_" data-uid="CTree.Factory.IfHover(CTree.World,System.String)">IfHover(World, string)</h4>
-  <div class="markdown level1 summary"><p>Creates a behavior that executes a set of behaviors if the conditional is true</p>
+  <a id="CTree_Factory_IfEnter_" data-uid="CTree.Factory.IfEnter*"></a>
+  <h4 id="CTree_Factory_IfEnter_CTree_World_System_String_" data-uid="CTree.Factory.IfEnter(CTree.World,System.String)">IfEnter(World, string)</h4>
+  <div class="markdown level1 summary"><p>Execute a set of behaviors if the player hovers on top of an interactable object</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Behavior IfHover(World world, string args)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Behavior IfEnter(World world, string args)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -870,69 +956,281 @@ End</code></pre>
       </tr>
     </tbody>
   </table>
-  <h5 id="CTree_Factory_IfHover_CTree_World_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Executes all sub-behaviors in parallel if the user hovers one object on top of
-another object (e.g. if their two colliders overlap).
-Otherwise, the condition is false and the behavior completes immediately.</p>
-<pre><code class="lang-csharp">IfHover: PickUpAsset, DropTarget
-   DoStuff
-End</code></pre>
-</div>
-  <a id="CTree_Factory_IfMouseOver_" data-uid="CTree.Factory.IfMouseOver*"></a>
-  <h4 id="CTree_Factory_IfMouseOver_CTree_World_System_String_" data-uid="CTree.Factory.IfMouseOver(CTree.World,System.String)">IfMouseOver(World, string)</h4>
-  <div class="markdown level1 summary"><p>Creates a behavior that executes a set of behaviors if the conditional is true</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Behavior IfMouseOver(World world, string args)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="CTree.World.html">World</a></td>
-        <td><span class="parametername">world</span></td>
-        <td><p>Object for accessing global state.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">args</span></td>
-        <td><p>Parameters for specifying the conditional</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="CTree.Behavior.html">Behavior</a></td>
-        <td><p>An instance of behavior</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="CTree_Factory_IfMouseOver_CTree_World_System_String__remarks">Remarks</h5>
+  <h5 id="CTree_Factory_IfEnter_CTree_World_System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Executes all sub-behaviors in parallel if the user hovers the mouse over the specified scene object.
 Otherwise, the condition is false and the behavior completes immediately.</p>
-<pre><code class="lang-csharp">IfMouseOver: AssetName
+<pre><code class="lang-csharp">IfEnter: AssetName
+   ChangeColor: AssetName, #FFFF00FF, 0.1
+End</code></pre>
+</div>
+  <a id="CTree_Factory_IfExit_" data-uid="CTree.Factory.IfExit*"></a>
+  <h4 id="CTree_Factory_IfExit_CTree_World_System_String_" data-uid="CTree.Factory.IfExit(CTree.World,System.String)">IfExit(World, string)</h4>
+  <div class="markdown level1 summary"><p>Execute a set of behaviors if the play stops hovering over an object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Behavior IfExit(World world, string args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.World.html">World</a></td>
+        <td><span class="parametername">world</span></td>
+        <td><p>Object for accessing global state.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Parameters for specifying the conditional</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.Behavior.html">Behavior</a></td>
+        <td><p>An instance of behavior</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="CTree_Factory_IfExit_CTree_World_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Executes all sub-behaviors in parallel if the user hovers the mouse over the specified scene object.
+Otherwise, the condition is false and the behavior completes immediately.</p>
+<pre><code class="lang-csharp">IfExit: AssetName
+   RevertColor: AssetName, 0.1
+End</code></pre>
+</div>
+  <a id="CTree_Factory_IfPickup_" data-uid="CTree.Factory.IfPickup*"></a>
+  <h4 id="CTree_Factory_IfPickup_CTree_World_System_String_" data-uid="CTree.Factory.IfPickup(CTree.World,System.String)">IfPickup(World, string)</h4>
+  <div class="markdown level1 summary"><p>Execute a set of behaviors if the player picks up an object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Behavior IfPickup(World world, string args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.World.html">World</a></td>
+        <td><span class="parametername">world</span></td>
+        <td><p>Object for accessing global state.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Parameters for specifying the conditional</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.Behavior.html">Behavior</a></td>
+        <td><p>An instance of behavior</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="CTree_Factory_IfPickup_CTree_World_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Executes all sub-behaviors in parallel if the user picks up the give object.
+Otherwise, the condition is false and the behavior completes immediately.</p>
+<pre><code class="lang-csharp">IfPickup: AssetName
    DoStuff
 End</code></pre>
+</div>
+  <a id="CTree_Factory_InitClickable_" data-uid="CTree.Factory.InitClickable*"></a>
+  <h4 id="CTree_Factory_InitClickable_CTree_World_System_String_" data-uid="CTree.Factory.InitClickable(CTree.World,System.String)">InitClickable(World, string)</h4>
+  <div class="markdown level1 summary"><p>Indicates that the given asset can be clicked by the user</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Behavior InitClickable(World world, string args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.World.html">World</a></td>
+        <td><span class="parametername">world</span></td>
+        <td><p>Accessor for global state</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Parameters for the behavior</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.Behavior.html">Behavior</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="CTree_Factory_InitClickable_CTree_World_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Implements the following input string</p>
+<pre><code class="lang-csharp">InitClickable: AssetName</code></pre>
+</div>
+  <a id="CTree_Factory_InitDraggable_" data-uid="CTree.Factory.InitDraggable*"></a>
+  <h4 id="CTree_Factory_InitDraggable_CTree_World_System_String_" data-uid="CTree.Factory.InitDraggable(CTree.World,System.String)">InitDraggable(World, string)</h4>
+  <div class="markdown level1 summary"><p>Indicates that the given asset can be dragged and dropped by the user</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Behavior InitDraggable(World world, string args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.World.html">World</a></td>
+        <td><span class="parametername">world</span></td>
+        <td><p>Accessor for global state</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Parameters for the behavior</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.Behavior.html">Behavior</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="CTree_Factory_InitDraggable_CTree_World_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Implements the following input string</p>
+<pre><code class="lang-csharp">InitDraggable: AssetName</code></pre>
+</div>
+  <a id="CTree_Factory_InitLocation_" data-uid="CTree.Factory.InitLocation*"></a>
+  <h4 id="CTree_Factory_InitLocation_CTree_World_System_String_" data-uid="CTree.Factory.InitLocation(CTree.World,System.String)">InitLocation(World, string)</h4>
+  <div class="markdown level1 summary"><p>Indicates that the given asset is a location (e.g. other assets
+can be attached to it)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Behavior InitLocation(World world, string args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.World.html">World</a></td>
+        <td><span class="parametername">world</span></td>
+        <td><p>Accessor for global state</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Parameters for the behavior</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.Behavior.html">Behavior</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="CTree_Factory_InitLocation_CTree_World_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Implements the following input string</p>
+<pre><code class="lang-csharp">InitLocation: AssetName</code></pre>
 </div>
   <a id="CTree_Factory_Move_" data-uid="CTree.Factory.Move*"></a>
   <h4 id="CTree_Factory_Move_CTree_World_System_String_" data-uid="CTree.Factory.Move(CTree.World,System.String)">Move(World, string)</h4>
@@ -1099,6 +1397,60 @@ End</code></pre>
 <pre><code class="lang-csharp">PlayAnimation: AssetName, AnimationName</code></pre>
 <p>For example, <code>PlayAnimation: Squirrel, Dance</code> plays the dance animation on the asset <code>Squirrel</code>.
 The behavior completes when the animation is complete.</p>
+</div>
+  <a id="CTree_Factory_PlaySound_" data-uid="CTree.Factory.PlaySound*"></a>
+  <h4 id="CTree_Factory_PlaySound_CTree_World_System_String_" data-uid="CTree.Factory.PlaySound(CTree.World,System.String)">PlaySound(World, string)</h4>
+  <div class="markdown level1 summary"><p>Creates a behavior that plays a sound</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Behavior PlaySound(World w, string config)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.World.html">World</a></td>
+        <td><span class="parametername">w</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">config</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.Behavior.html">Behavior</a></td>
+        <td><p>An instance of behavior</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="CTree_Factory_PlaySound_CTree_World_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Implements the following input string</p>
+<pre><code class="lang-csharp">PlaySound: AssetName</code></pre>
+<p>For example, <code>PlaySound: MoveSound</code> plays sound on the asset MoveSound.
+MoveSound should have an AudioSource component on it.
+The behavior completes when the Sound is complete (note: looped sounds play forever).</p>
 </div>
   <a id="CTree_Factory_Pulse_" data-uid="CTree.Factory.Pulse*"></a>
   <h4 id="CTree_Factory_Pulse_CTree_World_System_String_" data-uid="CTree.Factory.Pulse(CTree.World,System.String)">Pulse(World, string)</h4>
@@ -1658,6 +2010,59 @@ This will show the asset's geometry and activate any components on it.</p>
   <div class="markdown level1 remarks"><p>Implements the following input string</p>
 <pre><code class="lang-csharp">StopAnimation: AssetName, AnimationName</code></pre>
 <p>For example, <code>StopAnimation: Squirrel, Dance</code> stops the dance animation for <code>Squirrel</code>.</p>
+</div>
+  <a id="CTree_Factory_StopSound_" data-uid="CTree.Factory.StopSound*"></a>
+  <h4 id="CTree_Factory_StopSound_CTree_World_System_String_" data-uid="CTree.Factory.StopSound(CTree.World,System.String)">StopSound(World, string)</h4>
+  <div class="markdown level1 summary"><p>Creates a behavior that stops an animation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Behavior StopSound(World w, string config)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.World.html">World</a></td>
+        <td><span class="parametername">w</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">config</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="CTree.Behavior.html">Behavior</a></td>
+        <td><p>An instance of behavior</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="CTree_Factory_StopSound_CTree_World_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Implements the following input string</p>
+<pre><code class="lang-csharp">StopSound: AssetName</code></pre>
+<p>For example, <code>StopSound: Music</code> stops the AudioSource component on
+the asset with name <code>Music</code>.</p>
 </div>
   <a id="CTree_Factory_Wait_" data-uid="CTree.Factory.Wait*"></a>
   <h4 id="CTree_Factory_Wait_CTree_World_System_String_" data-uid="CTree.Factory.Wait(CTree.World,System.String)">Wait(World, string)</h4>

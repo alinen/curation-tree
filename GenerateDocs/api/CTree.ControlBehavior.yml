@@ -22,7 +22,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: ControlBehavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
@@ -39,13 +39,14 @@ items:
   - System.Object
   - CTree.Behavior
   derivedClasses:
+  - CTree.IfBehavior
   - CTree.ParallelBehavior
+  - CTree.RepeatBehavior
   - CTree.SelectBehavior
   - CTree.SequenceBehavior
   inheritedMembers:
   - CTree.Behavior.m_finished
   - CTree.Behavior.m_isActive
-  - CTree.Behavior.m_name
   - CTree.Behavior.name
   - CTree.Behavior.Tick
   - CTree.Behavior.Setup
@@ -74,7 +75,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: m_behaviors
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
@@ -101,7 +102,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Count
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
@@ -130,7 +131,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
@@ -162,7 +163,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Add
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
@@ -191,7 +192,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Insert
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
@@ -225,7 +226,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Get
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
@@ -259,7 +260,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Clear
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/ControlBehavior.cs
@@ -310,13 +311,6 @@ references:
   name: m_isActive
   nameWithType: Behavior.m_isActive
   fullName: CTree.Behavior.m_isActive
-- uid: CTree.Behavior.m_name
-  commentId: F:CTree.Behavior.m_name
-  parent: CTree.Behavior
-  href: CTree.Behavior.html#CTree_Behavior_m_name
-  name: m_name
-  nameWithType: Behavior.m_name
-  fullName: CTree.Behavior.m_name
 - uid: CTree.Behavior.name
   commentId: P:CTree.Behavior.name
   parent: CTree.Behavior

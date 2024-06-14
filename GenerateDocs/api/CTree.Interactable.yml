@@ -5,21 +5,26 @@ items:
   id: Interactable
   parent: CTree
   children:
-  - CTree.Interactable.AddClickCb(CTree.Interactable.ClickCb)
-  - CTree.Interactable.AddDragCb(CTree.Interactable.DragCb)
+  - CTree.Interactable.AddClickCb(CTree.Interactable.InteractableCb)
+  - CTree.Interactable.AddDragEnterCb(CTree.Interactable.LocationCb)
+  - CTree.Interactable.AddDragExitCb(CTree.Interactable.LocationCb)
   - CTree.Interactable.AddDragTarget(UnityEngine.GameObject)
-  - CTree.Interactable.AddDropCb(CTree.Interactable.DropCb)
-  - CTree.Interactable.AddHoverCb(CTree.Interactable.HoverCb)
-  - CTree.Interactable.AddMouseOverCb(CTree.Interactable.MouseOverCb)
+  - CTree.Interactable.AddDropCb(CTree.Interactable.LocationCb)
+  - CTree.Interactable.AddHoverEnterCb(CTree.Interactable.InteractableCb)
+  - CTree.Interactable.AddHoverExitCb(CTree.Interactable.InteractableCb)
+  - CTree.Interactable.AddPickupCb(CTree.Interactable.InteractableCb)
   - CTree.Interactable.CanDropOnto(UnityEngine.GameObject)
   - CTree.Interactable.ClearCbs
   - CTree.Interactable.GetBounds
   - CTree.Interactable.GetClicked
+  - CTree.Interactable.GetDragTargets
   - CTree.Interactable.GetGrabbed
   - CTree.Interactable.GetLocation
+  - CTree.Interactable.OnDrag(UnityEngine.GameObject)
+  - CTree.Interactable.OnDragEnter(UnityEngine.GameObject)
   - CTree.Interactable.OnDropTarget(UnityEngine.GameObject)
-  - CTree.Interactable.OnHoverTarget(UnityEngine.GameObject)
-  - CTree.Interactable.OnMouseOver
+  - CTree.Interactable.OnHoverEnter
+  - CTree.Interactable.OnHoverExit
   - CTree.Interactable.RemoveLocation
   - CTree.Interactable.SetClicked(System.Boolean)
   - CTree.Interactable.SetGrabbed(System.Boolean)
@@ -38,7 +43,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Interactable
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -186,7 +191,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: debugDraw
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
@@ -213,11 +218,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: interactionType
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 26
+    startLine: 17
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -226,151 +231,209 @@ items:
     return:
       type: CTree.Interactable.Type
     content.vb: Public interactionType As Interactable.Type
-- uid: CTree.Interactable.AddClickCb(CTree.Interactable.ClickCb)
-  commentId: M:CTree.Interactable.AddClickCb(CTree.Interactable.ClickCb)
-  id: AddClickCb(CTree.Interactable.ClickCb)
+- uid: CTree.Interactable.AddClickCb(CTree.Interactable.InteractableCb)
+  commentId: M:CTree.Interactable.AddClickCb(CTree.Interactable.InteractableCb)
+  id: AddClickCb(CTree.Interactable.InteractableCb)
   parent: CTree.Interactable
   langs:
   - csharp
   - vb
-  name: AddClickCb(ClickCb)
-  nameWithType: Interactable.AddClickCb(Interactable.ClickCb)
-  fullName: CTree.Interactable.AddClickCb(CTree.Interactable.ClickCb)
+  name: AddClickCb(InteractableCb)
+  nameWithType: Interactable.AddClickCb(Interactable.InteractableCb)
+  fullName: CTree.Interactable.AddClickCb(CTree.Interactable.InteractableCb)
   type: Method
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: AddClickCb
+    path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+    startLine: 43
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: public void AddClickCb(Interactable.InteractableCb cb)
+    parameters:
+    - id: cb
+      type: CTree.Interactable.InteractableCb
+    content.vb: Public Sub AddClickCb(cb As Interactable.InteractableCb)
+  overload: CTree.Interactable.AddClickCb*
+- uid: CTree.Interactable.AddPickupCb(CTree.Interactable.InteractableCb)
+  commentId: M:CTree.Interactable.AddPickupCb(CTree.Interactable.InteractableCb)
+  id: AddPickupCb(CTree.Interactable.InteractableCb)
+  parent: CTree.Interactable
+  langs:
+  - csharp
+  - vb
+  name: AddPickupCb(InteractableCb)
+  nameWithType: Interactable.AddPickupCb(Interactable.InteractableCb)
+  fullName: CTree.Interactable.AddPickupCb(CTree.Interactable.InteractableCb)
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: AddPickupCb
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
     startLine: 48
   assemblies:
   - Assembly-CSharp
   namespace: CTree
   syntax:
-    content: public void AddClickCb(Interactable.ClickCb cb)
+    content: public void AddPickupCb(Interactable.InteractableCb cb)
     parameters:
     - id: cb
-      type: CTree.Interactable.ClickCb
-    content.vb: Public Sub AddClickCb(cb As Interactable.ClickCb)
-  overload: CTree.Interactable.AddClickCb*
-- uid: CTree.Interactable.AddDragCb(CTree.Interactable.DragCb)
-  commentId: M:CTree.Interactable.AddDragCb(CTree.Interactable.DragCb)
-  id: AddDragCb(CTree.Interactable.DragCb)
+      type: CTree.Interactable.InteractableCb
+    content.vb: Public Sub AddPickupCb(cb As Interactable.InteractableCb)
+  overload: CTree.Interactable.AddPickupCb*
+- uid: CTree.Interactable.AddDropCb(CTree.Interactable.LocationCb)
+  commentId: M:CTree.Interactable.AddDropCb(CTree.Interactable.LocationCb)
+  id: AddDropCb(CTree.Interactable.LocationCb)
   parent: CTree.Interactable
   langs:
   - csharp
   - vb
-  name: AddDragCb(DragCb)
-  nameWithType: Interactable.AddDragCb(Interactable.DragCb)
-  fullName: CTree.Interactable.AddDragCb(CTree.Interactable.DragCb)
+  name: AddDropCb(LocationCb)
+  nameWithType: Interactable.AddDropCb(Interactable.LocationCb)
+  fullName: CTree.Interactable.AddDropCb(CTree.Interactable.LocationCb)
   type: Method
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
-    id: AddDragCb
+    id: AddDropCb
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
     startLine: 53
   assemblies:
   - Assembly-CSharp
   namespace: CTree
   syntax:
-    content: public void AddDragCb(Interactable.DragCb cb)
+    content: public void AddDropCb(Interactable.LocationCb cb)
     parameters:
     - id: cb
-      type: CTree.Interactable.DragCb
-    content.vb: Public Sub AddDragCb(cb As Interactable.DragCb)
-  overload: CTree.Interactable.AddDragCb*
-- uid: CTree.Interactable.AddDropCb(CTree.Interactable.DropCb)
-  commentId: M:CTree.Interactable.AddDropCb(CTree.Interactable.DropCb)
-  id: AddDropCb(CTree.Interactable.DropCb)
+      type: CTree.Interactable.LocationCb
+    content.vb: Public Sub AddDropCb(cb As Interactable.LocationCb)
+  overload: CTree.Interactable.AddDropCb*
+- uid: CTree.Interactable.AddHoverExitCb(CTree.Interactable.InteractableCb)
+  commentId: M:CTree.Interactable.AddHoverExitCb(CTree.Interactable.InteractableCb)
+  id: AddHoverExitCb(CTree.Interactable.InteractableCb)
   parent: CTree.Interactable
   langs:
   - csharp
   - vb
-  name: AddDropCb(DropCb)
-  nameWithType: Interactable.AddDropCb(Interactable.DropCb)
-  fullName: CTree.Interactable.AddDropCb(CTree.Interactable.DropCb)
+  name: AddHoverExitCb(InteractableCb)
+  nameWithType: Interactable.AddHoverExitCb(Interactable.InteractableCb)
+  fullName: CTree.Interactable.AddHoverExitCb(CTree.Interactable.InteractableCb)
   type: Method
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
-    id: AddDropCb
+    id: AddHoverExitCb
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
     startLine: 58
   assemblies:
   - Assembly-CSharp
   namespace: CTree
   syntax:
-    content: public void AddDropCb(Interactable.DropCb cb)
+    content: public void AddHoverExitCb(Interactable.InteractableCb cb)
     parameters:
     - id: cb
-      type: CTree.Interactable.DropCb
-    content.vb: Public Sub AddDropCb(cb As Interactable.DropCb)
-  overload: CTree.Interactable.AddDropCb*
-- uid: CTree.Interactable.AddMouseOverCb(CTree.Interactable.MouseOverCb)
-  commentId: M:CTree.Interactable.AddMouseOverCb(CTree.Interactable.MouseOverCb)
-  id: AddMouseOverCb(CTree.Interactable.MouseOverCb)
+      type: CTree.Interactable.InteractableCb
+    content.vb: Public Sub AddHoverExitCb(cb As Interactable.InteractableCb)
+  overload: CTree.Interactable.AddHoverExitCb*
+- uid: CTree.Interactable.AddHoverEnterCb(CTree.Interactable.InteractableCb)
+  commentId: M:CTree.Interactable.AddHoverEnterCb(CTree.Interactable.InteractableCb)
+  id: AddHoverEnterCb(CTree.Interactable.InteractableCb)
   parent: CTree.Interactable
   langs:
   - csharp
   - vb
-  name: AddMouseOverCb(MouseOverCb)
-  nameWithType: Interactable.AddMouseOverCb(Interactable.MouseOverCb)
-  fullName: CTree.Interactable.AddMouseOverCb(CTree.Interactable.MouseOverCb)
+  name: AddHoverEnterCb(InteractableCb)
+  nameWithType: Interactable.AddHoverEnterCb(Interactable.InteractableCb)
+  fullName: CTree.Interactable.AddHoverEnterCb(CTree.Interactable.InteractableCb)
   type: Method
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
-    id: AddMouseOverCb
+    id: AddHoverEnterCb
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
     startLine: 63
   assemblies:
   - Assembly-CSharp
   namespace: CTree
   syntax:
-    content: public void AddMouseOverCb(Interactable.MouseOverCb cb)
+    content: public void AddHoverEnterCb(Interactable.InteractableCb cb)
     parameters:
     - id: cb
-      type: CTree.Interactable.MouseOverCb
-    content.vb: Public Sub AddMouseOverCb(cb As Interactable.MouseOverCb)
-  overload: CTree.Interactable.AddMouseOverCb*
-- uid: CTree.Interactable.AddHoverCb(CTree.Interactable.HoverCb)
-  commentId: M:CTree.Interactable.AddHoverCb(CTree.Interactable.HoverCb)
-  id: AddHoverCb(CTree.Interactable.HoverCb)
+      type: CTree.Interactable.InteractableCb
+    content.vb: Public Sub AddHoverEnterCb(cb As Interactable.InteractableCb)
+  overload: CTree.Interactable.AddHoverEnterCb*
+- uid: CTree.Interactable.AddDragEnterCb(CTree.Interactable.LocationCb)
+  commentId: M:CTree.Interactable.AddDragEnterCb(CTree.Interactable.LocationCb)
+  id: AddDragEnterCb(CTree.Interactable.LocationCb)
   parent: CTree.Interactable
   langs:
   - csharp
   - vb
-  name: AddHoverCb(HoverCb)
-  nameWithType: Interactable.AddHoverCb(Interactable.HoverCb)
-  fullName: CTree.Interactable.AddHoverCb(CTree.Interactable.HoverCb)
+  name: AddDragEnterCb(LocationCb)
+  nameWithType: Interactable.AddDragEnterCb(Interactable.LocationCb)
+  fullName: CTree.Interactable.AddDragEnterCb(CTree.Interactable.LocationCb)
   type: Method
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
-    id: AddHoverCb
+    id: AddDragEnterCb
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
     startLine: 68
   assemblies:
   - Assembly-CSharp
   namespace: CTree
   syntax:
-    content: public void AddHoverCb(Interactable.HoverCb cb)
+    content: public void AddDragEnterCb(Interactable.LocationCb cb)
     parameters:
     - id: cb
-      type: CTree.Interactable.HoverCb
-    content.vb: Public Sub AddHoverCb(cb As Interactable.HoverCb)
-  overload: CTree.Interactable.AddHoverCb*
+      type: CTree.Interactable.LocationCb
+    content.vb: Public Sub AddDragEnterCb(cb As Interactable.LocationCb)
+  overload: CTree.Interactable.AddDragEnterCb*
+- uid: CTree.Interactable.AddDragExitCb(CTree.Interactable.LocationCb)
+  commentId: M:CTree.Interactable.AddDragExitCb(CTree.Interactable.LocationCb)
+  id: AddDragExitCb(CTree.Interactable.LocationCb)
+  parent: CTree.Interactable
+  langs:
+  - csharp
+  - vb
+  name: AddDragExitCb(LocationCb)
+  nameWithType: Interactable.AddDragExitCb(Interactable.LocationCb)
+  fullName: CTree.Interactable.AddDragExitCb(CTree.Interactable.LocationCb)
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: AddDragExitCb
+    path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+    startLine: 73
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: public void AddDragExitCb(Interactable.LocationCb cb)
+    parameters:
+    - id: cb
+      type: CTree.Interactable.LocationCb
+    content.vb: Public Sub AddDragExitCb(cb As Interactable.LocationCb)
+  overload: CTree.Interactable.AddDragExitCb*
 - uid: CTree.Interactable.ClearCbs
   commentId: M:CTree.Interactable.ClearCbs
   id: ClearCbs
@@ -385,11 +448,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: ClearCbs
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 73
+    startLine: 78
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -411,11 +474,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: isClickable
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 87
+    startLine: 96
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -439,11 +502,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: isDragable
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 92
+    startLine: 101
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -453,6 +516,34 @@ items:
       type: System.Boolean
     content.vb: Public Function isDragable() As Boolean
   overload: CTree.Interactable.isDragable*
+- uid: CTree.Interactable.GetDragTargets
+  commentId: M:CTree.Interactable.GetDragTargets
+  id: GetDragTargets
+  parent: CTree.Interactable
+  langs:
+  - csharp
+  - vb
+  name: GetDragTargets()
+  nameWithType: Interactable.GetDragTargets()
+  fullName: CTree.Interactable.GetDragTargets()
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: GetDragTargets
+    path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+    startLine: 107
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: public HashSet<GameObject> GetDragTargets()
+    return:
+      type: System.Collections.Generic.HashSet{UnityEngine.GameObject}
+    content.vb: Public Function GetDragTargets() As HashSet(Of GameObject)
+  overload: CTree.Interactable.GetDragTargets*
 - uid: CTree.Interactable.CanDropOnto(UnityEngine.GameObject)
   commentId: M:CTree.Interactable.CanDropOnto(UnityEngine.GameObject)
   id: CanDropOnto(UnityEngine.GameObject)
@@ -467,11 +558,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: CanDropOnto
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 98
+    startLine: 112
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -498,11 +589,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: AddDragTarget
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 119
+    startLine: 138
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -527,11 +618,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: GetLocation
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 142
+    startLine: 162
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -555,11 +646,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: RemoveLocation
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 147
+    startLine: 167
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -581,11 +672,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: SetLocation
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 153
+    startLine: 173
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -610,11 +701,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: OnDropTarget
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 159
+    startLine: 179
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -625,61 +716,116 @@ items:
       type: UnityEngine.GameObject
     content.vb: Public Sub OnDropTarget(target As GameObject)
   overload: CTree.Interactable.OnDropTarget*
-- uid: CTree.Interactable.OnHoverTarget(UnityEngine.GameObject)
-  commentId: M:CTree.Interactable.OnHoverTarget(UnityEngine.GameObject)
-  id: OnHoverTarget(UnityEngine.GameObject)
+- uid: CTree.Interactable.OnDragEnter(UnityEngine.GameObject)
+  commentId: M:CTree.Interactable.OnDragEnter(UnityEngine.GameObject)
+  id: OnDragEnter(UnityEngine.GameObject)
   parent: CTree.Interactable
   langs:
   - csharp
   - vb
-  name: OnHoverTarget(GameObject)
-  nameWithType: Interactable.OnHoverTarget(GameObject)
-  fullName: CTree.Interactable.OnHoverTarget(UnityEngine.GameObject)
+  name: OnDragEnter(GameObject)
+  nameWithType: Interactable.OnDragEnter(GameObject)
+  fullName: CTree.Interactable.OnDragEnter(UnityEngine.GameObject)
   type: Method
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
-    id: OnHoverTarget
+    id: OnDragEnter
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 175
+    startLine: 197
   assemblies:
   - Assembly-CSharp
   namespace: CTree
   syntax:
-    content: public void OnHoverTarget(GameObject target)
+    content: public void OnDragEnter(GameObject target)
     parameters:
     - id: target
       type: UnityEngine.GameObject
-    content.vb: Public Sub OnHoverTarget(target As GameObject)
-  overload: CTree.Interactable.OnHoverTarget*
-- uid: CTree.Interactable.OnMouseOver
-  commentId: M:CTree.Interactable.OnMouseOver
-  id: OnMouseOver
+    content.vb: Public Sub OnDragEnter(target As GameObject)
+  overload: CTree.Interactable.OnDragEnter*
+- uid: CTree.Interactable.OnDrag(UnityEngine.GameObject)
+  commentId: M:CTree.Interactable.OnDrag(UnityEngine.GameObject)
+  id: OnDrag(UnityEngine.GameObject)
   parent: CTree.Interactable
   langs:
   - csharp
   - vb
-  name: OnMouseOver()
-  nameWithType: Interactable.OnMouseOver()
-  fullName: CTree.Interactable.OnMouseOver()
+  name: OnDrag(GameObject)
+  nameWithType: Interactable.OnDrag(GameObject)
+  fullName: CTree.Interactable.OnDrag(UnityEngine.GameObject)
   type: Method
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
-    id: OnMouseOver
+    id: OnDrag
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 187
+    startLine: 221
   assemblies:
   - Assembly-CSharp
   namespace: CTree
   syntax:
-    content: public void OnMouseOver()
-    content.vb: Public Sub OnMouseOver()
-  overload: CTree.Interactable.OnMouseOver*
+    content: public void OnDrag(GameObject target)
+    parameters:
+    - id: target
+      type: UnityEngine.GameObject
+    content.vb: Public Sub OnDrag(target As GameObject)
+  overload: CTree.Interactable.OnDrag*
+- uid: CTree.Interactable.OnHoverEnter
+  commentId: M:CTree.Interactable.OnHoverEnter
+  id: OnHoverEnter
+  parent: CTree.Interactable
+  langs:
+  - csharp
+  - vb
+  name: OnHoverEnter()
+  nameWithType: Interactable.OnHoverEnter()
+  fullName: CTree.Interactable.OnHoverEnter()
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: OnHoverEnter
+    path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+    startLine: 235
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: public void OnHoverEnter()
+    content.vb: Public Sub OnHoverEnter()
+  overload: CTree.Interactable.OnHoverEnter*
+- uid: CTree.Interactable.OnHoverExit
+  commentId: M:CTree.Interactable.OnHoverExit
+  id: OnHoverExit
+  parent: CTree.Interactable
+  langs:
+  - csharp
+  - vb
+  name: OnHoverExit()
+  nameWithType: Interactable.OnHoverExit()
+  fullName: CTree.Interactable.OnHoverExit()
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: OnHoverExit
+    path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
+    startLine: 250
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: public void OnHoverExit()
+    content.vb: Public Sub OnHoverExit()
+  overload: CTree.Interactable.OnHoverExit*
 - uid: CTree.Interactable.SetGrabbed(System.Boolean)
   commentId: M:CTree.Interactable.SetGrabbed(System.Boolean)
   id: SetGrabbed(System.Boolean)
@@ -694,11 +840,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: SetGrabbed
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 199
+    startLine: 265
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -726,11 +872,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: GetGrabbed
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 254
+    startLine: 320
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -754,11 +900,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: SetClicked
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 259
+    startLine: 325
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -786,11 +932,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: GetClicked
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 276
+    startLine: 342
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -814,11 +960,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: GetBounds
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 282
+    startLine: 348
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -5219,149 +5365,92 @@ references:
     href: CTree.Interactable.Type.html
 - uid: CTree.Interactable.AddClickCb*
   commentId: Overload:CTree.Interactable.AddClickCb
-  href: CTree.Interactable.html#CTree_Interactable_AddClickCb_CTree_Interactable_ClickCb_
+  href: CTree.Interactable.html#CTree_Interactable_AddClickCb_CTree_Interactable_InteractableCb_
   name: AddClickCb
   nameWithType: Interactable.AddClickCb
   fullName: CTree.Interactable.AddClickCb
-- uid: CTree.Interactable.ClickCb
-  commentId: T:CTree.Interactable.ClickCb
+- uid: CTree.Interactable.InteractableCb
+  commentId: T:CTree.Interactable.InteractableCb
   parent: CTree
   href: CTree.Interactable.html
-  name: Interactable.ClickCb
-  nameWithType: Interactable.ClickCb
-  fullName: CTree.Interactable.ClickCb
+  name: Interactable.InteractableCb
+  nameWithType: Interactable.InteractableCb
+  fullName: CTree.Interactable.InteractableCb
   spec.csharp:
   - uid: CTree.Interactable
     name: Interactable
     href: CTree.Interactable.html
   - name: .
-  - uid: CTree.Interactable.ClickCb
-    name: ClickCb
-    href: CTree.Interactable.ClickCb.html
+  - uid: CTree.Interactable.InteractableCb
+    name: InteractableCb
+    href: CTree.Interactable.InteractableCb.html
   spec.vb:
   - uid: CTree.Interactable
     name: Interactable
     href: CTree.Interactable.html
   - name: .
-  - uid: CTree.Interactable.ClickCb
-    name: ClickCb
-    href: CTree.Interactable.ClickCb.html
-- uid: CTree.Interactable.AddDragCb*
-  commentId: Overload:CTree.Interactable.AddDragCb
-  href: CTree.Interactable.html#CTree_Interactable_AddDragCb_CTree_Interactable_DragCb_
-  name: AddDragCb
-  nameWithType: Interactable.AddDragCb
-  fullName: CTree.Interactable.AddDragCb
-- uid: CTree.Interactable.DragCb
-  commentId: T:CTree.Interactable.DragCb
-  parent: CTree
-  href: CTree.Interactable.html
-  name: Interactable.DragCb
-  nameWithType: Interactable.DragCb
-  fullName: CTree.Interactable.DragCb
-  spec.csharp:
-  - uid: CTree.Interactable
-    name: Interactable
-    href: CTree.Interactable.html
-  - name: .
-  - uid: CTree.Interactable.DragCb
-    name: DragCb
-    href: CTree.Interactable.DragCb.html
-  spec.vb:
-  - uid: CTree.Interactable
-    name: Interactable
-    href: CTree.Interactable.html
-  - name: .
-  - uid: CTree.Interactable.DragCb
-    name: DragCb
-    href: CTree.Interactable.DragCb.html
+  - uid: CTree.Interactable.InteractableCb
+    name: InteractableCb
+    href: CTree.Interactable.InteractableCb.html
+- uid: CTree.Interactable.AddPickupCb*
+  commentId: Overload:CTree.Interactable.AddPickupCb
+  href: CTree.Interactable.html#CTree_Interactable_AddPickupCb_CTree_Interactable_InteractableCb_
+  name: AddPickupCb
+  nameWithType: Interactable.AddPickupCb
+  fullName: CTree.Interactable.AddPickupCb
 - uid: CTree.Interactable.AddDropCb*
   commentId: Overload:CTree.Interactable.AddDropCb
-  href: CTree.Interactable.html#CTree_Interactable_AddDropCb_CTree_Interactable_DropCb_
+  href: CTree.Interactable.html#CTree_Interactable_AddDropCb_CTree_Interactable_LocationCb_
   name: AddDropCb
   nameWithType: Interactable.AddDropCb
   fullName: CTree.Interactable.AddDropCb
-- uid: CTree.Interactable.DropCb
-  commentId: T:CTree.Interactable.DropCb
+- uid: CTree.Interactable.LocationCb
+  commentId: T:CTree.Interactable.LocationCb
   parent: CTree
   href: CTree.Interactable.html
-  name: Interactable.DropCb
-  nameWithType: Interactable.DropCb
-  fullName: CTree.Interactable.DropCb
+  name: Interactable.LocationCb
+  nameWithType: Interactable.LocationCb
+  fullName: CTree.Interactable.LocationCb
   spec.csharp:
   - uid: CTree.Interactable
     name: Interactable
     href: CTree.Interactable.html
   - name: .
-  - uid: CTree.Interactable.DropCb
-    name: DropCb
-    href: CTree.Interactable.DropCb.html
+  - uid: CTree.Interactable.LocationCb
+    name: LocationCb
+    href: CTree.Interactable.LocationCb.html
   spec.vb:
   - uid: CTree.Interactable
     name: Interactable
     href: CTree.Interactable.html
   - name: .
-  - uid: CTree.Interactable.DropCb
-    name: DropCb
-    href: CTree.Interactable.DropCb.html
-- uid: CTree.Interactable.AddMouseOverCb*
-  commentId: Overload:CTree.Interactable.AddMouseOverCb
-  href: CTree.Interactable.html#CTree_Interactable_AddMouseOverCb_CTree_Interactable_MouseOverCb_
-  name: AddMouseOverCb
-  nameWithType: Interactable.AddMouseOverCb
-  fullName: CTree.Interactable.AddMouseOverCb
-- uid: CTree.Interactable.MouseOverCb
-  commentId: T:CTree.Interactable.MouseOverCb
-  parent: CTree
-  href: CTree.Interactable.html
-  name: Interactable.MouseOverCb
-  nameWithType: Interactable.MouseOverCb
-  fullName: CTree.Interactable.MouseOverCb
-  spec.csharp:
-  - uid: CTree.Interactable
-    name: Interactable
-    href: CTree.Interactable.html
-  - name: .
-  - uid: CTree.Interactable.MouseOverCb
-    name: MouseOverCb
-    href: CTree.Interactable.MouseOverCb.html
-  spec.vb:
-  - uid: CTree.Interactable
-    name: Interactable
-    href: CTree.Interactable.html
-  - name: .
-  - uid: CTree.Interactable.MouseOverCb
-    name: MouseOverCb
-    href: CTree.Interactable.MouseOverCb.html
-- uid: CTree.Interactable.AddHoverCb*
-  commentId: Overload:CTree.Interactable.AddHoverCb
-  href: CTree.Interactable.html#CTree_Interactable_AddHoverCb_CTree_Interactable_HoverCb_
-  name: AddHoverCb
-  nameWithType: Interactable.AddHoverCb
-  fullName: CTree.Interactable.AddHoverCb
-- uid: CTree.Interactable.HoverCb
-  commentId: T:CTree.Interactable.HoverCb
-  parent: CTree
-  href: CTree.Interactable.html
-  name: Interactable.HoverCb
-  nameWithType: Interactable.HoverCb
-  fullName: CTree.Interactable.HoverCb
-  spec.csharp:
-  - uid: CTree.Interactable
-    name: Interactable
-    href: CTree.Interactable.html
-  - name: .
-  - uid: CTree.Interactable.HoverCb
-    name: HoverCb
-    href: CTree.Interactable.HoverCb.html
-  spec.vb:
-  - uid: CTree.Interactable
-    name: Interactable
-    href: CTree.Interactable.html
-  - name: .
-  - uid: CTree.Interactable.HoverCb
-    name: HoverCb
-    href: CTree.Interactable.HoverCb.html
+  - uid: CTree.Interactable.LocationCb
+    name: LocationCb
+    href: CTree.Interactable.LocationCb.html
+- uid: CTree.Interactable.AddHoverExitCb*
+  commentId: Overload:CTree.Interactable.AddHoverExitCb
+  href: CTree.Interactable.html#CTree_Interactable_AddHoverExitCb_CTree_Interactable_InteractableCb_
+  name: AddHoverExitCb
+  nameWithType: Interactable.AddHoverExitCb
+  fullName: CTree.Interactable.AddHoverExitCb
+- uid: CTree.Interactable.AddHoverEnterCb*
+  commentId: Overload:CTree.Interactable.AddHoverEnterCb
+  href: CTree.Interactable.html#CTree_Interactable_AddHoverEnterCb_CTree_Interactable_InteractableCb_
+  name: AddHoverEnterCb
+  nameWithType: Interactable.AddHoverEnterCb
+  fullName: CTree.Interactable.AddHoverEnterCb
+- uid: CTree.Interactable.AddDragEnterCb*
+  commentId: Overload:CTree.Interactable.AddDragEnterCb
+  href: CTree.Interactable.html#CTree_Interactable_AddDragEnterCb_CTree_Interactable_LocationCb_
+  name: AddDragEnterCb
+  nameWithType: Interactable.AddDragEnterCb
+  fullName: CTree.Interactable.AddDragEnterCb
+- uid: CTree.Interactable.AddDragExitCb*
+  commentId: Overload:CTree.Interactable.AddDragExitCb
+  href: CTree.Interactable.html#CTree_Interactable_AddDragExitCb_CTree_Interactable_LocationCb_
+  name: AddDragExitCb
+  nameWithType: Interactable.AddDragExitCb
+  fullName: CTree.Interactable.AddDragExitCb
 - uid: CTree.Interactable.ClearCbs*
   commentId: Overload:CTree.Interactable.ClearCbs
   href: CTree.Interactable.html#CTree_Interactable_ClearCbs
@@ -5380,6 +5469,110 @@ references:
   name: isDragable
   nameWithType: Interactable.isDragable
   fullName: CTree.Interactable.isDragable
+- uid: CTree.Interactable.GetDragTargets*
+  commentId: Overload:CTree.Interactable.GetDragTargets
+  href: CTree.Interactable.html#CTree_Interactable_GetDragTargets
+  name: GetDragTargets
+  nameWithType: Interactable.GetDragTargets
+  fullName: CTree.Interactable.GetDragTargets
+- uid: System.Collections.Generic.HashSet{UnityEngine.GameObject}
+  commentId: T:System.Collections.Generic.HashSet{UnityEngine.GameObject}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<GameObject>
+  nameWithType: HashSet<GameObject>
+  fullName: System.Collections.Generic.HashSet<UnityEngine.GameObject>
+  nameWithType.vb: HashSet(Of GameObject)
+  fullName.vb: System.Collections.Generic.HashSet(Of UnityEngine.GameObject)
+  name.vb: HashSet(Of GameObject)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
+  - uid: UnityEngine.GameObject
+    name: GameObject
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: UnityEngine.GameObject
+    name: GameObject
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.HashSet`1
+  commentId: T:System.Collections.Generic.HashSet`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  name: HashSet<T>
+  nameWithType: HashSet<T>
+  fullName: System.Collections.Generic.HashSet<T>
+  nameWithType.vb: HashSet(Of T)
+  fullName.vb: System.Collections.Generic.HashSet(Of T)
+  name.vb: HashSet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.hashset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
 - uid: CTree.Interactable.CanDropOnto*
   commentId: Overload:CTree.Interactable.CanDropOnto
   href: CTree.Interactable.html#CTree_Interactable_CanDropOnto_UnityEngine_GameObject_
@@ -5430,18 +5623,30 @@ references:
   name: OnDropTarget
   nameWithType: Interactable.OnDropTarget
   fullName: CTree.Interactable.OnDropTarget
-- uid: CTree.Interactable.OnHoverTarget*
-  commentId: Overload:CTree.Interactable.OnHoverTarget
-  href: CTree.Interactable.html#CTree_Interactable_OnHoverTarget_UnityEngine_GameObject_
-  name: OnHoverTarget
-  nameWithType: Interactable.OnHoverTarget
-  fullName: CTree.Interactable.OnHoverTarget
-- uid: CTree.Interactable.OnMouseOver*
-  commentId: Overload:CTree.Interactable.OnMouseOver
-  href: CTree.Interactable.html#CTree_Interactable_OnMouseOver
-  name: OnMouseOver
-  nameWithType: Interactable.OnMouseOver
-  fullName: CTree.Interactable.OnMouseOver
+- uid: CTree.Interactable.OnDragEnter*
+  commentId: Overload:CTree.Interactable.OnDragEnter
+  href: CTree.Interactable.html#CTree_Interactable_OnDragEnter_UnityEngine_GameObject_
+  name: OnDragEnter
+  nameWithType: Interactable.OnDragEnter
+  fullName: CTree.Interactable.OnDragEnter
+- uid: CTree.Interactable.OnDrag*
+  commentId: Overload:CTree.Interactable.OnDrag
+  href: CTree.Interactable.html#CTree_Interactable_OnDrag_UnityEngine_GameObject_
+  name: OnDrag
+  nameWithType: Interactable.OnDrag
+  fullName: CTree.Interactable.OnDrag
+- uid: CTree.Interactable.OnHoverEnter*
+  commentId: Overload:CTree.Interactable.OnHoverEnter
+  href: CTree.Interactable.html#CTree_Interactable_OnHoverEnter
+  name: OnHoverEnter
+  nameWithType: Interactable.OnHoverEnter
+  fullName: CTree.Interactable.OnHoverEnter
+- uid: CTree.Interactable.OnHoverExit*
+  commentId: Overload:CTree.Interactable.OnHoverExit
+  href: CTree.Interactable.html#CTree_Interactable_OnHoverExit
+  name: OnHoverExit
+  nameWithType: Interactable.OnHoverExit
+  fullName: CTree.Interactable.OnHoverExit
 - uid: CTree.Interactable.SetGrabbed*
   commentId: Overload:CTree.Interactable.SetGrabbed
   href: CTree.Interactable.html#CTree_Interactable_SetGrabbed_System_Boolean_

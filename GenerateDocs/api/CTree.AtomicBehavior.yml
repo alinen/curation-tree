@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/AtomicBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: AtomicBehavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/AtomicBehavior.cs
@@ -25,11 +25,8 @@ items:
   assemblies:
   - Assembly-CSharp
   namespace: CTree
-  summary: >-
-    Implements behaviors that perform actions that only require a single frame to execute.
-
-    <remarks>
-
+  summary: Implements behaviors that perform actions that only require a single frame to execute.
+  remarks: >-
     Configure AtomicBehavior with a function argument that takes <code>World</code> as input. 
 
     For example, the following code enables the scene asset with name <code>objName</code>.
@@ -37,7 +34,7 @@ items:
     <pre><code class="lang-csharp">Behavior b = new AtomicBehavior(world, (w) =&gt; {
        Transform xform = world.Get(objName.Trim());
        xform.gameObject.SetActive(true);
-    });</code></pre></remarks>
+    });</code></pre>
   example: []
   syntax:
     content: 'public class AtomicBehavior : Behavior'
@@ -48,7 +45,6 @@ items:
   inheritedMembers:
   - CTree.Behavior.m_finished
   - CTree.Behavior.m_isActive
-  - CTree.Behavior.m_name
   - CTree.Behavior.name
   - CTree.Behavior.Tick
   - CTree.Behavior.TearDown
@@ -76,7 +72,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/AtomicBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/AtomicBehavior.cs
@@ -114,7 +110,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/AtomicBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/AtomicBehavior.cs
@@ -168,13 +164,6 @@ references:
   name: m_isActive
   nameWithType: Behavior.m_isActive
   fullName: CTree.Behavior.m_isActive
-- uid: CTree.Behavior.m_name
-  commentId: F:CTree.Behavior.m_name
-  parent: CTree.Behavior
-  href: CTree.Behavior.html#CTree_Behavior_m_name
-  name: m_name
-  nameWithType: Behavior.m_name
-  fullName: CTree.Behavior.m_name
 - uid: CTree.Behavior.name
   commentId: P:CTree.Behavior.name
   parent: CTree.Behavior

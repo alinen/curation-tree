@@ -104,6 +104,9 @@
                             <a href="CTree.CoroutineBehavior.html" title="CoroutineBehavior" class="active">CoroutineBehavior</a>
                           </li>
                           <li class="">
+                            <a href="CTree.CoroutineBehavior.AnimatorFn.html" title="CoroutineBehavior.AnimatorFn" class="">CoroutineBehavior.AnimatorFn</a>
+                          </li>
+                          <li class="">
                             <a href="CTree.Factory.html" title="Factory" class="">Factory</a>
                           </li>
                           <li class="">
@@ -117,6 +120,9 @@
                           </li>
                           <li class="">
                             <a href="CTree.GameLoop.Options.html" title="GameLoop.Options" class="">GameLoop.Options</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.HighlightBehavior.html" title="HighlightBehavior" class="">HighlightBehavior</a>
                           </li>
                           <li class="">
                             <a href="CTree.IfBehavior.html" title="IfBehavior" class="">IfBehavior</a>
@@ -134,19 +140,10 @@
                             <a href="CTree.Interactable.html" title="Interactable" class="">Interactable</a>
                           </li>
                           <li class="">
-                            <a href="CTree.Interactable.ClickCb.html" title="Interactable.ClickCb" class="">Interactable.ClickCb</a>
+                            <a href="CTree.Interactable.InteractableCb.html" title="Interactable.InteractableCb" class="">Interactable.InteractableCb</a>
                           </li>
                           <li class="">
-                            <a href="CTree.Interactable.DragCb.html" title="Interactable.DragCb" class="">Interactable.DragCb</a>
-                          </li>
-                          <li class="">
-                            <a href="CTree.Interactable.DropCb.html" title="Interactable.DropCb" class="">Interactable.DropCb</a>
-                          </li>
-                          <li class="">
-                            <a href="CTree.Interactable.HoverCb.html" title="Interactable.HoverCb" class="">Interactable.HoverCb</a>
-                          </li>
-                          <li class="">
-                            <a href="CTree.Interactable.MouseOverCb.html" title="Interactable.MouseOverCb" class="">Interactable.MouseOverCb</a>
+                            <a href="CTree.Interactable.LocationCb.html" title="Interactable.LocationCb" class="">Interactable.LocationCb</a>
                           </li>
                           <li class="">
                             <a href="CTree.Interactable.Type.html" title="Interactable.Type" class="">Interactable.Type</a>
@@ -171,6 +168,12 @@
                           </li>
                           <li class="">
                             <a href="CTree.SequenceBehavior.html" title="SequenceBehavior" class="">SequenceBehavior</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Sound.html" title="Sound" class="">Sound</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Sound.Mode.html" title="Sound.Mode" class="">Sound.Mode</a>
                           </li>
                           <li class="">
                             <a href="CTree.World.html" title="World" class="">World</a>
@@ -206,9 +209,6 @@
     </div>
     <div>
       <a class="xref" href="CTree.Behavior.html#CTree_Behavior_m_isActive">Behavior.m_isActive</a>
-    </div>
-    <div>
-      <a class="xref" href="CTree.Behavior.html#CTree_Behavior_m_name">Behavior.m_name</a>
     </div>
     <div>
       <a class="xref" href="CTree.Behavior.html#CTree_Behavior_name">Behavior.name</a>
@@ -255,24 +255,26 @@
   </div>
   <h5 id="CTree_CoroutineBehavior_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>Use this Behavior to implement animations and other effects that occur over multiple frames.
-Configure CoroutineBehavior with a function that takes <code>World</code> as input and returns an iterator.
-For example, the following code increases the size of <code>xform</code> to twice its original size over 3.0 seconds.</p>
-<pre><code class="lang-csharp">Transform xform = world.Get(objName.Trim());
-Behavior b = new CoroutineBehavior(world, 
-     ProceduralAnimator.Grow(xform, 1, 2, 3.0));</code></pre>
+Configure CoroutineBehavior with a function that takes <code>World</code> and string <code>args</code> as input and returns an iterator.
+For example, the following code initializes a pause behavior with length <code>duration</code> seconds.</p>
+<pre><code class="lang-csharp">return new CoroutineBehavior(world, args, (w, args) =&gt; {
+   float duration = 1.0f;
+   Single.TryParse(args, out duration);
+   return ProceduralAnimator.Wait(duration);
+});</code></pre>
 <p>Coroutines cannot be anonymous functions. Our Coroutines for animation behaviors are implemented
 in <a class="xref" href="CTree.ProceduralAnimator.html">ProceduralAnimator</a>.</p>
 </div>
   <h3 id="constructors">Constructors
 </h3>
   <a id="CTree_CoroutineBehavior__ctor_" data-uid="CTree.CoroutineBehavior.#ctor*"></a>
-  <h4 id="CTree_CoroutineBehavior__ctor_CTree_World_System_Collections_IEnumerator_" data-uid="CTree.CoroutineBehavior.#ctor(CTree.World,System.Collections.IEnumerator)">CoroutineBehavior(World, IEnumerator)</h4>
+  <h4 id="CTree_CoroutineBehavior__ctor_CTree_World_System_String_CTree_CoroutineBehavior_AnimatorFn_" data-uid="CTree.CoroutineBehavior.#ctor(CTree.World,System.String,CTree.CoroutineBehavior.AnimatorFn)">CoroutineBehavior(World, string, AnimatorFn)</h4>
   <div class="markdown level1 summary"><p>Constructor</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CoroutineBehavior(World w, IEnumerator enumerator)</code></pre>
+    <pre><code class="lang-csharp hljs">public CoroutineBehavior(World w, string args, CoroutineBehavior.AnimatorFn enumeratorFn)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -291,10 +293,14 @@ in <a class="xref" href="CTree.ProceduralAnimator.html">ProceduralAnimator</a>.<
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
-        <td><span class="parametername">enumerator</span></td>
-        <td><p>Iterator object associated with a Coroutine</p>
-</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="CTree.CoroutineBehavior.html">CoroutineBehavior</a>.<a class="xref" href="CTree.CoroutineBehavior.AnimatorFn.html">AnimatorFn</a></td>
+        <td><span class="parametername">enumeratorFn</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>

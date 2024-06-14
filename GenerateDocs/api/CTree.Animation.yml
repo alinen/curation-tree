@@ -18,7 +18,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Animation
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
@@ -42,7 +42,6 @@ items:
   inheritedMembers:
   - CTree.Behavior.m_finished
   - CTree.Behavior.m_isActive
-  - CTree.Behavior.m_name
   - CTree.Behavior.name
   - CTree.Behavior.TearDown
   - CTree.Behavior.Finished
@@ -69,11 +68,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-    startLine: 39
+    startLine: 40
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -113,11 +112,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-    startLine: 49
+    startLine: 48
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -142,11 +141,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Tick
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-    startLine: 65
+    startLine: 68
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -276,13 +275,6 @@ references:
   name: m_isActive
   nameWithType: Behavior.m_isActive
   fullName: CTree.Behavior.m_isActive
-- uid: CTree.Behavior.m_name
-  commentId: F:CTree.Behavior.m_name
-  parent: CTree.Behavior
-  href: CTree.Behavior.html#CTree_Behavior_m_name
-  name: m_name
-  nameWithType: Behavior.m_name
-  fullName: CTree.Behavior.m_name
 - uid: CTree.Behavior.name
   commentId: P:CTree.Behavior.name
   parent: CTree.Behavior

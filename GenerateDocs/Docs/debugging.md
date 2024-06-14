@@ -2,7 +2,7 @@
 # Debuggging and Troubleshooting
 
 The GameLoop component has options for debugging the execution of the behavior tree and 
-for selection and raycasting. 
+for debugging the selection and raycasting system. 
 
 ## Behavior Tree
 

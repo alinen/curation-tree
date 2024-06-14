@@ -14,7 +14,6 @@ items:
   - CTree.Behavior.ToString
   - CTree.Behavior.m_finished
   - CTree.Behavior.m_isActive
-  - CTree.Behavior.m_name
   - CTree.Behavior.name
   - CTree.Behavior.world
   langs:
@@ -27,7 +26,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Behavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
@@ -82,6 +81,8 @@ items:
   - CTree.AtomicBehavior
   - CTree.ControlBehavior
   - CTree.CoroutineBehavior
+  - CTree.HighlightBehavior
+  - CTree.Sound
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -103,7 +104,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: m_finished
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
@@ -132,7 +133,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: m_isActive
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
@@ -150,35 +151,6 @@ items:
     return:
       type: System.Boolean
     content.vb: Protected m_isActive As Boolean
-- uid: CTree.Behavior.m_name
-  commentId: F:CTree.Behavior.m_name
-  id: m_name
-  parent: CTree.Behavior
-  langs:
-  - csharp
-  - vb
-  name: m_name
-  nameWithType: Behavior.m_name
-  fullName: CTree.Behavior.m_name
-  type: Field
-  source:
-    remote:
-      path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: main
-      repo: git@github.com:alinen/curation-tree.git
-    id: m_name
-    path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 50
-  assemblies:
-  - Assembly-CSharp
-  namespace: CTree
-  summary: String containing the input line used to create this Behavior (for debugging)
-  example: []
-  syntax:
-    content: protected string m_name
-    return:
-      type: System.String
-    content.vb: Protected m_name As String
 - uid: CTree.Behavior.name
   commentId: P:CTree.Behavior.name
   id: name
@@ -193,11 +165,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: name
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 55
+    startLine: 54
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -224,11 +196,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 65
+    startLine: 64
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -259,11 +231,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Tick
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 74
+    startLine: 73
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -287,11 +259,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 79
+    startLine: 78
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -315,11 +287,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: TearDown
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 89
+    startLine: 87
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -343,11 +315,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Finished
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 99
+    startLine: 96
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -374,11 +346,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: IsActive
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 108
+    startLine: 105
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -405,22 +377,22 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: world
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 116
+    startLine: 113
   assemblies:
   - Assembly-CSharp
   namespace: CTree
   summary: Accessor for the object that hold global world state.
   example: []
   syntax:
-    content: protected World world { get; }
+    content: public World world { get; }
     parameters: []
     return:
       type: CTree.World
-    content.vb: Protected ReadOnly Property world As World
+    content.vb: Public ReadOnly Property world As World
   overload: CTree.Behavior.world*
 - uid: CTree.Behavior.ToString
   commentId: M:CTree.Behavior.ToString
@@ -436,11 +408,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: ToString
     path: ../BasicExample/Assets/Scripts/CurationTree/Behavior.cs
-    startLine: 125
+    startLine: 122
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -787,6 +759,12 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: CTree.Behavior.name*
+  commentId: Overload:CTree.Behavior.name
+  href: CTree.Behavior.html#CTree_Behavior_name
+  name: name
+  nameWithType: Behavior.name
+  fullName: CTree.Behavior.name
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -798,12 +776,6 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: CTree.Behavior.name*
-  commentId: Overload:CTree.Behavior.name
-  href: CTree.Behavior.html#CTree_Behavior_name
-  name: name
-  nameWithType: Behavior.name
-  fullName: CTree.Behavior.name
 - uid: CTree.Behavior.#ctor*
   commentId: Overload:CTree.Behavior.#ctor
   href: CTree.Behavior.html#CTree_Behavior__ctor_CTree_World_

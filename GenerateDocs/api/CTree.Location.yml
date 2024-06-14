@@ -7,6 +7,8 @@ items:
   children:
   - CTree.Location.AddOcupant(CTree.Interactable)
   - CTree.Location.GetAnchorPlacement(CTree.Interactable,UnityEngine.Vector3@,UnityEngine.Quaternion@)
+  - CTree.Location.HasAnchor(CTree.Interactable)
+  - CTree.Location.Init
   - CTree.Location.IsAvailable(CTree.Interactable)
   - CTree.Location.IsOcupant(CTree.Interactable)
   - CTree.Location.RemoveOcupant(CTree.Interactable)
@@ -20,7 +22,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Location.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Location
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
@@ -162,6 +164,63 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: CTree.Location.Init
+  commentId: M:CTree.Location.Init
+  id: Init
+  parent: CTree.Location
+  langs:
+  - csharp
+  - vb
+  name: Init()
+  nameWithType: Location.Init()
+  fullName: CTree.Location.Init()
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Location.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: Init
+    path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
+    startLine: 31
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: public void Init()
+    content.vb: Public Sub Init()
+  overload: CTree.Location.Init*
+- uid: CTree.Location.HasAnchor(CTree.Interactable)
+  commentId: M:CTree.Location.HasAnchor(CTree.Interactable)
+  id: HasAnchor(CTree.Interactable)
+  parent: CTree.Location
+  langs:
+  - csharp
+  - vb
+  name: HasAnchor(Interactable)
+  nameWithType: Location.HasAnchor(Interactable)
+  fullName: CTree.Location.HasAnchor(CTree.Interactable)
+  type: Method
+  source:
+    remote:
+      path: BasicExample/Assets/Scripts/CurationTree/Location.cs
+      branch: squirrel-house
+      repo: git@github.com:alinen/curation-tree.git
+    id: HasAnchor
+    path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
+    startLine: 65
+  assemblies:
+  - Assembly-CSharp
+  namespace: CTree
+  syntax:
+    content: public bool HasAnchor(Interactable i)
+    parameters:
+    - id: i
+      type: CTree.Interactable
+    return:
+      type: System.Boolean
+    content.vb: Public Function HasAnchor(i As Interactable) As Boolean
+  overload: CTree.Location.HasAnchor*
 - uid: CTree.Location.IsAvailable(CTree.Interactable)
   commentId: M:CTree.Location.IsAvailable(CTree.Interactable)
   id: IsAvailable(CTree.Interactable)
@@ -176,11 +235,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Location.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: IsAvailable
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
-    startLine: 60
+    startLine: 71
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -207,11 +266,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Location.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: GetAnchorPlacement
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
-    startLine: 70
+    startLine: 80
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -243,11 +302,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Location.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: AddOcupant
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
-    startLine: 94
+    startLine: 104
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -272,11 +331,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Location.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: RemoveOcupant
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
-    startLine: 110
+    startLine: 120
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -301,11 +360,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Location.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: IsOcupant
     path: ../BasicExample/Assets/Scripts/CurationTree/Location.cs
-    startLine: 116
+    startLine: 126
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -4673,12 +4732,18 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
-- uid: CTree.Location.IsAvailable*
-  commentId: Overload:CTree.Location.IsAvailable
-  href: CTree.Location.html#CTree_Location_IsAvailable_CTree_Interactable_
-  name: IsAvailable
-  nameWithType: Location.IsAvailable
-  fullName: CTree.Location.IsAvailable
+- uid: CTree.Location.Init*
+  commentId: Overload:CTree.Location.Init
+  href: CTree.Location.html#CTree_Location_Init
+  name: Init
+  nameWithType: Location.Init
+  fullName: CTree.Location.Init
+- uid: CTree.Location.HasAnchor*
+  commentId: Overload:CTree.Location.HasAnchor
+  href: CTree.Location.html#CTree_Location_HasAnchor_CTree_Interactable_
+  name: HasAnchor
+  nameWithType: Location.HasAnchor
+  fullName: CTree.Location.HasAnchor
 - uid: CTree.Interactable
   commentId: T:CTree.Interactable
   parent: CTree
@@ -4697,6 +4762,12 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: CTree.Location.IsAvailable*
+  commentId: Overload:CTree.Location.IsAvailable
+  href: CTree.Location.html#CTree_Location_IsAvailable_CTree_Interactable_
+  name: IsAvailable
+  nameWithType: Location.IsAvailable
+  fullName: CTree.Location.IsAvailable
 - uid: CTree.Location.GetAnchorPlacement*
   commentId: Overload:CTree.Location.GetAnchorPlacement
   href: CTree.Location.html#CTree_Location_GetAnchorPlacement_CTree_Interactable_UnityEngine_Vector3__UnityEngine_Quaternion__

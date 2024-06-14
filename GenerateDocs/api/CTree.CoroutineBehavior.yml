@@ -5,7 +5,7 @@ items:
   id: CoroutineBehavior
   parent: CTree
   children:
-  - CTree.CoroutineBehavior.#ctor(CTree.World,System.Collections.IEnumerator)
+  - CTree.CoroutineBehavior.#ctor(CTree.World,System.String,CTree.CoroutineBehavior.AnimatorFn)
   - CTree.CoroutineBehavior.Setup
   - CTree.CoroutineBehavior.TearDown
   langs:
@@ -18,11 +18,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: CoroutineBehavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
-    startLine: 20
+    startLine: 23
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -30,14 +30,16 @@ items:
   remarks: >-
     Use this Behavior to implement animations and other effects that occur over multiple frames.
 
-    Configure CoroutineBehavior with a function that takes <code>World</code> as input and returns an iterator. 
+    Configure CoroutineBehavior with a function that takes <code>World</code> and string <code>args</code> as input and returns an iterator. 
 
-    For example, the following code increases the size of <code>xform</code> to twice its original size over 3.0 seconds. 
+    For example, the following code initializes a pause behavior with length <code>duration</code> seconds. 
 
-    <pre><code class="lang-csharp">Transform xform = world.Get(objName.Trim());
+    <pre><code class="lang-csharp">return new CoroutineBehavior(world, args, (w, args) =&gt; {
+       float duration = 1.0f;
+       Single.TryParse(args, out duration);
+       return ProceduralAnimator.Wait(duration);
+    });</code></pre>
 
-    Behavior b = new CoroutineBehavior(world, 
-         ProceduralAnimator.Grow(xform, 1, 2, 3.0));</code></pre>
     Coroutines cannot be anonymous functions. Our Coroutines for animation behaviors are implemented 
 
     in <xref href="CTree.ProceduralAnimator" data-throw-if-not-resolved="false"></xref>.
@@ -51,7 +53,6 @@ items:
   inheritedMembers:
   - CTree.Behavior.m_finished
   - CTree.Behavior.m_isActive
-  - CTree.Behavior.m_name
   - CTree.Behavior.name
   - CTree.Behavior.Tick
   - CTree.Behavior.Finished
@@ -64,44 +65,45 @@ items:
   - System.Object.GetType
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: CTree.CoroutineBehavior.#ctor(CTree.World,System.Collections.IEnumerator)
-  commentId: M:CTree.CoroutineBehavior.#ctor(CTree.World,System.Collections.IEnumerator)
-  id: '#ctor(CTree.World,System.Collections.IEnumerator)'
+- uid: CTree.CoroutineBehavior.#ctor(CTree.World,System.String,CTree.CoroutineBehavior.AnimatorFn)
+  commentId: M:CTree.CoroutineBehavior.#ctor(CTree.World,System.String,CTree.CoroutineBehavior.AnimatorFn)
+  id: '#ctor(CTree.World,System.String,CTree.CoroutineBehavior.AnimatorFn)'
   parent: CTree.CoroutineBehavior
   langs:
   - csharp
   - vb
-  name: CoroutineBehavior(World, IEnumerator)
-  nameWithType: CoroutineBehavior.CoroutineBehavior(World, IEnumerator)
-  fullName: CTree.CoroutineBehavior.CoroutineBehavior(CTree.World, System.Collections.IEnumerator)
+  name: CoroutineBehavior(World, string, AnimatorFn)
+  nameWithType: CoroutineBehavior.CoroutineBehavior(World, string, CoroutineBehavior.AnimatorFn)
+  fullName: CTree.CoroutineBehavior.CoroutineBehavior(CTree.World, string, CTree.CoroutineBehavior.AnimatorFn)
   type: Constructor
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
-    startLine: 31
+    startLine: 37
   assemblies:
   - Assembly-CSharp
   namespace: CTree
   summary: Constructor
   example: []
   syntax:
-    content: public CoroutineBehavior(World w, IEnumerator enumerator)
+    content: public CoroutineBehavior(World w, string args, CoroutineBehavior.AnimatorFn enumeratorFn)
     parameters:
     - id: w
       type: CTree.World
       description: Object for accessing global state
-    - id: enumerator
-      type: System.Collections.IEnumerator
-      description: Iterator object associated with a Coroutine
-    content.vb: Public Sub New(w As World, enumerator As IEnumerator)
+    - id: args
+      type: System.String
+    - id: enumeratorFn
+      type: CTree.CoroutineBehavior.AnimatorFn
+    content.vb: Public Sub New(w As World, args As String, enumeratorFn As CoroutineBehavior.AnimatorFn)
   overload: CTree.CoroutineBehavior.#ctor*
-  nameWithType.vb: CoroutineBehavior.New(World, IEnumerator)
-  fullName.vb: CTree.CoroutineBehavior.New(CTree.World, System.Collections.IEnumerator)
-  name.vb: New(World, IEnumerator)
+  nameWithType.vb: CoroutineBehavior.New(World, String, CoroutineBehavior.AnimatorFn)
+  fullName.vb: CTree.CoroutineBehavior.New(CTree.World, String, CTree.CoroutineBehavior.AnimatorFn)
+  name.vb: New(World, String, AnimatorFn)
 - uid: CTree.CoroutineBehavior.Setup
   commentId: M:CTree.CoroutineBehavior.Setup
   id: Setup
@@ -116,11 +118,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
-    startLine: 36
+    startLine: 43
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -145,11 +147,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: TearDown
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/CoroutineBehavior.cs
-    startLine: 46
+    startLine: 54
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -205,13 +207,6 @@ references:
   name: m_isActive
   nameWithType: Behavior.m_isActive
   fullName: CTree.Behavior.m_isActive
-- uid: CTree.Behavior.m_name
-  commentId: F:CTree.Behavior.m_name
-  parent: CTree.Behavior
-  href: CTree.Behavior.html#CTree_Behavior_m_name
-  name: m_name
-  nameWithType: Behavior.m_name
-  fullName: CTree.Behavior.m_name
 - uid: CTree.Behavior.name
   commentId: P:CTree.Behavior.name
   parent: CTree.Behavior
@@ -506,7 +501,7 @@ references:
   fullName: System
 - uid: CTree.CoroutineBehavior.#ctor*
   commentId: Overload:CTree.CoroutineBehavior.#ctor
-  href: CTree.CoroutineBehavior.html#CTree_CoroutineBehavior__ctor_CTree_World_System_Collections_IEnumerator_
+  href: CTree.CoroutineBehavior.html#CTree_CoroutineBehavior__ctor_CTree_World_System_String_CTree_CoroutineBehavior_AnimatorFn_
   name: CoroutineBehavior
   nameWithType: CoroutineBehavior.CoroutineBehavior
   fullName: CTree.CoroutineBehavior.CoroutineBehavior
@@ -520,41 +515,40 @@ references:
   name: World
   nameWithType: World
   fullName: CTree.World
-- uid: System.Collections.IEnumerator
-  commentId: T:System.Collections.IEnumerator
-  parent: System.Collections
+- uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerator
-  name: IEnumerator
-  nameWithType: IEnumerator
-  fullName: System.Collections.IEnumerator
-- uid: System.Collections
-  commentId: N:System.Collections
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.Collections
-  nameWithType: System.Collections
-  fullName: System.Collections
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: CTree.CoroutineBehavior.AnimatorFn
+  commentId: T:CTree.CoroutineBehavior.AnimatorFn
+  parent: CTree
+  href: CTree.CoroutineBehavior.html
+  name: CoroutineBehavior.AnimatorFn
+  nameWithType: CoroutineBehavior.AnimatorFn
+  fullName: CTree.CoroutineBehavior.AnimatorFn
   spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
+  - uid: CTree.CoroutineBehavior
+    name: CoroutineBehavior
+    href: CTree.CoroutineBehavior.html
   - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - uid: CTree.CoroutineBehavior.AnimatorFn
+    name: AnimatorFn
+    href: CTree.CoroutineBehavior.AnimatorFn.html
   spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
+  - uid: CTree.CoroutineBehavior
+    name: CoroutineBehavior
+    href: CTree.CoroutineBehavior.html
   - name: .
-  - uid: System.Collections
-    name: Collections
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - uid: CTree.CoroutineBehavior.AnimatorFn
+    name: AnimatorFn
+    href: CTree.CoroutineBehavior.AnimatorFn.html
 - uid: CTree.Behavior.Setup
   commentId: M:CTree.Behavior.Setup
   parent: CTree.Behavior

@@ -229,12 +229,6 @@ references:
   commentId: F:CTree.Behavior.m_isActive
   fullName: CTree.Behavior.m_isActive
   nameWithType: Behavior.m_isActive
-- uid: CTree.Behavior.m_name
-  name: m_name
-  href: api/CTree.Behavior.html#CTree_Behavior_m_name
-  commentId: F:CTree.Behavior.m_name
-  fullName: CTree.Behavior.m_name
-  nameWithType: Behavior.m_name
 - uid: CTree.Behavior.name
   name: name
   href: api/CTree.Behavior.html#CTree_Behavior_name
@@ -369,15 +363,15 @@ references:
   commentId: T:CTree.CoroutineBehavior
   fullName: CTree.CoroutineBehavior
   nameWithType: CoroutineBehavior
-- uid: CTree.CoroutineBehavior.#ctor(CTree.World,System.Collections.IEnumerator)
-  name: CoroutineBehavior(World, IEnumerator)
-  href: api/CTree.CoroutineBehavior.html#CTree_CoroutineBehavior__ctor_CTree_World_System_Collections_IEnumerator_
-  commentId: M:CTree.CoroutineBehavior.#ctor(CTree.World,System.Collections.IEnumerator)
-  name.vb: New(World, IEnumerator)
-  fullName: CTree.CoroutineBehavior.CoroutineBehavior(CTree.World, System.Collections.IEnumerator)
-  fullName.vb: CTree.CoroutineBehavior.New(CTree.World, System.Collections.IEnumerator)
-  nameWithType: CoroutineBehavior.CoroutineBehavior(World, IEnumerator)
-  nameWithType.vb: CoroutineBehavior.New(World, IEnumerator)
+- uid: CTree.CoroutineBehavior.#ctor(CTree.World,System.String,CTree.CoroutineBehavior.AnimatorFn)
+  name: CoroutineBehavior(World, string, AnimatorFn)
+  href: api/CTree.CoroutineBehavior.html#CTree_CoroutineBehavior__ctor_CTree_World_System_String_CTree_CoroutineBehavior_AnimatorFn_
+  commentId: M:CTree.CoroutineBehavior.#ctor(CTree.World,System.String,CTree.CoroutineBehavior.AnimatorFn)
+  name.vb: New(World, String, AnimatorFn)
+  fullName: CTree.CoroutineBehavior.CoroutineBehavior(CTree.World, string, CTree.CoroutineBehavior.AnimatorFn)
+  fullName.vb: CTree.CoroutineBehavior.New(CTree.World, String, CTree.CoroutineBehavior.AnimatorFn)
+  nameWithType: CoroutineBehavior.CoroutineBehavior(World, string, CoroutineBehavior.AnimatorFn)
+  nameWithType.vb: CoroutineBehavior.New(World, String, CoroutineBehavior.AnimatorFn)
 - uid: CTree.CoroutineBehavior.#ctor*
   name: CoroutineBehavior
   href: api/CTree.CoroutineBehavior.html#CTree_CoroutineBehavior__ctor_
@@ -388,6 +382,12 @@ references:
   fullName.vb: CTree.CoroutineBehavior.New
   nameWithType: CoroutineBehavior.CoroutineBehavior
   nameWithType.vb: CoroutineBehavior.New
+- uid: CTree.CoroutineBehavior.AnimatorFn
+  name: CoroutineBehavior.AnimatorFn
+  href: api/CTree.CoroutineBehavior.AnimatorFn.html
+  commentId: T:CTree.CoroutineBehavior.AnimatorFn
+  fullName: CTree.CoroutineBehavior.AnimatorFn
+  nameWithType: CoroutineBehavior.AnimatorFn
 - uid: CTree.CoroutineBehavior.Setup
   name: Setup()
   href: api/CTree.CoroutineBehavior.html#CTree_CoroutineBehavior_Setup
@@ -516,6 +516,22 @@ references:
   isSpec: "True"
   fullName: CTree.Factory.Hide
   nameWithType: Factory.Hide
+- uid: CTree.Factory.Highlight(CTree.World,System.String)
+  name: Highlight(World, string)
+  href: api/CTree.Factory.html#CTree_Factory_Highlight_CTree_World_System_String_
+  commentId: M:CTree.Factory.Highlight(CTree.World,System.String)
+  name.vb: Highlight(World, String)
+  fullName: CTree.Factory.Highlight(CTree.World, string)
+  fullName.vb: CTree.Factory.Highlight(CTree.World, String)
+  nameWithType: Factory.Highlight(World, string)
+  nameWithType.vb: Factory.Highlight(World, String)
+- uid: CTree.Factory.Highlight*
+  name: Highlight
+  href: api/CTree.Factory.html#CTree_Factory_Highlight_
+  commentId: Overload:CTree.Factory.Highlight
+  isSpec: "True"
+  fullName: CTree.Factory.Highlight
+  nameWithType: Factory.Highlight
 - uid: CTree.Factory.If(CTree.World,System.String)
   name: If(World, string)
   href: api/CTree.Factory.html#CTree_Factory_If_CTree_World_System_String_
@@ -548,22 +564,38 @@ references:
   isSpec: "True"
   fullName: CTree.Factory.IfClick
   nameWithType: Factory.IfClick
-- uid: CTree.Factory.IfDrag(CTree.World,System.String)
-  name: IfDrag(World, string)
-  href: api/CTree.Factory.html#CTree_Factory_IfDrag_CTree_World_System_String_
-  commentId: M:CTree.Factory.IfDrag(CTree.World,System.String)
-  name.vb: IfDrag(World, String)
-  fullName: CTree.Factory.IfDrag(CTree.World, string)
-  fullName.vb: CTree.Factory.IfDrag(CTree.World, String)
-  nameWithType: Factory.IfDrag(World, string)
-  nameWithType.vb: Factory.IfDrag(World, String)
-- uid: CTree.Factory.IfDrag*
-  name: IfDrag
-  href: api/CTree.Factory.html#CTree_Factory_IfDrag_
-  commentId: Overload:CTree.Factory.IfDrag
+- uid: CTree.Factory.IfDragEnter(CTree.World,System.String)
+  name: IfDragEnter(World, string)
+  href: api/CTree.Factory.html#CTree_Factory_IfDragEnter_CTree_World_System_String_
+  commentId: M:CTree.Factory.IfDragEnter(CTree.World,System.String)
+  name.vb: IfDragEnter(World, String)
+  fullName: CTree.Factory.IfDragEnter(CTree.World, string)
+  fullName.vb: CTree.Factory.IfDragEnter(CTree.World, String)
+  nameWithType: Factory.IfDragEnter(World, string)
+  nameWithType.vb: Factory.IfDragEnter(World, String)
+- uid: CTree.Factory.IfDragEnter*
+  name: IfDragEnter
+  href: api/CTree.Factory.html#CTree_Factory_IfDragEnter_
+  commentId: Overload:CTree.Factory.IfDragEnter
   isSpec: "True"
-  fullName: CTree.Factory.IfDrag
-  nameWithType: Factory.IfDrag
+  fullName: CTree.Factory.IfDragEnter
+  nameWithType: Factory.IfDragEnter
+- uid: CTree.Factory.IfDragExit(CTree.World,System.String)
+  name: IfDragExit(World, string)
+  href: api/CTree.Factory.html#CTree_Factory_IfDragExit_CTree_World_System_String_
+  commentId: M:CTree.Factory.IfDragExit(CTree.World,System.String)
+  name.vb: IfDragExit(World, String)
+  fullName: CTree.Factory.IfDragExit(CTree.World, string)
+  fullName.vb: CTree.Factory.IfDragExit(CTree.World, String)
+  nameWithType: Factory.IfDragExit(World, string)
+  nameWithType.vb: Factory.IfDragExit(World, String)
+- uid: CTree.Factory.IfDragExit*
+  name: IfDragExit
+  href: api/CTree.Factory.html#CTree_Factory_IfDragExit_
+  commentId: Overload:CTree.Factory.IfDragExit
+  isSpec: "True"
+  fullName: CTree.Factory.IfDragExit
+  nameWithType: Factory.IfDragExit
 - uid: CTree.Factory.IfDrop(CTree.World,System.String)
   name: IfDrop(World, string)
   href: api/CTree.Factory.html#CTree_Factory_IfDrop_CTree_World_System_String_
@@ -580,38 +612,102 @@ references:
   isSpec: "True"
   fullName: CTree.Factory.IfDrop
   nameWithType: Factory.IfDrop
-- uid: CTree.Factory.IfHover(CTree.World,System.String)
-  name: IfHover(World, string)
-  href: api/CTree.Factory.html#CTree_Factory_IfHover_CTree_World_System_String_
-  commentId: M:CTree.Factory.IfHover(CTree.World,System.String)
-  name.vb: IfHover(World, String)
-  fullName: CTree.Factory.IfHover(CTree.World, string)
-  fullName.vb: CTree.Factory.IfHover(CTree.World, String)
-  nameWithType: Factory.IfHover(World, string)
-  nameWithType.vb: Factory.IfHover(World, String)
-- uid: CTree.Factory.IfHover*
-  name: IfHover
-  href: api/CTree.Factory.html#CTree_Factory_IfHover_
-  commentId: Overload:CTree.Factory.IfHover
+- uid: CTree.Factory.IfEnter(CTree.World,System.String)
+  name: IfEnter(World, string)
+  href: api/CTree.Factory.html#CTree_Factory_IfEnter_CTree_World_System_String_
+  commentId: M:CTree.Factory.IfEnter(CTree.World,System.String)
+  name.vb: IfEnter(World, String)
+  fullName: CTree.Factory.IfEnter(CTree.World, string)
+  fullName.vb: CTree.Factory.IfEnter(CTree.World, String)
+  nameWithType: Factory.IfEnter(World, string)
+  nameWithType.vb: Factory.IfEnter(World, String)
+- uid: CTree.Factory.IfEnter*
+  name: IfEnter
+  href: api/CTree.Factory.html#CTree_Factory_IfEnter_
+  commentId: Overload:CTree.Factory.IfEnter
   isSpec: "True"
-  fullName: CTree.Factory.IfHover
-  nameWithType: Factory.IfHover
-- uid: CTree.Factory.IfMouseOver(CTree.World,System.String)
-  name: IfMouseOver(World, string)
-  href: api/CTree.Factory.html#CTree_Factory_IfMouseOver_CTree_World_System_String_
-  commentId: M:CTree.Factory.IfMouseOver(CTree.World,System.String)
-  name.vb: IfMouseOver(World, String)
-  fullName: CTree.Factory.IfMouseOver(CTree.World, string)
-  fullName.vb: CTree.Factory.IfMouseOver(CTree.World, String)
-  nameWithType: Factory.IfMouseOver(World, string)
-  nameWithType.vb: Factory.IfMouseOver(World, String)
-- uid: CTree.Factory.IfMouseOver*
-  name: IfMouseOver
-  href: api/CTree.Factory.html#CTree_Factory_IfMouseOver_
-  commentId: Overload:CTree.Factory.IfMouseOver
+  fullName: CTree.Factory.IfEnter
+  nameWithType: Factory.IfEnter
+- uid: CTree.Factory.IfExit(CTree.World,System.String)
+  name: IfExit(World, string)
+  href: api/CTree.Factory.html#CTree_Factory_IfExit_CTree_World_System_String_
+  commentId: M:CTree.Factory.IfExit(CTree.World,System.String)
+  name.vb: IfExit(World, String)
+  fullName: CTree.Factory.IfExit(CTree.World, string)
+  fullName.vb: CTree.Factory.IfExit(CTree.World, String)
+  nameWithType: Factory.IfExit(World, string)
+  nameWithType.vb: Factory.IfExit(World, String)
+- uid: CTree.Factory.IfExit*
+  name: IfExit
+  href: api/CTree.Factory.html#CTree_Factory_IfExit_
+  commentId: Overload:CTree.Factory.IfExit
   isSpec: "True"
-  fullName: CTree.Factory.IfMouseOver
-  nameWithType: Factory.IfMouseOver
+  fullName: CTree.Factory.IfExit
+  nameWithType: Factory.IfExit
+- uid: CTree.Factory.IfPickup(CTree.World,System.String)
+  name: IfPickup(World, string)
+  href: api/CTree.Factory.html#CTree_Factory_IfPickup_CTree_World_System_String_
+  commentId: M:CTree.Factory.IfPickup(CTree.World,System.String)
+  name.vb: IfPickup(World, String)
+  fullName: CTree.Factory.IfPickup(CTree.World, string)
+  fullName.vb: CTree.Factory.IfPickup(CTree.World, String)
+  nameWithType: Factory.IfPickup(World, string)
+  nameWithType.vb: Factory.IfPickup(World, String)
+- uid: CTree.Factory.IfPickup*
+  name: IfPickup
+  href: api/CTree.Factory.html#CTree_Factory_IfPickup_
+  commentId: Overload:CTree.Factory.IfPickup
+  isSpec: "True"
+  fullName: CTree.Factory.IfPickup
+  nameWithType: Factory.IfPickup
+- uid: CTree.Factory.InitClickable(CTree.World,System.String)
+  name: InitClickable(World, string)
+  href: api/CTree.Factory.html#CTree_Factory_InitClickable_CTree_World_System_String_
+  commentId: M:CTree.Factory.InitClickable(CTree.World,System.String)
+  name.vb: InitClickable(World, String)
+  fullName: CTree.Factory.InitClickable(CTree.World, string)
+  fullName.vb: CTree.Factory.InitClickable(CTree.World, String)
+  nameWithType: Factory.InitClickable(World, string)
+  nameWithType.vb: Factory.InitClickable(World, String)
+- uid: CTree.Factory.InitClickable*
+  name: InitClickable
+  href: api/CTree.Factory.html#CTree_Factory_InitClickable_
+  commentId: Overload:CTree.Factory.InitClickable
+  isSpec: "True"
+  fullName: CTree.Factory.InitClickable
+  nameWithType: Factory.InitClickable
+- uid: CTree.Factory.InitDraggable(CTree.World,System.String)
+  name: InitDraggable(World, string)
+  href: api/CTree.Factory.html#CTree_Factory_InitDraggable_CTree_World_System_String_
+  commentId: M:CTree.Factory.InitDraggable(CTree.World,System.String)
+  name.vb: InitDraggable(World, String)
+  fullName: CTree.Factory.InitDraggable(CTree.World, string)
+  fullName.vb: CTree.Factory.InitDraggable(CTree.World, String)
+  nameWithType: Factory.InitDraggable(World, string)
+  nameWithType.vb: Factory.InitDraggable(World, String)
+- uid: CTree.Factory.InitDraggable*
+  name: InitDraggable
+  href: api/CTree.Factory.html#CTree_Factory_InitDraggable_
+  commentId: Overload:CTree.Factory.InitDraggable
+  isSpec: "True"
+  fullName: CTree.Factory.InitDraggable
+  nameWithType: Factory.InitDraggable
+- uid: CTree.Factory.InitLocation(CTree.World,System.String)
+  name: InitLocation(World, string)
+  href: api/CTree.Factory.html#CTree_Factory_InitLocation_CTree_World_System_String_
+  commentId: M:CTree.Factory.InitLocation(CTree.World,System.String)
+  name.vb: InitLocation(World, String)
+  fullName: CTree.Factory.InitLocation(CTree.World, string)
+  fullName.vb: CTree.Factory.InitLocation(CTree.World, String)
+  nameWithType: Factory.InitLocation(World, string)
+  nameWithType.vb: Factory.InitLocation(World, String)
+- uid: CTree.Factory.InitLocation*
+  name: InitLocation
+  href: api/CTree.Factory.html#CTree_Factory_InitLocation_
+  commentId: Overload:CTree.Factory.InitLocation
+  isSpec: "True"
+  fullName: CTree.Factory.InitLocation
+  nameWithType: Factory.InitLocation
 - uid: CTree.Factory.Move(CTree.World,System.String)
   name: Move(World, string)
   href: api/CTree.Factory.html#CTree_Factory_Move_CTree_World_System_String_
@@ -660,6 +756,22 @@ references:
   isSpec: "True"
   fullName: CTree.Factory.PlayAnimation
   nameWithType: Factory.PlayAnimation
+- uid: CTree.Factory.PlaySound(CTree.World,System.String)
+  name: PlaySound(World, string)
+  href: api/CTree.Factory.html#CTree_Factory_PlaySound_CTree_World_System_String_
+  commentId: M:CTree.Factory.PlaySound(CTree.World,System.String)
+  name.vb: PlaySound(World, String)
+  fullName: CTree.Factory.PlaySound(CTree.World, string)
+  fullName.vb: CTree.Factory.PlaySound(CTree.World, String)
+  nameWithType: Factory.PlaySound(World, string)
+  nameWithType.vb: Factory.PlaySound(World, String)
+- uid: CTree.Factory.PlaySound*
+  name: PlaySound
+  href: api/CTree.Factory.html#CTree_Factory_PlaySound_
+  commentId: Overload:CTree.Factory.PlaySound
+  isSpec: "True"
+  fullName: CTree.Factory.PlaySound
+  nameWithType: Factory.PlaySound
 - uid: CTree.Factory.Pulse(CTree.World,System.String)
   name: Pulse(World, string)
   href: api/CTree.Factory.html#CTree_Factory_Pulse_CTree_World_System_String_
@@ -820,6 +932,22 @@ references:
   isSpec: "True"
   fullName: CTree.Factory.StopAnimation
   nameWithType: Factory.StopAnimation
+- uid: CTree.Factory.StopSound(CTree.World,System.String)
+  name: StopSound(World, string)
+  href: api/CTree.Factory.html#CTree_Factory_StopSound_CTree_World_System_String_
+  commentId: M:CTree.Factory.StopSound(CTree.World,System.String)
+  name.vb: StopSound(World, String)
+  fullName: CTree.Factory.StopSound(CTree.World, string)
+  fullName.vb: CTree.Factory.StopSound(CTree.World, String)
+  nameWithType: Factory.StopSound(World, string)
+  nameWithType.vb: Factory.StopSound(World, String)
+- uid: CTree.Factory.StopSound*
+  name: StopSound
+  href: api/CTree.Factory.html#CTree_Factory_StopSound_
+  commentId: Overload:CTree.Factory.StopSound
+  isSpec: "True"
+  fullName: CTree.Factory.StopSound
+  nameWithType: Factory.StopSound
 - uid: CTree.Factory.Wait(CTree.World,System.String)
   name: Wait(World, string)
   href: api/CTree.Factory.html#CTree_Factory_Wait_CTree_World_System_String_
@@ -920,6 +1048,44 @@ references:
   commentId: F:CTree.GameLoop.options
   fullName: CTree.GameLoop.options
   nameWithType: GameLoop.options
+- uid: CTree.HighlightBehavior
+  name: HighlightBehavior
+  href: api/CTree.HighlightBehavior.html
+  commentId: T:CTree.HighlightBehavior
+  fullName: CTree.HighlightBehavior
+  nameWithType: HighlightBehavior
+- uid: CTree.HighlightBehavior.#ctor(CTree.World,UnityEngine.Color,UnityEngine.AudioSource,UnityEngine.Color,UnityEngine.AudioSource)
+  name: HighlightBehavior(World, Color, AudioSource, Color, AudioSource)
+  href: api/CTree.HighlightBehavior.html#CTree_HighlightBehavior__ctor_CTree_World_UnityEngine_Color_UnityEngine_AudioSource_UnityEngine_Color_UnityEngine_AudioSource_
+  commentId: M:CTree.HighlightBehavior.#ctor(CTree.World,UnityEngine.Color,UnityEngine.AudioSource,UnityEngine.Color,UnityEngine.AudioSource)
+  name.vb: New(World, Color, AudioSource, Color, AudioSource)
+  fullName: CTree.HighlightBehavior.HighlightBehavior(CTree.World, UnityEngine.Color, UnityEngine.AudioSource, UnityEngine.Color, UnityEngine.AudioSource)
+  fullName.vb: CTree.HighlightBehavior.New(CTree.World, UnityEngine.Color, UnityEngine.AudioSource, UnityEngine.Color, UnityEngine.AudioSource)
+  nameWithType: HighlightBehavior.HighlightBehavior(World, Color, AudioSource, Color, AudioSource)
+  nameWithType.vb: HighlightBehavior.New(World, Color, AudioSource, Color, AudioSource)
+- uid: CTree.HighlightBehavior.#ctor*
+  name: HighlightBehavior
+  href: api/CTree.HighlightBehavior.html#CTree_HighlightBehavior__ctor_
+  commentId: Overload:CTree.HighlightBehavior.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CTree.HighlightBehavior.HighlightBehavior
+  fullName.vb: CTree.HighlightBehavior.New
+  nameWithType: HighlightBehavior.HighlightBehavior
+  nameWithType.vb: HighlightBehavior.New
+- uid: CTree.HighlightBehavior.Setup
+  name: Setup()
+  href: api/CTree.HighlightBehavior.html#CTree_HighlightBehavior_Setup
+  commentId: M:CTree.HighlightBehavior.Setup
+  fullName: CTree.HighlightBehavior.Setup()
+  nameWithType: HighlightBehavior.Setup()
+- uid: CTree.HighlightBehavior.Setup*
+  name: Setup
+  href: api/CTree.HighlightBehavior.html#CTree_HighlightBehavior_Setup_
+  commentId: Overload:CTree.HighlightBehavior.Setup
+  isSpec: "True"
+  fullName: CTree.HighlightBehavior.Setup
+  nameWithType: HighlightBehavior.Setup
 - uid: CTree.IfBehavior
   name: IfBehavior
   href: api/CTree.IfBehavior.html
@@ -945,19 +1111,6 @@ references:
   fullName.vb: CTree.IfBehavior.New
   nameWithType: IfBehavior.IfBehavior
   nameWithType.vb: IfBehavior.New
-- uid: CTree.IfBehavior.Finished
-  name: Finished()
-  href: api/CTree.IfBehavior.html#CTree_IfBehavior_Finished
-  commentId: M:CTree.IfBehavior.Finished
-  fullName: CTree.IfBehavior.Finished()
-  nameWithType: IfBehavior.Finished()
-- uid: CTree.IfBehavior.Finished*
-  name: Finished
-  href: api/CTree.IfBehavior.html#CTree_IfBehavior_Finished_
-  commentId: Overload:CTree.IfBehavior.Finished
-  isSpec: "True"
-  fullName: CTree.IfBehavior.Finished
-  nameWithType: IfBehavior.Finished
 - uid: CTree.IfBehavior.IsTrue
   name: IsTrue()
   href: api/CTree.IfBehavior.html#CTree_IfBehavior_IsTrue
@@ -1132,30 +1285,42 @@ references:
   commentId: F:CTree.IfInteractableBehavior.Type.CLICK
   fullName: CTree.IfInteractableBehavior.Type.CLICK
   nameWithType: IfInteractableBehavior.Type.CLICK
-- uid: CTree.IfInteractableBehavior.Type.DRAG
-  name: DRAG
-  href: api/CTree.IfInteractableBehavior.Type.html#CTree_IfInteractableBehavior_Type_DRAG
-  commentId: F:CTree.IfInteractableBehavior.Type.DRAG
-  fullName: CTree.IfInteractableBehavior.Type.DRAG
-  nameWithType: IfInteractableBehavior.Type.DRAG
+- uid: CTree.IfInteractableBehavior.Type.DRAG_ENTER
+  name: DRAG_ENTER
+  href: api/CTree.IfInteractableBehavior.Type.html#CTree_IfInteractableBehavior_Type_DRAG_ENTER
+  commentId: F:CTree.IfInteractableBehavior.Type.DRAG_ENTER
+  fullName: CTree.IfInteractableBehavior.Type.DRAG_ENTER
+  nameWithType: IfInteractableBehavior.Type.DRAG_ENTER
+- uid: CTree.IfInteractableBehavior.Type.DRAG_EXIT
+  name: DRAG_EXIT
+  href: api/CTree.IfInteractableBehavior.Type.html#CTree_IfInteractableBehavior_Type_DRAG_EXIT
+  commentId: F:CTree.IfInteractableBehavior.Type.DRAG_EXIT
+  fullName: CTree.IfInteractableBehavior.Type.DRAG_EXIT
+  nameWithType: IfInteractableBehavior.Type.DRAG_EXIT
 - uid: CTree.IfInteractableBehavior.Type.DROP
   name: DROP
   href: api/CTree.IfInteractableBehavior.Type.html#CTree_IfInteractableBehavior_Type_DROP
   commentId: F:CTree.IfInteractableBehavior.Type.DROP
   fullName: CTree.IfInteractableBehavior.Type.DROP
   nameWithType: IfInteractableBehavior.Type.DROP
-- uid: CTree.IfInteractableBehavior.Type.HOVER
-  name: HOVER
-  href: api/CTree.IfInteractableBehavior.Type.html#CTree_IfInteractableBehavior_Type_HOVER
-  commentId: F:CTree.IfInteractableBehavior.Type.HOVER
-  fullName: CTree.IfInteractableBehavior.Type.HOVER
-  nameWithType: IfInteractableBehavior.Type.HOVER
-- uid: CTree.IfInteractableBehavior.Type.MOUSE_OVER
-  name: MOUSE_OVER
-  href: api/CTree.IfInteractableBehavior.Type.html#CTree_IfInteractableBehavior_Type_MOUSE_OVER
-  commentId: F:CTree.IfInteractableBehavior.Type.MOUSE_OVER
-  fullName: CTree.IfInteractableBehavior.Type.MOUSE_OVER
-  nameWithType: IfInteractableBehavior.Type.MOUSE_OVER
+- uid: CTree.IfInteractableBehavior.Type.ENTER
+  name: ENTER
+  href: api/CTree.IfInteractableBehavior.Type.html#CTree_IfInteractableBehavior_Type_ENTER
+  commentId: F:CTree.IfInteractableBehavior.Type.ENTER
+  fullName: CTree.IfInteractableBehavior.Type.ENTER
+  nameWithType: IfInteractableBehavior.Type.ENTER
+- uid: CTree.IfInteractableBehavior.Type.EXIT
+  name: EXIT
+  href: api/CTree.IfInteractableBehavior.Type.html#CTree_IfInteractableBehavior_Type_EXIT
+  commentId: F:CTree.IfInteractableBehavior.Type.EXIT
+  fullName: CTree.IfInteractableBehavior.Type.EXIT
+  nameWithType: IfInteractableBehavior.Type.EXIT
+- uid: CTree.IfInteractableBehavior.Type.PICKUP
+  name: PICKUP
+  href: api/CTree.IfInteractableBehavior.Type.html#CTree_IfInteractableBehavior_Type_PICKUP
+  commentId: F:CTree.IfInteractableBehavior.Type.PICKUP
+  fullName: CTree.IfInteractableBehavior.Type.PICKUP
+  nameWithType: IfInteractableBehavior.Type.PICKUP
 - uid: CTree.IfInteractableBehavior.Type.UNKNOWN
   name: UNKNOWN
   href: api/CTree.IfInteractableBehavior.Type.html#CTree_IfInteractableBehavior_Type_UNKNOWN
@@ -1168,12 +1333,12 @@ references:
   commentId: T:CTree.Interactable
   fullName: CTree.Interactable
   nameWithType: Interactable
-- uid: CTree.Interactable.AddClickCb(CTree.Interactable.ClickCb)
-  name: AddClickCb(ClickCb)
-  href: api/CTree.Interactable.html#CTree_Interactable_AddClickCb_CTree_Interactable_ClickCb_
-  commentId: M:CTree.Interactable.AddClickCb(CTree.Interactable.ClickCb)
-  fullName: CTree.Interactable.AddClickCb(CTree.Interactable.ClickCb)
-  nameWithType: Interactable.AddClickCb(Interactable.ClickCb)
+- uid: CTree.Interactable.AddClickCb(CTree.Interactable.InteractableCb)
+  name: AddClickCb(InteractableCb)
+  href: api/CTree.Interactable.html#CTree_Interactable_AddClickCb_CTree_Interactable_InteractableCb_
+  commentId: M:CTree.Interactable.AddClickCb(CTree.Interactable.InteractableCb)
+  fullName: CTree.Interactable.AddClickCb(CTree.Interactable.InteractableCb)
+  nameWithType: Interactable.AddClickCb(Interactable.InteractableCb)
 - uid: CTree.Interactable.AddClickCb*
   name: AddClickCb
   href: api/CTree.Interactable.html#CTree_Interactable_AddClickCb_
@@ -1181,19 +1346,32 @@ references:
   isSpec: "True"
   fullName: CTree.Interactable.AddClickCb
   nameWithType: Interactable.AddClickCb
-- uid: CTree.Interactable.AddDragCb(CTree.Interactable.DragCb)
-  name: AddDragCb(DragCb)
-  href: api/CTree.Interactable.html#CTree_Interactable_AddDragCb_CTree_Interactable_DragCb_
-  commentId: M:CTree.Interactable.AddDragCb(CTree.Interactable.DragCb)
-  fullName: CTree.Interactable.AddDragCb(CTree.Interactable.DragCb)
-  nameWithType: Interactable.AddDragCb(Interactable.DragCb)
-- uid: CTree.Interactable.AddDragCb*
-  name: AddDragCb
-  href: api/CTree.Interactable.html#CTree_Interactable_AddDragCb_
-  commentId: Overload:CTree.Interactable.AddDragCb
+- uid: CTree.Interactable.AddDragEnterCb(CTree.Interactable.LocationCb)
+  name: AddDragEnterCb(LocationCb)
+  href: api/CTree.Interactable.html#CTree_Interactable_AddDragEnterCb_CTree_Interactable_LocationCb_
+  commentId: M:CTree.Interactable.AddDragEnterCb(CTree.Interactable.LocationCb)
+  fullName: CTree.Interactable.AddDragEnterCb(CTree.Interactable.LocationCb)
+  nameWithType: Interactable.AddDragEnterCb(Interactable.LocationCb)
+- uid: CTree.Interactable.AddDragEnterCb*
+  name: AddDragEnterCb
+  href: api/CTree.Interactable.html#CTree_Interactable_AddDragEnterCb_
+  commentId: Overload:CTree.Interactable.AddDragEnterCb
   isSpec: "True"
-  fullName: CTree.Interactable.AddDragCb
-  nameWithType: Interactable.AddDragCb
+  fullName: CTree.Interactable.AddDragEnterCb
+  nameWithType: Interactable.AddDragEnterCb
+- uid: CTree.Interactable.AddDragExitCb(CTree.Interactable.LocationCb)
+  name: AddDragExitCb(LocationCb)
+  href: api/CTree.Interactable.html#CTree_Interactable_AddDragExitCb_CTree_Interactable_LocationCb_
+  commentId: M:CTree.Interactable.AddDragExitCb(CTree.Interactable.LocationCb)
+  fullName: CTree.Interactable.AddDragExitCb(CTree.Interactable.LocationCb)
+  nameWithType: Interactable.AddDragExitCb(Interactable.LocationCb)
+- uid: CTree.Interactable.AddDragExitCb*
+  name: AddDragExitCb
+  href: api/CTree.Interactable.html#CTree_Interactable_AddDragExitCb_
+  commentId: Overload:CTree.Interactable.AddDragExitCb
+  isSpec: "True"
+  fullName: CTree.Interactable.AddDragExitCb
+  nameWithType: Interactable.AddDragExitCb
 - uid: CTree.Interactable.AddDragTarget(UnityEngine.GameObject)
   name: AddDragTarget(GameObject)
   href: api/CTree.Interactable.html#CTree_Interactable_AddDragTarget_UnityEngine_GameObject_
@@ -1207,12 +1385,12 @@ references:
   isSpec: "True"
   fullName: CTree.Interactable.AddDragTarget
   nameWithType: Interactable.AddDragTarget
-- uid: CTree.Interactable.AddDropCb(CTree.Interactable.DropCb)
-  name: AddDropCb(DropCb)
-  href: api/CTree.Interactable.html#CTree_Interactable_AddDropCb_CTree_Interactable_DropCb_
-  commentId: M:CTree.Interactable.AddDropCb(CTree.Interactable.DropCb)
-  fullName: CTree.Interactable.AddDropCb(CTree.Interactable.DropCb)
-  nameWithType: Interactable.AddDropCb(Interactable.DropCb)
+- uid: CTree.Interactable.AddDropCb(CTree.Interactable.LocationCb)
+  name: AddDropCb(LocationCb)
+  href: api/CTree.Interactable.html#CTree_Interactable_AddDropCb_CTree_Interactable_LocationCb_
+  commentId: M:CTree.Interactable.AddDropCb(CTree.Interactable.LocationCb)
+  fullName: CTree.Interactable.AddDropCb(CTree.Interactable.LocationCb)
+  nameWithType: Interactable.AddDropCb(Interactable.LocationCb)
 - uid: CTree.Interactable.AddDropCb*
   name: AddDropCb
   href: api/CTree.Interactable.html#CTree_Interactable_AddDropCb_
@@ -1220,32 +1398,45 @@ references:
   isSpec: "True"
   fullName: CTree.Interactable.AddDropCb
   nameWithType: Interactable.AddDropCb
-- uid: CTree.Interactable.AddHoverCb(CTree.Interactable.HoverCb)
-  name: AddHoverCb(HoverCb)
-  href: api/CTree.Interactable.html#CTree_Interactable_AddHoverCb_CTree_Interactable_HoverCb_
-  commentId: M:CTree.Interactable.AddHoverCb(CTree.Interactable.HoverCb)
-  fullName: CTree.Interactable.AddHoverCb(CTree.Interactable.HoverCb)
-  nameWithType: Interactable.AddHoverCb(Interactable.HoverCb)
-- uid: CTree.Interactable.AddHoverCb*
-  name: AddHoverCb
-  href: api/CTree.Interactable.html#CTree_Interactable_AddHoverCb_
-  commentId: Overload:CTree.Interactable.AddHoverCb
+- uid: CTree.Interactable.AddHoverEnterCb(CTree.Interactable.InteractableCb)
+  name: AddHoverEnterCb(InteractableCb)
+  href: api/CTree.Interactable.html#CTree_Interactable_AddHoverEnterCb_CTree_Interactable_InteractableCb_
+  commentId: M:CTree.Interactable.AddHoverEnterCb(CTree.Interactable.InteractableCb)
+  fullName: CTree.Interactable.AddHoverEnterCb(CTree.Interactable.InteractableCb)
+  nameWithType: Interactable.AddHoverEnterCb(Interactable.InteractableCb)
+- uid: CTree.Interactable.AddHoverEnterCb*
+  name: AddHoverEnterCb
+  href: api/CTree.Interactable.html#CTree_Interactable_AddHoverEnterCb_
+  commentId: Overload:CTree.Interactable.AddHoverEnterCb
   isSpec: "True"
-  fullName: CTree.Interactable.AddHoverCb
-  nameWithType: Interactable.AddHoverCb
-- uid: CTree.Interactable.AddMouseOverCb(CTree.Interactable.MouseOverCb)
-  name: AddMouseOverCb(MouseOverCb)
-  href: api/CTree.Interactable.html#CTree_Interactable_AddMouseOverCb_CTree_Interactable_MouseOverCb_
-  commentId: M:CTree.Interactable.AddMouseOverCb(CTree.Interactable.MouseOverCb)
-  fullName: CTree.Interactable.AddMouseOverCb(CTree.Interactable.MouseOverCb)
-  nameWithType: Interactable.AddMouseOverCb(Interactable.MouseOverCb)
-- uid: CTree.Interactable.AddMouseOverCb*
-  name: AddMouseOverCb
-  href: api/CTree.Interactable.html#CTree_Interactable_AddMouseOverCb_
-  commentId: Overload:CTree.Interactable.AddMouseOverCb
+  fullName: CTree.Interactable.AddHoverEnterCb
+  nameWithType: Interactable.AddHoverEnterCb
+- uid: CTree.Interactable.AddHoverExitCb(CTree.Interactable.InteractableCb)
+  name: AddHoverExitCb(InteractableCb)
+  href: api/CTree.Interactable.html#CTree_Interactable_AddHoverExitCb_CTree_Interactable_InteractableCb_
+  commentId: M:CTree.Interactable.AddHoverExitCb(CTree.Interactable.InteractableCb)
+  fullName: CTree.Interactable.AddHoverExitCb(CTree.Interactable.InteractableCb)
+  nameWithType: Interactable.AddHoverExitCb(Interactable.InteractableCb)
+- uid: CTree.Interactable.AddHoverExitCb*
+  name: AddHoverExitCb
+  href: api/CTree.Interactable.html#CTree_Interactable_AddHoverExitCb_
+  commentId: Overload:CTree.Interactable.AddHoverExitCb
   isSpec: "True"
-  fullName: CTree.Interactable.AddMouseOverCb
-  nameWithType: Interactable.AddMouseOverCb
+  fullName: CTree.Interactable.AddHoverExitCb
+  nameWithType: Interactable.AddHoverExitCb
+- uid: CTree.Interactable.AddPickupCb(CTree.Interactable.InteractableCb)
+  name: AddPickupCb(InteractableCb)
+  href: api/CTree.Interactable.html#CTree_Interactable_AddPickupCb_CTree_Interactable_InteractableCb_
+  commentId: M:CTree.Interactable.AddPickupCb(CTree.Interactable.InteractableCb)
+  fullName: CTree.Interactable.AddPickupCb(CTree.Interactable.InteractableCb)
+  nameWithType: Interactable.AddPickupCb(Interactable.InteractableCb)
+- uid: CTree.Interactable.AddPickupCb*
+  name: AddPickupCb
+  href: api/CTree.Interactable.html#CTree_Interactable_AddPickupCb_
+  commentId: Overload:CTree.Interactable.AddPickupCb
+  isSpec: "True"
+  fullName: CTree.Interactable.AddPickupCb
+  nameWithType: Interactable.AddPickupCb
 - uid: CTree.Interactable.CanDropOnto(UnityEngine.GameObject)
   name: CanDropOnto(GameObject)
   href: api/CTree.Interactable.html#CTree_Interactable_CanDropOnto_UnityEngine_GameObject_
@@ -1316,6 +1507,19 @@ references:
   isSpec: "True"
   fullName: CTree.Interactable.GetClicked
   nameWithType: Interactable.GetClicked
+- uid: CTree.Interactable.GetDragTargets
+  name: GetDragTargets()
+  href: api/CTree.Interactable.html#CTree_Interactable_GetDragTargets
+  commentId: M:CTree.Interactable.GetDragTargets
+  fullName: CTree.Interactable.GetDragTargets()
+  nameWithType: Interactable.GetDragTargets()
+- uid: CTree.Interactable.GetDragTargets*
+  name: GetDragTargets
+  href: api/CTree.Interactable.html#CTree_Interactable_GetDragTargets_
+  commentId: Overload:CTree.Interactable.GetDragTargets
+  isSpec: "True"
+  fullName: CTree.Interactable.GetDragTargets
+  nameWithType: Interactable.GetDragTargets
 - uid: CTree.Interactable.GetGrabbed
   name: GetGrabbed()
   href: api/CTree.Interactable.html#CTree_Interactable_GetGrabbed
@@ -1348,12 +1552,50 @@ references:
   commentId: T:CTree.Interactable.HoverCb
   fullName: CTree.Interactable.HoverCb
   nameWithType: Interactable.HoverCb
+- uid: CTree.Interactable.InteractableCb
+  name: Interactable.InteractableCb
+  href: api/CTree.Interactable.InteractableCb.html
+  commentId: T:CTree.Interactable.InteractableCb
+  fullName: CTree.Interactable.InteractableCb
+  nameWithType: Interactable.InteractableCb
+- uid: CTree.Interactable.LocationCb
+  name: Interactable.LocationCb
+  href: api/CTree.Interactable.LocationCb.html
+  commentId: T:CTree.Interactable.LocationCb
+  fullName: CTree.Interactable.LocationCb
+  nameWithType: Interactable.LocationCb
 - uid: CTree.Interactable.MouseOverCb
   name: Interactable.MouseOverCb
   href: api/CTree.Interactable.MouseOverCb.html
   commentId: T:CTree.Interactable.MouseOverCb
   fullName: CTree.Interactable.MouseOverCb
   nameWithType: Interactable.MouseOverCb
+- uid: CTree.Interactable.OnDrag(UnityEngine.GameObject)
+  name: OnDrag(GameObject)
+  href: api/CTree.Interactable.html#CTree_Interactable_OnDrag_UnityEngine_GameObject_
+  commentId: M:CTree.Interactable.OnDrag(UnityEngine.GameObject)
+  fullName: CTree.Interactable.OnDrag(UnityEngine.GameObject)
+  nameWithType: Interactable.OnDrag(GameObject)
+- uid: CTree.Interactable.OnDrag*
+  name: OnDrag
+  href: api/CTree.Interactable.html#CTree_Interactable_OnDrag_
+  commentId: Overload:CTree.Interactable.OnDrag
+  isSpec: "True"
+  fullName: CTree.Interactable.OnDrag
+  nameWithType: Interactable.OnDrag
+- uid: CTree.Interactable.OnDragEnter(UnityEngine.GameObject)
+  name: OnDragEnter(GameObject)
+  href: api/CTree.Interactable.html#CTree_Interactable_OnDragEnter_UnityEngine_GameObject_
+  commentId: M:CTree.Interactable.OnDragEnter(UnityEngine.GameObject)
+  fullName: CTree.Interactable.OnDragEnter(UnityEngine.GameObject)
+  nameWithType: Interactable.OnDragEnter(GameObject)
+- uid: CTree.Interactable.OnDragEnter*
+  name: OnDragEnter
+  href: api/CTree.Interactable.html#CTree_Interactable_OnDragEnter_
+  commentId: Overload:CTree.Interactable.OnDragEnter
+  isSpec: "True"
+  fullName: CTree.Interactable.OnDragEnter
+  nameWithType: Interactable.OnDragEnter
 - uid: CTree.Interactable.OnDropTarget(UnityEngine.GameObject)
   name: OnDropTarget(GameObject)
   href: api/CTree.Interactable.html#CTree_Interactable_OnDropTarget_UnityEngine_GameObject_
@@ -1367,32 +1609,32 @@ references:
   isSpec: "True"
   fullName: CTree.Interactable.OnDropTarget
   nameWithType: Interactable.OnDropTarget
-- uid: CTree.Interactable.OnHoverTarget(UnityEngine.GameObject)
-  name: OnHoverTarget(GameObject)
-  href: api/CTree.Interactable.html#CTree_Interactable_OnHoverTarget_UnityEngine_GameObject_
-  commentId: M:CTree.Interactable.OnHoverTarget(UnityEngine.GameObject)
-  fullName: CTree.Interactable.OnHoverTarget(UnityEngine.GameObject)
-  nameWithType: Interactable.OnHoverTarget(GameObject)
-- uid: CTree.Interactable.OnHoverTarget*
-  name: OnHoverTarget
-  href: api/CTree.Interactable.html#CTree_Interactable_OnHoverTarget_
-  commentId: Overload:CTree.Interactable.OnHoverTarget
+- uid: CTree.Interactable.OnHoverEnter
+  name: OnHoverEnter()
+  href: api/CTree.Interactable.html#CTree_Interactable_OnHoverEnter
+  commentId: M:CTree.Interactable.OnHoverEnter
+  fullName: CTree.Interactable.OnHoverEnter()
+  nameWithType: Interactable.OnHoverEnter()
+- uid: CTree.Interactable.OnHoverEnter*
+  name: OnHoverEnter
+  href: api/CTree.Interactable.html#CTree_Interactable_OnHoverEnter_
+  commentId: Overload:CTree.Interactable.OnHoverEnter
   isSpec: "True"
-  fullName: CTree.Interactable.OnHoverTarget
-  nameWithType: Interactable.OnHoverTarget
-- uid: CTree.Interactable.OnMouseOver
-  name: OnMouseOver()
-  href: api/CTree.Interactable.html#CTree_Interactable_OnMouseOver
-  commentId: M:CTree.Interactable.OnMouseOver
-  fullName: CTree.Interactable.OnMouseOver()
-  nameWithType: Interactable.OnMouseOver()
-- uid: CTree.Interactable.OnMouseOver*
-  name: OnMouseOver
-  href: api/CTree.Interactable.html#CTree_Interactable_OnMouseOver_
-  commentId: Overload:CTree.Interactable.OnMouseOver
+  fullName: CTree.Interactable.OnHoverEnter
+  nameWithType: Interactable.OnHoverEnter
+- uid: CTree.Interactable.OnHoverExit
+  name: OnHoverExit()
+  href: api/CTree.Interactable.html#CTree_Interactable_OnHoverExit
+  commentId: M:CTree.Interactable.OnHoverExit
+  fullName: CTree.Interactable.OnHoverExit()
+  nameWithType: Interactable.OnHoverExit()
+- uid: CTree.Interactable.OnHoverExit*
+  name: OnHoverExit
+  href: api/CTree.Interactable.html#CTree_Interactable_OnHoverExit_
+  commentId: Overload:CTree.Interactable.OnHoverExit
   isSpec: "True"
-  fullName: CTree.Interactable.OnMouseOver
-  nameWithType: Interactable.OnMouseOver
+  fullName: CTree.Interactable.OnHoverExit
+  nameWithType: Interactable.OnHoverExit
 - uid: CTree.Interactable.RemoveLocation
   name: RemoveLocation()
   href: api/CTree.Interactable.html#CTree_Interactable_RemoveLocation
@@ -1548,6 +1790,32 @@ references:
   isSpec: "True"
   fullName: CTree.Location.GetAnchorPlacement
   nameWithType: Location.GetAnchorPlacement
+- uid: CTree.Location.HasAnchor(CTree.Interactable)
+  name: HasAnchor(Interactable)
+  href: api/CTree.Location.html#CTree_Location_HasAnchor_CTree_Interactable_
+  commentId: M:CTree.Location.HasAnchor(CTree.Interactable)
+  fullName: CTree.Location.HasAnchor(CTree.Interactable)
+  nameWithType: Location.HasAnchor(Interactable)
+- uid: CTree.Location.HasAnchor*
+  name: HasAnchor
+  href: api/CTree.Location.html#CTree_Location_HasAnchor_
+  commentId: Overload:CTree.Location.HasAnchor
+  isSpec: "True"
+  fullName: CTree.Location.HasAnchor
+  nameWithType: Location.HasAnchor
+- uid: CTree.Location.Init
+  name: Init()
+  href: api/CTree.Location.html#CTree_Location_Init
+  commentId: M:CTree.Location.Init
+  fullName: CTree.Location.Init()
+  nameWithType: Location.Init()
+- uid: CTree.Location.Init*
+  name: Init
+  href: api/CTree.Location.html#CTree_Location_Init_
+  commentId: Overload:CTree.Location.Init
+  isSpec: "True"
+  fullName: CTree.Location.Init
+  nameWithType: Location.Init
 - uid: CTree.Location.IsAvailable(CTree.Interactable)
   name: IsAvailable(Interactable)
   href: api/CTree.Location.html#CTree_Location_IsAvailable_CTree_Interactable_
@@ -1844,6 +2112,12 @@ references:
   isSpec: "True"
   fullName: CTree.ProceduralAnimator.Pulse
   nameWithType: ProceduralAnimator.Pulse
+- uid: CTree.ProceduralAnimator.RevertColor(UnityEngine.Transform)
+  name: RevertColor(Transform)
+  href: api/CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_RevertColor_UnityEngine_Transform_
+  commentId: M:CTree.ProceduralAnimator.RevertColor(UnityEngine.Transform)
+  fullName: CTree.ProceduralAnimator.RevertColor(UnityEngine.Transform)
+  nameWithType: ProceduralAnimator.RevertColor(Transform)
 - uid: CTree.ProceduralAnimator.RevertColor(UnityEngine.Transform,System.Single)
   name: RevertColor(Transform, float)
   href: api/CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_RevertColor_UnityEngine_Transform_System_Single_
@@ -1860,6 +2134,19 @@ references:
   isSpec: "True"
   fullName: CTree.ProceduralAnimator.RevertColor
   nameWithType: ProceduralAnimator.RevertColor
+- uid: CTree.ProceduralAnimator.SetColor(UnityEngine.Transform,UnityEngine.Color)
+  name: SetColor(Transform, Color)
+  href: api/CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_SetColor_UnityEngine_Transform_UnityEngine_Color_
+  commentId: M:CTree.ProceduralAnimator.SetColor(UnityEngine.Transform,UnityEngine.Color)
+  fullName: CTree.ProceduralAnimator.SetColor(UnityEngine.Transform, UnityEngine.Color)
+  nameWithType: ProceduralAnimator.SetColor(Transform, Color)
+- uid: CTree.ProceduralAnimator.SetColor*
+  name: SetColor
+  href: api/CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_SetColor_
+  commentId: Overload:CTree.ProceduralAnimator.SetColor
+  isSpec: "True"
+  fullName: CTree.ProceduralAnimator.SetColor
+  nameWithType: ProceduralAnimator.SetColor
 - uid: CTree.ProceduralAnimator.SetText(UnityEngine.Transform,System.String)
   name: SetText(Transform, string)
   href: api/CTree.ProceduralAnimator.html#CTree_ProceduralAnimator_SetText_UnityEngine_Transform_System_String_
@@ -2083,6 +2370,75 @@ references:
   isSpec: "True"
   fullName: CTree.SequenceBehavior.Tick
   nameWithType: SequenceBehavior.Tick
+- uid: CTree.Sound
+  name: Sound
+  href: api/CTree.Sound.html
+  commentId: T:CTree.Sound
+  fullName: CTree.Sound
+  nameWithType: Sound
+- uid: CTree.Sound.#ctor(CTree.World,System.String,CTree.Sound.Mode)
+  name: Sound(World, string, Mode)
+  href: api/CTree.Sound.html#CTree_Sound__ctor_CTree_World_System_String_CTree_Sound_Mode_
+  commentId: M:CTree.Sound.#ctor(CTree.World,System.String,CTree.Sound.Mode)
+  name.vb: New(World, String, Mode)
+  fullName: CTree.Sound.Sound(CTree.World, string, CTree.Sound.Mode)
+  fullName.vb: CTree.Sound.New(CTree.World, String, CTree.Sound.Mode)
+  nameWithType: Sound.Sound(World, string, Sound.Mode)
+  nameWithType.vb: Sound.New(World, String, Sound.Mode)
+- uid: CTree.Sound.#ctor*
+  name: Sound
+  href: api/CTree.Sound.html#CTree_Sound__ctor_
+  commentId: Overload:CTree.Sound.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: CTree.Sound.Sound
+  fullName.vb: CTree.Sound.New
+  nameWithType: Sound.Sound
+  nameWithType.vb: Sound.New
+- uid: CTree.Sound.Mode
+  name: Sound.Mode
+  href: api/CTree.Sound.Mode.html
+  commentId: T:CTree.Sound.Mode
+  fullName: CTree.Sound.Mode
+  nameWithType: Sound.Mode
+- uid: CTree.Sound.Mode.PLAY
+  name: PLAY
+  href: api/CTree.Sound.Mode.html#CTree_Sound_Mode_PLAY
+  commentId: F:CTree.Sound.Mode.PLAY
+  fullName: CTree.Sound.Mode.PLAY
+  nameWithType: Sound.Mode.PLAY
+- uid: CTree.Sound.Mode.STOP
+  name: STOP
+  href: api/CTree.Sound.Mode.html#CTree_Sound_Mode_STOP
+  commentId: F:CTree.Sound.Mode.STOP
+  fullName: CTree.Sound.Mode.STOP
+  nameWithType: Sound.Mode.STOP
+- uid: CTree.Sound.Setup
+  name: Setup()
+  href: api/CTree.Sound.html#CTree_Sound_Setup
+  commentId: M:CTree.Sound.Setup
+  fullName: CTree.Sound.Setup()
+  nameWithType: Sound.Setup()
+- uid: CTree.Sound.Setup*
+  name: Setup
+  href: api/CTree.Sound.html#CTree_Sound_Setup_
+  commentId: Overload:CTree.Sound.Setup
+  isSpec: "True"
+  fullName: CTree.Sound.Setup
+  nameWithType: Sound.Setup
+- uid: CTree.Sound.Tick
+  name: Tick()
+  href: api/CTree.Sound.html#CTree_Sound_Tick
+  commentId: M:CTree.Sound.Tick
+  fullName: CTree.Sound.Tick()
+  nameWithType: Sound.Tick()
+- uid: CTree.Sound.Tick*
+  name: Tick
+  href: api/CTree.Sound.html#CTree_Sound_Tick_
+  commentId: Overload:CTree.Sound.Tick
+  isSpec: "True"
+  fullName: CTree.Sound.Tick
+  nameWithType: Sound.Tick
 - uid: CTree.Utils
   name: Utils
   href: api/CTree.Utils.html
@@ -2352,6 +2708,19 @@ references:
   isSpec: "True"
   fullName: CTree.World.GetInteractables
   nameWithType: World.GetInteractables
+- uid: CTree.World.GetLocations
+  name: GetLocations()
+  href: api/CTree.World.html#CTree_World_GetLocations
+  commentId: M:CTree.World.GetLocations
+  fullName: CTree.World.GetLocations()
+  nameWithType: World.GetLocations()
+- uid: CTree.World.GetLocations*
+  name: GetLocations
+  href: api/CTree.World.html#CTree_World_GetLocations_
+  commentId: Overload:CTree.World.GetLocations
+  isSpec: "True"
+  fullName: CTree.World.GetLocations
+  nameWithType: World.GetLocations
 - uid: CTree.World.GetString(System.String)
   name: GetString(string)
   href: api/CTree.World.html#CTree_World_GetString_System_String_

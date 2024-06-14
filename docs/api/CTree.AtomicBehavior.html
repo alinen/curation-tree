@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class AtomicBehavior | Curation Tree ">
     
-    <meta name="description" content="Implements behaviors that perform actions that only require a single frame to execute.  Configure AtomicBehavior with a function argument that takes World as input. For example, the following code enables the scene asset with name objName. Behavior b = new AtomicBehavior(world, (w) =&amp;gt; {    Transform xform = world.Get(objName.Trim());    xform.gameObject.SetActive(true); });">
+    <meta name="description" content="Implements behaviors that perform actions that only require a single frame to execute.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -104,6 +104,9 @@
                             <a href="CTree.CoroutineBehavior.html" title="CoroutineBehavior" class="">CoroutineBehavior</a>
                           </li>
                           <li class="">
+                            <a href="CTree.CoroutineBehavior.AnimatorFn.html" title="CoroutineBehavior.AnimatorFn" class="">CoroutineBehavior.AnimatorFn</a>
+                          </li>
+                          <li class="">
                             <a href="CTree.Factory.html" title="Factory" class="">Factory</a>
                           </li>
                           <li class="">
@@ -117,6 +120,9 @@
                           </li>
                           <li class="">
                             <a href="CTree.GameLoop.Options.html" title="GameLoop.Options" class="">GameLoop.Options</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.HighlightBehavior.html" title="HighlightBehavior" class="">HighlightBehavior</a>
                           </li>
                           <li class="">
                             <a href="CTree.IfBehavior.html" title="IfBehavior" class="">IfBehavior</a>
@@ -134,19 +140,10 @@
                             <a href="CTree.Interactable.html" title="Interactable" class="">Interactable</a>
                           </li>
                           <li class="">
-                            <a href="CTree.Interactable.ClickCb.html" title="Interactable.ClickCb" class="">Interactable.ClickCb</a>
+                            <a href="CTree.Interactable.InteractableCb.html" title="Interactable.InteractableCb" class="">Interactable.InteractableCb</a>
                           </li>
                           <li class="">
-                            <a href="CTree.Interactable.DragCb.html" title="Interactable.DragCb" class="">Interactable.DragCb</a>
-                          </li>
-                          <li class="">
-                            <a href="CTree.Interactable.DropCb.html" title="Interactable.DropCb" class="">Interactable.DropCb</a>
-                          </li>
-                          <li class="">
-                            <a href="CTree.Interactable.HoverCb.html" title="Interactable.HoverCb" class="">Interactable.HoverCb</a>
-                          </li>
-                          <li class="">
-                            <a href="CTree.Interactable.MouseOverCb.html" title="Interactable.MouseOverCb" class="">Interactable.MouseOverCb</a>
+                            <a href="CTree.Interactable.LocationCb.html" title="Interactable.LocationCb" class="">Interactable.LocationCb</a>
                           </li>
                           <li class="">
                             <a href="CTree.Interactable.Type.html" title="Interactable.Type" class="">Interactable.Type</a>
@@ -173,6 +170,12 @@
                             <a href="CTree.SequenceBehavior.html" title="SequenceBehavior" class="">SequenceBehavior</a>
                           </li>
                           <li class="">
+                            <a href="CTree.Sound.html" title="Sound" class="">Sound</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Sound.Mode.html" title="Sound.Mode" class="">Sound.Mode</a>
+                          </li>
+                          <li class="">
                             <a href="CTree.World.html" title="World" class="">World</a>
                           </li>
                         </ul>
@@ -190,14 +193,7 @@
 
 
   <h1 id="CTree_AtomicBehavior" data-uid="CTree.AtomicBehavior" class="text-break">Class AtomicBehavior</h1>
-  <div class="markdown level0 summary"><p>Implements behaviors that perform actions that only require a single frame to execute.
-<remarks>
-Configure AtomicBehavior with a function argument that takes <code>World</code> as input.
-For example, the following code enables the scene asset with name <code>objName</code>.</remarks></p>
-<pre><code class="lang-csharp">Behavior b = new AtomicBehavior(world, (w) =&gt; {
-   Transform xform = world.Get(objName.Trim());
-   xform.gameObject.SetActive(true);
-});</code></pre>
+  <div class="markdown level0 summary"><p>Implements behaviors that perform actions that only require a single frame to execute.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -213,9 +209,6 @@ For example, the following code enables the scene asset with name <code>objName<
     </div>
     <div>
       <a class="xref" href="CTree.Behavior.html#CTree_Behavior_m_isActive">Behavior.m_isActive</a>
-    </div>
-    <div>
-      <a class="xref" href="CTree.Behavior.html#CTree_Behavior_m_name">Behavior.m_name</a>
     </div>
     <div>
       <a class="xref" href="CTree.Behavior.html#CTree_Behavior_name">Behavior.name</a>
@@ -263,6 +256,14 @@ For example, the following code enables the scene asset with name <code>objName<
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class AtomicBehavior : Behavior</code></pre>
   </div>
+  <h5 id="CTree_AtomicBehavior_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Configure AtomicBehavior with a function argument that takes <code>World</code> as input.
+For example, the following code enables the scene asset with name <code>objName</code>.</p>
+<pre><code class="lang-csharp">Behavior b = new AtomicBehavior(world, (w) =&gt; {
+   Transform xform = world.Get(objName.Trim());
+   xform.gameObject.SetActive(true);
+});</code></pre>
+</div>
   <h3 id="constructors">Constructors
 </h3>
   <a id="CTree_AtomicBehavior__ctor_" data-uid="CTree.AtomicBehavior.#ctor*"></a>

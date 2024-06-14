@@ -17,11 +17,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Mode
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-    startLine: 19
+    startLine: 20
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -44,11 +44,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: PLAY
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-    startLine: 24
+    startLine: 25
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -72,11 +72,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: STOP
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Animation.cs
-    startLine: 28
+    startLine: 29
   assemblies:
   - Assembly-CSharp
   namespace: CTree

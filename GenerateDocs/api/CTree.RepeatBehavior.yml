@@ -21,7 +21,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: RepeatBehavior
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
@@ -37,15 +37,13 @@ items:
     The conditional is checked at the start of each iteration. If true, the sub-behaviors are re-run.
   example: []
   syntax:
-    content: 'public class RepeatBehavior : ParallelBehavior'
-    content.vb: Public Class RepeatBehavior Inherits ParallelBehavior
+    content: 'public class RepeatBehavior : ControlBehavior'
+    content.vb: Public Class RepeatBehavior Inherits ControlBehavior
   inheritance:
   - System.Object
   - CTree.Behavior
   - CTree.ControlBehavior
-  - CTree.ParallelBehavior
   inheritedMembers:
-  - CTree.ParallelBehavior.TearDown
   - CTree.ControlBehavior.m_behaviors
   - CTree.ControlBehavior.Count
   - CTree.ControlBehavior.Add(CTree.Behavior)
@@ -54,8 +52,8 @@ items:
   - CTree.ControlBehavior.Clear
   - CTree.Behavior.m_finished
   - CTree.Behavior.m_isActive
-  - CTree.Behavior.m_name
   - CTree.Behavior.name
+  - CTree.Behavior.TearDown
   - CTree.Behavior.IsActive
   - CTree.Behavior.world
   - CTree.Behavior.ToString
@@ -79,7 +77,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: m_condition
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
@@ -106,7 +104,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: m_isRunning
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
@@ -133,7 +131,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: .ctor
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
@@ -173,7 +171,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Finished
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
@@ -189,7 +187,7 @@ items:
       type: System.Boolean
       description: True if the Behavior is finished; False otherwise.
     content.vb: Public Overrides Function Finished() As Boolean
-  overridden: CTree.ParallelBehavior.Finished
+  overridden: CTree.Behavior.Finished
   overload: CTree.RepeatBehavior.Finished*
 - uid: CTree.RepeatBehavior.Setup
   commentId: M:CTree.RepeatBehavior.Setup
@@ -205,7 +203,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Setup
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
@@ -218,7 +216,7 @@ items:
   syntax:
     content: public override void Setup()
     content.vb: Public Overrides Sub Setup()
-  overridden: CTree.ParallelBehavior.Setup
+  overridden: CTree.Behavior.Setup
   overload: CTree.RepeatBehavior.Setup*
 - uid: CTree.RepeatBehavior.Tick
   commentId: M:CTree.RepeatBehavior.Tick
@@ -234,11 +232,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Tick
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/RepeatBehavior.cs
-    startLine: 40
+    startLine: 44
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -247,7 +245,7 @@ items:
   syntax:
     content: public override void Tick()
     content.vb: Public Overrides Sub Tick()
-  overridden: CTree.ParallelBehavior.Tick
+  overridden: CTree.Behavior.Tick
   overload: CTree.RepeatBehavior.Tick*
 references:
 - uid: CTree
@@ -281,32 +279,6 @@ references:
   name: ControlBehavior
   nameWithType: ControlBehavior
   fullName: CTree.ControlBehavior
-- uid: CTree.ParallelBehavior
-  commentId: T:CTree.ParallelBehavior
-  parent: CTree
-  href: CTree.ParallelBehavior.html
-  name: ParallelBehavior
-  nameWithType: ParallelBehavior
-  fullName: CTree.ParallelBehavior
-- uid: CTree.ParallelBehavior.TearDown
-  commentId: M:CTree.ParallelBehavior.TearDown
-  parent: CTree.ParallelBehavior
-  href: CTree.ParallelBehavior.html#CTree_ParallelBehavior_TearDown
-  name: TearDown()
-  nameWithType: ParallelBehavior.TearDown()
-  fullName: CTree.ParallelBehavior.TearDown()
-  spec.csharp:
-  - uid: CTree.ParallelBehavior.TearDown
-    name: TearDown
-    href: CTree.ParallelBehavior.html#CTree_ParallelBehavior_TearDown
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: CTree.ParallelBehavior.TearDown
-    name: TearDown
-    href: CTree.ParallelBehavior.html#CTree_ParallelBehavior_TearDown
-  - name: (
-  - name: )
 - uid: CTree.ControlBehavior.m_behaviors
   commentId: F:CTree.ControlBehavior.m_behaviors
   parent: CTree.ControlBehavior
@@ -451,13 +423,6 @@ references:
   name: m_isActive
   nameWithType: Behavior.m_isActive
   fullName: CTree.Behavior.m_isActive
-- uid: CTree.Behavior.m_name
-  commentId: F:CTree.Behavior.m_name
-  parent: CTree.Behavior
-  href: CTree.Behavior.html#CTree_Behavior_m_name
-  name: m_name
-  nameWithType: Behavior.m_name
-  fullName: CTree.Behavior.m_name
 - uid: CTree.Behavior.name
   commentId: P:CTree.Behavior.name
   parent: CTree.Behavior
@@ -465,6 +430,25 @@ references:
   name: name
   nameWithType: Behavior.name
   fullName: CTree.Behavior.name
+- uid: CTree.Behavior.TearDown
+  commentId: M:CTree.Behavior.TearDown
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_TearDown
+  name: TearDown()
+  nameWithType: Behavior.TearDown()
+  fullName: CTree.Behavior.TearDown()
+  spec.csharp:
+  - uid: CTree.Behavior.TearDown
+    name: TearDown
+    href: CTree.Behavior.html#CTree_Behavior_TearDown
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: CTree.Behavior.TearDown
+    name: TearDown
+    href: CTree.Behavior.html#CTree_Behavior_TearDown
+  - name: (
+  - name: )
 - uid: CTree.Behavior.IsActive
   commentId: M:CTree.Behavior.IsActive
   parent: CTree.Behavior
@@ -818,23 +802,23 @@ references:
   name: World
   nameWithType: World
   fullName: CTree.World
-- uid: CTree.ParallelBehavior.Finished
-  commentId: M:CTree.ParallelBehavior.Finished
-  parent: CTree.ParallelBehavior
-  href: CTree.ParallelBehavior.html#CTree_ParallelBehavior_Finished
+- uid: CTree.Behavior.Finished
+  commentId: M:CTree.Behavior.Finished
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_Finished
   name: Finished()
-  nameWithType: ParallelBehavior.Finished()
-  fullName: CTree.ParallelBehavior.Finished()
+  nameWithType: Behavior.Finished()
+  fullName: CTree.Behavior.Finished()
   spec.csharp:
-  - uid: CTree.ParallelBehavior.Finished
+  - uid: CTree.Behavior.Finished
     name: Finished
-    href: CTree.ParallelBehavior.html#CTree_ParallelBehavior_Finished
+    href: CTree.Behavior.html#CTree_Behavior_Finished
   - name: (
   - name: )
   spec.vb:
-  - uid: CTree.ParallelBehavior.Finished
+  - uid: CTree.Behavior.Finished
     name: Finished
-    href: CTree.ParallelBehavior.html#CTree_ParallelBehavior_Finished
+    href: CTree.Behavior.html#CTree_Behavior_Finished
   - name: (
   - name: )
 - uid: CTree.RepeatBehavior.Finished*
@@ -843,23 +827,23 @@ references:
   name: Finished
   nameWithType: RepeatBehavior.Finished
   fullName: CTree.RepeatBehavior.Finished
-- uid: CTree.ParallelBehavior.Setup
-  commentId: M:CTree.ParallelBehavior.Setup
-  parent: CTree.ParallelBehavior
-  href: CTree.ParallelBehavior.html#CTree_ParallelBehavior_Setup
+- uid: CTree.Behavior.Setup
+  commentId: M:CTree.Behavior.Setup
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_Setup
   name: Setup()
-  nameWithType: ParallelBehavior.Setup()
-  fullName: CTree.ParallelBehavior.Setup()
+  nameWithType: Behavior.Setup()
+  fullName: CTree.Behavior.Setup()
   spec.csharp:
-  - uid: CTree.ParallelBehavior.Setup
+  - uid: CTree.Behavior.Setup
     name: Setup
-    href: CTree.ParallelBehavior.html#CTree_ParallelBehavior_Setup
+    href: CTree.Behavior.html#CTree_Behavior_Setup
   - name: (
   - name: )
   spec.vb:
-  - uid: CTree.ParallelBehavior.Setup
+  - uid: CTree.Behavior.Setup
     name: Setup
-    href: CTree.ParallelBehavior.html#CTree_ParallelBehavior_Setup
+    href: CTree.Behavior.html#CTree_Behavior_Setup
   - name: (
   - name: )
 - uid: CTree.RepeatBehavior.Setup*
@@ -868,23 +852,23 @@ references:
   name: Setup
   nameWithType: RepeatBehavior.Setup
   fullName: CTree.RepeatBehavior.Setup
-- uid: CTree.ParallelBehavior.Tick
-  commentId: M:CTree.ParallelBehavior.Tick
-  parent: CTree.ParallelBehavior
-  href: CTree.ParallelBehavior.html#CTree_ParallelBehavior_Tick
+- uid: CTree.Behavior.Tick
+  commentId: M:CTree.Behavior.Tick
+  parent: CTree.Behavior
+  href: CTree.Behavior.html#CTree_Behavior_Tick
   name: Tick()
-  nameWithType: ParallelBehavior.Tick()
-  fullName: CTree.ParallelBehavior.Tick()
+  nameWithType: Behavior.Tick()
+  fullName: CTree.Behavior.Tick()
   spec.csharp:
-  - uid: CTree.ParallelBehavior.Tick
+  - uid: CTree.Behavior.Tick
     name: Tick
-    href: CTree.ParallelBehavior.html#CTree_ParallelBehavior_Tick
+    href: CTree.Behavior.html#CTree_Behavior_Tick
   - name: (
   - name: )
   spec.vb:
-  - uid: CTree.ParallelBehavior.Tick
+  - uid: CTree.Behavior.Tick
     name: Tick
-    href: CTree.ParallelBehavior.html#CTree_ParallelBehavior_Tick
+    href: CTree.Behavior.html#CTree_Behavior_Tick
   - name: (
   - name: )
 - uid: CTree.RepeatBehavior.Tick*

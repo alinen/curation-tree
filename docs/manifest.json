@@ -107,6 +107,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CTree.CoroutineBehavior.AnimatorFn.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.CoroutineBehavior.AnimatorFn.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CTree.CoroutineBehavior.yml",
       "output": {
         ".html": {
@@ -161,6 +171,16 @@
       "output": {
         ".html": {
           "relative_path": "api/CTree.GameLoop.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.HighlightBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.HighlightBehavior.html"
         }
       },
       "version": ""
@@ -241,6 +261,26 @@
       "output": {
         ".html": {
           "relative_path": "api/CTree.Interactable.HoverCb.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Interactable.InteractableCb.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Interactable.InteractableCb.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Interactable.LocationCb.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Interactable.LocationCb.html"
         }
       },
       "version": ""
@@ -357,6 +397,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Sound.Mode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Sound.Mode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/CTree.Sound.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/CTree.Sound.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/CTree.Utils.yml",
       "output": {
         ".html": {
@@ -410,6 +470,16 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/BlockPuzzle.mp4",
+      "output": {
+        "resource": {
+          "relative_path": "images/BlockPuzzle.mp4"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/CurationTree.png",
       "output": {
         "resource": {
@@ -444,6 +514,26 @@
       "output": {
         "resource": {
           "relative_path": "images/SquirrelHouse.mp4"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/block-puzzle.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/block-puzzle.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/one-block.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/one-block.gif"
         }
       },
       "version": ""

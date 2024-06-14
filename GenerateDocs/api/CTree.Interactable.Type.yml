@@ -18,11 +18,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: Type
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 24
+    startLine: 16
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -43,11 +43,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: CLICKABLE
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 24
+    startLine: 16
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -69,11 +69,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: DRAGABLE
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 24
+    startLine: 16
   assemblies:
   - Assembly-CSharp
   namespace: CTree
@@ -95,11 +95,11 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-      branch: main
+      branch: squirrel-house
       repo: git@github.com:alinen/curation-tree.git
     id: COPY_DRAGABLE
     path: ../BasicExample/Assets/Scripts/CurationTree/Interactable.cs
-    startLine: 24
+    startLine: 16
   assemblies:
   - Assembly-CSharp
   namespace: CTree

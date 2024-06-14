@@ -104,6 +104,9 @@
                             <a href="CTree.CoroutineBehavior.html" title="CoroutineBehavior" class="">CoroutineBehavior</a>
                           </li>
                           <li class="">
+                            <a href="CTree.CoroutineBehavior.AnimatorFn.html" title="CoroutineBehavior.AnimatorFn" class="">CoroutineBehavior.AnimatorFn</a>
+                          </li>
+                          <li class="">
                             <a href="CTree.Factory.html" title="Factory" class="">Factory</a>
                           </li>
                           <li class="">
@@ -117,6 +120,9 @@
                           </li>
                           <li class="">
                             <a href="CTree.GameLoop.Options.html" title="GameLoop.Options" class="">GameLoop.Options</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.HighlightBehavior.html" title="HighlightBehavior" class="">HighlightBehavior</a>
                           </li>
                           <li class="">
                             <a href="CTree.IfBehavior.html" title="IfBehavior" class="">IfBehavior</a>
@@ -134,19 +140,10 @@
                             <a href="CTree.Interactable.html" title="Interactable" class="">Interactable</a>
                           </li>
                           <li class="">
-                            <a href="CTree.Interactable.ClickCb.html" title="Interactable.ClickCb" class="">Interactable.ClickCb</a>
+                            <a href="CTree.Interactable.InteractableCb.html" title="Interactable.InteractableCb" class="">Interactable.InteractableCb</a>
                           </li>
                           <li class="">
-                            <a href="CTree.Interactable.DragCb.html" title="Interactable.DragCb" class="">Interactable.DragCb</a>
-                          </li>
-                          <li class="">
-                            <a href="CTree.Interactable.DropCb.html" title="Interactable.DropCb" class="">Interactable.DropCb</a>
-                          </li>
-                          <li class="">
-                            <a href="CTree.Interactable.HoverCb.html" title="Interactable.HoverCb" class="">Interactable.HoverCb</a>
-                          </li>
-                          <li class="">
-                            <a href="CTree.Interactable.MouseOverCb.html" title="Interactable.MouseOverCb" class="">Interactable.MouseOverCb</a>
+                            <a href="CTree.Interactable.LocationCb.html" title="Interactable.LocationCb" class="">Interactable.LocationCb</a>
                           </li>
                           <li class="">
                             <a href="CTree.Interactable.Type.html" title="Interactable.Type" class="">Interactable.Type</a>
@@ -171,6 +168,12 @@
                           </li>
                           <li class="">
                             <a href="CTree.SequenceBehavior.html" title="SequenceBehavior" class="">SequenceBehavior</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Sound.html" title="Sound" class="">Sound</a>
+                          </li>
+                          <li class="">
+                            <a href="CTree.Sound.Mode.html" title="Sound.Mode" class="">Sound.Mode</a>
                           </li>
                           <li class="">
                             <a href="CTree.World.html" title="World" class="">World</a>
@@ -200,14 +203,7 @@ See <a class="xref" href="CTree.Factory.html#CTree_Factory_PlayAnimation_CTree_W
 See <a class="xref" href="CTree.Factory.html#CTree_Factory_StopAnimation_CTree_World_System_String_">StopAnimation(World, string)</a></p>
 </section>
       <h4><a class="xref" href="CTree.AtomicBehavior.html">AtomicBehavior</a></h4>
-      <section><p>Implements behaviors that perform actions that only require a single frame to execute.
-<remarks>
-Configure AtomicBehavior with a function argument that takes <code>World</code> as input.
-For example, the following code enables the scene asset with name <code>objName</code>.</remarks></p>
-<pre><code class="lang-csharp">Behavior b = new AtomicBehavior(world, (w) =&gt; {
-   Transform xform = world.Get(objName.Trim());
-   xform.gameObject.SetActive(true);
-});</code></pre>
+      <section><p>Implements behaviors that perform actions that only require a single frame to execute.</p>
 </section>
       <h4><a class="xref" href="CTree.Behavior.html">Behavior</a></h4>
       <section><p>Base class for all Behaviors.</p>
@@ -233,6 +229,10 @@ For example, the following code enables the scene asset with name <code>objName<
 </section>
       <h4><a class="xref" href="CTree.GameLoop.Options.html">GameLoop.Options</a></h4>
       <section><p>Configuration options</p>
+</section>
+      <h4><a class="xref" href="CTree.HighlightBehavior.html">HighlightBehavior</a></h4>
+      <section><p>Implements a behavior that implements highlighting and sound effects
+for all interactable and location objects in a scene</p>
 </section>
       <h4><a class="xref" href="CTree.IfBehavior.html">IfBehavior</a></h4>
       <section><p>Base class for all behaviors that trigger sub-behaviors based on a conditional.</p>
@@ -270,6 +270,11 @@ All sub-behaviors should be conditionals.</p>
       <h4><a class="xref" href="CTree.SequenceBehavior.html">SequenceBehavior</a></h4>
       <section><p>Implements a behavior that runs all sub-behaviors in sequence.</p>
 </section>
+      <h4><a class="xref" href="CTree.Sound.html">Sound</a></h4>
+      <section><p>Behavior that implements playing and stopping sounds
+See <a class="xref" href="CTree.Factory.html#CTree_Factory_PlaySound_CTree_World_System_String_">PlaySound(World, string)</a>
+See <a class="xref" href="CTree.Factory.html#CTree_Factory_StopSound_CTree_World_System_String_">StopSound(World, string)</a></p>
+</section>
       <h4><a class="xref" href="CTree.World.html">World</a></h4>
       <section><p>Implements a central, shared object for accessing all global state.</p>
 </section>
@@ -284,18 +289,17 @@ Enums
 </section>
       <h4><a class="xref" href="CTree.Interactable.Type.html">Interactable.Type</a></h4>
       <section></section>
+      <h4><a class="xref" href="CTree.Sound.Mode.html">Sound.Mode</a></h4>
+      <section><p>Animation mode</p>
+</section>
     <h3 id="delegates">
 Delegates
 </h3>
-      <h4><a class="xref" href="CTree.Interactable.ClickCb.html">Interactable.ClickCb</a></h4>
+      <h4><a class="xref" href="CTree.CoroutineBehavior.AnimatorFn.html">CoroutineBehavior.AnimatorFn</a></h4>
       <section></section>
-      <h4><a class="xref" href="CTree.Interactable.DragCb.html">Interactable.DragCb</a></h4>
+      <h4><a class="xref" href="CTree.Interactable.InteractableCb.html">Interactable.InteractableCb</a></h4>
       <section></section>
-      <h4><a class="xref" href="CTree.Interactable.DropCb.html">Interactable.DropCb</a></h4>
-      <section></section>
-      <h4><a class="xref" href="CTree.Interactable.HoverCb.html">Interactable.HoverCb</a></h4>
-      <section></section>
-      <h4><a class="xref" href="CTree.Interactable.MouseOverCb.html">Interactable.MouseOverCb</a></h4>
+      <h4><a class="xref" href="CTree.Interactable.LocationCb.html">Interactable.LocationCb</a></h4>
       <section></section>
       <h4><a class="xref" href="CTree.ProceduralAnimator.Interpolator.html">ProceduralAnimator.Interpolator</a></h4>
       <section><p>Implementaton function for normalizing time into the range [0, 1] given a desired duration.</p>
