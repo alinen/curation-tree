@@ -92,17 +92,18 @@ namespace CTree
 
       void Update()
       {
-          if (m_screens.Count == 0) return;
-
           // World State
           m_world.debugRaycast = options.debug.selection;
-
           m_world.Tick();
-          m_screens.Tick();
-          if (m_screens.Finished()) // game over
+
+          if (m_screens.Count > 0) 
           {
-              m_screens.TearDown();
-              ScriptOver();
+              m_screens.Tick();
+              if (m_screens.Finished()) // game over
+              {
+                  m_screens.TearDown();
+                  ScriptOver();
+              }
           }
       }
 
