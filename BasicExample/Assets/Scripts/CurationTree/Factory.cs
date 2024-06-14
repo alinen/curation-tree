@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Reflection;
+using UnityEditor;
 
 namespace CTree
 {
@@ -12,42 +13,10 @@ namespace CTree
   /// Implements the logic for converting lines of text into behaviors. 
   /// The set of built-in behaviors have the following syntax in the input file. 
   /// Each line of input corresponds to a single behavior, created using one of the 
-  /// functions defined in this class. 
-  ///  
-  /// **Control Nodes**
-  /// * <see cref="CTree.Factory.Sequence?alt=Sequence"/> 
-  /// * <see cref="CTree.Factory.Parallel?alt=Parallel"/> 
-  /// * <see cref="CTree.Factory.Select?alt=Select"/> 
-  /// * <see cref="CTree.Factory.Repeat?alt=Repeat"/> 
-  /// * <see cref="CTree.Factory.RepeatWhile?alt=RepeatWhile"/> 
-  ///
-  /// **Events**
-  /// * <see cref="CTree.Factory.If?alt=If"/> 
-  /// * <see cref="CTree.Factory.IfEnter?alt=IfEnter"/> 
-  /// * <see cref="CTree.Factory.IfExit?alt=IfExit"/> 
-  /// * <see cref="CTree.Factory.IfPickup?alt=IfPickup"/> 
-  /// * <see cref="CTree.Factory.IfDrop?alt=IfDrop"/> 
-  /// * <see cref="CTree.Factory.IfClick?alt=IfClick"/> 
-  /// * <see cref="CTree.Factory.IfDragEnter?alt=IfDragEnter"/> 
-  /// * <see cref="CTree.Factory.IfDragExit?alt=IfDragExit"/> 
-  ///
-  /// **State Nodes**
-  /// * <see cref="CTree.Factory.SetState?alt=SetState"/>
-  /// * <see cref="CTree.Factory.Add?alt=Add"/>
-  ///
-  /// **Appearance Nodes**
-  /// * <see cref="CTree.Factory.Wait?alt=Wait"/>
-  /// * <see cref="CTree.Factory.Show?alt=Show"/>
-  /// * <see cref="CTree.Factory.Hide?alt=Hide"/>
-  /// * <see cref="CTree.Factory.PlayAnimation?alt=PlayAnimation"/>
-  /// * <see cref="CTree.Factory.StopAnimation?alt=StopAnimation"/>
-  /// * <see cref="CTree.Factory.SetText?alt=SetText"/>
-  /// * <see cref="CTree.Factory.Fade?alt=Fade"/>
-  /// * <see cref="CTree.Factory.Grow?alt=Grow"/>
-  /// * <see cref="CTree.Factory.ChangeColor?alt=ChangeColor"/>
-  /// * <see cref="CTree.Factory.RevertColor?alt=RevertClor"/>
-  /// * <see cref="CTree.Factory.Move?alt=Move"/>
-  /// * <see cref="CTree.Factory.Pulse?alt=Pulse"/>
+  /// functions defined in this class. There are four primary categories of basic nodes:
+  /// control nodes (sequence, repeat, etc), events (e.g. conditionals that trigger when 
+  /// state changes or when the user picks up or drops an object), setting global variables, 
+  /// and changing scene state (playing animations, changing colors, moving assets, etc).
   /// </remarks>
   public static class Factory
     {
@@ -287,7 +256,7 @@ namespace CTree
       /// Otherwise, the condition is false and the behavior completes immediately.
       /// <code>
       /// IfEnter: AssetName
-      ///    ChangeColor: AssetName, 1,1,0, 0.1
+      ///    ChangeColor: AssetName, #FFFF00FF, 0.1
       /// End
       /// </code>
       /// </remarks>
@@ -330,7 +299,7 @@ namespace CTree
       /// Otherwise, the condition is false and the behavior completes immediately.
       /// <code>
       /// IfDragEnter: PickUpAsset, DropTarget
-      ///    ChangeColor: DropTarget, 0, 0, 1, 2.0
+      ///    ChangeColor: DropTarget, #0000FFFF, 2.0
       /// End
       /// </code>
       /// </remarks>
@@ -411,7 +380,7 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior Wait(World world, string args)
       {
-          return new CoroutineBehavior(world, args, (b, args) => {
+          return new CoroutineBehavior(world, args, (w, args) => {
              float duration = 1.0f;
              Single.TryParse(args, out duration);
              return ProceduralAnimator.Wait(duration);
@@ -519,10 +488,10 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior Show(World world, string objName)
       {
-          return new AtomicBehavior(world, (b) =>
+          return new AtomicBehavior(world, (w) =>
           {
               //Debug.Log("SHOW: "+objName.Trim());
-              Transform xform = b.Get(objName.Trim());
+              Transform xform = w.Get(objName.Trim());
               xform.gameObject.SetActive(true);
           });
       }
@@ -543,9 +512,9 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior Hide(World world, string objName)
       {
-          return new AtomicBehavior(world, (b) =>
+          return new AtomicBehavior(world, (w) =>
           {
-              Transform xform = b.Get(objName.Trim());
+              Transform xform = w.Get(objName.Trim());
               xform.gameObject.SetActive(false);
           });
       }
@@ -569,9 +538,9 @@ namespace CTree
           string[] tokens = config.Split(',', 2);
           string rootName = tokens[0].Trim();
           string message = tokens[1].Trim();
-          return new AtomicBehavior(world, (b) =>
+          return new AtomicBehavior(world, (w) =>
           {
-              Transform xform = b.Get(rootName);
+              Transform xform = w.Get(rootName);
               ProceduralAnimator.SetText(xform, message);
           });
       }
@@ -592,12 +561,12 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior RevertColor(World w, string config)
       {
-          return new CoroutineBehavior(w, config, (b, config) => {
+          return new CoroutineBehavior(w, config, (w, config) => {
              string[] tokens = config.Split(',', 2);
              string rootName = tokens[0];
              float d = 1.0f;
              Single.TryParse(tokens[1], out d);
-             Transform obj = b.Get(rootName.Trim());
+             Transform obj = w.Get(rootName.Trim());
              return ProceduralAnimator.RevertColor(obj, d);
           });
       }
@@ -608,9 +577,9 @@ namespace CTree
       /// <remarks>
       /// Implements the following input string
       /// <code>
-      /// ChangeColor: AssetName, R, G, B, Duration
+      /// ChangeColor: AssetName, #RGBA, Duration
       /// </code>
-      /// For example, <c>ChangeColor: Star, 1, 0, 0, 2.0</c> will change the color of <c>Star</c> to 
+      /// For example, <c>ChangeColor: Star, #FF0000FF, 2.0</c> will change the color of <c>Star</c> to 
       /// the color (1,0,0), or Red. Colors should be in the range 0 and 1. The duration indicates the 
       /// length of the transition. The first time <c>ChangeColor</c> is called, we cache the original 
       /// colors s we can revert them later.
@@ -620,19 +589,15 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior ChangeColor(World w, string config)
       {
-          return new CoroutineBehavior(w, config, (beh, config) => {  
-            string[] tokens = config.Split(',', 5);
+          return new CoroutineBehavior(w, config, (w, config) => {  
+            string[] tokens = config.Split(',', 3);
             string rootName = tokens[0];
-            float r = 1.0f;
-            float g = 1.0f;
-            float b = 1.0f;
-            float d = 1.0f;
-            Single.TryParse(tokens[1], out r);
-            Single.TryParse(tokens[2], out g);
-            Single.TryParse(tokens[3], out b);
-            Single.TryParse(tokens[4], out d);
-            Transform obj = beh.Get(rootName.Trim());
-            return ProceduralAnimator.ChangeColor(obj, new Color(r,g,b), d);
+            Color c;
+            float d;
+            ColorUtility.TryParseHtmlString(tokens[1].Trim(), out c);
+            Single.TryParse(tokens[2], out d);
+            Transform obj = w.Get(rootName.Trim());
+            return ProceduralAnimator.ChangeColor(obj, c, d);
           });
       }
 
@@ -654,7 +619,7 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior Pulse(World world, string args)
       {
-          return new CoroutineBehavior(world, args, (beh, args) => { 
+          return new CoroutineBehavior(world, args, (w, args) => { 
               string[] tokens = args.Split(',', 4);
               string rootName = tokens[0];
               int num = 1;
@@ -663,7 +628,7 @@ namespace CTree
               int.TryParse(tokens[1], out num);
               if (tokens.Length > 3) Single.TryParse(tokens[2], out timePerPulse);
               if (tokens.Length > 4) Single.TryParse(tokens[3], out pulseSize);
-              Transform obj = beh.Get(rootName.Trim());
+              Transform obj = w.Get(rootName.Trim());
               return ProceduralAnimator.Pulse(obj, num, timePerPulse, pulseSize);
           });
       }
@@ -688,16 +653,16 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior Move(World w, string config) 
       { 
-          return new CoroutineBehavior(w, config, (beh, config) => {
+          return new CoroutineBehavior(w, config, (w, config) => {
               string[] tokens = config.Split(',', 5);
               string rootName = tokens[0];
               string startName = tokens[1];
               string endName = tokens[2];
               float duration = 1.0f;
               Single.TryParse(tokens[3], out duration);
-              Transform obj = beh.Get(rootName.Trim());
-              Transform start = beh.Get(startName.Trim());
-              Transform end = beh.Get(endName.Trim());
+              Transform obj = w.Get(rootName.Trim());
+              Transform start = w.Get(startName.Trim());
+              Transform end = w.Get(endName.Trim());
 
               ProceduralAnimator.Interpolator interpolator = ProceduralAnimator.Linear;
               if (tokens.Length > 4) 
@@ -725,7 +690,7 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior Grow(World w, string config) 
       { 
-          return new CoroutineBehavior(w, config, (b, config) => {
+          return new CoroutineBehavior(w, config, (w, config) => {
               string[] tokens = config.Split(',', 4);
               string rootName = tokens[0];
               float start = 1.0f;
@@ -734,7 +699,7 @@ namespace CTree
               Single.TryParse(tokens[1], out start);
               Single.TryParse(tokens[2], out end);
               Single.TryParse(tokens[3], out duration);
-              Transform obj = b.Get(rootName.Trim());
+              Transform obj = w.Get(rootName.Trim());
               return ProceduralAnimator.Grow(obj, start, end, duration);
           });
       }
@@ -755,7 +720,7 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior Fade(World w, string config) 
       { 
-          return new CoroutineBehavior(w, config, (b, config) => {
+          return new CoroutineBehavior(w, config, (w, config) => {
               string[] tokens = config.Split(',', 4);
               string rootName = tokens[0];
               float start = 1.0f;
@@ -764,7 +729,7 @@ namespace CTree
               Single.TryParse(tokens[1], out start);
               Single.TryParse(tokens[2], out end);
               Single.TryParse(tokens[3], out duration);
-              Transform obj = b.Get(rootName.Trim());
+              Transform obj = w.Get(rootName.Trim());
               return ProceduralAnimator.Fade(obj, start, end, duration);
           });
       }
@@ -789,7 +754,7 @@ namespace CTree
       /// <returns>An instance of behavior</returns>
       public static Behavior SetState(World world, string dummy)
       {
-          return new AtomicBehavior(world, (b) =>
+          return new AtomicBehavior(world, (w) =>
           {
               string[] tokens = dummy.Split(',', 2);
               string key = tokens[0].Trim();
@@ -798,11 +763,11 @@ namespace CTree
               int tmp = 0;
               if (int.TryParse(value, out tmp))
               {
-                  b.world.SetInteger(key, tmp);
+                  w.SetInteger(key, tmp);
               }
               else
               {
-                  b.world.SetString(key, value);
+                  w.SetString(key, value);
               }
           });
       }
@@ -827,13 +792,24 @@ namespace CTree
           string stateName = tokens[0].Trim();
           int stateValue;
           int.TryParse(tokens[1].Trim(), out stateValue);  
-          return new AtomicBehavior(world, (b) => { 
-              int v = b.world.GetInteger(stateName);
+          return new AtomicBehavior(world, (w) => { 
+              int v = w.GetInteger(stateName);
               v += stateValue;
-              b.world.SetInteger(stateName, v);
+              w.SetInteger(stateName, v);
           });
       }
 
+      /// <summary>
+      /// Indicates that the given asset can be dragged and dropped by the user 
+      /// </summary>
+      /// <remarks>
+      /// Implements the following input string
+      /// <code>
+      /// InitDraggable: AssetName
+      /// </code>
+      /// </remarks>
+      /// <param name="world">Accessor for global state</param>
+      /// <param name="args">Parameters for the behavior</param>
       public static Behavior InitDraggable(World world, string args)
       {
           // Apply setting immediately
@@ -843,6 +819,17 @@ namespace CTree
           return null;
       }
 
+      /// <summary>
+      /// Indicates that the given asset can be clicked by the user
+      /// </summary>
+      /// <remarks>
+      /// Implements the following input string
+      /// <code>
+      /// InitClickable: AssetName
+      /// </code>
+      /// </remarks>
+      /// <param name="world">Accessor for global state</param>
+      /// <param name="args">Parameters for the behavior</param>
       public static Behavior InitClickable(World world, string args)
       {
           // Apply setting immediately
@@ -852,6 +839,18 @@ namespace CTree
           return null;
       }
 
+      /// <summary>
+      /// Indicates that the given asset is a location (e.g. other assets 
+      /// can be attached to it)
+      /// </summary>
+      /// <remarks>
+      /// Implements the following input string
+      /// <code>
+      /// InitLocation: AssetName
+      /// </code>
+      /// </remarks>
+      /// <param name="world">Accessor for global state</param>
+      /// <param name="args">Parameters for the behavior</param>
       public static Behavior InitLocation(World world, string args)
       {
           // Apply setting immediately
@@ -859,6 +858,35 @@ namespace CTree
           Transform xform = world.Get(locName);
           world.AddLocation(xform);
           return null;
+      }
+
+      /// <summary>
+      /// Implements highlighting and sound effects for interactables
+      /// </summary>
+      /// <remarks>
+      /// Implements the following script command
+      /// <code>
+      /// Highlight: SelectedColor, SelectSound, LocationHighlighClor, DropSound
+      /// </code>
+      /// For example, `Highlight: #FFFF00FF, MoveSound, #00FF00F0, AnchorSound` will
+      /// set selected objects to yellow and location highights in green. Sounds 
+      /// will play from the AudioSources on the assets called MoveSound and AnchorSound
+      /// respectively
+      /// </remarks>
+      /// <param name="world">Accessor for global state</param>
+      /// <param name="args">Parameters for the behavior</param>
+      public static Behavior Highlight(World world, string args)
+      {
+          string[] tokens = args.Split(",", 4);
+          Color sc, lc;
+
+          ColorUtility.TryParseHtmlString(tokens[0].Trim(), out sc);
+          AudioSource ssound = world.Get(tokens[1].Trim()).GetComponent<AudioSource>();
+
+          ColorUtility.TryParseHtmlString(tokens[2].Trim(), out lc);
+          AudioSource lsound = world.Get(tokens[3].Trim()).GetComponent<AudioSource>();
+
+          return new HighlightBehavior(world, sc, ssound, lc, lsound);
       }
 
       #endregion
