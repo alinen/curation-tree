@@ -80,7 +80,6 @@ namespace CTree
       {
           m_finished = false;
           m_isActive = true;
-          Logger.Log("Setup:"+m_name);
       }
 
       /// <summary>
@@ -89,7 +88,6 @@ namespace CTree
       public virtual void TearDown()
       {
           m_isActive = false;
-          Logger.Log("TearDown:"+m_name);
       }
 
       /// <summary>
@@ -125,29 +123,6 @@ namespace CTree
       public override string ToString()
       {
           return m_name;
-      }
-
-      public Transform AnyAsset
-      {
-          set { m_selected = value;}
-          get { return m_selected; }
-      }
-
-      public Transform AnyLocation
-      {
-          set { m_location = value;}
-          get { return m_location; }
-      }
-
-      public Transform Get(string name)
-      {
-          Transform asset = null;
-          if (name == "AnyAsset") asset = AnyAsset;
-          else if (name == "AnyLocation") asset = AnyLocation;
-          else asset = world.Get(name);
-
-          if (!asset) Debug.LogWarning("Cannot find "+name);
-          return asset;
       }
   }
 }
