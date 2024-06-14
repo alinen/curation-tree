@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/Sound.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Mode
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Sound.cs
@@ -44,7 +44,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/Sound.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: PLAY
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Sound.cs
@@ -72,7 +72,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/Sound.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: STOP
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/Sound.cs

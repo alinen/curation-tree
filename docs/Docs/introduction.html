@@ -100,15 +100,32 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="introduction">Introduction</h1>
 
-<a class="xref" href="../api/CTree.GameLoop.html">GameLoop</a> 
-is the central class of this framework. The `GameLoop` loads the text
-script that configures the game behaviors. The `GameLoop` also updates the 
-<a class="xref" href="../api/CTree.World.html">World</a> object that 
+<p>The Curation Tree framework implements basic features for drag-and-drop puzzle and
+narrative games. It consists of a main object, called <code>GameLoop</code>, that loads a script
+that specifies the mechanics of the game. These game mechanics are implemented as
+<code>Behavior</code>s that can be nested together in a tree. Using behaviors, we can play
+sounds, play animations, move objects, set text, and change colors. If we need
+additional behaviors than this basic set, we sub-class from
+Behavior to create more. Behaviors implement rules and logic on the assets that are
+defined in the Unity scene. Behaviors can access scene objects and response to player
+actions via a <code>World</code> object that stores all global state.</p>
+<p>In summary,</p>
+<ul>
+<li>The <a class="xref" href="../api/CTree.GameLoop.html">GameLoop</a> is the central class of this framework.</li>
+<li>The <a class="xref" href="../api/CTree.World.html">World</a> object
 keeps track of the game's persistent state (such as player score), implements
-user input handling, and handles the lookup of scene assets.
-<p>Selection and drag-and-drop are implemented using the <a class="xref" href="../api/CTree.Interactable.html"> and <a class="xref" href="../api/CTree.Location.html"> classes. These
-components are automatically placed on scene assets when <code>IfClick</code> or <code>IfDrag/IfDrop</code>
-queries are in the input script.</a></p>
+user input handling, and handles the lookup of scene assets.</li>
+<li><a class="xref" href="../api/CTree.Behavior.html">Behavior</a> is the base class for all game behaviors.</li>
+</ul>
+<p>Selection and drag-and-drop are implemented using the <a class="xref" href="../api/CTree.Interactable.html">Interactable</a> and <a class="xref" href="../api/CTree.Location.html">Location</a> classes. Interactable objects can be clicked
+or dragged by the player. Location objects can have objects attached to them.
+Interactable and Location components are
+automatically placed on scene assets when <code>IfClick</code> or <code>IfPickup/IfDrop</code>
+queries are in the input script. Alternatively, you can explicitly configure objects
+for click and drag-and-drop with the script commands <code>InitLocation</code>, <code>InitDraggable</code>, and
+<code>InitClickable</code>.</p>
+<p>In code, you can register callbacks on <code>Interactable</code> to respond to user events. See
+<a class="xref" href="../api/CTree.HighlightBehavior.html">HighlightBehavior</a> for an example.</p>
 <h1 id="built-in-behaviors">Built-in Behaviors</h1>
 <p>The framework implements a suite of behaviors that we use across our projects.
 All built-in behaviors are defined in <a class="xref" href="../api/CTree.Factory.html">Factory</a>.
@@ -207,7 +224,74 @@ public static Behavior ExtendLine(World w, string args)
 <h2 id="subclassing-behavior">Subclassing Behavior</h2>
 <p>More complicated behaviors can be made by sub-classing from
 <a class="xref" href="../api/CTree.Behavior.html">Behavior</a> and then adding a creator function to
-<a class="xref" href="../api/CTree.Factory.html">.</a></p>
+<a class="xref" href="../api/CTree.Factory.html">Factory</a>. This is useful when it's simpler
+to write C# code than it is to write the script. For an example,
+see the block demos in <a href="getting-started.html">Getting Started</a></p>
+<p>Overriding behavior requires two steps</p>
+<ol>
+<li>Define a subclass of Behavior</li>
+<li>Add a creator function to Factory</li>
+</ol>
+<p><strong>Step 1: Override Behavior</strong></p>
+<p>Your subclass should contian a constructor that takes
+World as one of its arguments. You should also override
+Setup() to initialize your behavior, TearDown() to cleanup
+your behavior, and Tick() for any per-frame behaviors.
+When the behavior is complete, set the flag <em>m_finished</em> to
+true. For example,</p>
+<pre><code>class MyClass : Behavior
+{
+   public MyClass(World w, Transform obj, float value) : base(w)
+   {
+      // your code here
+   }
+
+   public override void Setup()
+   {
+      base.Setup();
+      // your code here
+   }
+
+   public override void TearDown()
+   {
+      base.TearDown();
+      // your code here
+   }
+
+   public override void Tick()
+   {
+      base.Tick();
+      // your code here
+   }
+}
+</code></pre>
+<p><em>Important:</em> Make sure to set <em>m_finished</em> to true when the behavior
+is complete.</p>
+<p><strong>Step 2: Add a creator function to Factory</strong></p>
+<p>In <a class="xref" href="../api/CTree.Factory.html">Factory</a>, add a creator
+function that returns an instance of your class. The name
+of your creator function must match the Behavior name that you
+want to use in the script. Inside the creator, you can parse
+any additional arguments you want to send to your Behavior.
+For example,</p>
+<pre><code>public static Behavior MyClass(World w, string args)
+{
+   // split into maximum of 2 arguments
+   string[] tokens= args.Split(&quot;,&quot;, 2); 
+   string token1 = tokens[0].Trim(); 
+   string token2 = tokens[1].Trim();
+
+   // Lookup object with name matching token1
+   // Trim() is important for name lookup to work!
+   Transform obj = w.Get(token1);
+   Debug.Assert(obj != null);
+
+   float value = 0.0;
+   float.TryParse(token2, out value);
+   return new MyClass(w, obj, value);
+}
+</code></pre>
+<p><em>Important:</em> Make sure to <code>Trim()</code> string arguments!</p>
 
 </article>
           </div>

@@ -23,7 +23,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Type
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
@@ -50,7 +50,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: UNKNOWN
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
@@ -78,7 +78,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: CLICK
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
@@ -106,7 +106,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: ENTER
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
@@ -134,7 +134,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: EXIT
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
@@ -162,7 +162,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: PICKUP
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
@@ -190,7 +190,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: DRAG_ENTER
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
@@ -218,7 +218,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: DRAG_EXIT
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
@@ -246,7 +246,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: DROP
     path: ../BasicExample/Assets/Scripts/CurationTree/Behaviors/IfInteractableBehavior.cs

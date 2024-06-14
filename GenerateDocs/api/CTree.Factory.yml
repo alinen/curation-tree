@@ -49,7 +49,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Factory
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -103,7 +103,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Create
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -150,7 +150,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Parallel
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -199,7 +199,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Sequence
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -249,7 +249,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Select
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -303,7 +303,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Repeat
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -351,7 +351,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: RepeatWhile
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -403,7 +403,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: If
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -454,7 +454,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: IfClick
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -503,7 +503,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: IfDrop
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -554,7 +554,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: IfEnter
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -603,7 +603,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: IfExit
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -652,7 +652,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: IfDragEnter
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -703,7 +703,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: IfDragExit
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -754,7 +754,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: IfPickup
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -803,7 +803,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Wait
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -850,7 +850,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: PlaySound
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -899,7 +899,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: StopSound
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -946,7 +946,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: PlayAnimation
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -993,7 +993,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: StopAnimation
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -1038,7 +1038,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Show
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -1086,7 +1086,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Hide
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -1134,7 +1134,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: SetText
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -1182,7 +1182,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: RevertColor
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -1229,7 +1229,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: ChangeColor
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -1280,7 +1280,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Pulse
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -1333,7 +1333,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Move
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -1388,7 +1388,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Grow
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -1435,7 +1435,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Fade
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -1482,7 +1482,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: SetState
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -1532,7 +1532,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Add
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -1581,7 +1581,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: InitDraggable
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -1625,7 +1625,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: InitClickable
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -1669,7 +1669,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: InitLocation
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs
@@ -1716,7 +1716,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/Factory.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: Highlight
     path: ../BasicExample/Assets/Scripts/CurationTree/Factory.cs

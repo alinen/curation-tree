@@ -28,6 +28,7 @@ queries are in the input script. Alternatively, you can explicitly configure obj
 for click and drag-and-drop with the script commands `InitLocation`, `InitDraggable`, and 
 `InitClickable`.
 
+
 In code, you can register callbacks on `Interactable` to respond to user events. See 
 <xref href="CTree.HighlightBehavior?alt=HighlightBehavior"/> for an example. 
 
@@ -44,6 +45,7 @@ simple actions that can be completed within a single frame; and _coroutine behav
 perform animations that can implemented using Coroutines. Both these types of 
 behaviors can be created yb defining a new creator function in 
 <xref href="CTree.Factory?alt=Factory"/>.  
+
 
 ### Atomic Behaviors
 
@@ -86,6 +88,7 @@ public static Behavior DrawLine(World w, string args)
   return b;
 }
 ```
+
 
 ### Coroutine Behaviors
 
@@ -145,18 +148,20 @@ public static Behavior ExtendLine(World w, string args)
 
 Coroutines cannot be anonymous functions. Our Coroutines for animation behaviors are implemented in <see cref="CTree.ProceduralAnimator?alt=ProceduralAnimator"/>.
 
+
 ## Subclassing Behavior
 
 More complicated behaviors can be made by sub-classing from 
 <xref href="CTree.Behavior?alt=Behavior"/> and then adding a creator function to 
-<xref href="CTree.Factory?alt=Factory">. This is useful when it's simpler and 
-easier to write code than it is to write a script. For an example, 
+<xref href="CTree.Factory?alt=Factory"/>. This is useful when it's simpler 
+to write C# code than it is to write the script. For an example, 
 see the block demos in [Getting Started](getting-started.md)
 
 Overriding behavior requires two steps
 
 1. Define a subclass of Behavior
 2. Add a creator function to Factory
+
 
 **Step 1: Override Behavior**
 
@@ -195,12 +200,12 @@ class MyClass : Behavior
 }
 ```
 
-*Important:* Make sure to set m_finished to true when the behavior 
+*Important:* Make sure to set *m_finished* to true when the behavior 
 is complete.
 
-**Step 2: Set a factory function**
+**Step 2: Add a creator function to Factory**
 
-In <xref href="CTree.Factory?alt=Factory">, add a creator 
+In <xref href="CTree.Factory?alt=Factory"/>, add a creator 
 function that returns an instance of your class. The name 
 of your creator function must match the Behavior name that you 
 want to use in the script. Inside the creator, you can parse 
@@ -226,5 +231,5 @@ public static Behavior MyClass(World w, string args)
 }
 ```
 
-*Important:* Make sure to `Trim()` string arguments!
 
+*Important:* Make sure to `Trim()` string arguments!

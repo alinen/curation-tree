@@ -100,7 +100,8 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="getting-started">Getting Started</h1>
 
-<p>To enable the framework in Unity, simply add a <code>GameLoop</code> component to one of the assets in your scene hierarchy.</p>
+<p>To enable the framework in Unity, simply add a <code>GameLoop</code> component to one of
+the assets in your scene hierarchy.</p>
 <h2 id="gameloop-arguments">GameLoop Arguments</h2>
 <p>The <code>GameLoop</code> takes the following arguments.</p>
 <ul>
@@ -122,7 +123,7 @@
 <h1 id="tutorials">Tutorials</h1>
 <ul>
 <li><a href="#squirrel-house">Squirrel House</a>: 2D interaction, animation, and sound</li>
-<li><a href="#animate-demo">Animate Demo</a>: 2D procedural animation</li>
+<li><a href="#animated-star">Animated Star</a>: 2D procedural animation</li>
 <li><a href="#one-block">One Block</a>: Simple 3D interaction</li>
 <li><a href="#block-puzzle">Block Puzzle</a>: 3D interaction with custom behavior</li>
 </ul>
@@ -144,7 +145,7 @@ The scene was created from the basic 3D scene. All game elements are stored unde
 <p>Here is the behavior script.</p>
 <pre><code>Fade: Message, 0, 1, 2.0
 Repeat:
-  IfDrag: Casette
+  IfPickup: Casette
     Hide: Music
     StopAnimation: Squirrel, SquirrelDance
   End
@@ -160,19 +161,21 @@ End
 <ul>
 <li><code>Fade</code> changes the alpha, or transparency, for an asset. The syntax is <code>Fade: &lt;AssetName&gt;, &lt;StartAlpha&gt;, &lt;EndAlpha&gt;, &lt;Duration&gt;</code></li>
 <li><code>Repeat</code> repeats the IfDrag and IfDrop conditionals forever.</li>
-<li><code>IfDrag</code> triggers if the user picks up the casette asset. When true, the two sub-behaviors are executed in parallel (e.g. simultaneously)</li>
+<li><code>IfPickup</code> triggers if the user picks up the casette asset. When true, the two sub-behaviors are executed in parallel (e.g. simultaneously)</li>
 <li><code>IfDrop</code> triggers if the user drops the casette on top of the BoomBox. When true, the two sub-behaviors are executed in parallel (e.g. simultaneously)</li>
 <li><code>PlayAnimation</code> plays the <code>SquirrelDance</code> animation on the <code>Squirrel</code> asset.</li>
 </ul>
-<h3 id="animate-demo">Animate Demo</h3>
+<h3 id="animated-star">Animated Star</h3>
  <video width="100%" controls="">
   <source src='../images/AnimateDemo.mp4' type="video/mp4">
   Your browser does not support the video tag.
 </video> 
-<p>The system includes several simple animation behaviors for moving, rotating, resizing, fading, and changing the colors of assets.
-The configuration of the scene is very simple. We add empty game objects to serve as waypoints, but all other assets are simply images.</p>
-<p>Here is the behavior script. The root node of the behavior tree is always a sequence node, meaning the following script runs each line in
-sequence.</p>
+<p>This demo shows how to animate assets from a script.
+From <code>BasicExample/Assets/Scene</code>, open <code>AnimatedStar.unity</code>.</p>
+<p>The framework contains commands for moving, rotating, resizing, fading, and
+changing the colors of assets. The configuration of the scene is very simple.
+For example, the following script shows a messages, increases the size of the Star
+asset, then changes its color, and then moves it around the screen.</p>
 <pre><code># Test built-in animators
 SetText: Message, Start Demo
 Fade: Panel, 0, 1, 2.0
@@ -197,11 +200,214 @@ Fade: Panel, 1, 0, 2.0
 <li><code>Grow</code> changes the size uniformly for an asset. The syntax is <code>Grow: &lt;AssetName&gt;, &lt;StartSize&gt;, &lt;EndSize&gt;, &lt;Duration&gt;</code></li>
 <li><code>ChangeColor</code> changes the color for an asset and all its children. The syntax is <code>ChangeColor: &lt;AssetName&gt;, &lt;RGBA&gt;, &lt;Duration&gt;</code>. The original colors of the asset are cached so they can be restored later.</li>
 <li><code>RevertColor</code> restores the color of an asset. The syntax is <code>RevertColor: &lt;AssetName&gt;, &lt;Duration&gt;</code></li>
-<li><code>Move</code> translates and rotates an asset. The syntax is <code>Move: &lt;AssetName&gt;, &lt;StartTransform&gt;, &lt;EndTransform&gt;, &lt;Duration&gt;, &lt;Interpolation Type&gt;</code>. The interpolation type is optional. By default, we use linear interpolation.</li>
+<li><code>Move</code> translates and rotates an asset. The syntax is <code>Move: &lt;AssetName&gt;, &lt;StartTransform&gt;, &lt;EndTransform&gt;, &lt;Duration&gt;, &lt;Interpolation Type&gt;</code>. The interpolation type is optional. By default, we use linear interpolation. The start and end configuration of the
+movement is specified using Transforms in the scene. Above, we defined the transforms <code>Waypoint1</code>, <code>Waypoint2</code>, and <code>Waypoint3</code>.</li>
 <li><code>Pulse</code> quickly pulses the size of the asset. The syntax is <code>Pulse: &lt;AssetName&gt;, &lt;NumPulses&gt;</code>. It is also possible to set the speed and size of the pulse by passing these arguments as additional values, e.g. <code>Pulse: &lt;AssetName&gt;, &lt;NumPulses&gt;, &lt;PulseSpeed&gt;, &lt;PulseSize&gt;</code>. The default pulse speed is 0.4 seconds. The pulse size is a percentage of the original size and is currently 0.1, or ten percent.</li>
 </ul>
 <h3 id="one-block">One Block</h3>
+<p><img src="../images/one-block.gif" alt="Block Game with no selection"></p>
+<p>This demo shows how to configure a 3D scene with drag and drop objects.
+From <code>BasicExample/Assets/Scene</code>, open <code>OneBlock.unity</code>.</p>
+<p>The user feedback is configured using events that correspond to the
+<code>If</code> statements in the script. For example,</p>
+<pre><code>InitDraggable: Block
+InitLocation: PlatformBlock
+
+Repeat:
+  # Highlight the block asset yellow
+  # when the user hovers over it with the mouse 
+  IfEnter: Block
+     ChangeColor: Block, #f0f00020, 0.1
+     SetText: Debug, SELECT BLOCK
+  End
+
+  # Revert the color when the mouse is not over the block
+  IfExit: Block
+     RevertColor: Block, 0.1
+     SetText: Debug, CLEAR BLOCK
+  End
+
+  # Color the platform transparent green when 
+  # the user drags the block over it
+  IfDragEnter: Block, PlatformBlock
+     ChangeColor: PlatformBlock, #00FF0020, 0.1
+     SetText: Debug, ENTER DRAG
+  End
+
+  # Revert the color
+  IfDragExit: Block, PlatformBlock
+     RevertColor: PlatformBlock, 0.1
+     SetText: Debug, EXIT DRAG
+  End
+
+  # Play sounds on pickup and drop
+  IfDrop: Block, PlatformBlock
+     PlaySound: AnchorSound
+  End
+  IfPickup: Block 
+     PlaySound: MoveSound
+  End
+End
+</code></pre>
+<p>Notes:</p>
+<ul>
+<li><code>InitDraggable</code> initializes an object so a player can pick it up and drag it</li>
+<li><code>InitLocation</code> initializes an object that can have an item dropped on top of it. You can
+configure where an object snaps using an <em>Anchor</em> transform that is a child transform of the object.
+For example, in this demo, the <code>Platform</code> object has a child transform, named <code>Anchor</code>, that is offset by (0,1,0)</li>
+<li><code>IfEnter</code> and <code>IfExit</code> trigger when the player's mouse is over the object</li>
+<li><code>IfDragEnter</code> and <code>IfDragExit</code> trigger when a dragged object is over a location where it can be dropped.</li>
+<li><code>IfPickup</code> and <code>IfDrop</code> trigger when the player picks up, or drops, an object</li>
+</ul>
 <h3 id="block-puzzle">Block Puzzle</h3>
+<video width="100%" controls="">
+  <source src='../images/BlockPuzzle.mp4' type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
+<p>This demo shows how to implement a 3D drag and drop puzzle with
+more objects. From <code>BasicExample/Assets/Scene</code>, open <code>BlockPuzzle.unity</code>.</p>
+<p>To get started, you only need to define the locations
+of <em>Anchor</em> points in the scene and then tell the framework which
+objects can be dragged and which objects can have others attached to them.
+For example, the following script initializes objects for the block puzzle.</p>
+<pre><code>InitDraggable: Cheese
+InitDraggable: Patty
+InitDraggable: BunTop
+InitDraggable: Lettuce
+InitDraggable: BunBottom
+InitDraggable: Cap
+InitDraggable: BottleTop
+InitDraggable: BottleBottom
+
+InitLocation: PlatformBurger
+InitLocation: BunBottom
+InitLocation: Patty
+InitLocation: Cheese
+InitLocation: Lettuce
+InitLocation: PlatformBottle
+InitLocation: BottleBottom
+InitLocation: BottleTop
+</code></pre>
+<p>Using this script, the player can move objects and connect them together.
+However, there is no feedback.</p>
+<p><img src="../images/block-puzzle.gif" alt="Block Game with no selection"></p>
+<p>To add feedback, we could add rules that trigger when the user interacts
+with objects in the scene. However, this is tedious and we can automatically
+setup feedback using a custom behavior. For example, the following
+behavior monitors when events happen on every interactable object in the
+scene. When an event happens, we play sounds and change colors.</p>
+<pre><code>public class HighlightBehavior : Behavior
+{
+  AudioSource m_ssound;
+  AudioSource m_lsound;
+  Color m_scolor;
+  Color m_lcolor;
+
+  public HighlightBehavior(World w, Color sc, AudioSource ssound, 
+      Color lc, AudioSource lsound) : base(w)
+  {
+      m_ssound = ssound;
+      m_lsound = lsound;
+      m_scolor = sc;
+      m_lcolor = lc;
+  }
+
+  public override void Setup()
+  {
+     foreach (Interactable i in world.GetInteractables())
+     {
+         i.AddPickupCb(OnPickup);
+         i.AddDropCb(OnDrop);
+         i.AddHoverEnterCb(OnEnter);
+         i.AddHoverExitCb(OnExit);
+         i.AddDragEnterCb(OnDragEnter);
+         i.AddDragExitCb(OnDragExit);
+     }
+  }
+
+  void OnEnter(Interactable source)
+  {
+     world.Run(
+        ProceduralAnimator.ChangeColor(source.transform, m_scolor, 0.03f)
+     );
+  }
+
+  void OnExit(Interactable source)
+  {
+     world.Run(
+       ProceduralAnimator.RevertColor(source.transform, 0.03f)
+     );
+  }
+
+  void OnPickup(Interactable source)
+  {
+      m_ssound.time = 0;
+      m_ssound.PlayOneShot(m_ssound.clip);
+  }
+
+  void OnDragEnter(Interactable source, GameObject target)
+  {
+     world.Run(
+       ProceduralAnimator.ChangeColor(target.transform, m_lcolor, 0.3f)
+     );
+  }
+
+  void OnDragExit(Interactable source, GameObject target)
+  {
+     world.Run(
+       ProceduralAnimator.RevertColor(target.transform, 0.3f)
+     );
+  }
+
+  void OnDrop(Interactable source, GameObject target)
+  {
+      if (target != null)
+      {
+          m_lsound.time = 0;
+          m_lsound.PlayOneShot(m_lsound.clip);
+      }
+  }
+}
+</code></pre>
+<p>To connect our new behavior with the script, we add a creator to <code>Factory</code>.</p>
+<pre><code>public static Behavior Highlight(World world, string args)
+{
+  string[] tokens = args.Split(&quot;,&quot;, 4);
+  Color sc, lc;
+
+  ColorUtility.TryParseHtmlString(tokens[0].Trim(), out sc);
+  Transform sobj = world.Get(tokens[1].Trim());
+  AudioSource ssound = sobj.GetComponent&lt;AudioSource&gt;();
+
+  ColorUtility.TryParseHtmlString(tokens[2].Trim(), out lc);
+  AudioSource lsound = world.Get(tokens[3].Trim()).GetComponent&lt;AudioSource&gt;();
+
+  return new HighlightBehavior(world, sc, ssound, lc, lsound);
+}
+</code></pre>
+<p><em>Important:</em> Trim() is important for parsing and name lookups to work.</p>
+<p>After adding our new behavior, we can add the <code>Highlight</code> behavior to our script.</p>
+<pre><code>InitDraggable: Cheese
+InitDraggable: Patty
+InitDraggable: BunTop
+InitDraggable: Lettuce
+InitDraggable: BunBottom
+InitDraggable: Cap
+InitDraggable: BottleTop
+InitDraggable: BottleBottom
+
+InitLocation: PlatformBurger
+InitLocation: BunBottom
+InitLocation: Patty
+InitLocation: Cheese
+InitLocation: Lettuce
+InitLocation: PlatformBottle
+InitLocation: BottleBottom
+InitLocation: BottleTop
+
+# Out NEW HIGHLIGHT is here!
+Highlight: #FFFF00FF, MoveSound, #00FF00F0, AnchorSound
+</code></pre>
 
 </article>
           </div>

@@ -17,7 +17,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: DebugOptions
     path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
@@ -64,7 +64,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: tree
     path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
@@ -91,7 +91,7 @@ items:
   source:
     remote:
       path: BasicExample/Assets/Scripts/CurationTree/GameLoop.cs
-      branch: squirrel-house
+      branch: main
       repo: git@github.com:alinen/curation-tree.git
     id: selection
     path: ../BasicExample/Assets/Scripts/CurationTree/GameLoop.cs

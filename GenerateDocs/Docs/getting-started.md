@@ -19,7 +19,7 @@ The `GameLoop` takes the following arguments.
 # Tutorials
 
 * [Squirrel House](#squirrel-house): 2D interaction, animation, and sound
-* [Animate Demo](#animate-demo): 2D procedural animation 
+* [Animated Star](#animated-star): 2D procedural animation 
 * [One Block](#one-block): Simple 3D interaction
 * [Block Puzzle](#block-puzzle): 3D interaction with custom behavior
 
