@@ -214,6 +214,16 @@ namespace CTree
               }
           }
 
+          if (!hit)
+          {
+              if (m_grabbedObject) m_grabbedObject.OnDrag(null);
+              if (!m_grabbedObject && m_mouseOverObject) // not holding an object and not over an object 
+              {  
+                 m_mouseOverObject.OnHoverExit();
+                 m_mouseOverObject = null;
+              }
+          }
+
           if (m_grabbedObject || m_clickedObject)
           {
               if (UiDrop())
@@ -223,11 +233,6 @@ namespace CTree
               }
           }
 
-          if (!hit)
-          {
-              if (m_grabbedObject) m_grabbedObject.OnDrag(null);
-              if (m_mouseOverObject) m_mouseOverObject.OnHoverExit();
-          }
       }
 
       void ReleaseObject()
