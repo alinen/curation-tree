@@ -45,9 +45,10 @@ namespace CTree
       /// </summary>
       protected bool m_isActive = false;
       
+      /// <summary>
+      /// Name of this behavior (used for logging and debugging)
+      /// </summary>
       private string m_name;
-      private Transform m_selected = null;
-      private Transform m_location = null;
 
       /// <summary>
       /// Value containing the input line used to create this Behavior (for debugging) 

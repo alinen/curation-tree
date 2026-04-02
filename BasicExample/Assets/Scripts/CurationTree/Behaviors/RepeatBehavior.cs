@@ -40,12 +40,16 @@ namespace CTree
                   b.Setup();
               }
           }
+          else
+          {
+              m_finished = true;
+          }
       }
 
       public override void Tick()
       {
           base.Tick();
-          if (m_isRunning) 
+          if (m_isRunning || !m_finished) 
           {
               bool finished = true;
               foreach (Behavior b in m_behaviors)

@@ -27,9 +27,17 @@ namespace CTree
       /// Debug options
       /// </summary>
       [System.Serializable]
+      public class TreeVizOptions
+      {
+          public bool enabled = false;
+          public int fontSize = 20;
+          public float widthPercent = 0.25f;
+      }
+
+      [System.Serializable]
       public class DebugOptions
       {
-          public bool tree = false;
+          public TreeVizOptions tree; 
           public bool selection = false;
       }
 
@@ -107,29 +115,51 @@ namespace CTree
           }
       }
 
+#if UNITY_EDITOR
+      Vector2 scrollPosition;
+      private Texture2D MakeTex(int width, int height, Color col)
+      {
+         Color[] pix = new Color[width * height];
+         for (int i = 0; i < pix.Length; ++i)
+         {
+            pix[i] = col;
+         }
+         Texture2D result = new Texture2D(width, height);
+         result.SetPixels(pix);
+         result.Apply();
+         return result;
+      }
+        
       void OnGUI()
       {
-          if (options.debug.tree)
+          if (options.debug.tree.enabled)
           {
-              GUIStyle textStyle = EditorStyles.label;
-              textStyle.wordWrap = true;
+              GUIStyle textStyle = new GUIStyle(EditorStyles.label);
+              int fontSize = textStyle.fontSize;
+              textStyle.fontSize = options.debug.tree.fontSize;
+              textStyle.richText = true;
+              textStyle.wordWrap = false;
+              textStyle.fixedWidth = Screen.width;
+              textStyle.normal.background =MakeTex(1,1, new Color(0,0,0,0.75f)); 
+              
+              float width = Screen.width * options.debug.tree.widthPercent;
+              scrollPosition = GUILayout.BeginScrollView(
+                  scrollPosition, GUILayout.Width(width), GUILayout.Height(Screen.height)); 
 
-              GUI.color = Color.red;
-              string worldState = m_world.ToString();
               string tree = PrintScreenTree(m_screens, "");
               GUILayout.Label(tree, textStyle);
+
+              string worldState = m_world.ToString();
               GUILayout.Label(worldState, textStyle);
+              GUILayout.EndScrollView();
           }
       }
+#endif
 
       void PrintWorldState()
       {
           string worldState = m_world.ToString();
           Debug.Log(worldState);
-
-          string tree = "******************\n";
-          tree += PrintScreenTree(m_screens, "");
-          Debug.Log(tree);
       }
 
       string PrintScreenTree(ControlBehavior beh, string indent)
@@ -139,8 +169,9 @@ namespace CTree
           {
               Behavior b = beh.Get(i);
               string cname = indent + b.ToString();
-              if (b.IsActive()) cname = "*" + cname;
-              if (b.Finished()) cname = cname + "(f)";
+              if (b.IsActive()) cname = "<color=#00ff00ff>*" + cname + "</color>";
+              else if (b.Finished()) cname = "<color=#c0c0c0c0>" + cname + " (f) </color>";
+              else cname = "<b>" + cname + "</b>";
               tree += cname + "\n";
 
               ControlBehavior cb = b as ControlBehavior;

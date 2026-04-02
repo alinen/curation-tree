@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 
 namespace CTree
 {
@@ -39,6 +38,11 @@ namespace CTree
     private void Start()
     {
       m_bounds = ComputeMaxBounds();
+    }
+
+    public void RemoveClickCb(InteractableCb cb)
+    {
+      m_clickedCbs.Remove(cb);
     }
 
     public void AddClickCb(InteractableCb cb)

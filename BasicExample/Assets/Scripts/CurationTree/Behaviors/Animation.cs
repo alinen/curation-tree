@@ -30,6 +30,7 @@ namespace CTree
         STOP
       };
       Mode m_mode;
+      WrapMode m_wrap;
 
       /// <summary>
       /// Constructor
@@ -39,11 +40,12 @@ namespace CTree
       /// <param name="aniName">The name of an animation on <c>objName</c></param>
       /// <param name="m">Specifies whether we should play or stop the animation</param>
       public Animation(World w, string objName, string aniName, 
-          Mode m = Mode.PLAY) : base(w)
+          Mode m = Mode.PLAY, WrapMode wrap = WrapMode.Loop) : base(w)
       {
           m_objName = objName;
           m_aniName = aniName.Trim();
           m_mode = m;
+          m_wrap = wrap;
       }
 
       public override void Setup()
@@ -52,7 +54,7 @@ namespace CTree
 
           Transform root = world.Get(m_objName.Trim()); 
           m_animation = root.GetComponent<UnityEngine.Animation>();
-          m_animation[m_aniName].wrapMode = WrapMode.Loop;
+          m_animation[m_aniName].wrapMode = m_wrap;
           m_animation.enabled = true;
           m_animation.clip = m_animation[m_aniName].clip;
 

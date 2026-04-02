@@ -34,6 +34,11 @@ namespace CTree
           m_game = game;
       }
 
+      public GameObject gameObject
+      {
+         get { return m_game.gameObject; }
+      }
+
       public Transform Get(string name)
       {
           if (m_cache.ContainsKey(name))
@@ -49,7 +54,7 @@ namespace CTree
               GameObject obj = sceneObjects[i];
               transform = Utils.RFind(obj.transform, name);
           }
-          Debug.Assert(transform != null, "Cannot find transform: "+name);
+          //Debug.Assert(transform != null, "Cannot find transform: "+name);
 
           m_cache[name] = transform;
           return transform;
@@ -196,7 +201,8 @@ namespace CTree
               }
               else
               {
-                  Interactable mouseOverObject = hit.GetComponentInParent<Interactable>();
+                  //Interactable mouseOverObject = hit.GetComponentInParent<Interactable>(); // Specific to StarTrekBots
+                  Interactable mouseOverObject = hit.GetComponent<Interactable>();
                   if (m_mouseOverObject != mouseOverObject)
                   {
                       if (m_mouseOverObject) m_mouseOverObject.OnHoverExit();
